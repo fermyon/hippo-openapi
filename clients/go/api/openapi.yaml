@@ -4,6 +4,8 @@ info:
   version: "1.0"
 servers:
 - url: /
+security:
+- Bearer: []
 paths:
   /api/account:
     post:
@@ -3983,9 +3985,9 @@ components:
           type: string
       type: object
   securitySchemes:
-    oauth2:
-      flows:
-        password:
-          scopes: {}
-          tokenUrl: /api/account/createtoken
-      type: oauth2
+    Bearer:
+      description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization:
+        Bearer {token}"'
+      in: header
+      name: Authorization
+      type: apiKey

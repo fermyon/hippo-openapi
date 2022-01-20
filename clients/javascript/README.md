@@ -100,6 +100,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```javascript
 var HippoWeb = require('hippo_web');
 
+var defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+var Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix['Authorization'] = "Token"
 
 var api = new HippoWeb.AccountApi()
 var opts = {
@@ -179,11 +185,10 @@ Class | Method | HTTP request | Description
 
 
 
-### oauth2
+### Bearer
 
 
-- **Type**: OAuth
-- **Flow**: password
-- **Authorization URL**: 
-- **Scopes**: N/A
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
 

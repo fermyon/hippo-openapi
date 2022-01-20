@@ -59,7 +59,7 @@ export default class ChannelApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
       let returnType = ChannelsVm;
@@ -99,7 +99,7 @@ export default class ChannelApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = [];
       let returnType = null;
@@ -139,7 +139,7 @@ export default class ChannelApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = [];
       let returnType = null;
@@ -177,7 +177,7 @@ export default class ChannelApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['Bearer'];
       let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
       let accepts = ['text/plain', 'application/json', 'text/json'];
       let returnType = 'String';
