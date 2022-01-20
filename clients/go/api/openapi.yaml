@@ -3982,3 +3982,10 @@ components:
           readOnly: true
           type: string
       type: object
+  securitySchemes:
+    oauth2:
+      flows:
+        password:
+          scopes: {}
+          tokenUrl: /api/account/createtoken
+      type: oauth2
