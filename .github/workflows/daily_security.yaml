@@ -1,14 +1,14 @@
 name: Security audit
 on:
-  push:
-    paths: 
-      - 'clients/rust/Cargo.toml'
-      - 'clients/rust/Cargo.lock'
+  schedule:
+    - cron: '0 0 * * *'
 jobs:
-  security_audit:
+  audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - run: mv clients/rust/* .
+      - run: rm -rf clients config
       - uses: actions-rs/audit-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
