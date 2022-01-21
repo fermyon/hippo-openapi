@@ -7,7 +7,7 @@ APIs. From an OpenAPI specification, clients and servers for your project can
 be generated in a number of programming languages.
 
 The latest version of the OpenAPI specification for Hippo can be found in this
-repository at openapi.yaml. This file is itself a generated file and should not
+repository at swagger.yaml. This file is itself a generated file and should not
 be edited directly. You can use this file to generate a client for the Hippo
 HTTP API in the language of your choice.
 
