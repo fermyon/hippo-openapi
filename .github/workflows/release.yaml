@@ -1,0 +1,14 @@
+name: release
+on:
+  push:
+    tags:
+      - "v*"
+jobs:
+  publish:
+    name: publish to crates.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: publish hippo-openapi to crates.io
+        run: cargo publish --token ${{ secrets.CargoToken }}
+        working-directory: clients/rust
