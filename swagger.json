@@ -920,8 +920,18 @@
             "type": "string",
             "nullable": true
           },
+          "activeRevisionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
           "activeRevision": {
             "$ref": "#/components/schemas/Revision"
+          },
+          "certificateId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           },
           "certificate": {
             "$ref": "#/components/schemas/Certificate"
@@ -1087,11 +1097,15 @@
             "type": "string",
             "nullable": true
           },
-          "activeRevision": {
-            "$ref": "#/components/schemas/Revision"
+          "activeRevisionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           },
-          "certificate": {
-            "$ref": "#/components/schemas/Certificate"
+          "certificateId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false

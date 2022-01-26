@@ -80,8 +80,14 @@ class Channel {
             if (data.hasOwnProperty('rangeRule')) {
                 obj['rangeRule'] = ApiClient.convertToType(data['rangeRule'], 'String');
             }
+            if (data.hasOwnProperty('activeRevisionId')) {
+                obj['activeRevisionId'] = ApiClient.convertToType(data['activeRevisionId'], 'String');
+            }
             if (data.hasOwnProperty('activeRevision')) {
                 obj['activeRevision'] = Revision.constructFromObject(data['activeRevision']);
+            }
+            if (data.hasOwnProperty('certificateId')) {
+                obj['certificateId'] = ApiClient.convertToType(data['certificateId'], 'String');
             }
             if (data.hasOwnProperty('certificate')) {
                 obj['certificate'] = Certificate.constructFromObject(data['certificate']);
@@ -154,9 +160,19 @@ Channel.prototype['revisionSelectionStrategy'] = undefined;
 Channel.prototype['rangeRule'] = undefined;
 
 /**
+ * @member {String} activeRevisionId
+ */
+Channel.prototype['activeRevisionId'] = undefined;
+
+/**
  * @member {module:model/Revision} activeRevision
  */
 Channel.prototype['activeRevision'] = undefined;
+
+/**
+ * @member {String} certificateId
+ */
+Channel.prototype['certificateId'] = undefined;
 
 /**
  * @member {module:model/Certificate} certificate

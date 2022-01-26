@@ -26,7 +26,9 @@ type Channel struct {
 	Domain NullableString `json:"domain,omitempty"`
 	RevisionSelectionStrategy *ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy,omitempty"`
 	RangeRule NullableString `json:"rangeRule,omitempty"`
+	ActiveRevisionId NullableString `json:"activeRevisionId,omitempty"`
 	ActiveRevision *Revision `json:"activeRevision,omitempty"`
+	CertificateId NullableString `json:"certificateId,omitempty"`
 	Certificate *Certificate `json:"certificate,omitempty"`
 	PortId *int32 `json:"portId,omitempty"`
 	AppId *string `json:"appId,omitempty"`
@@ -390,6 +392,48 @@ func (o *Channel) UnsetRangeRule() {
 	o.RangeRule.Unset()
 }
 
+// GetActiveRevisionId returns the ActiveRevisionId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Channel) GetActiveRevisionId() string {
+	if o == nil || o.ActiveRevisionId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.ActiveRevisionId.Get()
+}
+
+// GetActiveRevisionIdOk returns a tuple with the ActiveRevisionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Channel) GetActiveRevisionIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.ActiveRevisionId.Get(), o.ActiveRevisionId.IsSet()
+}
+
+// HasActiveRevisionId returns a boolean if a field has been set.
+func (o *Channel) HasActiveRevisionId() bool {
+	if o != nil && o.ActiveRevisionId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveRevisionId gets a reference to the given NullableString and assigns it to the ActiveRevisionId field.
+func (o *Channel) SetActiveRevisionId(v string) {
+	o.ActiveRevisionId.Set(&v)
+}
+// SetActiveRevisionIdNil sets the value for ActiveRevisionId to be an explicit nil
+func (o *Channel) SetActiveRevisionIdNil() {
+	o.ActiveRevisionId.Set(nil)
+}
+
+// UnsetActiveRevisionId ensures that no value is present for ActiveRevisionId, not even an explicit nil
+func (o *Channel) UnsetActiveRevisionId() {
+	o.ActiveRevisionId.Unset()
+}
+
 // GetActiveRevision returns the ActiveRevision field value if set, zero value otherwise.
 func (o *Channel) GetActiveRevision() Revision {
 	if o == nil || o.ActiveRevision == nil {
@@ -420,6 +464,48 @@ func (o *Channel) HasActiveRevision() bool {
 // SetActiveRevision gets a reference to the given Revision and assigns it to the ActiveRevision field.
 func (o *Channel) SetActiveRevision(v Revision) {
 	o.ActiveRevision = &v
+}
+
+// GetCertificateId returns the CertificateId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Channel) GetCertificateId() string {
+	if o == nil || o.CertificateId.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.CertificateId.Get()
+}
+
+// GetCertificateIdOk returns a tuple with the CertificateId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Channel) GetCertificateIdOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return o.CertificateId.Get(), o.CertificateId.IsSet()
+}
+
+// HasCertificateId returns a boolean if a field has been set.
+func (o *Channel) HasCertificateId() bool {
+	if o != nil && o.CertificateId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCertificateId gets a reference to the given NullableString and assigns it to the CertificateId field.
+func (o *Channel) SetCertificateId(v string) {
+	o.CertificateId.Set(&v)
+}
+// SetCertificateIdNil sets the value for CertificateId to be an explicit nil
+func (o *Channel) SetCertificateIdNil() {
+	o.CertificateId.Set(nil)
+}
+
+// UnsetCertificateId ensures that no value is present for CertificateId, not even an explicit nil
+func (o *Channel) UnsetCertificateId() {
+	o.CertificateId.Unset()
 }
 
 // GetCertificate returns the Certificate field value if set, zero value otherwise.
@@ -645,8 +731,14 @@ func (o Channel) MarshalJSON() ([]byte, error) {
 	if o.RangeRule.IsSet() {
 		toSerialize["rangeRule"] = o.RangeRule.Get()
 	}
+	if o.ActiveRevisionId.IsSet() {
+		toSerialize["activeRevisionId"] = o.ActiveRevisionId.Get()
+	}
 	if o.ActiveRevision != nil {
 		toSerialize["activeRevision"] = o.ActiveRevision
+	}
+	if o.CertificateId.IsSet() {
+		toSerialize["certificateId"] = o.CertificateId.Get()
 	}
 	if o.Certificate != nil {
 		toSerialize["certificate"] = o.Certificate

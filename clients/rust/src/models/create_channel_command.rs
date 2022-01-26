@@ -23,10 +23,10 @@ pub struct CreateChannelCommand {
     pub revision_selection_strategy: Option<crate::models::ChannelRevisionSelectionStrategy>,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<String>,
-    #[serde(rename = "activeRevision", skip_serializing_if = "Option::is_none")]
-    pub active_revision: Option<Box<crate::models::Revision>>,
-    #[serde(rename = "certificate", skip_serializing_if = "Option::is_none")]
-    pub certificate: Option<Box<crate::models::Certificate>>,
+    #[serde(rename = "activeRevisionId", skip_serializing_if = "Option::is_none")]
+    pub active_revision_id: Option<String>,
+    #[serde(rename = "certificateId", skip_serializing_if = "Option::is_none")]
+    pub certificate_id: Option<String>,
 }
 
 impl CreateChannelCommand {
@@ -37,8 +37,8 @@ impl CreateChannelCommand {
             domain: None,
             revision_selection_strategy: None,
             range_rule: None,
-            active_revision: None,
-            certificate: None,
+            active_revision_id: None,
+            certificate_id: None,
         }
     }
 }

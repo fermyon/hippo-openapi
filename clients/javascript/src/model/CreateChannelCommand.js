@@ -12,9 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import Certificate from './Certificate';
 import ChannelRevisionSelectionStrategy from './ChannelRevisionSelectionStrategy';
-import Revision from './Revision';
 
 /**
  * The CreateChannelCommand model module.
@@ -65,11 +63,11 @@ class CreateChannelCommand {
             if (data.hasOwnProperty('rangeRule')) {
                 obj['rangeRule'] = ApiClient.convertToType(data['rangeRule'], 'String');
             }
-            if (data.hasOwnProperty('activeRevision')) {
-                obj['activeRevision'] = Revision.constructFromObject(data['activeRevision']);
+            if (data.hasOwnProperty('activeRevisionId')) {
+                obj['activeRevisionId'] = ApiClient.convertToType(data['activeRevisionId'], 'String');
             }
-            if (data.hasOwnProperty('certificate')) {
-                obj['certificate'] = Certificate.constructFromObject(data['certificate']);
+            if (data.hasOwnProperty('certificateId')) {
+                obj['certificateId'] = ApiClient.convertToType(data['certificateId'], 'String');
             }
         }
         return obj;
@@ -104,14 +102,14 @@ CreateChannelCommand.prototype['revisionSelectionStrategy'] = undefined;
 CreateChannelCommand.prototype['rangeRule'] = undefined;
 
 /**
- * @member {module:model/Revision} activeRevision
+ * @member {String} activeRevisionId
  */
-CreateChannelCommand.prototype['activeRevision'] = undefined;
+CreateChannelCommand.prototype['activeRevisionId'] = undefined;
 
 /**
- * @member {module:model/Certificate} certificate
+ * @member {String} certificateId
  */
-CreateChannelCommand.prototype['certificate'] = undefined;
+CreateChannelCommand.prototype['certificateId'] = undefined;
 
 
 

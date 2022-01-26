@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **domain** | **String** |  | [optional] 
 **revisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | [optional] 
 **rangeRule** | **String** |  | [optional] 
-**activeRevision** | [**Revision**](Revision.md) |  | [optional] 
-**certificate** | [**Certificate**](Certificate.md) |  | [optional] 
+**activeRevisionId** | **String** |  | [optional] 
+**certificateId** | **String** |  | [optional] 
 
 

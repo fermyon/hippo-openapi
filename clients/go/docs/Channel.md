@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **Domain** | Pointer to **NullableString** |  | [optional] 
 **RevisionSelectionStrategy** | Pointer to [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | [optional] 
 **RangeRule** | Pointer to **NullableString** |  | [optional] 
+**ActiveRevisionId** | Pointer to **NullableString** |  | [optional] 
 **ActiveRevision** | Pointer to [**Revision**](Revision.md) |  | [optional] 
+**CertificateId** | Pointer to **NullableString** |  | [optional] 
 **Certificate** | Pointer to [**Certificate**](Certificate.md) |  | [optional] 
 **PortId** | Pointer to **int32** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
@@ -315,6 +317,41 @@ HasRangeRule returns a boolean if a field has been set.
 `func (o *Channel) UnsetRangeRule()`
 
 UnsetRangeRule ensures that no value is present for RangeRule, not even an explicit nil
+### GetActiveRevisionId
+
+`func (o *Channel) GetActiveRevisionId() string`
+
+GetActiveRevisionId returns the ActiveRevisionId field if non-nil, zero value otherwise.
+
+### GetActiveRevisionIdOk
+
+`func (o *Channel) GetActiveRevisionIdOk() (*string, bool)`
+
+GetActiveRevisionIdOk returns a tuple with the ActiveRevisionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveRevisionId
+
+`func (o *Channel) SetActiveRevisionId(v string)`
+
+SetActiveRevisionId sets ActiveRevisionId field to given value.
+
+### HasActiveRevisionId
+
+`func (o *Channel) HasActiveRevisionId() bool`
+
+HasActiveRevisionId returns a boolean if a field has been set.
+
+### SetActiveRevisionIdNil
+
+`func (o *Channel) SetActiveRevisionIdNil(b bool)`
+
+ SetActiveRevisionIdNil sets the value for ActiveRevisionId to be an explicit nil
+
+### UnsetActiveRevisionId
+`func (o *Channel) UnsetActiveRevisionId()`
+
+UnsetActiveRevisionId ensures that no value is present for ActiveRevisionId, not even an explicit nil
 ### GetActiveRevision
 
 `func (o *Channel) GetActiveRevision() Revision`
@@ -340,6 +377,41 @@ SetActiveRevision sets ActiveRevision field to given value.
 
 HasActiveRevision returns a boolean if a field has been set.
 
+### GetCertificateId
+
+`func (o *Channel) GetCertificateId() string`
+
+GetCertificateId returns the CertificateId field if non-nil, zero value otherwise.
+
+### GetCertificateIdOk
+
+`func (o *Channel) GetCertificateIdOk() (*string, bool)`
+
+GetCertificateIdOk returns a tuple with the CertificateId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCertificateId
+
+`func (o *Channel) SetCertificateId(v string)`
+
+SetCertificateId sets CertificateId field to given value.
+
+### HasCertificateId
+
+`func (o *Channel) HasCertificateId() bool`
+
+HasCertificateId returns a boolean if a field has been set.
+
+### SetCertificateIdNil
+
+`func (o *Channel) SetCertificateIdNil(b bool)`
+
+ SetCertificateIdNil sets the value for CertificateId to be an explicit nil
+
+### UnsetCertificateId
+`func (o *Channel) UnsetCertificateId()`
+
+UnsetCertificateId ensures that no value is present for CertificateId, not even an explicit nil
 ### GetCertificate
 
 `func (o *Channel) GetCertificate() Certificate`

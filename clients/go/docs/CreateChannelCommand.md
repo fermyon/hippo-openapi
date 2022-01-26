@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **Domain** | Pointer to **NullableString** |  | [optional] 
 **RevisionSelectionStrategy** | Pointer to [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | [optional] 
 **RangeRule** | Pointer to **NullableString** |  | [optional] 
-**ActiveRevision** | Pointer to [**Revision**](Revision.md) |  | [optional] 
-**Certificate** | Pointer to [**Certificate**](Certificate.md) |  | [optional] 
+**ActiveRevisionId** | Pointer to **NullableString** |  | [optional] 
+**CertificateId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -186,56 +186,76 @@ HasRangeRule returns a boolean if a field has been set.
 `func (o *CreateChannelCommand) UnsetRangeRule()`
 
 UnsetRangeRule ensures that no value is present for RangeRule, not even an explicit nil
-### GetActiveRevision
+### GetActiveRevisionId
 
-`func (o *CreateChannelCommand) GetActiveRevision() Revision`
+`func (o *CreateChannelCommand) GetActiveRevisionId() string`
 
-GetActiveRevision returns the ActiveRevision field if non-nil, zero value otherwise.
+GetActiveRevisionId returns the ActiveRevisionId field if non-nil, zero value otherwise.
 
-### GetActiveRevisionOk
+### GetActiveRevisionIdOk
 
-`func (o *CreateChannelCommand) GetActiveRevisionOk() (*Revision, bool)`
+`func (o *CreateChannelCommand) GetActiveRevisionIdOk() (*string, bool)`
 
-GetActiveRevisionOk returns a tuple with the ActiveRevision field if it's non-nil, zero value otherwise
+GetActiveRevisionIdOk returns a tuple with the ActiveRevisionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetActiveRevision
+### SetActiveRevisionId
 
-`func (o *CreateChannelCommand) SetActiveRevision(v Revision)`
+`func (o *CreateChannelCommand) SetActiveRevisionId(v string)`
 
-SetActiveRevision sets ActiveRevision field to given value.
+SetActiveRevisionId sets ActiveRevisionId field to given value.
 
-### HasActiveRevision
+### HasActiveRevisionId
 
-`func (o *CreateChannelCommand) HasActiveRevision() bool`
+`func (o *CreateChannelCommand) HasActiveRevisionId() bool`
 
-HasActiveRevision returns a boolean if a field has been set.
+HasActiveRevisionId returns a boolean if a field has been set.
 
-### GetCertificate
+### SetActiveRevisionIdNil
 
-`func (o *CreateChannelCommand) GetCertificate() Certificate`
+`func (o *CreateChannelCommand) SetActiveRevisionIdNil(b bool)`
 
-GetCertificate returns the Certificate field if non-nil, zero value otherwise.
+ SetActiveRevisionIdNil sets the value for ActiveRevisionId to be an explicit nil
 
-### GetCertificateOk
+### UnsetActiveRevisionId
+`func (o *CreateChannelCommand) UnsetActiveRevisionId()`
 
-`func (o *CreateChannelCommand) GetCertificateOk() (*Certificate, bool)`
+UnsetActiveRevisionId ensures that no value is present for ActiveRevisionId, not even an explicit nil
+### GetCertificateId
 
-GetCertificateOk returns a tuple with the Certificate field if it's non-nil, zero value otherwise
+`func (o *CreateChannelCommand) GetCertificateId() string`
+
+GetCertificateId returns the CertificateId field if non-nil, zero value otherwise.
+
+### GetCertificateIdOk
+
+`func (o *CreateChannelCommand) GetCertificateIdOk() (*string, bool)`
+
+GetCertificateIdOk returns a tuple with the CertificateId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCertificate
+### SetCertificateId
 
-`func (o *CreateChannelCommand) SetCertificate(v Certificate)`
+`func (o *CreateChannelCommand) SetCertificateId(v string)`
 
-SetCertificate sets Certificate field to given value.
+SetCertificateId sets CertificateId field to given value.
 
-### HasCertificate
+### HasCertificateId
 
-`func (o *CreateChannelCommand) HasCertificate() bool`
+`func (o *CreateChannelCommand) HasCertificateId() bool`
 
-HasCertificate returns a boolean if a field has been set.
+HasCertificateId returns a boolean if a field has been set.
 
+### SetCertificateIdNil
+
+`func (o *CreateChannelCommand) SetCertificateIdNil(b bool)`
+
+ SetCertificateIdNil sets the value for CertificateId to be an explicit nil
+
+### UnsetCertificateId
+`func (o *CreateChannelCommand) UnsetCertificateId()`
+
+UnsetCertificateId ensures that no value is present for CertificateId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

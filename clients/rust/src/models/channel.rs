@@ -31,8 +31,12 @@ pub struct Channel {
     pub revision_selection_strategy: Option<crate::models::ChannelRevisionSelectionStrategy>,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<String>,
+    #[serde(rename = "activeRevisionId", skip_serializing_if = "Option::is_none")]
+    pub active_revision_id: Option<String>,
     #[serde(rename = "activeRevision", skip_serializing_if = "Option::is_none")]
     pub active_revision: Option<Box<crate::models::Revision>>,
+    #[serde(rename = "certificateId", skip_serializing_if = "Option::is_none")]
+    pub certificate_id: Option<String>,
     #[serde(rename = "certificate", skip_serializing_if = "Option::is_none")]
     pub certificate: Option<Box<crate::models::Certificate>>,
     #[serde(rename = "portId", skip_serializing_if = "Option::is_none")]
@@ -59,7 +63,9 @@ impl Channel {
             domain: None,
             revision_selection_strategy: None,
             range_rule: None,
+            active_revision_id: None,
             active_revision: None,
+            certificate_id: None,
             certificate: None,
             port_id: None,
             app_id: None,
