@@ -4,11 +4,56 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**apiCertificateExportGet**](CertificateApi.md#apiCertificateExportGet) | **GET** /api/certificate/export | 
 [**apiCertificateGet**](CertificateApi.md#apiCertificateGet) | **GET** /api/certificate | 
 [**apiCertificateIdDelete**](CertificateApi.md#apiCertificateIdDelete) | **DELETE** /api/certificate/{id} | 
-[**apiCertificateIdGet**](CertificateApi.md#apiCertificateIdGet) | **GET** /api/certificate/{id} | 
 [**apiCertificatePost**](CertificateApi.md#apiCertificatePost) | **POST** /api/certificate | 
 
+
+
+## apiCertificateExportGet
+
+> apiCertificateExportGet()
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.CertificateApi();
+apiInstance.apiCertificateExportGet((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## apiCertificateGet
@@ -76,55 +121,6 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new HippoWeb.CertificateApi();
 let id = "id_example"; // String | 
 apiInstance.apiCertificateIdDelete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## apiCertificateIdGet
-
-> apiCertificateIdGet(id)
-
-
-
-### Example
-
-```javascript
-import HippoWeb from 'hippo_web';
-let defaultClient = HippoWeb.ApiClient.instance;
-// Configure API key authorization: Bearer
-let Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-let apiInstance = new HippoWeb.CertificateApi();
-let id = "id_example"; // String | 
-apiInstance.apiCertificateIdGet(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

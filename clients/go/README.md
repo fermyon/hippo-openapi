@@ -78,28 +78,28 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountApi* | [**ApiAccountCreatetokenPost**](docs/AccountApi.md#apiaccountcreatetokenpost) | **Post** /api/account/createtoken |
-*AccountApi* | [**ApiAccountPost**](docs/AccountApi.md#apiaccountpost) | **Post** /api/account |
-*AppApi* | [**ApiAppExportGet**](docs/AppApi.md#apiappexportget) | **Get** /api/app/export |
-*AppApi* | [**ApiAppGet**](docs/AppApi.md#apiappget) | **Get** /api/app |
-*AppApi* | [**ApiAppIdDelete**](docs/AppApi.md#apiappiddelete) | **Delete** /api/app/{id} |
-*AppApi* | [**ApiAppPost**](docs/AppApi.md#apiapppost) | **Post** /api/app |
-*CertificateApi* | [**ApiCertificateGet**](docs/CertificateApi.md#apicertificateget) | **Get** /api/certificate |
-*CertificateApi* | [**ApiCertificateIdDelete**](docs/CertificateApi.md#apicertificateiddelete) | **Delete** /api/certificate/{id} |
-*CertificateApi* | [**ApiCertificateIdGet**](docs/CertificateApi.md#apicertificateidget) | **Get** /api/certificate/{id} |
-*CertificateApi* | [**ApiCertificatePost**](docs/CertificateApi.md#apicertificatepost) | **Post** /api/certificate |
-*ChannelApi* | [**ApiChannelGet**](docs/ChannelApi.md#apichannelget) | **Get** /api/channel |
-*ChannelApi* | [**ApiChannelIdDelete**](docs/ChannelApi.md#apichanneliddelete) | **Delete** /api/channel/{id} |
-*ChannelApi* | [**ApiChannelIdGet**](docs/ChannelApi.md#apichannelidget) | **Get** /api/channel/{id} |
-*ChannelApi* | [**ApiChannelPost**](docs/ChannelApi.md#apichannelpost) | **Post** /api/channel |
-*EnvironmentVariableApi* | [**ApiEnvironmentvariableGet**](docs/EnvironmentVariableApi.md#apienvironmentvariableget) | **Get** /api/environmentvariable |
-*EnvironmentVariableApi* | [**ApiEnvironmentvariableIdDelete**](docs/EnvironmentVariableApi.md#apienvironmentvariableiddelete) | **Delete** /api/environmentvariable/{id} |
-*EnvironmentVariableApi* | [**ApiEnvironmentvariableIdGet**](docs/EnvironmentVariableApi.md#apienvironmentvariableidget) | **Get** /api/environmentvariable/{id} |
-*EnvironmentVariableApi* | [**ApiEnvironmentvariablePost**](docs/EnvironmentVariableApi.md#apienvironmentvariablepost) | **Post** /api/environmentvariable |
-*RevisionApi* | [**ApiRevisionGet**](docs/RevisionApi.md#apirevisionget) | **Get** /api/revision |
-*RevisionApi* | [**ApiRevisionIdDelete**](docs/RevisionApi.md#apirevisioniddelete) | **Delete** /api/revision/{id} |
-*RevisionApi* | [**ApiRevisionIdGet**](docs/RevisionApi.md#apirevisionidget) | **Get** /api/revision/{id} |
-*RevisionApi* | [**ApiRevisionPost**](docs/RevisionApi.md#apirevisionpost) | **Post** /api/revision |
+*AccountApi* | [**ApiAccountCreatetokenPost**](docs/AccountApi.md#apiaccountcreatetokenpost) | **Post** /api/account/createtoken | 
+*AccountApi* | [**ApiAccountPost**](docs/AccountApi.md#apiaccountpost) | **Post** /api/account | 
+*AppApi* | [**ApiAppExportGet**](docs/AppApi.md#apiappexportget) | **Get** /api/app/export | 
+*AppApi* | [**ApiAppGet**](docs/AppApi.md#apiappget) | **Get** /api/app | 
+*AppApi* | [**ApiAppIdDelete**](docs/AppApi.md#apiappiddelete) | **Delete** /api/app/{id} | 
+*AppApi* | [**ApiAppPost**](docs/AppApi.md#apiapppost) | **Post** /api/app | 
+*CertificateApi* | [**ApiCertificateExportGet**](docs/CertificateApi.md#apicertificateexportget) | **Get** /api/certificate/export | 
+*CertificateApi* | [**ApiCertificateGet**](docs/CertificateApi.md#apicertificateget) | **Get** /api/certificate | 
+*CertificateApi* | [**ApiCertificateIdDelete**](docs/CertificateApi.md#apicertificateiddelete) | **Delete** /api/certificate/{id} | 
+*CertificateApi* | [**ApiCertificatePost**](docs/CertificateApi.md#apicertificatepost) | **Post** /api/certificate | 
+*ChannelApi* | [**ApiChannelExportGet**](docs/ChannelApi.md#apichannelexportget) | **Get** /api/channel/export | 
+*ChannelApi* | [**ApiChannelGet**](docs/ChannelApi.md#apichannelget) | **Get** /api/channel | 
+*ChannelApi* | [**ApiChannelIdDelete**](docs/ChannelApi.md#apichanneliddelete) | **Delete** /api/channel/{id} | 
+*ChannelApi* | [**ApiChannelPost**](docs/ChannelApi.md#apichannelpost) | **Post** /api/channel | 
+*EnvironmentVariableApi* | [**ApiEnvironmentvariableExportGet**](docs/EnvironmentVariableApi.md#apienvironmentvariableexportget) | **Get** /api/environmentvariable/export | 
+*EnvironmentVariableApi* | [**ApiEnvironmentvariableGet**](docs/EnvironmentVariableApi.md#apienvironmentvariableget) | **Get** /api/environmentvariable | 
+*EnvironmentVariableApi* | [**ApiEnvironmentvariableIdDelete**](docs/EnvironmentVariableApi.md#apienvironmentvariableiddelete) | **Delete** /api/environmentvariable/{id} | 
+*EnvironmentVariableApi* | [**ApiEnvironmentvariablePost**](docs/EnvironmentVariableApi.md#apienvironmentvariablepost) | **Post** /api/environmentvariable | 
+*RevisionApi* | [**ApiRevisionExportGet**](docs/RevisionApi.md#apirevisionexportget) | **Get** /api/revision/export | 
+*RevisionApi* | [**ApiRevisionGet**](docs/RevisionApi.md#apirevisionget) | **Get** /api/revision | 
+*RevisionApi* | [**ApiRevisionIdDelete**](docs/RevisionApi.md#apirevisioniddelete) | **Delete** /api/revision/{id} | 
+*RevisionApi* | [**ApiRevisionPost**](docs/RevisionApi.md#apirevisionpost) | **Post** /api/revision | 
 
 
 ## Documentation For Models

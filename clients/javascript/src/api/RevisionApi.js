@@ -36,6 +36,40 @@ export default class RevisionApi {
 
 
     /**
+     * Callback function to receive the result of the apiRevisionExportGet operation.
+     * @callback module:api/RevisionApi~apiRevisionExportGetCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {module:api/RevisionApi~apiRevisionExportGetCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiRevisionExportGet(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/revision/export', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the apiRevisionGet operation.
      * @callback module:api/RevisionApi~apiRevisionGetCallback
      * @param {String} error Error message, if any.
@@ -105,46 +139,6 @@ export default class RevisionApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/revision/{id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the apiRevisionIdGet operation.
-     * @callback module:api/RevisionApi~apiRevisionIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * @param {String} id 
-     * @param {module:api/RevisionApi~apiRevisionIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    apiRevisionIdGet(id, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiRevisionIdGet");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['Bearer'];
-      let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/api/revision/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

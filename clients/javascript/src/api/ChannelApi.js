@@ -36,6 +36,40 @@ export default class ChannelApi {
 
 
     /**
+     * Callback function to receive the result of the apiChannelExportGet operation.
+     * @callback module:api/ChannelApi~apiChannelExportGetCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {module:api/ChannelApi~apiChannelExportGetCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiChannelExportGet(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/channel/export', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the apiChannelGet operation.
      * @callback module:api/ChannelApi~apiChannelGetCallback
      * @param {String} error Error message, if any.
@@ -105,46 +139,6 @@ export default class ChannelApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/channel/{id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the apiChannelIdGet operation.
-     * @callback module:api/ChannelApi~apiChannelIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * @param {String} id 
-     * @param {module:api/ChannelApi~apiChannelIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    apiChannelIdGet(id, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiChannelIdGet");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['Bearer'];
-      let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/api/channel/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

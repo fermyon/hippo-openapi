@@ -36,6 +36,40 @@ export default class CertificateApi {
 
 
     /**
+     * Callback function to receive the result of the apiCertificateExportGet operation.
+     * @callback module:api/CertificateApi~apiCertificateExportGetCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {module:api/CertificateApi~apiCertificateExportGetCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiCertificateExportGet(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/certificate/export', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the apiCertificateGet operation.
      * @callback module:api/CertificateApi~apiCertificateGetCallback
      * @param {String} error Error message, if any.
@@ -105,46 +139,6 @@ export default class CertificateApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/certificate/{id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the apiCertificateIdGet operation.
-     * @callback module:api/CertificateApi~apiCertificateIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * @param {String} id 
-     * @param {module:api/CertificateApi~apiCertificateIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    apiCertificateIdGet(id, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiCertificateIdGet");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['Bearer'];
-      let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/api/certificate/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

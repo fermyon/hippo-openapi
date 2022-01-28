@@ -36,6 +36,40 @@ export default class EnvironmentVariableApi {
 
 
     /**
+     * Callback function to receive the result of the apiEnvironmentvariableExportGet operation.
+     * @callback module:api/EnvironmentVariableApi~apiEnvironmentvariableExportGetCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {module:api/EnvironmentVariableApi~apiEnvironmentvariableExportGetCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiEnvironmentvariableExportGet(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/environmentvariable/export', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the apiEnvironmentvariableGet operation.
      * @callback module:api/EnvironmentVariableApi~apiEnvironmentvariableGetCallback
      * @param {String} error Error message, if any.
@@ -105,46 +139,6 @@ export default class EnvironmentVariableApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/environmentvariable/{id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the apiEnvironmentvariableIdGet operation.
-     * @callback module:api/EnvironmentVariableApi~apiEnvironmentvariableIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * @param {String} id 
-     * @param {module:api/EnvironmentVariableApi~apiEnvironmentvariableIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    apiEnvironmentvariableIdGet(id, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling apiEnvironmentvariableIdGet");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['Bearer'];
-      let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/api/environmentvariable/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

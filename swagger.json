@@ -292,28 +292,19 @@
         }
       }
     },
-    "/api/certificate/{id}": {
+    "/api/certificate/export": {
       "get": {
         "tags": [
           "Certificate"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/certificate/{id}": {
       "delete": {
         "tags": [
           "Certificate"
@@ -414,28 +405,19 @@
         }
       }
     },
-    "/api/channel/{id}": {
+    "/api/channel/export": {
       "get": {
         "tags": [
           "Channel"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/channel/{id}": {
       "delete": {
         "tags": [
           "Channel"
@@ -536,28 +518,19 @@
         }
       }
     },
-    "/api/environmentvariable/{id}": {
+    "/api/environmentvariable/export": {
       "get": {
         "tags": [
           "EnvironmentVariable"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/environmentvariable/{id}": {
       "delete": {
         "tags": [
           "EnvironmentVariable"
@@ -638,28 +611,19 @@
         }
       }
     },
-    "/api/revision/{id}": {
+    "/api/revision/export": {
       "get": {
         "tags": [
           "Revision"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/revision/{id}": {
       "delete": {
         "tags": [
           "Revision"

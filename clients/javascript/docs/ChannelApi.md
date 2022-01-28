@@ -4,11 +4,56 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**apiChannelExportGet**](ChannelApi.md#apiChannelExportGet) | **GET** /api/channel/export | 
 [**apiChannelGet**](ChannelApi.md#apiChannelGet) | **GET** /api/channel | 
 [**apiChannelIdDelete**](ChannelApi.md#apiChannelIdDelete) | **DELETE** /api/channel/{id} | 
-[**apiChannelIdGet**](ChannelApi.md#apiChannelIdGet) | **GET** /api/channel/{id} | 
 [**apiChannelPost**](ChannelApi.md#apiChannelPost) | **POST** /api/channel | 
 
+
+
+## apiChannelExportGet
+
+> apiChannelExportGet()
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.ChannelApi();
+apiInstance.apiChannelExportGet((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## apiChannelGet
@@ -76,55 +121,6 @@ Bearer.apiKey = 'YOUR API KEY';
 let apiInstance = new HippoWeb.ChannelApi();
 let id = "id_example"; // String | 
 apiInstance.apiChannelIdDelete(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## apiChannelIdGet
-
-> apiChannelIdGet(id)
-
-
-
-### Example
-
-```javascript
-import HippoWeb from 'hippo_web';
-let defaultClient = HippoWeb.ApiClient.instance;
-// Configure API key authorization: Bearer
-let Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-let apiInstance = new HippoWeb.ChannelApi();
-let id = "id_example"; // String | 
-apiInstance.apiChannelIdGet(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

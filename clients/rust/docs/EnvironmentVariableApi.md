@@ -4,11 +4,36 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_environmentvariable_export_get**](EnvironmentVariableApi.md#api_environmentvariable_export_get) | **GET** /api/environmentvariable/export | 
 [**api_environmentvariable_get**](EnvironmentVariableApi.md#api_environmentvariable_get) | **GET** /api/environmentvariable | 
 [**api_environmentvariable_id_delete**](EnvironmentVariableApi.md#api_environmentvariable_id_delete) | **DELETE** /api/environmentvariable/{id} | 
-[**api_environmentvariable_id_get**](EnvironmentVariableApi.md#api_environmentvariable_id_get) | **GET** /api/environmentvariable/{id} | 
 [**api_environmentvariable_post**](EnvironmentVariableApi.md#api_environmentvariable_post) | **POST** /api/environmentvariable | 
 
+
+
+## api_environmentvariable_export_get
+
+> api_environmentvariable_export_get()
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## api_environmentvariable_get
@@ -39,34 +64,6 @@ This endpoint does not need any parameter.
 ## api_environmentvariable_id_delete
 
 > api_environmentvariable_id_delete(id)
-
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**id** | **String** |  | [required] |
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## api_environmentvariable_id_get
-
-> api_environmentvariable_id_get(id)
 
 
 ### Parameters

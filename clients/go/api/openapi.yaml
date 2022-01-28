@@ -180,23 +180,15 @@ paths:
           description: Success
       tags:
       - Certificate
-  /api/certificate/{id}:
-    delete:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
+  /api/certificate/export:
+    get:
       responses:
         "200":
           description: Success
       tags:
       - Certificate
-    get:
+  /api/certificate/{id}:
+    delete:
       parameters:
       - explode: false
         in: path
@@ -258,23 +250,15 @@ paths:
           description: Success
       tags:
       - Channel
-  /api/channel/{id}:
-    delete:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
+  /api/channel/export:
+    get:
       responses:
         "200":
           description: Success
       tags:
       - Channel
-    get:
+  /api/channel/{id}:
+    delete:
       parameters:
       - explode: false
         in: path
@@ -336,23 +320,15 @@ paths:
           description: Success
       tags:
       - EnvironmentVariable
-  /api/environmentvariable/{id}:
-    delete:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
+  /api/environmentvariable/export:
+    get:
       responses:
         "200":
           description: Success
       tags:
       - EnvironmentVariable
-    get:
+  /api/environmentvariable/{id}:
+    delete:
       parameters:
       - explode: false
         in: path
@@ -401,23 +377,15 @@ paths:
           description: Success
       tags:
       - Revision
-  /api/revision/{id}:
-    delete:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
+  /api/revision/export:
+    get:
       responses:
         "200":
           description: Success
       tags:
       - Revision
-    get:
+  /api/revision/{id}:
+    delete:
       parameters:
       - explode: false
         in: path
