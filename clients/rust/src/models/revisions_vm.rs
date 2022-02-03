@@ -13,14 +13,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RevisionsVm {
-    #[serde(rename = "revisions", skip_serializing_if = "Option::is_none")]
-    pub revisions: Option<Vec<crate::models::RevisionDto>>,
+    #[serde(rename = "revisions")]
+    pub revisions: Vec<crate::models::RevisionDto>,
 }
 
 impl RevisionsVm {
-    pub fn new() -> RevisionsVm {
+    pub fn new(revisions: Vec<crate::models::RevisionDto>) -> RevisionsVm {
         RevisionsVm {
-            revisions: None,
+            revisions,
         }
     }
 }

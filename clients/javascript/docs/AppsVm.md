@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apps** | [**[AppDto]**](AppDto.md) |  | [optional] 
+**apps** | [**[AppDto]**](AppDto.md) |  | 
 
 

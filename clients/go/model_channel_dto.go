@@ -16,22 +16,28 @@ import (
 
 // ChannelDto struct for ChannelDto
 type ChannelDto struct {
-	Id *string `json:"id,omitempty"`
-	AppId *string `json:"appId,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Domain NullableString `json:"domain,omitempty"`
-	RevisionSelectionStrategy *ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy,omitempty"`
+	Id string `json:"id"`
+	AppId string `json:"appId"`
+	Name string `json:"name"`
+	Domain string `json:"domain"`
+	RevisionSelectionStrategy ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy"`
 	ActiveRevision *Revision `json:"activeRevision,omitempty"`
 	RangeRule NullableString `json:"rangeRule,omitempty"`
-	EnvironmentVariables []EnvironmentVariableDto `json:"environmentVariables,omitempty"`
+	EnvironmentVariables []EnvironmentVariableDto `json:"environmentVariables"`
 }
 
 // NewChannelDto instantiates a new ChannelDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelDto() *ChannelDto {
+func NewChannelDto(id string, appId string, name string, domain string, revisionSelectionStrategy ChannelRevisionSelectionStrategy, environmentVariables []EnvironmentVariableDto) *ChannelDto {
 	this := ChannelDto{}
+	this.Id = id
+	this.AppId = appId
+	this.Name = name
+	this.Domain = domain
+	this.RevisionSelectionStrategy = revisionSelectionStrategy
+	this.EnvironmentVariables = environmentVariables
 	return &this
 }
 
@@ -43,184 +49,124 @@ func NewChannelDtoWithDefaults() *ChannelDto {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ChannelDto) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ChannelDto) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *ChannelDto) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise.
+// GetAppId returns the AppId field value
 func (o *ChannelDto) GetAppId() string {
-	if o == nil || o.AppId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AppId
+
+	return o.AppId
 }
 
-// GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
+// GetAppIdOk returns a tuple with the AppId field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetAppIdOk() (*string, bool) {
-	if o == nil || o.AppId == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.AppId, true
+	return &o.AppId, true
 }
 
-// HasAppId returns a boolean if a field has been set.
-func (o *ChannelDto) HasAppId() bool {
-	if o != nil && o.AppId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAppId gets a reference to the given string and assigns it to the AppId field.
+// SetAppId sets field value
 func (o *ChannelDto) SetAppId(v string) {
-	o.AppId = &v
+	o.AppId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *ChannelDto) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelDto) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ChannelDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *ChannelDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ChannelDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ChannelDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetDomain returns the Domain field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDomain returns the Domain field value
 func (o *ChannelDto) GetDomain() string {
-	if o == nil || o.Domain.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Domain.Get()
+
+	return o.Domain
 }
 
-// GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
+// GetDomainOk returns a tuple with the Domain field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelDto) GetDomainOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Domain.Get(), o.Domain.IsSet()
+	return &o.Domain, true
 }
 
-// HasDomain returns a boolean if a field has been set.
-func (o *ChannelDto) HasDomain() bool {
-	if o != nil && o.Domain.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDomain gets a reference to the given NullableString and assigns it to the Domain field.
+// SetDomain sets field value
 func (o *ChannelDto) SetDomain(v string) {
-	o.Domain.Set(&v)
-}
-// SetDomainNil sets the value for Domain to be an explicit nil
-func (o *ChannelDto) SetDomainNil() {
-	o.Domain.Set(nil)
+	o.Domain = v
 }
 
-// UnsetDomain ensures that no value is present for Domain, not even an explicit nil
-func (o *ChannelDto) UnsetDomain() {
-	o.Domain.Unset()
-}
-
-// GetRevisionSelectionStrategy returns the RevisionSelectionStrategy field value if set, zero value otherwise.
+// GetRevisionSelectionStrategy returns the RevisionSelectionStrategy field value
 func (o *ChannelDto) GetRevisionSelectionStrategy() ChannelRevisionSelectionStrategy {
-	if o == nil || o.RevisionSelectionStrategy == nil {
+	if o == nil {
 		var ret ChannelRevisionSelectionStrategy
 		return ret
 	}
-	return *o.RevisionSelectionStrategy
+
+	return o.RevisionSelectionStrategy
 }
 
-// GetRevisionSelectionStrategyOk returns a tuple with the RevisionSelectionStrategy field value if set, nil otherwise
+// GetRevisionSelectionStrategyOk returns a tuple with the RevisionSelectionStrategy field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetRevisionSelectionStrategyOk() (*ChannelRevisionSelectionStrategy, bool) {
-	if o == nil || o.RevisionSelectionStrategy == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.RevisionSelectionStrategy, true
+	return &o.RevisionSelectionStrategy, true
 }
 
-// HasRevisionSelectionStrategy returns a boolean if a field has been set.
-func (o *ChannelDto) HasRevisionSelectionStrategy() bool {
-	if o != nil && o.RevisionSelectionStrategy != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRevisionSelectionStrategy gets a reference to the given ChannelRevisionSelectionStrategy and assigns it to the RevisionSelectionStrategy field.
+// SetRevisionSelectionStrategy sets field value
 func (o *ChannelDto) SetRevisionSelectionStrategy(v ChannelRevisionSelectionStrategy) {
-	o.RevisionSelectionStrategy = &v
+	o.RevisionSelectionStrategy = v
 }
 
 // GetActiveRevision returns the ActiveRevision field value if set, zero value otherwise.
@@ -297,54 +243,45 @@ func (o *ChannelDto) UnsetRangeRule() {
 	o.RangeRule.Unset()
 }
 
-// GetEnvironmentVariables returns the EnvironmentVariables field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnvironmentVariables returns the EnvironmentVariables field value
 func (o *ChannelDto) GetEnvironmentVariables() []EnvironmentVariableDto {
-	if o == nil  {
+	if o == nil {
 		var ret []EnvironmentVariableDto
 		return ret
 	}
+
 	return o.EnvironmentVariables
 }
 
-// GetEnvironmentVariablesOk returns a tuple with the EnvironmentVariables field value if set, nil otherwise
+// GetEnvironmentVariablesOk returns a tuple with the EnvironmentVariables field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelDto) GetEnvironmentVariablesOk() (*[]EnvironmentVariableDto, bool) {
-	if o == nil || o.EnvironmentVariables == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.EnvironmentVariables, true
 }
 
-// HasEnvironmentVariables returns a boolean if a field has been set.
-func (o *ChannelDto) HasEnvironmentVariables() bool {
-	if o != nil && o.EnvironmentVariables != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetEnvironmentVariables gets a reference to the given []EnvironmentVariableDto and assigns it to the EnvironmentVariables field.
+// SetEnvironmentVariables sets field value
 func (o *ChannelDto) SetEnvironmentVariables(v []EnvironmentVariableDto) {
 	o.EnvironmentVariables = v
 }
 
 func (o ChannelDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
+	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.AppId != nil {
+	if true {
 		toSerialize["appId"] = o.AppId
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
-	if o.Domain.IsSet() {
-		toSerialize["domain"] = o.Domain.Get()
+	if true {
+		toSerialize["domain"] = o.Domain
 	}
-	if o.RevisionSelectionStrategy != nil {
+	if true {
 		toSerialize["revisionSelectionStrategy"] = o.RevisionSelectionStrategy
 	}
 	if o.ActiveRevision != nil {
@@ -353,7 +290,7 @@ func (o ChannelDto) MarshalJSON() ([]byte, error) {
 	if o.RangeRule.IsSet() {
 		toSerialize["rangeRule"] = o.RangeRule.Get()
 	}
-	if o.EnvironmentVariables != nil {
+	if true {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
 	}
 	return json.Marshal(toSerialize)

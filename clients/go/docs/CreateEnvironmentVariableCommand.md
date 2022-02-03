@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **NullableString** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
+**Key** | **string** |  | 
+**Value** | **string** |  | 
+**ChannelId** | **string** |  | 
 
 ## Methods
 
 ### NewCreateEnvironmentVariableCommand
 
-`func NewCreateEnvironmentVariableCommand() *CreateEnvironmentVariableCommand`
+`func NewCreateEnvironmentVariableCommand(key string, value string, channelId string, ) *CreateEnvironmentVariableCommand`
 
 NewCreateEnvironmentVariableCommand instantiates a new CreateEnvironmentVariableCommand object
 This constructor will assign default values to properties that have it defined,
@@ -46,22 +46,7 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
-### HasKey
 
-`func (o *CreateEnvironmentVariableCommand) HasKey() bool`
-
-HasKey returns a boolean if a field has been set.
-
-### SetKeyNil
-
-`func (o *CreateEnvironmentVariableCommand) SetKeyNil(b bool)`
-
- SetKeyNil sets the value for Key to be an explicit nil
-
-### UnsetKey
-`func (o *CreateEnvironmentVariableCommand) UnsetKey()`
-
-UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetValue
 
 `func (o *CreateEnvironmentVariableCommand) GetValue() string`
@@ -81,22 +66,7 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-### HasValue
 
-`func (o *CreateEnvironmentVariableCommand) HasValue() bool`
-
-HasValue returns a boolean if a field has been set.
-
-### SetValueNil
-
-`func (o *CreateEnvironmentVariableCommand) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *CreateEnvironmentVariableCommand) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetChannelId
 
 `func (o *CreateEnvironmentVariableCommand) GetChannelId() string`
@@ -116,11 +86,6 @@ and a boolean to check if the value has been set.
 
 SetChannelId sets ChannelId field to given value.
 
-### HasChannelId
-
-`func (o *CreateEnvironmentVariableCommand) HasChannelId() bool`
-
-HasChannelId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

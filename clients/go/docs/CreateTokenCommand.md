@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserName** | Pointer to **NullableString** |  | [optional] 
-**Password** | Pointer to **NullableString** |  | [optional] 
+**UserName** | **string** |  | 
+**Password** | **string** |  | 
 
 ## Methods
 
 ### NewCreateTokenCommand
 
-`func NewCreateTokenCommand() *CreateTokenCommand`
+`func NewCreateTokenCommand(userName string, password string, ) *CreateTokenCommand`
 
 NewCreateTokenCommand instantiates a new CreateTokenCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetUserName sets UserName field to given value.
 
-### HasUserName
 
-`func (o *CreateTokenCommand) HasUserName() bool`
-
-HasUserName returns a boolean if a field has been set.
-
-### SetUserNameNil
-
-`func (o *CreateTokenCommand) SetUserNameNil(b bool)`
-
- SetUserNameNil sets the value for UserName to be an explicit nil
-
-### UnsetUserName
-`func (o *CreateTokenCommand) UnsetUserName()`
-
-UnsetUserName ensures that no value is present for UserName, not even an explicit nil
 ### GetPassword
 
 `func (o *CreateTokenCommand) GetPassword() string`
@@ -80,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetPassword sets Password field to given value.
 
-### HasPassword
 
-`func (o *CreateTokenCommand) HasPassword() bool`
-
-HasPassword returns a boolean if a field has been set.
-
-### SetPasswordNil
-
-`func (o *CreateTokenCommand) SetPasswordNil(b bool)`
-
- SetPasswordNil sets the value for Password to be an explicit nil
-
-### UnsetPassword
-`func (o *CreateTokenCommand) UnsetPassword()`
-
-UnsetPassword ensures that no value is present for Password, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

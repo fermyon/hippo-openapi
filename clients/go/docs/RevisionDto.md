@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**AppId** | Pointer to **string** |  | [optional] 
-**RevisionNumber** | Pointer to **NullableString** |  | [optional] 
+**Id** | **string** |  | 
+**AppId** | **string** |  | 
+**RevisionNumber** | **string** |  | 
 
 ## Methods
 
 ### NewRevisionDto
 
-`func NewRevisionDto() *RevisionDto`
+`func NewRevisionDto(id string, appId string, revisionNumber string, ) *RevisionDto`
 
 NewRevisionDto instantiates a new RevisionDto object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *RevisionDto) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetAppId
 
@@ -71,11 +66,6 @@ and a boolean to check if the value has been set.
 
 SetAppId sets AppId field to given value.
 
-### HasAppId
-
-`func (o *RevisionDto) HasAppId() bool`
-
-HasAppId returns a boolean if a field has been set.
 
 ### GetRevisionNumber
 
@@ -96,22 +86,7 @@ and a boolean to check if the value has been set.
 
 SetRevisionNumber sets RevisionNumber field to given value.
 
-### HasRevisionNumber
 
-`func (o *RevisionDto) HasRevisionNumber() bool`
-
-HasRevisionNumber returns a boolean if a field has been set.
-
-### SetRevisionNumberNil
-
-`func (o *RevisionDto) SetRevisionNumberNil(b bool)`
-
- SetRevisionNumberNil sets the value for RevisionNumber to be an explicit nil
-
-### UnsetRevisionNumber
-`func (o *RevisionDto) UnsetRevisionNumber()`
-
-UnsetRevisionNumber ensures that no value is present for RevisionNumber, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

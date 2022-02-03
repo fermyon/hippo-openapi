@@ -212,7 +212,7 @@ import (
 )
 
 func main() {
-    createCertificateCommand := *openapiclient.NewCreateCertificateCommand() // CreateCertificateCommand |  (optional)
+    createCertificateCommand := *openapiclient.NewCreateCertificateCommand("Name_example", "PublicKey_example", "PrivateKey_example") // CreateCertificateCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

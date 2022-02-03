@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**app_id** | Option<**String**> |  | [optional]
-**name** | Option<**String**> |  | [optional]
+**app_id** | **String** |  | 
+**name** | **String** |  | 
 **domain** | Option<**String**> |  | [optional]
-**revision_selection_strategy** | Option<[**crate::models::ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md)> |  | [optional]
+**revision_selection_strategy** | [**crate::models::ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **range_rule** | Option<**String**> |  | [optional]
 **active_revision_id** | Option<**String**> |  | [optional]
 **certificate_id** | Option<**String**> |  | [optional]

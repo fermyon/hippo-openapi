@@ -22,10 +22,13 @@ class CreateEnvironmentVariableCommand {
     /**
      * Constructs a new <code>CreateEnvironmentVariableCommand</code>.
      * @alias module:model/CreateEnvironmentVariableCommand
+     * @param key {String} 
+     * @param value {String} 
+     * @param channelId {String} 
      */
-    constructor() { 
+    constructor(key, value, channelId) { 
         
-        CreateEnvironmentVariableCommand.initialize(this);
+        CreateEnvironmentVariableCommand.initialize(this, key, value, channelId);
     }
 
     /**
@@ -33,7 +36,10 @@ class CreateEnvironmentVariableCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, key, value, channelId) { 
+        obj['key'] = key;
+        obj['value'] = value;
+        obj['channelId'] = channelId;
     }
 
     /**

@@ -13,17 +13,17 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RegisterRevisionCommand {
-    #[serde(rename = "appStorageId", skip_serializing_if = "Option::is_none")]
-    pub app_storage_id: Option<String>,
-    #[serde(rename = "revisionNumber", skip_serializing_if = "Option::is_none")]
-    pub revision_number: Option<String>,
+    #[serde(rename = "appStorageId")]
+    pub app_storage_id: String,
+    #[serde(rename = "revisionNumber")]
+    pub revision_number: String,
 }
 
 impl RegisterRevisionCommand {
-    pub fn new() -> RegisterRevisionCommand {
+    pub fn new(app_storage_id: String, revision_number: String) -> RegisterRevisionCommand {
         RegisterRevisionCommand {
-            app_storage_id: None,
-            revision_number: None,
+            app_storage_id,
+            revision_number,
         }
     }
 }

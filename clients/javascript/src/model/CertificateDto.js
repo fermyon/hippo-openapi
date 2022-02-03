@@ -23,10 +23,15 @@ class CertificateDto {
     /**
      * Constructs a new <code>CertificateDto</code>.
      * @alias module:model/CertificateDto
+     * @param id {String} 
+     * @param name {String} 
+     * @param publicKey {String} 
+     * @param privateKey {String} 
+     * @param channels {Array.<module:model/ChannelDto>} 
      */
-    constructor() { 
+    constructor(id, name, publicKey, privateKey, channels) { 
         
-        CertificateDto.initialize(this);
+        CertificateDto.initialize(this, id, name, publicKey, privateKey, channels);
     }
 
     /**
@@ -34,7 +39,12 @@ class CertificateDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, id, name, publicKey, privateKey, channels) { 
+        obj['id'] = id;
+        obj['name'] = name;
+        obj['publicKey'] = publicKey;
+        obj['privateKey'] = privateKey;
+        obj['channels'] = channels;
     }
 
     /**

@@ -16,16 +16,18 @@ import (
 
 // RegisterRevisionCommand struct for RegisterRevisionCommand
 type RegisterRevisionCommand struct {
-	AppStorageId NullableString `json:"appStorageId,omitempty"`
-	RevisionNumber NullableString `json:"revisionNumber,omitempty"`
+	AppStorageId string `json:"appStorageId"`
+	RevisionNumber string `json:"revisionNumber"`
 }
 
 // NewRegisterRevisionCommand instantiates a new RegisterRevisionCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRegisterRevisionCommand() *RegisterRevisionCommand {
+func NewRegisterRevisionCommand(appStorageId string, revisionNumber string) *RegisterRevisionCommand {
 	this := RegisterRevisionCommand{}
+	this.AppStorageId = appStorageId
+	this.RevisionNumber = revisionNumber
 	return &this
 }
 
@@ -37,97 +39,61 @@ func NewRegisterRevisionCommandWithDefaults() *RegisterRevisionCommand {
 	return &this
 }
 
-// GetAppStorageId returns the AppStorageId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAppStorageId returns the AppStorageId field value
 func (o *RegisterRevisionCommand) GetAppStorageId() string {
-	if o == nil || o.AppStorageId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AppStorageId.Get()
+
+	return o.AppStorageId
 }
 
-// GetAppStorageIdOk returns a tuple with the AppStorageId field value if set, nil otherwise
+// GetAppStorageIdOk returns a tuple with the AppStorageId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RegisterRevisionCommand) GetAppStorageIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.AppStorageId.Get(), o.AppStorageId.IsSet()
+	return &o.AppStorageId, true
 }
 
-// HasAppStorageId returns a boolean if a field has been set.
-func (o *RegisterRevisionCommand) HasAppStorageId() bool {
-	if o != nil && o.AppStorageId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAppStorageId gets a reference to the given NullableString and assigns it to the AppStorageId field.
+// SetAppStorageId sets field value
 func (o *RegisterRevisionCommand) SetAppStorageId(v string) {
-	o.AppStorageId.Set(&v)
-}
-// SetAppStorageIdNil sets the value for AppStorageId to be an explicit nil
-func (o *RegisterRevisionCommand) SetAppStorageIdNil() {
-	o.AppStorageId.Set(nil)
+	o.AppStorageId = v
 }
 
-// UnsetAppStorageId ensures that no value is present for AppStorageId, not even an explicit nil
-func (o *RegisterRevisionCommand) UnsetAppStorageId() {
-	o.AppStorageId.Unset()
-}
-
-// GetRevisionNumber returns the RevisionNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRevisionNumber returns the RevisionNumber field value
 func (o *RegisterRevisionCommand) GetRevisionNumber() string {
-	if o == nil || o.RevisionNumber.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RevisionNumber.Get()
+
+	return o.RevisionNumber
 }
 
-// GetRevisionNumberOk returns a tuple with the RevisionNumber field value if set, nil otherwise
+// GetRevisionNumberOk returns a tuple with the RevisionNumber field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RegisterRevisionCommand) GetRevisionNumberOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.RevisionNumber.Get(), o.RevisionNumber.IsSet()
+	return &o.RevisionNumber, true
 }
 
-// HasRevisionNumber returns a boolean if a field has been set.
-func (o *RegisterRevisionCommand) HasRevisionNumber() bool {
-	if o != nil && o.RevisionNumber.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRevisionNumber gets a reference to the given NullableString and assigns it to the RevisionNumber field.
+// SetRevisionNumber sets field value
 func (o *RegisterRevisionCommand) SetRevisionNumber(v string) {
-	o.RevisionNumber.Set(&v)
-}
-// SetRevisionNumberNil sets the value for RevisionNumber to be an explicit nil
-func (o *RegisterRevisionCommand) SetRevisionNumberNil() {
-	o.RevisionNumber.Set(nil)
-}
-
-// UnsetRevisionNumber ensures that no value is present for RevisionNumber, not even an explicit nil
-func (o *RegisterRevisionCommand) UnsetRevisionNumber() {
-	o.RevisionNumber.Unset()
+	o.RevisionNumber = v
 }
 
 func (o RegisterRevisionCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AppStorageId.IsSet() {
-		toSerialize["appStorageId"] = o.AppStorageId.Get()
+	if true {
+		toSerialize["appStorageId"] = o.AppStorageId
 	}
-	if o.RevisionNumber.IsSet() {
-		toSerialize["revisionNumber"] = o.RevisionNumber.Get()
+	if true {
+		toSerialize["revisionNumber"] = o.RevisionNumber
 	}
 	return json.Marshal(toSerialize)
 }

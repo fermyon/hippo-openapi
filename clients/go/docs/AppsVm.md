@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Apps** | Pointer to [**[]AppDto**](AppDto.md) |  | [optional] 
+**Apps** | [**[]AppDto**](AppDto.md) |  | 
 
 ## Methods
 
 ### NewAppsVm
 
-`func NewAppsVm() *AppsVm`
+`func NewAppsVm(apps []AppDto, ) *AppsVm`
 
 NewAppsVm instantiates a new AppsVm object
 This constructor will assign default values to properties that have it defined,
@@ -44,22 +44,7 @@ and a boolean to check if the value has been set.
 
 SetApps sets Apps field to given value.
 
-### HasApps
 
-`func (o *AppsVm) HasApps() bool`
-
-HasApps returns a boolean if a field has been set.
-
-### SetAppsNil
-
-`func (o *AppsVm) SetAppsNil(b bool)`
-
- SetAppsNil sets the value for Apps to be an explicit nil
-
-### UnsetApps
-`func (o *AppsVm) UnsetApps()`
-
-UnsetApps ensures that no value is present for Apps, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

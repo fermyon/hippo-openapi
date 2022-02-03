@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**StorageId** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
+**StorageId** | **string** |  | 
 
 ## Methods
 
 ### NewCreateAppCommand
 
-`func NewCreateAppCommand() *CreateAppCommand`
+`func NewCreateAppCommand(name string, storageId string, ) *CreateAppCommand`
 
 NewCreateAppCommand instantiates a new CreateAppCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *CreateAppCommand) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *CreateAppCommand) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *CreateAppCommand) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetStorageId
 
 `func (o *CreateAppCommand) GetStorageId() string`
@@ -80,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetStorageId sets StorageId field to given value.
 
-### HasStorageId
 
-`func (o *CreateAppCommand) HasStorageId() bool`
-
-HasStorageId returns a boolean if a field has been set.
-
-### SetStorageIdNil
-
-`func (o *CreateAppCommand) SetStorageIdNil(b bool)`
-
- SetStorageIdNil sets the value for StorageId to be an explicit nil
-
-### UnsetStorageId
-`func (o *CreateAppCommand) UnsetStorageId()`
-
-UnsetStorageId ensures that no value is present for StorageId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

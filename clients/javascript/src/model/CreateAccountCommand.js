@@ -22,10 +22,13 @@ class CreateAccountCommand {
     /**
      * Constructs a new <code>CreateAccountCommand</code>.
      * @alias module:model/CreateAccountCommand
+     * @param userName {String} 
+     * @param password {String} 
+     * @param passwordConfirm {String} 
      */
-    constructor() { 
+    constructor(userName, password, passwordConfirm) { 
         
-        CreateAccountCommand.initialize(this);
+        CreateAccountCommand.initialize(this, userName, password, passwordConfirm);
     }
 
     /**
@@ -33,7 +36,10 @@ class CreateAccountCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, userName, password, passwordConfirm) { 
+        obj['userName'] = userName;
+        obj['password'] = password;
+        obj['passwordConfirm'] = passwordConfirm;
     }
 
     /**

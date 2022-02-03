@@ -212,7 +212,7 @@ import (
 )
 
 func main() {
-    createChannelCommand := *openapiclient.NewCreateChannelCommand() // CreateChannelCommand |  (optional)
+    createChannelCommand := *openapiclient.NewCreateChannelCommand("AppId_example", "Name_example", openapiclient.ChannelRevisionSelectionStrategy(0)) // CreateChannelCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

@@ -22,10 +22,13 @@ class CreateCertificateCommand {
     /**
      * Constructs a new <code>CreateCertificateCommand</code>.
      * @alias module:model/CreateCertificateCommand
+     * @param name {String} 
+     * @param publicKey {String} 
+     * @param privateKey {String} 
      */
-    constructor() { 
+    constructor(name, publicKey, privateKey) { 
         
-        CreateCertificateCommand.initialize(this);
+        CreateCertificateCommand.initialize(this, name, publicKey, privateKey);
     }
 
     /**
@@ -33,7 +36,10 @@ class CreateCertificateCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, publicKey, privateKey) { 
+        obj['name'] = name;
+        obj['publicKey'] = publicKey;
+        obj['privateKey'] = privateKey;
     }
 
     /**

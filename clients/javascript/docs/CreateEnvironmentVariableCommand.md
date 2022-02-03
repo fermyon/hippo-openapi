@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **String** |  | [optional] 
-**value** | **String** |  | [optional] 
-**channelId** | **String** |  | [optional] 
+**key** | **String** |  | 
+**value** | **String** |  | 
+**channelId** | **String** |  | 
 
 

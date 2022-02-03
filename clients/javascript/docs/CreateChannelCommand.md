@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**appId** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**appId** | **String** |  | 
+**name** | **String** |  | 
 **domain** | **String** |  | [optional] 
-**revisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | [optional] 
+**revisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **rangeRule** | **String** |  | [optional] 
 **activeRevisionId** | **String** |  | [optional] 
 **certificateId** | **String** |  | [optional] 

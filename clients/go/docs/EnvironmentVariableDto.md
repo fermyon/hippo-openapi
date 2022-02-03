@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**ChannelId** | Pointer to **string** |  | [optional] 
-**Key** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **NullableString** |  | [optional] 
+**Id** | **string** |  | 
+**ChannelId** | **string** |  | 
+**Key** | **string** |  | 
+**Value** | **string** |  | 
 
 ## Methods
 
 ### NewEnvironmentVariableDto
 
-`func NewEnvironmentVariableDto() *EnvironmentVariableDto`
+`func NewEnvironmentVariableDto(id string, channelId string, key string, value string, ) *EnvironmentVariableDto`
 
 NewEnvironmentVariableDto instantiates a new EnvironmentVariableDto object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *EnvironmentVariableDto) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetChannelId
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetChannelId sets ChannelId field to given value.
 
-### HasChannelId
-
-`func (o *EnvironmentVariableDto) HasChannelId() bool`
-
-HasChannelId returns a boolean if a field has been set.
 
 ### GetKey
 
@@ -97,22 +87,7 @@ and a boolean to check if the value has been set.
 
 SetKey sets Key field to given value.
 
-### HasKey
 
-`func (o *EnvironmentVariableDto) HasKey() bool`
-
-HasKey returns a boolean if a field has been set.
-
-### SetKeyNil
-
-`func (o *EnvironmentVariableDto) SetKeyNil(b bool)`
-
- SetKeyNil sets the value for Key to be an explicit nil
-
-### UnsetKey
-`func (o *EnvironmentVariableDto) UnsetKey()`
-
-UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetValue
 
 `func (o *EnvironmentVariableDto) GetValue() string`
@@ -132,22 +107,7 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-### HasValue
 
-`func (o *EnvironmentVariableDto) HasValue() bool`
-
-HasValue returns a boolean if a field has been set.
-
-### SetValueNil
-
-`func (o *EnvironmentVariableDto) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *EnvironmentVariableDto) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

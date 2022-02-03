@@ -16,15 +16,16 @@ import (
 
 // ChannelsVm struct for ChannelsVm
 type ChannelsVm struct {
-	Channels []ChannelDto `json:"channels,omitempty"`
+	Channels []ChannelDto `json:"channels"`
 }
 
 // NewChannelsVm instantiates a new ChannelsVm object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewChannelsVm() *ChannelsVm {
+func NewChannelsVm(channels []ChannelDto) *ChannelsVm {
 	this := ChannelsVm{}
+	this.Channels = channels
 	return &this
 }
 
@@ -36,42 +37,33 @@ func NewChannelsVmWithDefaults() *ChannelsVm {
 	return &this
 }
 
-// GetChannels returns the Channels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannels returns the Channels field value
 func (o *ChannelsVm) GetChannels() []ChannelDto {
-	if o == nil  {
+	if o == nil {
 		var ret []ChannelDto
 		return ret
 	}
+
 	return o.Channels
 }
 
-// GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
+// GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelsVm) GetChannelsOk() (*[]ChannelDto, bool) {
-	if o == nil || o.Channels == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Channels, true
 }
 
-// HasChannels returns a boolean if a field has been set.
-func (o *ChannelsVm) HasChannels() bool {
-	if o != nil && o.Channels != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetChannels gets a reference to the given []ChannelDto and assigns it to the Channels field.
+// SetChannels sets field value
 func (o *ChannelsVm) SetChannels(v []ChannelDto) {
 	o.Channels = v
 }
 
 func (o ChannelsVm) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Channels != nil {
+	if true {
 		toSerialize["channels"] = o.Channels
 	}
 	return json.Marshal(toSerialize)

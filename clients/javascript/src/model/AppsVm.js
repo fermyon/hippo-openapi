@@ -23,10 +23,11 @@ class AppsVm {
     /**
      * Constructs a new <code>AppsVm</code>.
      * @alias module:model/AppsVm
+     * @param apps {Array.<module:model/AppDto>} 
      */
-    constructor() { 
+    constructor(apps) { 
         
-        AppsVm.initialize(this);
+        AppsVm.initialize(this, apps);
     }
 
     /**
@@ -34,7 +35,8 @@ class AppsVm {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, apps) { 
+        obj['apps'] = apps;
     }
 
     /**

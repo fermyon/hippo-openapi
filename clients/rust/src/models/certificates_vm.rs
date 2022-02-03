@@ -13,14 +13,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CertificatesVm {
-    #[serde(rename = "certificates", skip_serializing_if = "Option::is_none")]
-    pub certificates: Option<Vec<crate::models::CertificateDto>>,
+    #[serde(rename = "certificates")]
+    pub certificates: Vec<crate::models::CertificateDto>,
 }
 
 impl CertificatesVm {
-    pub fn new() -> CertificatesVm {
+    pub fn new(certificates: Vec<crate::models::CertificateDto>) -> CertificatesVm {
         CertificatesVm {
-            certificates: None,
+            certificates,
         }
     }
 }

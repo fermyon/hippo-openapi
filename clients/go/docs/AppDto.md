@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**StorageId** | Pointer to **NullableString** |  | [optional] 
-**Channels** | Pointer to [**[]ChannelDto**](ChannelDto.md) |  | [optional] 
-**Revisions** | Pointer to [**[]RevisionDto**](RevisionDto.md) |  | [optional] 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
+**StorageId** | **string** |  | 
+**Channels** | [**[]ChannelDto**](ChannelDto.md) |  | 
+**Revisions** | [**[]RevisionDto**](RevisionDto.md) |  | 
 
 ## Methods
 
 ### NewAppDto
 
-`func NewAppDto() *AppDto`
+`func NewAppDto(id string, name string, storageId string, channels []ChannelDto, revisions []RevisionDto, ) *AppDto`
 
 NewAppDto instantiates a new AppDto object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AppDto) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -73,22 +68,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *AppDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *AppDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *AppDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetStorageId
 
 `func (o *AppDto) GetStorageId() string`
@@ -108,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetStorageId sets StorageId field to given value.
 
-### HasStorageId
 
-`func (o *AppDto) HasStorageId() bool`
-
-HasStorageId returns a boolean if a field has been set.
-
-### SetStorageIdNil
-
-`func (o *AppDto) SetStorageIdNil(b bool)`
-
- SetStorageIdNil sets the value for StorageId to be an explicit nil
-
-### UnsetStorageId
-`func (o *AppDto) UnsetStorageId()`
-
-UnsetStorageId ensures that no value is present for StorageId, not even an explicit nil
 ### GetChannels
 
 `func (o *AppDto) GetChannels() []ChannelDto`
@@ -143,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetChannels sets Channels field to given value.
 
-### HasChannels
 
-`func (o *AppDto) HasChannels() bool`
-
-HasChannels returns a boolean if a field has been set.
-
-### SetChannelsNil
-
-`func (o *AppDto) SetChannelsNil(b bool)`
-
- SetChannelsNil sets the value for Channels to be an explicit nil
-
-### UnsetChannels
-`func (o *AppDto) UnsetChannels()`
-
-UnsetChannels ensures that no value is present for Channels, not even an explicit nil
 ### GetRevisions
 
 `func (o *AppDto) GetRevisions() []RevisionDto`
@@ -178,22 +128,7 @@ and a boolean to check if the value has been set.
 
 SetRevisions sets Revisions field to given value.
 
-### HasRevisions
 
-`func (o *AppDto) HasRevisions() bool`
-
-HasRevisions returns a boolean if a field has been set.
-
-### SetRevisionsNil
-
-`func (o *AppDto) SetRevisionsNil(b bool)`
-
- SetRevisionsNil sets the value for Revisions to be an explicit nil
-
-### UnsetRevisions
-`func (o *AppDto) UnsetRevisions()`
-
-UnsetRevisions ensures that no value is present for Revisions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

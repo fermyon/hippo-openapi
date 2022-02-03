@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**appId** | **String** |  | [optional] 
-**revisionNumber** | **String** |  | [optional] 
+**id** | **String** |  | 
+**appId** | **String** |  | 
+**revisionNumber** | **String** |  | 
 
 

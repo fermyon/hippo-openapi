@@ -23,10 +23,11 @@ class CertificatesVm {
     /**
      * Constructs a new <code>CertificatesVm</code>.
      * @alias module:model/CertificatesVm
+     * @param certificates {Array.<module:model/CertificateDto>} 
      */
-    constructor() { 
+    constructor(certificates) { 
         
-        CertificatesVm.initialize(this);
+        CertificatesVm.initialize(this, certificates);
     }
 
     /**
@@ -34,7 +35,8 @@ class CertificatesVm {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, certificates) { 
+        obj['certificates'] = certificates;
     }
 
     /**

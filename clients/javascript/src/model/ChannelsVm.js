@@ -23,10 +23,11 @@ class ChannelsVm {
     /**
      * Constructs a new <code>ChannelsVm</code>.
      * @alias module:model/ChannelsVm
+     * @param channels {Array.<module:model/ChannelDto>} 
      */
-    constructor() { 
+    constructor(channels) { 
         
-        ChannelsVm.initialize(this);
+        ChannelsVm.initialize(this, channels);
     }
 
     /**
@@ -34,7 +35,8 @@ class ChannelsVm {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, channels) { 
+        obj['channels'] = channels;
     }
 
     /**

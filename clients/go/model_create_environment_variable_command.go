@@ -16,17 +16,20 @@ import (
 
 // CreateEnvironmentVariableCommand struct for CreateEnvironmentVariableCommand
 type CreateEnvironmentVariableCommand struct {
-	Key NullableString `json:"key,omitempty"`
-	Value NullableString `json:"value,omitempty"`
-	ChannelId *string `json:"channelId,omitempty"`
+	Key string `json:"key"`
+	Value string `json:"value"`
+	ChannelId string `json:"channelId"`
 }
 
 // NewCreateEnvironmentVariableCommand instantiates a new CreateEnvironmentVariableCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateEnvironmentVariableCommand() *CreateEnvironmentVariableCommand {
+func NewCreateEnvironmentVariableCommand(key string, value string, channelId string) *CreateEnvironmentVariableCommand {
 	this := CreateEnvironmentVariableCommand{}
+	this.Key = key
+	this.Value = value
+	this.ChannelId = channelId
 	return &this
 }
 
@@ -38,131 +41,87 @@ func NewCreateEnvironmentVariableCommandWithDefaults() *CreateEnvironmentVariabl
 	return &this
 }
 
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKey returns the Key field value
 func (o *CreateEnvironmentVariableCommand) GetKey() string {
-	if o == nil || o.Key.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+
+	return o.Key
 }
 
-// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
+// GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateEnvironmentVariableCommand) GetKeyOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return &o.Key, true
 }
 
-// HasKey returns a boolean if a field has been set.
-func (o *CreateEnvironmentVariableCommand) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+// SetKey sets field value
 func (o *CreateEnvironmentVariableCommand) SetKey(v string) {
-	o.Key.Set(&v)
-}
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *CreateEnvironmentVariableCommand) SetKeyNil() {
-	o.Key.Set(nil)
+	o.Key = v
 }
 
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *CreateEnvironmentVariableCommand) UnsetKey() {
-	o.Key.Unset()
-}
-
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value
 func (o *CreateEnvironmentVariableCommand) GetValue() string {
-	if o == nil || o.Value.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateEnvironmentVariableCommand) GetValueOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *CreateEnvironmentVariableCommand) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue sets field value
 func (o *CreateEnvironmentVariableCommand) SetValue(v string) {
-	o.Value.Set(&v)
-}
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *CreateEnvironmentVariableCommand) SetValueNil() {
-	o.Value.Set(nil)
+	o.Value = v
 }
 
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *CreateEnvironmentVariableCommand) UnsetValue() {
-	o.Value.Unset()
-}
-
-// GetChannelId returns the ChannelId field value if set, zero value otherwise.
+// GetChannelId returns the ChannelId field value
 func (o *CreateEnvironmentVariableCommand) GetChannelId() string {
-	if o == nil || o.ChannelId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ChannelId
+
+	return o.ChannelId
 }
 
-// GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
+// GetChannelIdOk returns a tuple with the ChannelId field value
 // and a boolean to check if the value has been set.
 func (o *CreateEnvironmentVariableCommand) GetChannelIdOk() (*string, bool) {
-	if o == nil || o.ChannelId == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.ChannelId, true
+	return &o.ChannelId, true
 }
 
-// HasChannelId returns a boolean if a field has been set.
-func (o *CreateEnvironmentVariableCommand) HasChannelId() bool {
-	if o != nil && o.ChannelId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
+// SetChannelId sets field value
 func (o *CreateEnvironmentVariableCommand) SetChannelId(v string) {
-	o.ChannelId = &v
+	o.ChannelId = v
 }
 
 func (o CreateEnvironmentVariableCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if true {
+		toSerialize["key"] = o.Key
 	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	if true {
+		toSerialize["value"] = o.Value
 	}
-	if o.ChannelId != nil {
+	if true {
 		toSerialize["channelId"] = o.ChannelId
 	}
 	return json.Marshal(toSerialize)

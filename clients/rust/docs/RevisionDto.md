@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<**String**> |  | [optional]
-**app_id** | Option<**String**> |  | [optional]
-**revision_number** | Option<**String**> |  | [optional]
+**id** | **String** |  | 
+**app_id** | **String** |  | 
+**revision_number** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

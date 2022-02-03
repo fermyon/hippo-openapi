@@ -16,17 +16,20 @@ import (
 
 // RevisionDto struct for RevisionDto
 type RevisionDto struct {
-	Id *string `json:"id,omitempty"`
-	AppId *string `json:"appId,omitempty"`
-	RevisionNumber NullableString `json:"revisionNumber,omitempty"`
+	Id string `json:"id"`
+	AppId string `json:"appId"`
+	RevisionNumber string `json:"revisionNumber"`
 }
 
 // NewRevisionDto instantiates a new RevisionDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRevisionDto() *RevisionDto {
+func NewRevisionDto(id string, appId string, revisionNumber string) *RevisionDto {
 	this := RevisionDto{}
+	this.Id = id
+	this.AppId = appId
+	this.RevisionNumber = revisionNumber
 	return &this
 }
 
@@ -38,122 +41,88 @@ func NewRevisionDtoWithDefaults() *RevisionDto {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *RevisionDto) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *RevisionDto) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *RevisionDto) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *RevisionDto) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise.
+// GetAppId returns the AppId field value
 func (o *RevisionDto) GetAppId() string {
-	if o == nil || o.AppId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AppId
+
+	return o.AppId
 }
 
-// GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
+// GetAppIdOk returns a tuple with the AppId field value
 // and a boolean to check if the value has been set.
 func (o *RevisionDto) GetAppIdOk() (*string, bool) {
-	if o == nil || o.AppId == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.AppId, true
+	return &o.AppId, true
 }
 
-// HasAppId returns a boolean if a field has been set.
-func (o *RevisionDto) HasAppId() bool {
-	if o != nil && o.AppId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAppId gets a reference to the given string and assigns it to the AppId field.
+// SetAppId sets field value
 func (o *RevisionDto) SetAppId(v string) {
-	o.AppId = &v
+	o.AppId = v
 }
 
-// GetRevisionNumber returns the RevisionNumber field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRevisionNumber returns the RevisionNumber field value
 func (o *RevisionDto) GetRevisionNumber() string {
-	if o == nil || o.RevisionNumber.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RevisionNumber.Get()
+
+	return o.RevisionNumber
 }
 
-// GetRevisionNumberOk returns a tuple with the RevisionNumber field value if set, nil otherwise
+// GetRevisionNumberOk returns a tuple with the RevisionNumber field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RevisionDto) GetRevisionNumberOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.RevisionNumber.Get(), o.RevisionNumber.IsSet()
+	return &o.RevisionNumber, true
 }
 
-// HasRevisionNumber returns a boolean if a field has been set.
-func (o *RevisionDto) HasRevisionNumber() bool {
-	if o != nil && o.RevisionNumber.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRevisionNumber gets a reference to the given NullableString and assigns it to the RevisionNumber field.
+// SetRevisionNumber sets field value
 func (o *RevisionDto) SetRevisionNumber(v string) {
-	o.RevisionNumber.Set(&v)
-}
-// SetRevisionNumberNil sets the value for RevisionNumber to be an explicit nil
-func (o *RevisionDto) SetRevisionNumberNil() {
-	o.RevisionNumber.Set(nil)
-}
-
-// UnsetRevisionNumber ensures that no value is present for RevisionNumber, not even an explicit nil
-func (o *RevisionDto) UnsetRevisionNumber() {
-	o.RevisionNumber.Unset()
+	o.RevisionNumber = v
 }
 
 func (o RevisionDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
+	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.AppId != nil {
+	if true {
 		toSerialize["appId"] = o.AppId
 	}
-	if o.RevisionNumber.IsSet() {
-		toSerialize["revisionNumber"] = o.RevisionNumber.Get()
+	if true {
+		toSerialize["revisionNumber"] = o.RevisionNumber
 	}
 	return json.Marshal(toSerialize)
 }

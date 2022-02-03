@@ -13,23 +13,23 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct EnvironmentVariableDto {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "channelId", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
-    #[serde(rename = "key", skip_serializing_if = "Option::is_none")]
-    pub key: Option<String>,
-    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<String>,
+    #[serde(rename = "id")]
+    pub id: String,
+    #[serde(rename = "channelId")]
+    pub channel_id: String,
+    #[serde(rename = "key")]
+    pub key: String,
+    #[serde(rename = "value")]
+    pub value: String,
 }
 
 impl EnvironmentVariableDto {
-    pub fn new() -> EnvironmentVariableDto {
+    pub fn new(id: String, channel_id: String, key: String, value: String) -> EnvironmentVariableDto {
         EnvironmentVariableDto {
-            id: None,
-            channel_id: None,
-            key: None,
-            value: None,
+            id,
+            channel_id,
+            key,
+            value,
         }
     }
 }

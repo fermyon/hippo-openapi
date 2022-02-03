@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**AppId** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Domain** | Pointer to **NullableString** |  | [optional] 
-**RevisionSelectionStrategy** | Pointer to [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | [optional] 
+**Id** | **string** |  | 
+**AppId** | **string** |  | 
+**Name** | **string** |  | 
+**Domain** | **string** |  | 
+**RevisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **ActiveRevision** | Pointer to [**Revision**](Revision.md) |  | [optional] 
 **RangeRule** | Pointer to **NullableString** |  | [optional] 
-**EnvironmentVariables** | Pointer to [**[]EnvironmentVariableDto**](EnvironmentVariableDto.md) |  | [optional] 
+**EnvironmentVariables** | [**[]EnvironmentVariableDto**](EnvironmentVariableDto.md) |  | 
 
 ## Methods
 
 ### NewChannelDto
 
-`func NewChannelDto() *ChannelDto`
+`func NewChannelDto(id string, appId string, name string, domain string, revisionSelectionStrategy ChannelRevisionSelectionStrategy, environmentVariables []EnvironmentVariableDto, ) *ChannelDto`
 
 NewChannelDto instantiates a new ChannelDto object
 This constructor will assign default values to properties that have it defined,
@@ -51,11 +51,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *ChannelDto) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetAppId
 
@@ -76,11 +71,6 @@ and a boolean to check if the value has been set.
 
 SetAppId sets AppId field to given value.
 
-### HasAppId
-
-`func (o *ChannelDto) HasAppId() bool`
-
-HasAppId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -101,22 +91,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *ChannelDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *ChannelDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ChannelDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDomain
 
 `func (o *ChannelDto) GetDomain() string`
@@ -136,22 +111,7 @@ and a boolean to check if the value has been set.
 
 SetDomain sets Domain field to given value.
 
-### HasDomain
 
-`func (o *ChannelDto) HasDomain() bool`
-
-HasDomain returns a boolean if a field has been set.
-
-### SetDomainNil
-
-`func (o *ChannelDto) SetDomainNil(b bool)`
-
- SetDomainNil sets the value for Domain to be an explicit nil
-
-### UnsetDomain
-`func (o *ChannelDto) UnsetDomain()`
-
-UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetRevisionSelectionStrategy
 
 `func (o *ChannelDto) GetRevisionSelectionStrategy() ChannelRevisionSelectionStrategy`
@@ -171,11 +131,6 @@ and a boolean to check if the value has been set.
 
 SetRevisionSelectionStrategy sets RevisionSelectionStrategy field to given value.
 
-### HasRevisionSelectionStrategy
-
-`func (o *ChannelDto) HasRevisionSelectionStrategy() bool`
-
-HasRevisionSelectionStrategy returns a boolean if a field has been set.
 
 ### GetActiveRevision
 
@@ -256,22 +211,7 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentVariables sets EnvironmentVariables field to given value.
 
-### HasEnvironmentVariables
 
-`func (o *ChannelDto) HasEnvironmentVariables() bool`
-
-HasEnvironmentVariables returns a boolean if a field has been set.
-
-### SetEnvironmentVariablesNil
-
-`func (o *ChannelDto) SetEnvironmentVariablesNil(b bool)`
-
- SetEnvironmentVariablesNil sets the value for EnvironmentVariables to be an explicit nil
-
-### UnsetEnvironmentVariables
-`func (o *ChannelDto) UnsetEnvironmentVariables()`
-
-UnsetEnvironmentVariables ensures that no value is present for EnvironmentVariables, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,20 +13,20 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RevisionDto {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "appId", skip_serializing_if = "Option::is_none")]
-    pub app_id: Option<String>,
-    #[serde(rename = "revisionNumber", skip_serializing_if = "Option::is_none")]
-    pub revision_number: Option<String>,
+    #[serde(rename = "id")]
+    pub id: String,
+    #[serde(rename = "appId")]
+    pub app_id: String,
+    #[serde(rename = "revisionNumber")]
+    pub revision_number: String,
 }
 
 impl RevisionDto {
-    pub fn new() -> RevisionDto {
+    pub fn new(id: String, app_id: String, revision_number: String) -> RevisionDto {
         RevisionDto {
-            id: None,
-            app_id: None,
-            revision_number: None,
+            id,
+            app_id,
+            revision_number,
         }
     }
 }

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Revisions** | Pointer to [**[]RevisionDto**](RevisionDto.md) |  | [optional] 
+**Revisions** | [**[]RevisionDto**](RevisionDto.md) |  | 
 
 ## Methods
 
 ### NewRevisionsVm
 
-`func NewRevisionsVm() *RevisionsVm`
+`func NewRevisionsVm(revisions []RevisionDto, ) *RevisionsVm`
 
 NewRevisionsVm instantiates a new RevisionsVm object
 This constructor will assign default values to properties that have it defined,
@@ -44,22 +44,7 @@ and a boolean to check if the value has been set.
 
 SetRevisions sets Revisions field to given value.
 
-### HasRevisions
 
-`func (o *RevisionsVm) HasRevisions() bool`
-
-HasRevisions returns a boolean if a field has been set.
-
-### SetRevisionsNil
-
-`func (o *RevisionsVm) SetRevisionsNil(b bool)`
-
- SetRevisionsNil sets the value for Revisions to be an explicit nil
-
-### UnsetRevisions
-`func (o *RevisionsVm) UnsetRevisions()`
-
-UnsetRevisions ensures that no value is present for Revisions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

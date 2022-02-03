@@ -16,10 +16,10 @@ import (
 
 // CreateChannelCommand struct for CreateChannelCommand
 type CreateChannelCommand struct {
-	AppId *string `json:"appId,omitempty"`
-	Name NullableString `json:"name,omitempty"`
+	AppId string `json:"appId"`
+	Name string `json:"name"`
 	Domain NullableString `json:"domain,omitempty"`
-	RevisionSelectionStrategy *ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy,omitempty"`
+	RevisionSelectionStrategy ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy"`
 	RangeRule NullableString `json:"rangeRule,omitempty"`
 	ActiveRevisionId NullableString `json:"activeRevisionId,omitempty"`
 	CertificateId NullableString `json:"certificateId,omitempty"`
@@ -29,8 +29,11 @@ type CreateChannelCommand struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateChannelCommand() *CreateChannelCommand {
+func NewCreateChannelCommand(appId string, name string, revisionSelectionStrategy ChannelRevisionSelectionStrategy) *CreateChannelCommand {
 	this := CreateChannelCommand{}
+	this.AppId = appId
+	this.Name = name
+	this.RevisionSelectionStrategy = revisionSelectionStrategy
 	return &this
 }
 
@@ -42,78 +45,52 @@ func NewCreateChannelCommandWithDefaults() *CreateChannelCommand {
 	return &this
 }
 
-// GetAppId returns the AppId field value if set, zero value otherwise.
+// GetAppId returns the AppId field value
 func (o *CreateChannelCommand) GetAppId() string {
-	if o == nil || o.AppId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AppId
+
+	return o.AppId
 }
 
-// GetAppIdOk returns a tuple with the AppId field value if set, nil otherwise
+// GetAppIdOk returns a tuple with the AppId field value
 // and a boolean to check if the value has been set.
 func (o *CreateChannelCommand) GetAppIdOk() (*string, bool) {
-	if o == nil || o.AppId == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.AppId, true
+	return &o.AppId, true
 }
 
-// HasAppId returns a boolean if a field has been set.
-func (o *CreateChannelCommand) HasAppId() bool {
-	if o != nil && o.AppId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAppId gets a reference to the given string and assigns it to the AppId field.
+// SetAppId sets field value
 func (o *CreateChannelCommand) SetAppId(v string) {
-	o.AppId = &v
+	o.AppId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *CreateChannelCommand) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateChannelCommand) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *CreateChannelCommand) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *CreateChannelCommand) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CreateChannelCommand) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CreateChannelCommand) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 // GetDomain returns the Domain field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -158,36 +135,28 @@ func (o *CreateChannelCommand) UnsetDomain() {
 	o.Domain.Unset()
 }
 
-// GetRevisionSelectionStrategy returns the RevisionSelectionStrategy field value if set, zero value otherwise.
+// GetRevisionSelectionStrategy returns the RevisionSelectionStrategy field value
 func (o *CreateChannelCommand) GetRevisionSelectionStrategy() ChannelRevisionSelectionStrategy {
-	if o == nil || o.RevisionSelectionStrategy == nil {
+	if o == nil {
 		var ret ChannelRevisionSelectionStrategy
 		return ret
 	}
-	return *o.RevisionSelectionStrategy
+
+	return o.RevisionSelectionStrategy
 }
 
-// GetRevisionSelectionStrategyOk returns a tuple with the RevisionSelectionStrategy field value if set, nil otherwise
+// GetRevisionSelectionStrategyOk returns a tuple with the RevisionSelectionStrategy field value
 // and a boolean to check if the value has been set.
 func (o *CreateChannelCommand) GetRevisionSelectionStrategyOk() (*ChannelRevisionSelectionStrategy, bool) {
-	if o == nil || o.RevisionSelectionStrategy == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.RevisionSelectionStrategy, true
+	return &o.RevisionSelectionStrategy, true
 }
 
-// HasRevisionSelectionStrategy returns a boolean if a field has been set.
-func (o *CreateChannelCommand) HasRevisionSelectionStrategy() bool {
-	if o != nil && o.RevisionSelectionStrategy != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRevisionSelectionStrategy gets a reference to the given ChannelRevisionSelectionStrategy and assigns it to the RevisionSelectionStrategy field.
+// SetRevisionSelectionStrategy sets field value
 func (o *CreateChannelCommand) SetRevisionSelectionStrategy(v ChannelRevisionSelectionStrategy) {
-	o.RevisionSelectionStrategy = &v
+	o.RevisionSelectionStrategy = v
 }
 
 // GetRangeRule returns the RangeRule field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -318,16 +287,16 @@ func (o *CreateChannelCommand) UnsetCertificateId() {
 
 func (o CreateChannelCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AppId != nil {
+	if true {
 		toSerialize["appId"] = o.AppId
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
 	if o.Domain.IsSet() {
 		toSerialize["domain"] = o.Domain.Get()
 	}
-	if o.RevisionSelectionStrategy != nil {
+	if true {
 		toSerialize["revisionSelectionStrategy"] = o.RevisionSelectionStrategy
 	}
 	if o.RangeRule.IsSet() {

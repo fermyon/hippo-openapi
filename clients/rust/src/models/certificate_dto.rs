@@ -13,26 +13,26 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CertificateDto {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "publicKey", skip_serializing_if = "Option::is_none")]
-    pub public_key: Option<String>,
-    #[serde(rename = "privateKey", skip_serializing_if = "Option::is_none")]
-    pub private_key: Option<String>,
-    #[serde(rename = "channels", skip_serializing_if = "Option::is_none")]
-    pub channels: Option<Vec<crate::models::ChannelDto>>,
+    #[serde(rename = "id")]
+    pub id: String,
+    #[serde(rename = "name")]
+    pub name: String,
+    #[serde(rename = "publicKey")]
+    pub public_key: String,
+    #[serde(rename = "privateKey")]
+    pub private_key: String,
+    #[serde(rename = "channels")]
+    pub channels: Vec<crate::models::ChannelDto>,
 }
 
 impl CertificateDto {
-    pub fn new() -> CertificateDto {
+    pub fn new(id: String, name: String, public_key: String, private_key: String, channels: Vec<crate::models::ChannelDto>) -> CertificateDto {
         CertificateDto {
-            id: None,
-            name: None,
-            public_key: None,
-            private_key: None,
-            channels: None,
+            id,
+            name,
+            public_key,
+            private_key,
+            channels,
         }
     }
 }

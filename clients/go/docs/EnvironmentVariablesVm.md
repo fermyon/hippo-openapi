@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentVariables** | Pointer to [**[]EnvironmentVariableDto**](EnvironmentVariableDto.md) |  | [optional] 
+**EnvironmentVariables** | [**[]EnvironmentVariableDto**](EnvironmentVariableDto.md) |  | 
 
 ## Methods
 
 ### NewEnvironmentVariablesVm
 
-`func NewEnvironmentVariablesVm() *EnvironmentVariablesVm`
+`func NewEnvironmentVariablesVm(environmentVariables []EnvironmentVariableDto, ) *EnvironmentVariablesVm`
 
 NewEnvironmentVariablesVm instantiates a new EnvironmentVariablesVm object
 This constructor will assign default values to properties that have it defined,
@@ -44,22 +44,7 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentVariables sets EnvironmentVariables field to given value.
 
-### HasEnvironmentVariables
 
-`func (o *EnvironmentVariablesVm) HasEnvironmentVariables() bool`
-
-HasEnvironmentVariables returns a boolean if a field has been set.
-
-### SetEnvironmentVariablesNil
-
-`func (o *EnvironmentVariablesVm) SetEnvironmentVariablesNil(b bool)`
-
- SetEnvironmentVariablesNil sets the value for EnvironmentVariables to be an explicit nil
-
-### UnsetEnvironmentVariables
-`func (o *EnvironmentVariablesVm) UnsetEnvironmentVariables()`
-
-UnsetEnvironmentVariables ensures that no value is present for EnvironmentVariables, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

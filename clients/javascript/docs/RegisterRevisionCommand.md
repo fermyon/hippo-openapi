@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**appStorageId** | **String** |  | [optional] 
-**revisionNumber** | **String** |  | [optional] 
+**appStorageId** | **String** |  | 
+**revisionNumber** | **String** |  | 
 
 

@@ -23,10 +23,13 @@ class CreateChannelCommand {
     /**
      * Constructs a new <code>CreateChannelCommand</code>.
      * @alias module:model/CreateChannelCommand
+     * @param appId {String} 
+     * @param name {String} 
+     * @param revisionSelectionStrategy {module:model/ChannelRevisionSelectionStrategy} 
      */
-    constructor() { 
+    constructor(appId, name, revisionSelectionStrategy) { 
         
-        CreateChannelCommand.initialize(this);
+        CreateChannelCommand.initialize(this, appId, name, revisionSelectionStrategy);
     }
 
     /**
@@ -34,7 +37,10 @@ class CreateChannelCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, appId, name, revisionSelectionStrategy) { 
+        obj['appId'] = appId;
+        obj['name'] = name;
+        obj['revisionSelectionStrategy'] = revisionSelectionStrategy;
     }
 
     /**

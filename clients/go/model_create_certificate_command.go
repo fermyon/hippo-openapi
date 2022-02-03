@@ -16,17 +16,20 @@ import (
 
 // CreateCertificateCommand struct for CreateCertificateCommand
 type CreateCertificateCommand struct {
-	Name NullableString `json:"name,omitempty"`
-	PublicKey NullableString `json:"publicKey,omitempty"`
-	PrivateKey NullableString `json:"privateKey,omitempty"`
+	Name string `json:"name"`
+	PublicKey string `json:"publicKey"`
+	PrivateKey string `json:"privateKey"`
 }
 
 // NewCreateCertificateCommand instantiates a new CreateCertificateCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateCertificateCommand() *CreateCertificateCommand {
+func NewCreateCertificateCommand(name string, publicKey string, privateKey string) *CreateCertificateCommand {
 	this := CreateCertificateCommand{}
+	this.Name = name
+	this.PublicKey = publicKey
+	this.PrivateKey = privateKey
 	return &this
 }
 
@@ -38,142 +41,88 @@ func NewCreateCertificateCommandWithDefaults() *CreateCertificateCommand {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *CreateCertificateCommand) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateCertificateCommand) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *CreateCertificateCommand) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *CreateCertificateCommand) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CreateCertificateCommand) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CreateCertificateCommand) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPublicKey returns the PublicKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPublicKey returns the PublicKey field value
 func (o *CreateCertificateCommand) GetPublicKey() string {
-	if o == nil || o.PublicKey.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PublicKey.Get()
+
+	return o.PublicKey
 }
 
-// GetPublicKeyOk returns a tuple with the PublicKey field value if set, nil otherwise
+// GetPublicKeyOk returns a tuple with the PublicKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateCertificateCommand) GetPublicKeyOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.PublicKey.Get(), o.PublicKey.IsSet()
+	return &o.PublicKey, true
 }
 
-// HasPublicKey returns a boolean if a field has been set.
-func (o *CreateCertificateCommand) HasPublicKey() bool {
-	if o != nil && o.PublicKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPublicKey gets a reference to the given NullableString and assigns it to the PublicKey field.
+// SetPublicKey sets field value
 func (o *CreateCertificateCommand) SetPublicKey(v string) {
-	o.PublicKey.Set(&v)
-}
-// SetPublicKeyNil sets the value for PublicKey to be an explicit nil
-func (o *CreateCertificateCommand) SetPublicKeyNil() {
-	o.PublicKey.Set(nil)
+	o.PublicKey = v
 }
 
-// UnsetPublicKey ensures that no value is present for PublicKey, not even an explicit nil
-func (o *CreateCertificateCommand) UnsetPublicKey() {
-	o.PublicKey.Unset()
-}
-
-// GetPrivateKey returns the PrivateKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrivateKey returns the PrivateKey field value
 func (o *CreateCertificateCommand) GetPrivateKey() string {
-	if o == nil || o.PrivateKey.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PrivateKey.Get()
+
+	return o.PrivateKey
 }
 
-// GetPrivateKeyOk returns a tuple with the PrivateKey field value if set, nil otherwise
+// GetPrivateKeyOk returns a tuple with the PrivateKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateCertificateCommand) GetPrivateKeyOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.PrivateKey.Get(), o.PrivateKey.IsSet()
+	return &o.PrivateKey, true
 }
 
-// HasPrivateKey returns a boolean if a field has been set.
-func (o *CreateCertificateCommand) HasPrivateKey() bool {
-	if o != nil && o.PrivateKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPrivateKey gets a reference to the given NullableString and assigns it to the PrivateKey field.
+// SetPrivateKey sets field value
 func (o *CreateCertificateCommand) SetPrivateKey(v string) {
-	o.PrivateKey.Set(&v)
-}
-// SetPrivateKeyNil sets the value for PrivateKey to be an explicit nil
-func (o *CreateCertificateCommand) SetPrivateKeyNil() {
-	o.PrivateKey.Set(nil)
-}
-
-// UnsetPrivateKey ensures that no value is present for PrivateKey, not even an explicit nil
-func (o *CreateCertificateCommand) UnsetPrivateKey() {
-	o.PrivateKey.Unset()
+	o.PrivateKey = v
 }
 
 func (o CreateCertificateCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
-	if o.PublicKey.IsSet() {
-		toSerialize["publicKey"] = o.PublicKey.Get()
+	if true {
+		toSerialize["publicKey"] = o.PublicKey
 	}
-	if o.PrivateKey.IsSet() {
-		toSerialize["privateKey"] = o.PrivateKey.Get()
+	if true {
+		toSerialize["privateKey"] = o.PrivateKey
 	}
 	return json.Marshal(toSerialize)
 }

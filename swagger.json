@@ -707,6 +707,13 @@
         "additionalProperties": false
       },
       "AppDto": {
+        "required": [
+          "channels",
+          "id",
+          "name",
+          "revisions",
+          "storageId"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -714,39 +721,37 @@
             "format": "uuid"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "storageId": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "channels": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelDto"
-            },
-            "nullable": true
+            }
           },
           "revisions": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RevisionDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
       },
       "AppsVm": {
+        "required": [
+          "apps"
+        ],
         "type": "object",
         "properties": {
           "apps": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AppDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -805,6 +810,13 @@
         "additionalProperties": false
       },
       "CertificateDto": {
+        "required": [
+          "channels",
+          "id",
+          "name",
+          "privateKey",
+          "publicKey"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -812,36 +824,34 @@
             "format": "uuid"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "publicKey": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "privateKey": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "channels": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
       },
       "CertificatesVm": {
+        "required": [
+          "certificates"
+        ],
         "type": "object",
         "properties": {
           "certificates": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CertificateDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -930,6 +940,14 @@
         "additionalProperties": false
       },
       "ChannelDto": {
+        "required": [
+          "appId",
+          "domain",
+          "environmentVariables",
+          "id",
+          "name",
+          "revisionSelectionStrategy"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -941,12 +959,10 @@
             "format": "uuid"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "domain": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "revisionSelectionStrategy": {
             "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
@@ -962,8 +978,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EnvironmentVariableDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -977,69 +992,82 @@
         "format": "int32"
       },
       "ChannelsVm": {
+        "required": [
+          "channels"
+        ],
         "type": "object",
         "properties": {
           "channels": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
       },
       "CreateAccountCommand": {
+        "required": [
+          "password",
+          "passwordConfirm",
+          "userName"
+        ],
         "type": "object",
         "properties": {
           "userName": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "password": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "passwordConfirm": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "CreateAppCommand": {
+        "required": [
+          "name",
+          "storageId"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "storageId": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "CreateCertificateCommand": {
+        "required": [
+          "name",
+          "privateKey",
+          "publicKey"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "publicKey": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "privateKey": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "CreateChannelCommand": {
+        "required": [
+          "appId",
+          "name",
+          "revisionSelectionStrategy"
+        ],
         "type": "object",
         "properties": {
           "appId": {
@@ -1047,8 +1075,7 @@
             "format": "uuid"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "domain": {
             "type": "string",
@@ -1075,15 +1102,18 @@
         "additionalProperties": false
       },
       "CreateEnvironmentVariableCommand": {
+        "required": [
+          "channelId",
+          "key",
+          "value"
+        ],
         "type": "object",
         "properties": {
           "key": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "value": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "channelId": {
             "type": "string",
@@ -1093,15 +1123,17 @@
         "additionalProperties": false
       },
       "CreateTokenCommand": {
+        "required": [
+          "password",
+          "userName"
+        ],
         "type": "object",
         "properties": {
           "userName": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "password": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1169,6 +1201,12 @@
         "additionalProperties": false
       },
       "EnvironmentVariableDto": {
+        "required": [
+          "channelId",
+          "id",
+          "key",
+          "value"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1180,39 +1218,41 @@
             "format": "uuid"
           },
           "key": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "value": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "EnvironmentVariablesVm": {
+        "required": [
+          "environmentVariables"
+        ],
         "type": "object",
         "properties": {
           "environmentVariables": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EnvironmentVariableDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
       },
       "RegisterRevisionCommand": {
+        "required": [
+          "appStorageId",
+          "revisionNumber"
+        ],
         "type": "object",
         "properties": {
           "appStorageId": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "revisionNumber": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1262,6 +1302,11 @@
         "additionalProperties": false
       },
       "RevisionDto": {
+        "required": [
+          "appId",
+          "id",
+          "revisionNumber"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1273,21 +1318,22 @@
             "format": "uuid"
           },
           "revisionNumber": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "RevisionsVm": {
+        "required": [
+          "revisions"
+        ],
         "type": "object",
         "properties": {
           "revisions": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RevisionDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false

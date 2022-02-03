@@ -212,7 +212,7 @@ import (
 )
 
 func main() {
-    createAppCommand := *openapiclient.NewCreateAppCommand() // CreateAppCommand |  (optional)
+    createAppCommand := *openapiclient.NewCreateAppCommand("Name_example", "StorageId_example") // CreateAppCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

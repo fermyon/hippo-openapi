@@ -13,14 +13,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct EnvironmentVariablesVm {
-    #[serde(rename = "environmentVariables", skip_serializing_if = "Option::is_none")]
-    pub environment_variables: Option<Vec<crate::models::EnvironmentVariableDto>>,
+    #[serde(rename = "environmentVariables")]
+    pub environment_variables: Vec<crate::models::EnvironmentVariableDto>,
 }
 
 impl EnvironmentVariablesVm {
-    pub fn new() -> EnvironmentVariablesVm {
+    pub fn new(environment_variables: Vec<crate::models::EnvironmentVariableDto>) -> EnvironmentVariablesVm {
         EnvironmentVariablesVm {
-            environment_variables: None,
+            environment_variables,
         }
     }
 }

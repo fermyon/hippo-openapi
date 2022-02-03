@@ -23,10 +23,11 @@ class RevisionsVm {
     /**
      * Constructs a new <code>RevisionsVm</code>.
      * @alias module:model/RevisionsVm
+     * @param revisions {Array.<module:model/RevisionDto>} 
      */
-    constructor() { 
+    constructor(revisions) { 
         
-        RevisionsVm.initialize(this);
+        RevisionsVm.initialize(this, revisions);
     }
 
     /**
@@ -34,7 +35,8 @@ class RevisionsVm {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, revisions) { 
+        obj['revisions'] = revisions;
     }
 
     /**
