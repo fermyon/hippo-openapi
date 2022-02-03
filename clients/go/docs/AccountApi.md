@@ -28,7 +28,7 @@ import (
 )
 
 func main() {
-    createTokenCommand := *openapiclient.NewCreateTokenCommand() // CreateTokenCommand |  (optional)
+    createTokenCommand := *openapiclient.NewCreateTokenCommand("UserName_example", "Password_example") // CreateTokenCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -92,7 +92,7 @@ import (
 )
 
 func main() {
-    createAccountCommand := *openapiclient.NewCreateAccountCommand() // CreateAccountCommand |  (optional)
+    createAccountCommand := *openapiclient.NewCreateAccountCommand("UserName_example", "Password_example", "PasswordConfirm_example") // CreateAccountCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

@@ -13,35 +13,35 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ChannelDto {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "appId", skip_serializing_if = "Option::is_none")]
-    pub app_id: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
-    pub domain: Option<String>,
-    #[serde(rename = "revisionSelectionStrategy", skip_serializing_if = "Option::is_none")]
-    pub revision_selection_strategy: Option<crate::models::ChannelRevisionSelectionStrategy>,
+    #[serde(rename = "id")]
+    pub id: String,
+    #[serde(rename = "appId")]
+    pub app_id: String,
+    #[serde(rename = "name")]
+    pub name: String,
+    #[serde(rename = "domain")]
+    pub domain: String,
+    #[serde(rename = "revisionSelectionStrategy")]
+    pub revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy,
     #[serde(rename = "activeRevision", skip_serializing_if = "Option::is_none")]
     pub active_revision: Option<Box<crate::models::Revision>>,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<String>,
-    #[serde(rename = "environmentVariables", skip_serializing_if = "Option::is_none")]
-    pub environment_variables: Option<Vec<crate::models::EnvironmentVariableDto>>,
+    #[serde(rename = "environmentVariables")]
+    pub environment_variables: Vec<crate::models::EnvironmentVariableDto>,
 }
 
 impl ChannelDto {
-    pub fn new() -> ChannelDto {
+    pub fn new(id: String, app_id: String, name: String, domain: String, revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy, environment_variables: Vec<crate::models::EnvironmentVariableDto>) -> ChannelDto {
         ChannelDto {
-            id: None,
-            app_id: None,
-            name: None,
-            domain: None,
-            revision_selection_strategy: None,
+            id,
+            app_id,
+            name,
+            domain,
+            revision_selection_strategy,
             active_revision: None,
             range_rule: None,
-            environment_variables: None,
+            environment_variables,
         }
     }
 }

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channels** | [**[ChannelDto]**](ChannelDto.md) |  | [optional] 
+**channels** | [**[ChannelDto]**](ChannelDto.md) |  | 
 
 

@@ -13,14 +13,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ChannelsVm {
-    #[serde(rename = "channels", skip_serializing_if = "Option::is_none")]
-    pub channels: Option<Vec<crate::models::ChannelDto>>,
+    #[serde(rename = "channels")]
+    pub channels: Vec<crate::models::ChannelDto>,
 }
 
 impl ChannelsVm {
-    pub fn new() -> ChannelsVm {
+    pub fn new(channels: Vec<crate::models::ChannelDto>) -> ChannelsVm {
         ChannelsVm {
-            channels: None,
+            channels,
         }
     }
 }

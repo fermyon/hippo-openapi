@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | [optional] 
-**publicKey** | **String** |  | [optional] 
-**privateKey** | **String** |  | [optional] 
+**name** | **String** |  | 
+**publicKey** | **String** |  | 
+**privateKey** | **String** |  | 
 
 

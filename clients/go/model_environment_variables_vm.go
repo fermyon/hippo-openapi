@@ -16,15 +16,16 @@ import (
 
 // EnvironmentVariablesVm struct for EnvironmentVariablesVm
 type EnvironmentVariablesVm struct {
-	EnvironmentVariables []EnvironmentVariableDto `json:"environmentVariables,omitempty"`
+	EnvironmentVariables []EnvironmentVariableDto `json:"environmentVariables"`
 }
 
 // NewEnvironmentVariablesVm instantiates a new EnvironmentVariablesVm object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentVariablesVm() *EnvironmentVariablesVm {
+func NewEnvironmentVariablesVm(environmentVariables []EnvironmentVariableDto) *EnvironmentVariablesVm {
 	this := EnvironmentVariablesVm{}
+	this.EnvironmentVariables = environmentVariables
 	return &this
 }
 
@@ -36,42 +37,33 @@ func NewEnvironmentVariablesVmWithDefaults() *EnvironmentVariablesVm {
 	return &this
 }
 
-// GetEnvironmentVariables returns the EnvironmentVariables field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEnvironmentVariables returns the EnvironmentVariables field value
 func (o *EnvironmentVariablesVm) GetEnvironmentVariables() []EnvironmentVariableDto {
-	if o == nil  {
+	if o == nil {
 		var ret []EnvironmentVariableDto
 		return ret
 	}
+
 	return o.EnvironmentVariables
 }
 
-// GetEnvironmentVariablesOk returns a tuple with the EnvironmentVariables field value if set, nil otherwise
+// GetEnvironmentVariablesOk returns a tuple with the EnvironmentVariables field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnvironmentVariablesVm) GetEnvironmentVariablesOk() (*[]EnvironmentVariableDto, bool) {
-	if o == nil || o.EnvironmentVariables == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.EnvironmentVariables, true
 }
 
-// HasEnvironmentVariables returns a boolean if a field has been set.
-func (o *EnvironmentVariablesVm) HasEnvironmentVariables() bool {
-	if o != nil && o.EnvironmentVariables != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetEnvironmentVariables gets a reference to the given []EnvironmentVariableDto and assigns it to the EnvironmentVariables field.
+// SetEnvironmentVariables sets field value
 func (o *EnvironmentVariablesVm) SetEnvironmentVariables(v []EnvironmentVariableDto) {
 	o.EnvironmentVariables = v
 }
 
 func (o EnvironmentVariablesVm) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.EnvironmentVariables != nil {
+	if true {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
 	}
 	return json.Marshal(toSerialize)

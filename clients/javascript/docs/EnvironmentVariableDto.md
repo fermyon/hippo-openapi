@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**channelId** | **String** |  | [optional] 
-**key** | **String** |  | [optional] 
-**value** | **String** |  | [optional] 
+**id** | **String** |  | 
+**channelId** | **String** |  | 
+**key** | **String** |  | 
+**value** | **String** |  | 
 
 

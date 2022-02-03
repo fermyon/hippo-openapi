@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Certificates** | Pointer to [**[]CertificateDto**](CertificateDto.md) |  | [optional] 
+**Certificates** | [**[]CertificateDto**](CertificateDto.md) |  | 
 
 ## Methods
 
 ### NewCertificatesVm
 
-`func NewCertificatesVm() *CertificatesVm`
+`func NewCertificatesVm(certificates []CertificateDto, ) *CertificatesVm`
 
 NewCertificatesVm instantiates a new CertificatesVm object
 This constructor will assign default values to properties that have it defined,
@@ -44,22 +44,7 @@ and a boolean to check if the value has been set.
 
 SetCertificates sets Certificates field to given value.
 
-### HasCertificates
 
-`func (o *CertificatesVm) HasCertificates() bool`
-
-HasCertificates returns a boolean if a field has been set.
-
-### SetCertificatesNil
-
-`func (o *CertificatesVm) SetCertificatesNil(b bool)`
-
- SetCertificatesNil sets the value for Certificates to be an explicit nil
-
-### UnsetCertificates
-`func (o *CertificatesVm) UnsetCertificates()`
-
-UnsetCertificates ensures that no value is present for Certificates, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**AppId** | **string** |  | 
+**Name** | **string** |  | 
 **Domain** | Pointer to **NullableString** |  | [optional] 
-**RevisionSelectionStrategy** | Pointer to [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | [optional] 
+**RevisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **RangeRule** | Pointer to **NullableString** |  | [optional] 
 **ActiveRevisionId** | Pointer to **NullableString** |  | [optional] 
 **CertificateId** | Pointer to **NullableString** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewCreateChannelCommand
 
-`func NewCreateChannelCommand() *CreateChannelCommand`
+`func NewCreateChannelCommand(appId string, name string, revisionSelectionStrategy ChannelRevisionSelectionStrategy, ) *CreateChannelCommand`
 
 NewCreateChannelCommand instantiates a new CreateChannelCommand object
 This constructor will assign default values to properties that have it defined,
@@ -50,11 +50,6 @@ and a boolean to check if the value has been set.
 
 SetAppId sets AppId field to given value.
 
-### HasAppId
-
-`func (o *CreateChannelCommand) HasAppId() bool`
-
-HasAppId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -75,22 +70,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *CreateChannelCommand) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *CreateChannelCommand) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *CreateChannelCommand) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDomain
 
 `func (o *CreateChannelCommand) GetDomain() string`
@@ -145,11 +125,6 @@ and a boolean to check if the value has been set.
 
 SetRevisionSelectionStrategy sets RevisionSelectionStrategy field to given value.
 
-### HasRevisionSelectionStrategy
-
-`func (o *CreateChannelCommand) HasRevisionSelectionStrategy() bool`
-
-HasRevisionSelectionStrategy returns a boolean if a field has been set.
 
 ### GetRangeRule
 

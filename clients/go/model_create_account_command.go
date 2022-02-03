@@ -16,17 +16,20 @@ import (
 
 // CreateAccountCommand struct for CreateAccountCommand
 type CreateAccountCommand struct {
-	UserName NullableString `json:"userName,omitempty"`
-	Password NullableString `json:"password,omitempty"`
-	PasswordConfirm NullableString `json:"passwordConfirm,omitempty"`
+	UserName string `json:"userName"`
+	Password string `json:"password"`
+	PasswordConfirm string `json:"passwordConfirm"`
 }
 
 // NewCreateAccountCommand instantiates a new CreateAccountCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateAccountCommand() *CreateAccountCommand {
+func NewCreateAccountCommand(userName string, password string, passwordConfirm string) *CreateAccountCommand {
 	this := CreateAccountCommand{}
+	this.UserName = userName
+	this.Password = password
+	this.PasswordConfirm = passwordConfirm
 	return &this
 }
 
@@ -38,142 +41,88 @@ func NewCreateAccountCommandWithDefaults() *CreateAccountCommand {
 	return &this
 }
 
-// GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserName returns the UserName field value
 func (o *CreateAccountCommand) GetUserName() string {
-	if o == nil || o.UserName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UserName.Get()
+
+	return o.UserName
 }
 
-// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
+// GetUserNameOk returns a tuple with the UserName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateAccountCommand) GetUserNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.UserName.Get(), o.UserName.IsSet()
+	return &o.UserName, true
 }
 
-// HasUserName returns a boolean if a field has been set.
-func (o *CreateAccountCommand) HasUserName() bool {
-	if o != nil && o.UserName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUserName gets a reference to the given NullableString and assigns it to the UserName field.
+// SetUserName sets field value
 func (o *CreateAccountCommand) SetUserName(v string) {
-	o.UserName.Set(&v)
-}
-// SetUserNameNil sets the value for UserName to be an explicit nil
-func (o *CreateAccountCommand) SetUserNameNil() {
-	o.UserName.Set(nil)
+	o.UserName = v
 }
 
-// UnsetUserName ensures that no value is present for UserName, not even an explicit nil
-func (o *CreateAccountCommand) UnsetUserName() {
-	o.UserName.Unset()
-}
-
-// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPassword returns the Password field value
 func (o *CreateAccountCommand) GetPassword() string {
-	if o == nil || o.Password.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Password.Get()
+
+	return o.Password
 }
 
-// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
+// GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateAccountCommand) GetPasswordOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Password.Get(), o.Password.IsSet()
+	return &o.Password, true
 }
 
-// HasPassword returns a boolean if a field has been set.
-func (o *CreateAccountCommand) HasPassword() bool {
-	if o != nil && o.Password.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
+// SetPassword sets field value
 func (o *CreateAccountCommand) SetPassword(v string) {
-	o.Password.Set(&v)
-}
-// SetPasswordNil sets the value for Password to be an explicit nil
-func (o *CreateAccountCommand) SetPasswordNil() {
-	o.Password.Set(nil)
+	o.Password = v
 }
 
-// UnsetPassword ensures that no value is present for Password, not even an explicit nil
-func (o *CreateAccountCommand) UnsetPassword() {
-	o.Password.Unset()
-}
-
-// GetPasswordConfirm returns the PasswordConfirm field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPasswordConfirm returns the PasswordConfirm field value
 func (o *CreateAccountCommand) GetPasswordConfirm() string {
-	if o == nil || o.PasswordConfirm.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PasswordConfirm.Get()
+
+	return o.PasswordConfirm
 }
 
-// GetPasswordConfirmOk returns a tuple with the PasswordConfirm field value if set, nil otherwise
+// GetPasswordConfirmOk returns a tuple with the PasswordConfirm field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateAccountCommand) GetPasswordConfirmOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.PasswordConfirm.Get(), o.PasswordConfirm.IsSet()
+	return &o.PasswordConfirm, true
 }
 
-// HasPasswordConfirm returns a boolean if a field has been set.
-func (o *CreateAccountCommand) HasPasswordConfirm() bool {
-	if o != nil && o.PasswordConfirm.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPasswordConfirm gets a reference to the given NullableString and assigns it to the PasswordConfirm field.
+// SetPasswordConfirm sets field value
 func (o *CreateAccountCommand) SetPasswordConfirm(v string) {
-	o.PasswordConfirm.Set(&v)
-}
-// SetPasswordConfirmNil sets the value for PasswordConfirm to be an explicit nil
-func (o *CreateAccountCommand) SetPasswordConfirmNil() {
-	o.PasswordConfirm.Set(nil)
-}
-
-// UnsetPasswordConfirm ensures that no value is present for PasswordConfirm, not even an explicit nil
-func (o *CreateAccountCommand) UnsetPasswordConfirm() {
-	o.PasswordConfirm.Unset()
+	o.PasswordConfirm = v
 }
 
 func (o CreateAccountCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.UserName.IsSet() {
-		toSerialize["userName"] = o.UserName.Get()
+	if true {
+		toSerialize["userName"] = o.UserName
 	}
-	if o.Password.IsSet() {
-		toSerialize["password"] = o.Password.Get()
+	if true {
+		toSerialize["password"] = o.Password
 	}
-	if o.PasswordConfirm.IsSet() {
-		toSerialize["passwordConfirm"] = o.PasswordConfirm.Get()
+	if true {
+		toSerialize["passwordConfirm"] = o.PasswordConfirm
 	}
 	return json.Marshal(toSerialize)
 }

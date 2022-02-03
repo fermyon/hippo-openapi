@@ -16,19 +16,24 @@ import (
 
 // CertificateDto struct for CertificateDto
 type CertificateDto struct {
-	Id *string `json:"id,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	PublicKey NullableString `json:"publicKey,omitempty"`
-	PrivateKey NullableString `json:"privateKey,omitempty"`
-	Channels []ChannelDto `json:"channels,omitempty"`
+	Id string `json:"id"`
+	Name string `json:"name"`
+	PublicKey string `json:"publicKey"`
+	PrivateKey string `json:"privateKey"`
+	Channels []ChannelDto `json:"channels"`
 }
 
 // NewCertificateDto instantiates a new CertificateDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCertificateDto() *CertificateDto {
+func NewCertificateDto(id string, name string, publicKey string, privateKey string, channels []ChannelDto) *CertificateDto {
 	this := CertificateDto{}
+	this.Id = id
+	this.Name = name
+	this.PublicKey = publicKey
+	this.PrivateKey = privateKey
+	this.Channels = channels
 	return &this
 }
 
@@ -40,212 +45,141 @@ func NewCertificateDtoWithDefaults() *CertificateDto {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *CertificateDto) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *CertificateDto) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *CertificateDto) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *CertificateDto) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *CertificateDto) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateDto) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *CertificateDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *CertificateDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CertificateDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CertificateDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPublicKey returns the PublicKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPublicKey returns the PublicKey field value
 func (o *CertificateDto) GetPublicKey() string {
-	if o == nil || o.PublicKey.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PublicKey.Get()
+
+	return o.PublicKey
 }
 
-// GetPublicKeyOk returns a tuple with the PublicKey field value if set, nil otherwise
+// GetPublicKeyOk returns a tuple with the PublicKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateDto) GetPublicKeyOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.PublicKey.Get(), o.PublicKey.IsSet()
+	return &o.PublicKey, true
 }
 
-// HasPublicKey returns a boolean if a field has been set.
-func (o *CertificateDto) HasPublicKey() bool {
-	if o != nil && o.PublicKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPublicKey gets a reference to the given NullableString and assigns it to the PublicKey field.
+// SetPublicKey sets field value
 func (o *CertificateDto) SetPublicKey(v string) {
-	o.PublicKey.Set(&v)
-}
-// SetPublicKeyNil sets the value for PublicKey to be an explicit nil
-func (o *CertificateDto) SetPublicKeyNil() {
-	o.PublicKey.Set(nil)
+	o.PublicKey = v
 }
 
-// UnsetPublicKey ensures that no value is present for PublicKey, not even an explicit nil
-func (o *CertificateDto) UnsetPublicKey() {
-	o.PublicKey.Unset()
-}
-
-// GetPrivateKey returns the PrivateKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPrivateKey returns the PrivateKey field value
 func (o *CertificateDto) GetPrivateKey() string {
-	if o == nil || o.PrivateKey.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PrivateKey.Get()
+
+	return o.PrivateKey
 }
 
-// GetPrivateKeyOk returns a tuple with the PrivateKey field value if set, nil otherwise
+// GetPrivateKeyOk returns a tuple with the PrivateKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateDto) GetPrivateKeyOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.PrivateKey.Get(), o.PrivateKey.IsSet()
+	return &o.PrivateKey, true
 }
 
-// HasPrivateKey returns a boolean if a field has been set.
-func (o *CertificateDto) HasPrivateKey() bool {
-	if o != nil && o.PrivateKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPrivateKey gets a reference to the given NullableString and assigns it to the PrivateKey field.
+// SetPrivateKey sets field value
 func (o *CertificateDto) SetPrivateKey(v string) {
-	o.PrivateKey.Set(&v)
-}
-// SetPrivateKeyNil sets the value for PrivateKey to be an explicit nil
-func (o *CertificateDto) SetPrivateKeyNil() {
-	o.PrivateKey.Set(nil)
+	o.PrivateKey = v
 }
 
-// UnsetPrivateKey ensures that no value is present for PrivateKey, not even an explicit nil
-func (o *CertificateDto) UnsetPrivateKey() {
-	o.PrivateKey.Unset()
-}
-
-// GetChannels returns the Channels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannels returns the Channels field value
 func (o *CertificateDto) GetChannels() []ChannelDto {
-	if o == nil  {
+	if o == nil {
 		var ret []ChannelDto
 		return ret
 	}
+
 	return o.Channels
 }
 
-// GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
+// GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateDto) GetChannelsOk() (*[]ChannelDto, bool) {
-	if o == nil || o.Channels == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Channels, true
 }
 
-// HasChannels returns a boolean if a field has been set.
-func (o *CertificateDto) HasChannels() bool {
-	if o != nil && o.Channels != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetChannels gets a reference to the given []ChannelDto and assigns it to the Channels field.
+// SetChannels sets field value
 func (o *CertificateDto) SetChannels(v []ChannelDto) {
 	o.Channels = v
 }
 
 func (o CertificateDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
+	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
-	if o.PublicKey.IsSet() {
-		toSerialize["publicKey"] = o.PublicKey.Get()
+	if true {
+		toSerialize["publicKey"] = o.PublicKey
 	}
-	if o.PrivateKey.IsSet() {
-		toSerialize["privateKey"] = o.PrivateKey.Get()
+	if true {
+		toSerialize["privateKey"] = o.PrivateKey
 	}
-	if o.Channels != nil {
+	if true {
 		toSerialize["channels"] = o.Channels
 	}
 	return json.Marshal(toSerialize)

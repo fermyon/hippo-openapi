@@ -16,19 +16,24 @@ import (
 
 // AppDto struct for AppDto
 type AppDto struct {
-	Id *string `json:"id,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	StorageId NullableString `json:"storageId,omitempty"`
-	Channels []ChannelDto `json:"channels,omitempty"`
-	Revisions []RevisionDto `json:"revisions,omitempty"`
+	Id string `json:"id"`
+	Name string `json:"name"`
+	StorageId string `json:"storageId"`
+	Channels []ChannelDto `json:"channels"`
+	Revisions []RevisionDto `json:"revisions"`
 }
 
 // NewAppDto instantiates a new AppDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppDto() *AppDto {
+func NewAppDto(id string, name string, storageId string, channels []ChannelDto, revisions []RevisionDto) *AppDto {
 	this := AppDto{}
+	this.Id = id
+	this.Name = name
+	this.StorageId = storageId
+	this.Channels = channels
+	this.Revisions = revisions
 	return &this
 }
 
@@ -40,203 +45,141 @@ func NewAppDtoWithDefaults() *AppDto {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *AppDto) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AppDto) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AppDto) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *AppDto) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *AppDto) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppDto) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *AppDto) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *AppDto) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *AppDto) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *AppDto) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetStorageId returns the StorageId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStorageId returns the StorageId field value
 func (o *AppDto) GetStorageId() string {
-	if o == nil || o.StorageId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.StorageId.Get()
+
+	return o.StorageId
 }
 
-// GetStorageIdOk returns a tuple with the StorageId field value if set, nil otherwise
+// GetStorageIdOk returns a tuple with the StorageId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppDto) GetStorageIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.StorageId.Get(), o.StorageId.IsSet()
+	return &o.StorageId, true
 }
 
-// HasStorageId returns a boolean if a field has been set.
-func (o *AppDto) HasStorageId() bool {
-	if o != nil && o.StorageId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStorageId gets a reference to the given NullableString and assigns it to the StorageId field.
+// SetStorageId sets field value
 func (o *AppDto) SetStorageId(v string) {
-	o.StorageId.Set(&v)
-}
-// SetStorageIdNil sets the value for StorageId to be an explicit nil
-func (o *AppDto) SetStorageIdNil() {
-	o.StorageId.Set(nil)
+	o.StorageId = v
 }
 
-// UnsetStorageId ensures that no value is present for StorageId, not even an explicit nil
-func (o *AppDto) UnsetStorageId() {
-	o.StorageId.Unset()
-}
-
-// GetChannels returns the Channels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChannels returns the Channels field value
 func (o *AppDto) GetChannels() []ChannelDto {
-	if o == nil  {
+	if o == nil {
 		var ret []ChannelDto
 		return ret
 	}
+
 	return o.Channels
 }
 
-// GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
+// GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppDto) GetChannelsOk() (*[]ChannelDto, bool) {
-	if o == nil || o.Channels == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Channels, true
 }
 
-// HasChannels returns a boolean if a field has been set.
-func (o *AppDto) HasChannels() bool {
-	if o != nil && o.Channels != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetChannels gets a reference to the given []ChannelDto and assigns it to the Channels field.
+// SetChannels sets field value
 func (o *AppDto) SetChannels(v []ChannelDto) {
 	o.Channels = v
 }
 
-// GetRevisions returns the Revisions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRevisions returns the Revisions field value
 func (o *AppDto) GetRevisions() []RevisionDto {
-	if o == nil  {
+	if o == nil {
 		var ret []RevisionDto
 		return ret
 	}
+
 	return o.Revisions
 }
 
-// GetRevisionsOk returns a tuple with the Revisions field value if set, nil otherwise
+// GetRevisionsOk returns a tuple with the Revisions field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppDto) GetRevisionsOk() (*[]RevisionDto, bool) {
-	if o == nil || o.Revisions == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Revisions, true
 }
 
-// HasRevisions returns a boolean if a field has been set.
-func (o *AppDto) HasRevisions() bool {
-	if o != nil && o.Revisions != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRevisions gets a reference to the given []RevisionDto and assigns it to the Revisions field.
+// SetRevisions sets field value
 func (o *AppDto) SetRevisions(v []RevisionDto) {
 	o.Revisions = v
 }
 
 func (o AppDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
+	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
-	if o.StorageId.IsSet() {
-		toSerialize["storageId"] = o.StorageId.Get()
+	if true {
+		toSerialize["storageId"] = o.StorageId
 	}
-	if o.Channels != nil {
+	if true {
 		toSerialize["channels"] = o.Channels
 	}
-	if o.Revisions != nil {
+	if true {
 		toSerialize["revisions"] = o.Revisions
 	}
 	return json.Marshal(toSerialize)

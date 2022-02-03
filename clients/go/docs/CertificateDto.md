@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**PublicKey** | Pointer to **NullableString** |  | [optional] 
-**PrivateKey** | Pointer to **NullableString** |  | [optional] 
-**Channels** | Pointer to [**[]ChannelDto**](ChannelDto.md) |  | [optional] 
+**Id** | **string** |  | 
+**Name** | **string** |  | 
+**PublicKey** | **string** |  | 
+**PrivateKey** | **string** |  | 
+**Channels** | [**[]ChannelDto**](ChannelDto.md) |  | 
 
 ## Methods
 
 ### NewCertificateDto
 
-`func NewCertificateDto() *CertificateDto`
+`func NewCertificateDto(id string, name string, publicKey string, privateKey string, channels []ChannelDto, ) *CertificateDto`
 
 NewCertificateDto instantiates a new CertificateDto object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *CertificateDto) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -73,22 +68,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *CertificateDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *CertificateDto) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *CertificateDto) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPublicKey
 
 `func (o *CertificateDto) GetPublicKey() string`
@@ -108,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetPublicKey sets PublicKey field to given value.
 
-### HasPublicKey
 
-`func (o *CertificateDto) HasPublicKey() bool`
-
-HasPublicKey returns a boolean if a field has been set.
-
-### SetPublicKeyNil
-
-`func (o *CertificateDto) SetPublicKeyNil(b bool)`
-
- SetPublicKeyNil sets the value for PublicKey to be an explicit nil
-
-### UnsetPublicKey
-`func (o *CertificateDto) UnsetPublicKey()`
-
-UnsetPublicKey ensures that no value is present for PublicKey, not even an explicit nil
 ### GetPrivateKey
 
 `func (o *CertificateDto) GetPrivateKey() string`
@@ -143,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetPrivateKey sets PrivateKey field to given value.
 
-### HasPrivateKey
 
-`func (o *CertificateDto) HasPrivateKey() bool`
-
-HasPrivateKey returns a boolean if a field has been set.
-
-### SetPrivateKeyNil
-
-`func (o *CertificateDto) SetPrivateKeyNil(b bool)`
-
- SetPrivateKeyNil sets the value for PrivateKey to be an explicit nil
-
-### UnsetPrivateKey
-`func (o *CertificateDto) UnsetPrivateKey()`
-
-UnsetPrivateKey ensures that no value is present for PrivateKey, not even an explicit nil
 ### GetChannels
 
 `func (o *CertificateDto) GetChannels() []ChannelDto`
@@ -178,22 +128,7 @@ and a boolean to check if the value has been set.
 
 SetChannels sets Channels field to given value.
 
-### HasChannels
 
-`func (o *CertificateDto) HasChannels() bool`
-
-HasChannels returns a boolean if a field has been set.
-
-### SetChannelsNil
-
-`func (o *CertificateDto) SetChannelsNil(b bool)`
-
- SetChannelsNil sets the value for Channels to be an explicit nil
-
-### UnsetChannels
-`func (o *CertificateDto) UnsetChannels()`
-
-UnsetChannels ensures that no value is present for Channels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

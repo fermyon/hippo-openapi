@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**revisions** | [**[RevisionDto]**](RevisionDto.md) |  | [optional] 
+**revisions** | [**[RevisionDto]**](RevisionDto.md) |  | 
 
 

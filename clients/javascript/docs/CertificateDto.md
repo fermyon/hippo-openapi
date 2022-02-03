@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
-**publicKey** | **String** |  | [optional] 
-**privateKey** | **String** |  | [optional] 
-**channels** | [**[ChannelDto]**](ChannelDto.md) |  | [optional] 
+**id** | **String** |  | 
+**name** | **String** |  | 
+**publicKey** | **String** |  | 
+**privateKey** | **String** |  | 
+**channels** | [**[ChannelDto]**](ChannelDto.md) |  | 
 
 

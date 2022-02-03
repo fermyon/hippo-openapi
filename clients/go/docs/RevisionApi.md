@@ -212,7 +212,7 @@ import (
 )
 
 func main() {
-    registerRevisionCommand := *openapiclient.NewRegisterRevisionCommand() // RegisterRevisionCommand |  (optional)
+    registerRevisionCommand := *openapiclient.NewRegisterRevisionCommand("AppStorageId_example", "RevisionNumber_example") // RegisterRevisionCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

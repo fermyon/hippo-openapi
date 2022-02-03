@@ -13,20 +13,20 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateCertificateCommand {
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "publicKey", skip_serializing_if = "Option::is_none")]
-    pub public_key: Option<String>,
-    #[serde(rename = "privateKey", skip_serializing_if = "Option::is_none")]
-    pub private_key: Option<String>,
+    #[serde(rename = "name")]
+    pub name: String,
+    #[serde(rename = "publicKey")]
+    pub public_key: String,
+    #[serde(rename = "privateKey")]
+    pub private_key: String,
 }
 
 impl CreateCertificateCommand {
-    pub fn new() -> CreateCertificateCommand {
+    pub fn new(name: String, public_key: String, private_key: String) -> CreateCertificateCommand {
         CreateCertificateCommand {
-            name: None,
-            public_key: None,
-            private_key: None,
+            name,
+            public_key,
+            private_key,
         }
     }
 }

@@ -13,14 +13,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateChannelCommand {
-    #[serde(rename = "appId", skip_serializing_if = "Option::is_none")]
-    pub app_id: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
+    #[serde(rename = "appId")]
+    pub app_id: String,
+    #[serde(rename = "name")]
+    pub name: String,
     #[serde(rename = "domain", skip_serializing_if = "Option::is_none")]
     pub domain: Option<String>,
-    #[serde(rename = "revisionSelectionStrategy", skip_serializing_if = "Option::is_none")]
-    pub revision_selection_strategy: Option<crate::models::ChannelRevisionSelectionStrategy>,
+    #[serde(rename = "revisionSelectionStrategy")]
+    pub revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<String>,
     #[serde(rename = "activeRevisionId", skip_serializing_if = "Option::is_none")]
@@ -30,12 +30,12 @@ pub struct CreateChannelCommand {
 }
 
 impl CreateChannelCommand {
-    pub fn new() -> CreateChannelCommand {
+    pub fn new(app_id: String, name: String, revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy) -> CreateChannelCommand {
         CreateChannelCommand {
-            app_id: None,
-            name: None,
+            app_id,
+            name,
             domain: None,
-            revision_selection_strategy: None,
+            revision_selection_strategy,
             range_rule: None,
             active_revision_id: None,
             certificate_id: None,

@@ -13,20 +13,20 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateAccountCommand {
-    #[serde(rename = "userName", skip_serializing_if = "Option::is_none")]
-    pub user_name: Option<String>,
-    #[serde(rename = "password", skip_serializing_if = "Option::is_none")]
-    pub password: Option<String>,
-    #[serde(rename = "passwordConfirm", skip_serializing_if = "Option::is_none")]
-    pub password_confirm: Option<String>,
+    #[serde(rename = "userName")]
+    pub user_name: String,
+    #[serde(rename = "password")]
+    pub password: String,
+    #[serde(rename = "passwordConfirm")]
+    pub password_confirm: String,
 }
 
 impl CreateAccountCommand {
-    pub fn new() -> CreateAccountCommand {
+    pub fn new(user_name: String, password: String, password_confirm: String) -> CreateAccountCommand {
         CreateAccountCommand {
-            user_name: None,
-            password: None,
-            password_confirm: None,
+            user_name,
+            password,
+            password_confirm,
         }
     }
 }

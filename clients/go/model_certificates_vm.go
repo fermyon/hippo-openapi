@@ -16,15 +16,16 @@ import (
 
 // CertificatesVm struct for CertificatesVm
 type CertificatesVm struct {
-	Certificates []CertificateDto `json:"certificates,omitempty"`
+	Certificates []CertificateDto `json:"certificates"`
 }
 
 // NewCertificatesVm instantiates a new CertificatesVm object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCertificatesVm() *CertificatesVm {
+func NewCertificatesVm(certificates []CertificateDto) *CertificatesVm {
 	this := CertificatesVm{}
+	this.Certificates = certificates
 	return &this
 }
 
@@ -36,42 +37,33 @@ func NewCertificatesVmWithDefaults() *CertificatesVm {
 	return &this
 }
 
-// GetCertificates returns the Certificates field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCertificates returns the Certificates field value
 func (o *CertificatesVm) GetCertificates() []CertificateDto {
-	if o == nil  {
+	if o == nil {
 		var ret []CertificateDto
 		return ret
 	}
+
 	return o.Certificates
 }
 
-// GetCertificatesOk returns a tuple with the Certificates field value if set, nil otherwise
+// GetCertificatesOk returns a tuple with the Certificates field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificatesVm) GetCertificatesOk() (*[]CertificateDto, bool) {
-	if o == nil || o.Certificates == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Certificates, true
 }
 
-// HasCertificates returns a boolean if a field has been set.
-func (o *CertificatesVm) HasCertificates() bool {
-	if o != nil && o.Certificates != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetCertificates gets a reference to the given []CertificateDto and assigns it to the Certificates field.
+// SetCertificates sets field value
 func (o *CertificatesVm) SetCertificates(v []CertificateDto) {
 	o.Certificates = v
 }
 
 func (o CertificatesVm) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Certificates != nil {
+	if true {
 		toSerialize["certificates"] = o.Certificates
 	}
 	return json.Marshal(toSerialize)

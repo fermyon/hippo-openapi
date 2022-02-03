@@ -22,10 +22,12 @@ class CreateTokenCommand {
     /**
      * Constructs a new <code>CreateTokenCommand</code>.
      * @alias module:model/CreateTokenCommand
+     * @param userName {String} 
+     * @param password {String} 
      */
-    constructor() { 
+    constructor(userName, password) { 
         
-        CreateTokenCommand.initialize(this);
+        CreateTokenCommand.initialize(this, userName, password);
     }
 
     /**
@@ -33,7 +35,9 @@ class CreateTokenCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, userName, password) { 
+        obj['userName'] = userName;
+        obj['password'] = password;
     }
 
     /**

@@ -22,10 +22,12 @@ class RegisterRevisionCommand {
     /**
      * Constructs a new <code>RegisterRevisionCommand</code>.
      * @alias module:model/RegisterRevisionCommand
+     * @param appStorageId {String} 
+     * @param revisionNumber {String} 
      */
-    constructor() { 
+    constructor(appStorageId, revisionNumber) { 
         
-        RegisterRevisionCommand.initialize(this);
+        RegisterRevisionCommand.initialize(this, appStorageId, revisionNumber);
     }
 
     /**
@@ -33,7 +35,9 @@ class RegisterRevisionCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, appStorageId, revisionNumber) { 
+        obj['appStorageId'] = appStorageId;
+        obj['revisionNumber'] = revisionNumber;
     }
 
     /**

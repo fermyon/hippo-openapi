@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<**String**> |  | [optional]
-**app_id** | Option<**String**> |  | [optional]
-**name** | Option<**String**> |  | [optional]
-**domain** | Option<**String**> |  | [optional]
-**revision_selection_strategy** | Option<[**crate::models::ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md)> |  | [optional]
+**id** | **String** |  | 
+**app_id** | **String** |  | 
+**name** | **String** |  | 
+**domain** | **String** |  | 
+**revision_selection_strategy** | [**crate::models::ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **active_revision** | Option<[**crate::models::Revision**](Revision.md)> |  | [optional]
 **range_rule** | Option<**String**> |  | [optional]
-**environment_variables** | Option<[**Vec<crate::models::EnvironmentVariableDto>**](EnvironmentVariableDto.md)> |  | [optional]
+**environment_variables** | [**Vec<crate::models::EnvironmentVariableDto>**](EnvironmentVariableDto.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

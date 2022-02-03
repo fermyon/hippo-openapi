@@ -13,14 +13,14 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AppsVm {
-    #[serde(rename = "apps", skip_serializing_if = "Option::is_none")]
-    pub apps: Option<Vec<crate::models::AppDto>>,
+    #[serde(rename = "apps")]
+    pub apps: Vec<crate::models::AppDto>,
 }
 
 impl AppsVm {
-    pub fn new() -> AppsVm {
+    pub fn new(apps: Vec<crate::models::AppDto>) -> AppsVm {
         AppsVm {
-            apps: None,
+            apps,
         }
     }
 }

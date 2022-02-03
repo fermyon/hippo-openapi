@@ -16,16 +16,18 @@ import (
 
 // CreateAppCommand struct for CreateAppCommand
 type CreateAppCommand struct {
-	Name NullableString `json:"name,omitempty"`
-	StorageId NullableString `json:"storageId,omitempty"`
+	Name string `json:"name"`
+	StorageId string `json:"storageId"`
 }
 
 // NewCreateAppCommand instantiates a new CreateAppCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateAppCommand() *CreateAppCommand {
+func NewCreateAppCommand(name string, storageId string) *CreateAppCommand {
 	this := CreateAppCommand{}
+	this.Name = name
+	this.StorageId = storageId
 	return &this
 }
 
@@ -37,97 +39,61 @@ func NewCreateAppCommandWithDefaults() *CreateAppCommand {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *CreateAppCommand) GetName() string {
-	if o == nil || o.Name.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateAppCommand) GetNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *CreateAppCommand) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *CreateAppCommand) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CreateAppCommand) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CreateAppCommand) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetStorageId returns the StorageId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStorageId returns the StorageId field value
 func (o *CreateAppCommand) GetStorageId() string {
-	if o == nil || o.StorageId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.StorageId.Get()
+
+	return o.StorageId
 }
 
-// GetStorageIdOk returns a tuple with the StorageId field value if set, nil otherwise
+// GetStorageIdOk returns a tuple with the StorageId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateAppCommand) GetStorageIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.StorageId.Get(), o.StorageId.IsSet()
+	return &o.StorageId, true
 }
 
-// HasStorageId returns a boolean if a field has been set.
-func (o *CreateAppCommand) HasStorageId() bool {
-	if o != nil && o.StorageId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStorageId gets a reference to the given NullableString and assigns it to the StorageId field.
+// SetStorageId sets field value
 func (o *CreateAppCommand) SetStorageId(v string) {
-	o.StorageId.Set(&v)
-}
-// SetStorageIdNil sets the value for StorageId to be an explicit nil
-func (o *CreateAppCommand) SetStorageIdNil() {
-	o.StorageId.Set(nil)
-}
-
-// UnsetStorageId ensures that no value is present for StorageId, not even an explicit nil
-func (o *CreateAppCommand) UnsetStorageId() {
-	o.StorageId.Unset()
+	o.StorageId = v
 }
 
 func (o CreateAppCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if true {
+		toSerialize["name"] = o.Name
 	}
-	if o.StorageId.IsSet() {
-		toSerialize["storageId"] = o.StorageId.Get()
+	if true {
+		toSerialize["storageId"] = o.StorageId
 	}
 	return json.Marshal(toSerialize)
 }

@@ -13,17 +13,17 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateAppCommand {
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "storageId", skip_serializing_if = "Option::is_none")]
-    pub storage_id: Option<String>,
+    #[serde(rename = "name")]
+    pub name: String,
+    #[serde(rename = "storageId")]
+    pub storage_id: String,
 }
 
 impl CreateAppCommand {
-    pub fn new() -> CreateAppCommand {
+    pub fn new(name: String, storage_id: String) -> CreateAppCommand {
         CreateAppCommand {
-            name: None,
-            storage_id: None,
+            name,
+            storage_id,
         }
     }
 }

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channels** | Pointer to [**[]ChannelDto**](ChannelDto.md) |  | [optional] 
+**Channels** | [**[]ChannelDto**](ChannelDto.md) |  | 
 
 ## Methods
 
 ### NewChannelsVm
 
-`func NewChannelsVm() *ChannelsVm`
+`func NewChannelsVm(channels []ChannelDto, ) *ChannelsVm`
 
 NewChannelsVm instantiates a new ChannelsVm object
 This constructor will assign default values to properties that have it defined,
@@ -44,22 +44,7 @@ and a boolean to check if the value has been set.
 
 SetChannels sets Channels field to given value.
 
-### HasChannels
 
-`func (o *ChannelsVm) HasChannels() bool`
-
-HasChannels returns a boolean if a field has been set.
-
-### SetChannelsNil
-
-`func (o *ChannelsVm) SetChannelsNil(b bool)`
-
- SetChannelsNil sets the value for Channels to be an explicit nil
-
-### UnsetChannels
-`func (o *ChannelsVm) UnsetChannels()`
-
-UnsetChannels ensures that no value is present for Channels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

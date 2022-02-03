@@ -24,10 +24,15 @@ class AppDto {
     /**
      * Constructs a new <code>AppDto</code>.
      * @alias module:model/AppDto
+     * @param id {String} 
+     * @param name {String} 
+     * @param storageId {String} 
+     * @param channels {Array.<module:model/ChannelDto>} 
+     * @param revisions {Array.<module:model/RevisionDto>} 
      */
-    constructor() { 
+    constructor(id, name, storageId, channels, revisions) { 
         
-        AppDto.initialize(this);
+        AppDto.initialize(this, id, name, storageId, channels, revisions);
     }
 
     /**
@@ -35,7 +40,12 @@ class AppDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, id, name, storageId, channels, revisions) { 
+        obj['id'] = id;
+        obj['name'] = name;
+        obj['storageId'] = storageId;
+        obj['channels'] = channels;
+        obj['revisions'] = revisions;
     }
 
     /**

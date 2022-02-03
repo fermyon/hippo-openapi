@@ -16,15 +16,16 @@ import (
 
 // RevisionsVm struct for RevisionsVm
 type RevisionsVm struct {
-	Revisions []RevisionDto `json:"revisions,omitempty"`
+	Revisions []RevisionDto `json:"revisions"`
 }
 
 // NewRevisionsVm instantiates a new RevisionsVm object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRevisionsVm() *RevisionsVm {
+func NewRevisionsVm(revisions []RevisionDto) *RevisionsVm {
 	this := RevisionsVm{}
+	this.Revisions = revisions
 	return &this
 }
 
@@ -36,42 +37,33 @@ func NewRevisionsVmWithDefaults() *RevisionsVm {
 	return &this
 }
 
-// GetRevisions returns the Revisions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRevisions returns the Revisions field value
 func (o *RevisionsVm) GetRevisions() []RevisionDto {
-	if o == nil  {
+	if o == nil {
 		var ret []RevisionDto
 		return ret
 	}
+
 	return o.Revisions
 }
 
-// GetRevisionsOk returns a tuple with the Revisions field value if set, nil otherwise
+// GetRevisionsOk returns a tuple with the Revisions field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RevisionsVm) GetRevisionsOk() (*[]RevisionDto, bool) {
-	if o == nil || o.Revisions == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Revisions, true
 }
 
-// HasRevisions returns a boolean if a field has been set.
-func (o *RevisionsVm) HasRevisions() bool {
-	if o != nil && o.Revisions != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRevisions gets a reference to the given []RevisionDto and assigns it to the Revisions field.
+// SetRevisions sets field value
 func (o *RevisionsVm) SetRevisions(v []RevisionDto) {
 	o.Revisions = v
 }
 
 func (o RevisionsVm) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Revisions != nil {
+	if true {
 		toSerialize["revisions"] = o.Revisions
 	}
 	return json.Marshal(toSerialize)

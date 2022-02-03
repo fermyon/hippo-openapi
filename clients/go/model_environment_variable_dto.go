@@ -16,18 +16,22 @@ import (
 
 // EnvironmentVariableDto struct for EnvironmentVariableDto
 type EnvironmentVariableDto struct {
-	Id *string `json:"id,omitempty"`
-	ChannelId *string `json:"channelId,omitempty"`
-	Key NullableString `json:"key,omitempty"`
-	Value NullableString `json:"value,omitempty"`
+	Id string `json:"id"`
+	ChannelId string `json:"channelId"`
+	Key string `json:"key"`
+	Value string `json:"value"`
 }
 
 // NewEnvironmentVariableDto instantiates a new EnvironmentVariableDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnvironmentVariableDto() *EnvironmentVariableDto {
+func NewEnvironmentVariableDto(id string, channelId string, key string, value string) *EnvironmentVariableDto {
 	this := EnvironmentVariableDto{}
+	this.Id = id
+	this.ChannelId = channelId
+	this.Key = key
+	this.Value = value
 	return &this
 }
 
@@ -39,167 +43,115 @@ func NewEnvironmentVariableDtoWithDefaults() *EnvironmentVariableDto {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *EnvironmentVariableDto) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *EnvironmentVariableDto) GetIdOk() (*string, bool) {
-	if o == nil || o.Id == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *EnvironmentVariableDto) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *EnvironmentVariableDto) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetChannelId returns the ChannelId field value if set, zero value otherwise.
+// GetChannelId returns the ChannelId field value
 func (o *EnvironmentVariableDto) GetChannelId() string {
-	if o == nil || o.ChannelId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ChannelId
+
+	return o.ChannelId
 }
 
-// GetChannelIdOk returns a tuple with the ChannelId field value if set, nil otherwise
+// GetChannelIdOk returns a tuple with the ChannelId field value
 // and a boolean to check if the value has been set.
 func (o *EnvironmentVariableDto) GetChannelIdOk() (*string, bool) {
-	if o == nil || o.ChannelId == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.ChannelId, true
+	return &o.ChannelId, true
 }
 
-// HasChannelId returns a boolean if a field has been set.
-func (o *EnvironmentVariableDto) HasChannelId() bool {
-	if o != nil && o.ChannelId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetChannelId gets a reference to the given string and assigns it to the ChannelId field.
+// SetChannelId sets field value
 func (o *EnvironmentVariableDto) SetChannelId(v string) {
-	o.ChannelId = &v
+	o.ChannelId = v
 }
 
-// GetKey returns the Key field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetKey returns the Key field value
 func (o *EnvironmentVariableDto) GetKey() string {
-	if o == nil || o.Key.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Key.Get()
+
+	return o.Key
 }
 
-// GetKeyOk returns a tuple with the Key field value if set, nil otherwise
+// GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnvironmentVariableDto) GetKeyOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Key.Get(), o.Key.IsSet()
+	return &o.Key, true
 }
 
-// HasKey returns a boolean if a field has been set.
-func (o *EnvironmentVariableDto) HasKey() bool {
-	if o != nil && o.Key.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetKey gets a reference to the given NullableString and assigns it to the Key field.
+// SetKey sets field value
 func (o *EnvironmentVariableDto) SetKey(v string) {
-	o.Key.Set(&v)
-}
-// SetKeyNil sets the value for Key to be an explicit nil
-func (o *EnvironmentVariableDto) SetKeyNil() {
-	o.Key.Set(nil)
+	o.Key = v
 }
 
-// UnsetKey ensures that no value is present for Key, not even an explicit nil
-func (o *EnvironmentVariableDto) UnsetKey() {
-	o.Key.Unset()
-}
-
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValue returns the Value field value
 func (o *EnvironmentVariableDto) GetValue() string {
-	if o == nil || o.Value.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Value.Get()
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnvironmentVariableDto) GetValueOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *EnvironmentVariableDto) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
+// SetValue sets field value
 func (o *EnvironmentVariableDto) SetValue(v string) {
-	o.Value.Set(&v)
-}
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *EnvironmentVariableDto) SetValueNil() {
-	o.Value.Set(nil)
-}
-
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *EnvironmentVariableDto) UnsetValue() {
-	o.Value.Unset()
+	o.Value = v
 }
 
 func (o EnvironmentVariableDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id != nil {
+	if true {
 		toSerialize["id"] = o.Id
 	}
-	if o.ChannelId != nil {
+	if true {
 		toSerialize["channelId"] = o.ChannelId
 	}
-	if o.Key.IsSet() {
-		toSerialize["key"] = o.Key.Get()
+	if true {
+		toSerialize["key"] = o.Key
 	}
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
+	if true {
+		toSerialize["value"] = o.Value
 	}
 	return json.Marshal(toSerialize)
 }

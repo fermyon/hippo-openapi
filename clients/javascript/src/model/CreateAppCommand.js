@@ -22,10 +22,12 @@ class CreateAppCommand {
     /**
      * Constructs a new <code>CreateAppCommand</code>.
      * @alias module:model/CreateAppCommand
+     * @param name {String} 
+     * @param storageId {String} 
      */
-    constructor() { 
+    constructor(name, storageId) { 
         
-        CreateAppCommand.initialize(this);
+        CreateAppCommand.initialize(this, name, storageId);
     }
 
     /**
@@ -33,7 +35,9 @@ class CreateAppCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, storageId) { 
+        obj['name'] = name;
+        obj['storageId'] = storageId;
     }
 
     /**

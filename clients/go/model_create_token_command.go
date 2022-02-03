@@ -16,16 +16,18 @@ import (
 
 // CreateTokenCommand struct for CreateTokenCommand
 type CreateTokenCommand struct {
-	UserName NullableString `json:"userName,omitempty"`
-	Password NullableString `json:"password,omitempty"`
+	UserName string `json:"userName"`
+	Password string `json:"password"`
 }
 
 // NewCreateTokenCommand instantiates a new CreateTokenCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateTokenCommand() *CreateTokenCommand {
+func NewCreateTokenCommand(userName string, password string) *CreateTokenCommand {
 	this := CreateTokenCommand{}
+	this.UserName = userName
+	this.Password = password
 	return &this
 }
 
@@ -37,97 +39,61 @@ func NewCreateTokenCommandWithDefaults() *CreateTokenCommand {
 	return &this
 }
 
-// GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserName returns the UserName field value
 func (o *CreateTokenCommand) GetUserName() string {
-	if o == nil || o.UserName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UserName.Get()
+
+	return o.UserName
 }
 
-// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
+// GetUserNameOk returns a tuple with the UserName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateTokenCommand) GetUserNameOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.UserName.Get(), o.UserName.IsSet()
+	return &o.UserName, true
 }
 
-// HasUserName returns a boolean if a field has been set.
-func (o *CreateTokenCommand) HasUserName() bool {
-	if o != nil && o.UserName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUserName gets a reference to the given NullableString and assigns it to the UserName field.
+// SetUserName sets field value
 func (o *CreateTokenCommand) SetUserName(v string) {
-	o.UserName.Set(&v)
-}
-// SetUserNameNil sets the value for UserName to be an explicit nil
-func (o *CreateTokenCommand) SetUserNameNil() {
-	o.UserName.Set(nil)
+	o.UserName = v
 }
 
-// UnsetUserName ensures that no value is present for UserName, not even an explicit nil
-func (o *CreateTokenCommand) UnsetUserName() {
-	o.UserName.Unset()
-}
-
-// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPassword returns the Password field value
 func (o *CreateTokenCommand) GetPassword() string {
-	if o == nil || o.Password.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Password.Get()
+
+	return o.Password
 }
 
-// GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
+// GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateTokenCommand) GetPasswordOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return o.Password.Get(), o.Password.IsSet()
+	return &o.Password, true
 }
 
-// HasPassword returns a boolean if a field has been set.
-func (o *CreateTokenCommand) HasPassword() bool {
-	if o != nil && o.Password.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
+// SetPassword sets field value
 func (o *CreateTokenCommand) SetPassword(v string) {
-	o.Password.Set(&v)
-}
-// SetPasswordNil sets the value for Password to be an explicit nil
-func (o *CreateTokenCommand) SetPasswordNil() {
-	o.Password.Set(nil)
-}
-
-// UnsetPassword ensures that no value is present for Password, not even an explicit nil
-func (o *CreateTokenCommand) UnsetPassword() {
-	o.Password.Unset()
+	o.Password = v
 }
 
 func (o CreateTokenCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.UserName.IsSet() {
-		toSerialize["userName"] = o.UserName.Get()
+	if true {
+		toSerialize["userName"] = o.UserName
 	}
-	if o.Password.IsSet() {
-		toSerialize["password"] = o.Password.Get()
+	if true {
+		toSerialize["password"] = o.Password
 	}
 	return json.Marshal(toSerialize)
 }

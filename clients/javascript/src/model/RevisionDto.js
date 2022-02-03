@@ -22,10 +22,13 @@ class RevisionDto {
     /**
      * Constructs a new <code>RevisionDto</code>.
      * @alias module:model/RevisionDto
+     * @param id {String} 
+     * @param appId {String} 
+     * @param revisionNumber {String} 
      */
-    constructor() { 
+    constructor(id, appId, revisionNumber) { 
         
-        RevisionDto.initialize(this);
+        RevisionDto.initialize(this, id, appId, revisionNumber);
     }
 
     /**
@@ -33,7 +36,10 @@ class RevisionDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, id, appId, revisionNumber) { 
+        obj['id'] = id;
+        obj['appId'] = appId;
+        obj['revisionNumber'] = revisionNumber;
     }
 
     /**

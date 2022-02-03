@@ -934,21 +934,23 @@ components:
           format: uuid
           type: string
         name:
-          nullable: true
           type: string
         storageId:
-          nullable: true
           type: string
         channels:
           items:
             $ref: '#/components/schemas/ChannelDto'
-          nullable: true
           type: array
         revisions:
           items:
             $ref: '#/components/schemas/RevisionDto'
-          nullable: true
           type: array
+      required:
+      - channels
+      - id
+      - name
+      - revisions
+      - storageId
       type: object
     AppsVm:
       additionalProperties: false
@@ -1644,8 +1646,9 @@ components:
         apps:
           items:
             $ref: '#/components/schemas/AppDto'
-          nullable: true
           type: array
+      required:
+      - apps
       type: object
     Certificate:
       additionalProperties: false
@@ -2048,19 +2051,21 @@ components:
           format: uuid
           type: string
         name:
-          nullable: true
           type: string
         publicKey:
-          nullable: true
           type: string
         privateKey:
-          nullable: true
           type: string
         channels:
           items:
             $ref: '#/components/schemas/ChannelDto'
-          nullable: true
           type: array
+      required:
+      - channels
+      - id
+      - name
+      - privateKey
+      - publicKey
       type: object
     CertificatesVm:
       additionalProperties: false
@@ -2744,8 +2749,9 @@ components:
         certificates:
           items:
             $ref: '#/components/schemas/CertificateDto'
-          nullable: true
           type: array
+      required:
+      - certificates
       type: object
     Channel:
       additionalProperties: false
@@ -3047,10 +3053,8 @@ components:
           format: uuid
           type: string
         name:
-          nullable: true
           type: string
         domain:
-          nullable: true
           type: string
         revisionSelectionStrategy:
           $ref: '#/components/schemas/ChannelRevisionSelectionStrategy'
@@ -3062,8 +3066,14 @@ components:
         environmentVariables:
           items:
             $ref: '#/components/schemas/EnvironmentVariableDto'
-          nullable: true
           type: array
+      required:
+      - appId
+      - domain
+      - environmentVariables
+      - id
+      - name
+      - revisionSelectionStrategy
       type: object
     ChannelRevisionSelectionStrategy:
       enum:
@@ -3411,8 +3421,9 @@ components:
         channels:
           items:
             $ref: '#/components/schemas/ChannelDto'
-          nullable: true
           type: array
+      required:
+      - channels
       type: object
     CreateAccountCommand:
       additionalProperties: false
@@ -3422,14 +3433,15 @@ components:
         userName: userName
       properties:
         userName:
-          nullable: true
           type: string
         password:
-          nullable: true
           type: string
         passwordConfirm:
-          nullable: true
           type: string
+      required:
+      - password
+      - passwordConfirm
+      - userName
       type: object
     CreateAppCommand:
       additionalProperties: false
@@ -3438,11 +3450,12 @@ components:
         storageId: storageId
       properties:
         name:
-          nullable: true
           type: string
         storageId:
-          nullable: true
           type: string
+      required:
+      - name
+      - storageId
       type: object
     CreateCertificateCommand:
       additionalProperties: false
@@ -3452,14 +3465,15 @@ components:
         publicKey: publicKey
       properties:
         name:
-          nullable: true
           type: string
         publicKey:
-          nullable: true
           type: string
         privateKey:
-          nullable: true
           type: string
+      required:
+      - name
+      - privateKey
+      - publicKey
       type: object
     CreateChannelCommand:
       additionalProperties: false
@@ -3475,7 +3489,6 @@ components:
           format: uuid
           type: string
         name:
-          nullable: true
           type: string
         domain:
           nullable: true
@@ -3493,6 +3506,10 @@ components:
           format: uuid
           nullable: true
           type: string
+      required:
+      - appId
+      - name
+      - revisionSelectionStrategy
       type: object
     CreateEnvironmentVariableCommand:
       additionalProperties: false
@@ -3502,14 +3519,16 @@ components:
         channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         key:
-          nullable: true
           type: string
         value:
-          nullable: true
           type: string
         channelId:
           format: uuid
           type: string
+      required:
+      - channelId
+      - key
+      - value
       type: object
     CreateTokenCommand:
       additionalProperties: false
@@ -3518,11 +3537,12 @@ components:
         userName: userName
       properties:
         userName:
-          nullable: true
           type: string
         password:
-          nullable: true
           type: string
+      required:
+      - password
+      - userName
       type: object
     DomainEvent:
       additionalProperties: false
@@ -3601,11 +3621,14 @@ components:
           format: uuid
           type: string
         key:
-          nullable: true
           type: string
         value:
-          nullable: true
           type: string
+      required:
+      - channelId
+      - id
+      - key
+      - value
       type: object
     EnvironmentVariablesVm:
       additionalProperties: false
@@ -3623,8 +3646,9 @@ components:
         environmentVariables:
           items:
             $ref: '#/components/schemas/EnvironmentVariableDto'
-          nullable: true
           type: array
+      required:
+      - environmentVariables
       type: object
     RegisterRevisionCommand:
       additionalProperties: false
@@ -3633,11 +3657,12 @@ components:
         appStorageId: appStorageId
       properties:
         appStorageId:
-          nullable: true
           type: string
         revisionNumber:
-          nullable: true
           type: string
+      required:
+      - appStorageId
+      - revisionNumber
       type: object
     Revision:
       additionalProperties: false
@@ -3837,8 +3862,11 @@ components:
           format: uuid
           type: string
         revisionNumber:
-          nullable: true
           type: string
+      required:
+      - appId
+      - id
+      - revisionNumber
       type: object
     RevisionsVm:
       additionalProperties: false
@@ -3854,8 +3882,9 @@ components:
         revisions:
           items:
             $ref: '#/components/schemas/RevisionDto'
-          nullable: true
           type: array
+      required:
+      - revisions
       type: object
     TokenInfo:
       additionalProperties: false

@@ -13,20 +13,20 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CreateEnvironmentVariableCommand {
-    #[serde(rename = "key", skip_serializing_if = "Option::is_none")]
-    pub key: Option<String>,
-    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<String>,
-    #[serde(rename = "channelId", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
+    #[serde(rename = "key")]
+    pub key: String,
+    #[serde(rename = "value")]
+    pub value: String,
+    #[serde(rename = "channelId")]
+    pub channel_id: String,
 }
 
 impl CreateEnvironmentVariableCommand {
-    pub fn new() -> CreateEnvironmentVariableCommand {
+    pub fn new(key: String, value: String, channel_id: String) -> CreateEnvironmentVariableCommand {
         CreateEnvironmentVariableCommand {
-            key: None,
-            value: None,
-            channel_id: None,
+            key,
+            value,
+            channel_id,
         }
     }
 }

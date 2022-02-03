@@ -212,7 +212,7 @@ import (
 )
 
 func main() {
-    createEnvironmentVariableCommand := *openapiclient.NewCreateEnvironmentVariableCommand() // CreateEnvironmentVariableCommand |  (optional)
+    createEnvironmentVariableCommand := *openapiclient.NewCreateEnvironmentVariableCommand("Key_example", "Value_example", "ChannelId_example") // CreateEnvironmentVariableCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

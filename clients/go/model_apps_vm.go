@@ -16,15 +16,16 @@ import (
 
 // AppsVm struct for AppsVm
 type AppsVm struct {
-	Apps []AppDto `json:"apps,omitempty"`
+	Apps []AppDto `json:"apps"`
 }
 
 // NewAppsVm instantiates a new AppsVm object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppsVm() *AppsVm {
+func NewAppsVm(apps []AppDto) *AppsVm {
 	this := AppsVm{}
+	this.Apps = apps
 	return &this
 }
 
@@ -36,42 +37,33 @@ func NewAppsVmWithDefaults() *AppsVm {
 	return &this
 }
 
-// GetApps returns the Apps field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetApps returns the Apps field value
 func (o *AppsVm) GetApps() []AppDto {
-	if o == nil  {
+	if o == nil {
 		var ret []AppDto
 		return ret
 	}
+
 	return o.Apps
 }
 
-// GetAppsOk returns a tuple with the Apps field value if set, nil otherwise
+// GetAppsOk returns a tuple with the Apps field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppsVm) GetAppsOk() (*[]AppDto, bool) {
-	if o == nil || o.Apps == nil {
+	if o == nil  {
 		return nil, false
 	}
 	return &o.Apps, true
 }
 
-// HasApps returns a boolean if a field has been set.
-func (o *AppsVm) HasApps() bool {
-	if o != nil && o.Apps != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetApps gets a reference to the given []AppDto and assigns it to the Apps field.
+// SetApps sets field value
 func (o *AppsVm) SetApps(v []AppDto) {
 	o.Apps = v
 }
 
 func (o AppsVm) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Apps != nil {
+	if true {
 		toSerialize["apps"] = o.Apps
 	}
 	return json.Marshal(toSerialize)

@@ -22,10 +22,14 @@ class EnvironmentVariableDto {
     /**
      * Constructs a new <code>EnvironmentVariableDto</code>.
      * @alias module:model/EnvironmentVariableDto
+     * @param id {String} 
+     * @param channelId {String} 
+     * @param key {String} 
+     * @param value {String} 
      */
-    constructor() { 
+    constructor(id, channelId, key, value) { 
         
-        EnvironmentVariableDto.initialize(this);
+        EnvironmentVariableDto.initialize(this, id, channelId, key, value);
     }
 
     /**
@@ -33,7 +37,11 @@ class EnvironmentVariableDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, id, channelId, key, value) { 
+        obj['id'] = id;
+        obj['channelId'] = channelId;
+        obj['key'] = key;
+        obj['value'] = value;
     }
 
     /**

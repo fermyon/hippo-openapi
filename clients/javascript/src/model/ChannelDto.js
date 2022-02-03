@@ -25,10 +25,16 @@ class ChannelDto {
     /**
      * Constructs a new <code>ChannelDto</code>.
      * @alias module:model/ChannelDto
+     * @param id {String} 
+     * @param appId {String} 
+     * @param name {String} 
+     * @param domain {String} 
+     * @param revisionSelectionStrategy {module:model/ChannelRevisionSelectionStrategy} 
+     * @param environmentVariables {Array.<module:model/EnvironmentVariableDto>} 
      */
-    constructor() { 
+    constructor(id, appId, name, domain, revisionSelectionStrategy, environmentVariables) { 
         
-        ChannelDto.initialize(this);
+        ChannelDto.initialize(this, id, appId, name, domain, revisionSelectionStrategy, environmentVariables);
     }
 
     /**
@@ -36,7 +42,13 @@ class ChannelDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, id, appId, name, domain, revisionSelectionStrategy, environmentVariables) { 
+        obj['id'] = id;
+        obj['appId'] = appId;
+        obj['name'] = name;
+        obj['domain'] = domain;
+        obj['revisionSelectionStrategy'] = revisionSelectionStrategy;
+        obj['environmentVariables'] = environmentVariables;
     }
 
     /**

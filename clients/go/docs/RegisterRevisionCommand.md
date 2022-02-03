@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppStorageId** | Pointer to **NullableString** |  | [optional] 
-**RevisionNumber** | Pointer to **NullableString** |  | [optional] 
+**AppStorageId** | **string** |  | 
+**RevisionNumber** | **string** |  | 
 
 ## Methods
 
 ### NewRegisterRevisionCommand
 
-`func NewRegisterRevisionCommand() *RegisterRevisionCommand`
+`func NewRegisterRevisionCommand(appStorageId string, revisionNumber string, ) *RegisterRevisionCommand`
 
 NewRegisterRevisionCommand instantiates a new RegisterRevisionCommand object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetAppStorageId sets AppStorageId field to given value.
 
-### HasAppStorageId
 
-`func (o *RegisterRevisionCommand) HasAppStorageId() bool`
-
-HasAppStorageId returns a boolean if a field has been set.
-
-### SetAppStorageIdNil
-
-`func (o *RegisterRevisionCommand) SetAppStorageIdNil(b bool)`
-
- SetAppStorageIdNil sets the value for AppStorageId to be an explicit nil
-
-### UnsetAppStorageId
-`func (o *RegisterRevisionCommand) UnsetAppStorageId()`
-
-UnsetAppStorageId ensures that no value is present for AppStorageId, not even an explicit nil
 ### GetRevisionNumber
 
 `func (o *RegisterRevisionCommand) GetRevisionNumber() string`
@@ -80,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetRevisionNumber sets RevisionNumber field to given value.
 
-### HasRevisionNumber
 
-`func (o *RegisterRevisionCommand) HasRevisionNumber() bool`
-
-HasRevisionNumber returns a boolean if a field has been set.
-
-### SetRevisionNumberNil
-
-`func (o *RegisterRevisionCommand) SetRevisionNumberNil(b bool)`
-
- SetRevisionNumberNil sets the value for RevisionNumber to be an explicit nil
-
-### UnsetRevisionNumber
-`func (o *RegisterRevisionCommand) UnsetRevisionNumber()`
-
-UnsetRevisionNumber ensures that no value is present for RevisionNumber, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
