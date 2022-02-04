@@ -16,7 +16,7 @@ HTTP API in the language of your choice.
 To use the Rust client, add a reference to it in your Cargo.toml:
 
 ```
-hippo-openapi = "0.1"
+hippo-openapi = "0.4"
 ```
 
 ## Code Generation
