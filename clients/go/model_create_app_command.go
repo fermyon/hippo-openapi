@@ -52,7 +52,7 @@ func (o *CreateAppCommand) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *CreateAppCommand) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -76,7 +76,7 @@ func (o *CreateAppCommand) GetStorageId() string {
 // GetStorageIdOk returns a tuple with the StorageId field value
 // and a boolean to check if the value has been set.
 func (o *CreateAppCommand) GetStorageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.StorageId, true

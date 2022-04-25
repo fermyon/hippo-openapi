@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import CreateEnvironmentVariableCommand from '../model/CreateEnvironmentVariableCommand';
 import EnvironmentVariablesVm from '../model/EnvironmentVariablesVm';
+import UpdateEnvironmentVariableCommand from '../model/UpdateEnvironmentVariableCommand';
 
 /**
 * EnvironmentVariable service.
@@ -139,6 +140,49 @@ export default class EnvironmentVariableApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/environmentvariable/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the apiEnvironmentvariableIdPut operation.
+     * @callback module:api/EnvironmentVariableApi~apiEnvironmentvariableIdPutCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {String} id 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateEnvironmentVariableCommand} opts.updateEnvironmentVariableCommand 
+     * @param {module:api/EnvironmentVariableApi~apiEnvironmentvariableIdPutCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiEnvironmentvariableIdPut(id, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['updateEnvironmentVariableCommand'];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling apiEnvironmentvariableIdPut");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/environmentvariable/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

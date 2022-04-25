@@ -41,6 +41,10 @@ docs/RevisionApi.md
 docs/RevisionDto.md
 docs/RevisionsVm.md
 docs/TokenInfo.md
+docs/UpdateAppCommand.md
+docs/UpdateCertificateCommand.md
+docs/UpdateChannelCommand.md
+docs/UpdateEnvironmentVariableCommand.md
 git_push.sh
 go.mod
 go.sum
@@ -69,5 +73,9 @@ model_revision.go
 model_revision_dto.go
 model_revisions_vm.go
 model_token_info.go
+model_update_app_command.go
+model_update_certificate_command.go
+model_update_channel_command.go
+model_update_environment_variable_command.go
 response.go
 utils.go

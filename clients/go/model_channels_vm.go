@@ -49,11 +49,11 @@ func (o *ChannelsVm) GetChannels() []ChannelDto {
 
 // GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-func (o *ChannelsVm) GetChannelsOk() (*[]ChannelDto, bool) {
-	if o == nil  {
+func (o *ChannelsVm) GetChannelsOk() ([]ChannelDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Channels, true
+	return o.Channels, true
 }
 
 // SetChannels sets field value

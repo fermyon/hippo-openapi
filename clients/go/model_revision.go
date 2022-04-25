@@ -90,7 +90,7 @@ func (o *Revision) GetCreatedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Revision) GetCreatedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CreatedBy.Get(), o.CreatedBy.IsSet()
@@ -164,7 +164,7 @@ func (o *Revision) GetLastModifiedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Revision) GetLastModifiedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LastModifiedBy.Get(), o.LastModifiedBy.IsSet()
@@ -238,7 +238,7 @@ func (o *Revision) GetRevisionNumber() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Revision) GetRevisionNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RevisionNumber.Get(), o.RevisionNumber.IsSet()
@@ -333,7 +333,7 @@ func (o *Revision) SetApp(v App) {
 
 // GetDomainEvents returns the DomainEvents field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Revision) GetDomainEvents() []DomainEvent {
-	if o == nil  {
+	if o == nil {
 		var ret []DomainEvent
 		return ret
 	}
@@ -343,11 +343,11 @@ func (o *Revision) GetDomainEvents() []DomainEvent {
 // GetDomainEventsOk returns a tuple with the DomainEvents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Revision) GetDomainEventsOk() (*[]DomainEvent, bool) {
+func (o *Revision) GetDomainEventsOk() ([]DomainEvent, bool) {
 	if o == nil || o.DomainEvents == nil {
 		return nil, false
 	}
-	return &o.DomainEvents, true
+	return o.DomainEvents, true
 }
 
 // HasDomainEvents returns a boolean if a field has been set.

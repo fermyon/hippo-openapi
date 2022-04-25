@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Certificate from './Certificate';
 import ChannelRevisionSelectionStrategy from './ChannelRevisionSelectionStrategy';
 import EnvironmentVariableDto from './EnvironmentVariableDto';
 import Revision from './Revision';
@@ -83,6 +84,9 @@ class ChannelDto {
             if (data.hasOwnProperty('rangeRule')) {
                 obj['rangeRule'] = ApiClient.convertToType(data['rangeRule'], 'String');
             }
+            if (data.hasOwnProperty('certificate')) {
+                obj['certificate'] = Certificate.constructFromObject(data['certificate']);
+            }
             if (data.hasOwnProperty('environmentVariables')) {
                 obj['environmentVariables'] = ApiClient.convertToType(data['environmentVariables'], [EnvironmentVariableDto]);
             }
@@ -127,6 +131,11 @@ ChannelDto.prototype['activeRevision'] = undefined;
  * @member {String} rangeRule
  */
 ChannelDto.prototype['rangeRule'] = undefined;
+
+/**
+ * @member {module:model/Certificate} certificate
+ */
+ChannelDto.prototype['certificate'] = undefined;
 
 /**
  * @member {Array.<module:model/EnvironmentVariableDto>} environmentVariables

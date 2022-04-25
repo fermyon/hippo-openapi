@@ -12,38 +12,33 @@ package hippo-openapi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // ChannelApiService ChannelApi service
 type ChannelApiService service
 
 type ApiApiChannelExportGetRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ChannelApiService
 }
 
-
-func (r ApiApiChannelExportGetRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiApiChannelExportGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiChannelExportGetExecute(r)
 }
 
 /*
 ApiChannelExportGet Method for ApiChannelExportGet
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiChannelExportGetRequest
 */
-func (a *ChannelApiService) ApiChannelExportGet(ctx _context.Context) ApiApiChannelExportGetRequest {
+func (a *ChannelApiService) ApiChannelExportGet(ctx context.Context) ApiApiChannelExportGetRequest {
 	return ApiApiChannelExportGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -51,23 +46,23 @@ func (a *ChannelApiService) ApiChannelExportGet(ctx _context.Context) ApiApiChan
 }
 
 // Execute executes the request
-func (a *ChannelApiService) ApiChannelExportGetExecute(r ApiApiChannelExportGetRequest) (*_nethttp.Response, error) {
+func (a *ChannelApiService) ApiChannelExportGetExecute(r ApiApiChannelExportGetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelExportGet")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/channel/export"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -110,15 +105,15 @@ func (a *ChannelApiService) ApiChannelExportGetExecute(r ApiApiChannelExportGetR
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -129,22 +124,21 @@ func (a *ChannelApiService) ApiChannelExportGetExecute(r ApiApiChannelExportGetR
 }
 
 type ApiApiChannelGetRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ChannelApiService
 }
 
-
-func (r ApiApiChannelGetRequest) Execute() (ChannelsVm, *_nethttp.Response, error) {
+func (r ApiApiChannelGetRequest) Execute() (*ChannelsVm, *http.Response, error) {
 	return r.ApiService.ApiChannelGetExecute(r)
 }
 
 /*
 ApiChannelGet Method for ApiChannelGet
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiChannelGetRequest
 */
-func (a *ChannelApiService) ApiChannelGet(ctx _context.Context) ApiApiChannelGetRequest {
+func (a *ChannelApiService) ApiChannelGet(ctx context.Context) ApiApiChannelGetRequest {
 	return ApiApiChannelGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -153,24 +147,24 @@ func (a *ChannelApiService) ApiChannelGet(ctx _context.Context) ApiApiChannelGet
 
 // Execute executes the request
 //  @return ChannelsVm
-func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (ChannelsVm, *_nethttp.Response, error) {
+func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (*ChannelsVm, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ChannelsVm
+		localVarReturnValue  *ChannelsVm
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelGet")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/channel"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -213,15 +207,15 @@ func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (Cha
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -230,7 +224,7 @@ func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (Cha
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -241,24 +235,23 @@ func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (Cha
 }
 
 type ApiApiChannelIdDeleteRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ChannelApiService
 	id string
 }
 
-
-func (r ApiApiChannelIdDeleteRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiApiChannelIdDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiChannelIdDeleteExecute(r)
 }
 
 /*
 ApiChannelIdDelete Method for ApiChannelIdDelete
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
  @return ApiApiChannelIdDeleteRequest
 */
-func (a *ChannelApiService) ApiChannelIdDelete(ctx _context.Context, id string) ApiApiChannelIdDeleteRequest {
+func (a *ChannelApiService) ApiChannelIdDelete(ctx context.Context, id string) ApiApiChannelIdDeleteRequest {
 	return ApiApiChannelIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -267,24 +260,24 @@ func (a *ChannelApiService) ApiChannelIdDelete(ctx _context.Context, id string) 
 }
 
 // Execute executes the request
-func (a *ChannelApiService) ApiChannelIdDeleteExecute(r ApiApiChannelIdDeleteRequest) (*_nethttp.Response, error) {
+func (a *ChannelApiService) ApiChannelIdDeleteExecute(r ApiApiChannelIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelIdDelete")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/channel/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -327,15 +320,127 @@ func (a *ChannelApiService) ApiChannelIdDeleteExecute(r ApiApiChannelIdDeleteReq
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiApiChannelIdPutRequest struct {
+	ctx context.Context
+	ApiService *ChannelApiService
+	id string
+	updateChannelCommand *UpdateChannelCommand
+}
+
+func (r ApiApiChannelIdPutRequest) UpdateChannelCommand(updateChannelCommand UpdateChannelCommand) ApiApiChannelIdPutRequest {
+	r.updateChannelCommand = &updateChannelCommand
+	return r
+}
+
+func (r ApiApiChannelIdPutRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiChannelIdPutExecute(r)
+}
+
+/*
+ApiChannelIdPut Method for ApiChannelIdPut
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id
+ @return ApiApiChannelIdPutRequest
+*/
+func (a *ChannelApiService) ApiChannelIdPut(ctx context.Context, id string) ApiApiChannelIdPutRequest {
+	return ApiApiChannelIdPutRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *ChannelApiService) ApiChannelIdPutExecute(r ApiApiChannelIdPutRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelIdPut")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/channel/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.updateChannelCommand
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -346,7 +451,7 @@ func (a *ChannelApiService) ApiChannelIdDeleteExecute(r ApiApiChannelIdDeleteReq
 }
 
 type ApiApiChannelPostRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ChannelApiService
 	createChannelCommand *CreateChannelCommand
 }
@@ -356,17 +461,17 @@ func (r ApiApiChannelPostRequest) CreateChannelCommand(createChannelCommand Crea
 	return r
 }
 
-func (r ApiApiChannelPostRequest) Execute() (string, *_nethttp.Response, error) {
+func (r ApiApiChannelPostRequest) Execute() (string, *http.Response, error) {
 	return r.ApiService.ApiChannelPostExecute(r)
 }
 
 /*
 ApiChannelPost Method for ApiChannelPost
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiChannelPostRequest
 */
-func (a *ChannelApiService) ApiChannelPost(ctx _context.Context) ApiApiChannelPostRequest {
+func (a *ChannelApiService) ApiChannelPost(ctx context.Context) ApiApiChannelPostRequest {
 	return ApiApiChannelPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -375,9 +480,9 @@ func (a *ChannelApiService) ApiChannelPost(ctx _context.Context) ApiApiChannelPo
 
 // Execute executes the request
 //  @return string
-func (a *ChannelApiService) ApiChannelPostExecute(r ApiApiChannelPostRequest) (string, *_nethttp.Response, error) {
+func (a *ChannelApiService) ApiChannelPostExecute(r ApiApiChannelPostRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  string
@@ -385,14 +490,14 @@ func (a *ChannelApiService) ApiChannelPostExecute(r ApiApiChannelPostRequest) (s
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelPost")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/channel"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
@@ -437,15 +542,15 @@ func (a *ChannelApiService) ApiChannelPostExecute(r ApiApiChannelPostRequest) (s
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -454,7 +559,7 @@ func (a *ChannelApiService) ApiChannelPostExecute(r ApiApiChannelPostRequest) (s
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

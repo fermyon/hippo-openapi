@@ -54,7 +54,7 @@ func (o *CreateCertificateCommand) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *CreateCertificateCommand) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -78,7 +78,7 @@ func (o *CreateCertificateCommand) GetPublicKey() string {
 // GetPublicKeyOk returns a tuple with the PublicKey field value
 // and a boolean to check if the value has been set.
 func (o *CreateCertificateCommand) GetPublicKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PublicKey, true
@@ -102,7 +102,7 @@ func (o *CreateCertificateCommand) GetPrivateKey() string {
 // GetPrivateKeyOk returns a tuple with the PrivateKey field value
 // and a boolean to check if the value has been set.
 func (o *CreateCertificateCommand) GetPrivateKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PrivateKey, true

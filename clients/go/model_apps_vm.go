@@ -49,11 +49,11 @@ func (o *AppsVm) GetApps() []AppDto {
 
 // GetAppsOk returns a tuple with the Apps field value
 // and a boolean to check if the value has been set.
-func (o *AppsVm) GetAppsOk() (*[]AppDto, bool) {
-	if o == nil  {
+func (o *AppsVm) GetAppsOk() ([]AppDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Apps, true
+	return o.Apps, true
 }
 
 // SetApps sets field value

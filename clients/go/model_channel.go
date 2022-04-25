@@ -99,7 +99,7 @@ func (o *Channel) GetCreatedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Channel) GetCreatedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CreatedBy.Get(), o.CreatedBy.IsSet()
@@ -173,7 +173,7 @@ func (o *Channel) GetLastModifiedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Channel) GetLastModifiedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LastModifiedBy.Get(), o.LastModifiedBy.IsSet()
@@ -247,7 +247,7 @@ func (o *Channel) GetName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Channel) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Name.Get(), o.Name.IsSet()
@@ -289,7 +289,7 @@ func (o *Channel) GetDomain() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Channel) GetDomainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Domain.Get(), o.Domain.IsSet()
@@ -363,7 +363,7 @@ func (o *Channel) GetRangeRule() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Channel) GetRangeRuleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RangeRule.Get(), o.RangeRule.IsSet()
@@ -405,7 +405,7 @@ func (o *Channel) GetActiveRevisionId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Channel) GetActiveRevisionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ActiveRevisionId.Get(), o.ActiveRevisionId.IsSet()
@@ -479,7 +479,7 @@ func (o *Channel) GetCertificateId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Channel) GetCertificateIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CertificateId.Get(), o.CertificateId.IsSet()
@@ -638,7 +638,7 @@ func (o *Channel) SetApp(v App) {
 
 // GetEnvironmentVariables returns the EnvironmentVariables field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Channel) GetEnvironmentVariables() []EnvironmentVariable {
-	if o == nil  {
+	if o == nil {
 		var ret []EnvironmentVariable
 		return ret
 	}
@@ -648,11 +648,11 @@ func (o *Channel) GetEnvironmentVariables() []EnvironmentVariable {
 // GetEnvironmentVariablesOk returns a tuple with the EnvironmentVariables field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Channel) GetEnvironmentVariablesOk() (*[]EnvironmentVariable, bool) {
+func (o *Channel) GetEnvironmentVariablesOk() ([]EnvironmentVariable, bool) {
 	if o == nil || o.EnvironmentVariables == nil {
 		return nil, false
 	}
-	return &o.EnvironmentVariables, true
+	return o.EnvironmentVariables, true
 }
 
 // HasEnvironmentVariables returns a boolean if a field has been set.
@@ -671,7 +671,7 @@ func (o *Channel) SetEnvironmentVariables(v []EnvironmentVariable) {
 
 // GetDomainEvents returns the DomainEvents field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Channel) GetDomainEvents() []DomainEvent {
-	if o == nil  {
+	if o == nil {
 		var ret []DomainEvent
 		return ret
 	}
@@ -681,11 +681,11 @@ func (o *Channel) GetDomainEvents() []DomainEvent {
 // GetDomainEventsOk returns a tuple with the DomainEvents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Channel) GetDomainEventsOk() (*[]DomainEvent, bool) {
+func (o *Channel) GetDomainEventsOk() ([]DomainEvent, bool) {
 	if o == nil || o.DomainEvents == nil {
 		return nil, false
 	}
-	return &o.DomainEvents, true
+	return o.DomainEvents, true
 }
 
 // HasDomainEvents returns a boolean if a field has been set.

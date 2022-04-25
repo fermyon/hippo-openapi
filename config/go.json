@@ -1,6 +1,6 @@
 {
-	"gitUserId": "deislabs",
-	"gitRepoId": "deislabs/hippo-openapi",
-	"packageName": "hippo-openapi",
-	"packageVersion": "0.2.0"
+	"gitUserId": "fermyon",
+	"gitRepoId": "hippo-openapi/clients/go",
+	"outputDir": "../clients/go/v1",
+	"packageVersion": "0.5.0"
 }

@@ -38,6 +38,10 @@ import Revision from './model/Revision';
 import RevisionDto from './model/RevisionDto';
 import RevisionsVm from './model/RevisionsVm';
 import TokenInfo from './model/TokenInfo';
+import UpdateAppCommand from './model/UpdateAppCommand';
+import UpdateCertificateCommand from './model/UpdateCertificateCommand';
+import UpdateChannelCommand from './model/UpdateChannelCommand';
+import UpdateEnvironmentVariableCommand from './model/UpdateEnvironmentVariableCommand';
 import AccountApi from './api/AccountApi';
 import AppApi from './api/AppApi';
 import CertificateApi from './api/CertificateApi';
@@ -233,6 +237,30 @@ export {
      * @property {module:model/TokenInfo}
      */
     TokenInfo,
+
+    /**
+     * The UpdateAppCommand model constructor.
+     * @property {module:model/UpdateAppCommand}
+     */
+    UpdateAppCommand,
+
+    /**
+     * The UpdateCertificateCommand model constructor.
+     * @property {module:model/UpdateCertificateCommand}
+     */
+    UpdateCertificateCommand,
+
+    /**
+     * The UpdateChannelCommand model constructor.
+     * @property {module:model/UpdateChannelCommand}
+     */
+    UpdateChannelCommand,
+
+    /**
+     * The UpdateEnvironmentVariableCommand model constructor.
+     * @property {module:model/UpdateEnvironmentVariableCommand}
+     */
+    UpdateEnvironmentVariableCommand,
 
     /**
     * The AccountApi service constructor.

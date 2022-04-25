@@ -49,11 +49,11 @@ func (o *CertificatesVm) GetCertificates() []CertificateDto {
 
 // GetCertificatesOk returns a tuple with the Certificates field value
 // and a boolean to check if the value has been set.
-func (o *CertificatesVm) GetCertificatesOk() (*[]CertificateDto, bool) {
-	if o == nil  {
+func (o *CertificatesVm) GetCertificatesOk() ([]CertificateDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Certificates, true
+	return o.Certificates, true
 }
 
 // SetCertificates sets field value

@@ -54,7 +54,7 @@ func (o *RevisionDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *RevisionDto) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -78,7 +78,7 @@ func (o *RevisionDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value
 // and a boolean to check if the value has been set.
 func (o *RevisionDto) GetAppIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AppId, true
@@ -102,7 +102,7 @@ func (o *RevisionDto) GetRevisionNumber() string {
 // GetRevisionNumberOk returns a tuple with the RevisionNumber field value
 // and a boolean to check if the value has been set.
 func (o *RevisionDto) GetRevisionNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RevisionNumber, true

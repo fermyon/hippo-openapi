@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**apiAppExportGet**](AppApi.md#apiAppExportGet) | **GET** /api/app/export | 
 [**apiAppGet**](AppApi.md#apiAppGet) | **GET** /api/app | 
 [**apiAppIdDelete**](AppApi.md#apiAppIdDelete) | **DELETE** /api/app/{id} | 
+[**apiAppIdPut**](AppApi.md#apiAppIdPut) | **PUT** /api/app/{id} | 
 [**apiAppPost**](AppApi.md#apiAppPost) | **POST** /api/app | 
 
 
@@ -147,6 +148,59 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## apiAppIdPut
+
+> apiAppIdPut(id, opts)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.AppApi();
+let id = "id_example"; // String | 
+let opts = {
+  'updateAppCommand': new HippoWeb.UpdateAppCommand() // UpdateAppCommand | 
+};
+apiInstance.apiAppIdPut(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **updateAppCommand** | [**UpdateAppCommand**](UpdateAppCommand.md)|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 

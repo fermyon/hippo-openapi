@@ -12,25 +12,25 @@
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ChannelRevisionSelectionStrategy {
-    #[serde(rename = "0")]
-    _0,
-    #[serde(rename = "1")]
-    _1,
+    #[serde(rename = "UseRangeRule")]
+    UseRangeRule,
+    #[serde(rename = "UseSpecifiedRevision")]
+    UseSpecifiedRevision,
 
 }
 
 impl ToString for ChannelRevisionSelectionStrategy {
     fn to_string(&self) -> String {
         match self {
-            Self::_0 => String::from("0"),
-            Self::_1 => String::from("1"),
+            Self::UseRangeRule => String::from("UseRangeRule"),
+            Self::UseSpecifiedRevision => String::from("UseSpecifiedRevision"),
         }
     }
 }
 
 impl Default for ChannelRevisionSelectionStrategy {
     fn default() -> ChannelRevisionSelectionStrategy {
-        Self::_0
+        Self::UseRangeRule
     }
 }
 

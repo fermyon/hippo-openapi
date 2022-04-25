@@ -12,22 +12,18 @@ package hippo-openapi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // AccountApiService AccountApi service
 type AccountApiService service
 
 type ApiApiAccountCreatetokenPostRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AccountApiService
 	createTokenCommand *CreateTokenCommand
 }
@@ -37,17 +33,17 @@ func (r ApiApiAccountCreatetokenPostRequest) CreateTokenCommand(createTokenComma
 	return r
 }
 
-func (r ApiApiAccountCreatetokenPostRequest) Execute() (TokenInfo, *_nethttp.Response, error) {
+func (r ApiApiAccountCreatetokenPostRequest) Execute() (*TokenInfo, *http.Response, error) {
 	return r.ApiService.ApiAccountCreatetokenPostExecute(r)
 }
 
 /*
 ApiAccountCreatetokenPost Method for ApiAccountCreatetokenPost
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiAccountCreatetokenPostRequest
 */
-func (a *AccountApiService) ApiAccountCreatetokenPost(ctx _context.Context) ApiApiAccountCreatetokenPostRequest {
+func (a *AccountApiService) ApiAccountCreatetokenPost(ctx context.Context) ApiApiAccountCreatetokenPostRequest {
 	return ApiApiAccountCreatetokenPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -56,24 +52,24 @@ func (a *AccountApiService) ApiAccountCreatetokenPost(ctx _context.Context) ApiA
 
 // Execute executes the request
 //  @return TokenInfo
-func (a *AccountApiService) ApiAccountCreatetokenPostExecute(r ApiApiAccountCreatetokenPostRequest) (TokenInfo, *_nethttp.Response, error) {
+func (a *AccountApiService) ApiAccountCreatetokenPostExecute(r ApiApiAccountCreatetokenPostRequest) (*TokenInfo, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  TokenInfo
+		localVarReturnValue  *TokenInfo
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.ApiAccountCreatetokenPost")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/account/createtoken"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
@@ -118,15 +114,15 @@ func (a *AccountApiService) ApiAccountCreatetokenPostExecute(r ApiApiAccountCrea
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -135,7 +131,7 @@ func (a *AccountApiService) ApiAccountCreatetokenPostExecute(r ApiApiAccountCrea
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -146,7 +142,7 @@ func (a *AccountApiService) ApiAccountCreatetokenPostExecute(r ApiApiAccountCrea
 }
 
 type ApiApiAccountPostRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AccountApiService
 	createAccountCommand *CreateAccountCommand
 }
@@ -156,17 +152,17 @@ func (r ApiApiAccountPostRequest) CreateAccountCommand(createAccountCommand Crea
 	return r
 }
 
-func (r ApiApiAccountPostRequest) Execute() (string, *_nethttp.Response, error) {
+func (r ApiApiAccountPostRequest) Execute() (string, *http.Response, error) {
 	return r.ApiService.ApiAccountPostExecute(r)
 }
 
 /*
 ApiAccountPost Method for ApiAccountPost
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiAccountPostRequest
 */
-func (a *AccountApiService) ApiAccountPost(ctx _context.Context) ApiApiAccountPostRequest {
+func (a *AccountApiService) ApiAccountPost(ctx context.Context) ApiApiAccountPostRequest {
 	return ApiApiAccountPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -175,9 +171,9 @@ func (a *AccountApiService) ApiAccountPost(ctx _context.Context) ApiApiAccountPo
 
 // Execute executes the request
 //  @return string
-func (a *AccountApiService) ApiAccountPostExecute(r ApiApiAccountPostRequest) (string, *_nethttp.Response, error) {
+func (a *AccountApiService) ApiAccountPostExecute(r ApiApiAccountPostRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  string
@@ -185,14 +181,14 @@ func (a *AccountApiService) ApiAccountPostExecute(r ApiApiAccountPostRequest) (s
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountApiService.ApiAccountPost")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/account"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
@@ -237,15 +233,15 @@ func (a *AccountApiService) ApiAccountPostExecute(r ApiApiAccountPostRequest) (s
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -254,7 +250,7 @@ func (a *AccountApiService) ApiAccountPostExecute(r ApiApiAccountPostRequest) (s
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

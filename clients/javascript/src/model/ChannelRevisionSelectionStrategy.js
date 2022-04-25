@@ -20,17 +20,17 @@ import ApiClient from '../ApiClient';
 export default class ChannelRevisionSelectionStrategy {
     
         /**
-         * value: 0
+         * value: "UseRangeRule"
          * @const
          */
-        "0" = 0;
+        "UseRangeRule" = "UseRangeRule";
 
     
         /**
-         * value: 1
+         * value: "UseSpecifiedRevision"
          * @const
          */
-        "1" = 1;
+        "UseSpecifiedRevision" = "UseSpecifiedRevision";
 
     
 

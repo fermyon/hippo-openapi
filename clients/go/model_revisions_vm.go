@@ -49,11 +49,11 @@ func (o *RevisionsVm) GetRevisions() []RevisionDto {
 
 // GetRevisionsOk returns a tuple with the Revisions field value
 // and a boolean to check if the value has been set.
-func (o *RevisionsVm) GetRevisionsOk() (*[]RevisionDto, bool) {
-	if o == nil  {
+func (o *RevisionsVm) GetRevisionsOk() ([]RevisionDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Revisions, true
+	return o.Revisions, true
 }
 
 // SetRevisions sets field value

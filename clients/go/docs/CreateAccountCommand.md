@@ -6,13 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserName** | **string** |  | 
 **Password** | **string** |  | 
-**PasswordConfirm** | **string** |  | 
 
 ## Methods
 
 ### NewCreateAccountCommand
 
-`func NewCreateAccountCommand(userName string, password string, passwordConfirm string, ) *CreateAccountCommand`
+`func NewCreateAccountCommand(userName string, password string, ) *CreateAccountCommand`
 
 NewCreateAccountCommand instantiates a new CreateAccountCommand object
 This constructor will assign default values to properties that have it defined,
@@ -65,26 +64,6 @@ and a boolean to check if the value has been set.
 `func (o *CreateAccountCommand) SetPassword(v string)`
 
 SetPassword sets Password field to given value.
-
-
-### GetPasswordConfirm
-
-`func (o *CreateAccountCommand) GetPasswordConfirm() string`
-
-GetPasswordConfirm returns the PasswordConfirm field if non-nil, zero value otherwise.
-
-### GetPasswordConfirmOk
-
-`func (o *CreateAccountCommand) GetPasswordConfirmOk() (*string, bool)`
-
-GetPasswordConfirmOk returns a tuple with the PasswordConfirm field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPasswordConfirm
-
-`func (o *CreateAccountCommand) SetPasswordConfirm(v string)`
-
-SetPasswordConfirm sets PasswordConfirm field to given value.
 
 
 

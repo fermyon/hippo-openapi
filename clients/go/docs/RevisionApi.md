@@ -32,8 +32,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RevisionApi.ApiRevisionExportGet(context.Background()).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RevisionApi.ApiRevisionExportGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RevisionApi.ApiRevisionExportGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -89,8 +89,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RevisionApi.ApiRevisionGet(context.Background()).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RevisionApi.ApiRevisionGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RevisionApi.ApiRevisionGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -149,8 +149,8 @@ func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RevisionApi.ApiRevisionIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RevisionApi.ApiRevisionIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RevisionApi.ApiRevisionIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -215,8 +215,8 @@ func main() {
     registerRevisionCommand := *openapiclient.NewRegisterRevisionCommand("AppStorageId_example", "RevisionNumber_example") // RegisterRevisionCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RevisionApi.ApiRevisionPost(context.Background()).RegisterRevisionCommand(registerRevisionCommand).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.RevisionApi.ApiRevisionPost(context.Background()).RegisterRevisionCommand(registerRevisionCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RevisionApi.ApiRevisionPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ApiAppExportGet**](AppApi.md#ApiAppExportGet) | **Get** /api/app/export | 
 [**ApiAppGet**](AppApi.md#ApiAppGet) | **Get** /api/app | 
 [**ApiAppIdDelete**](AppApi.md#ApiAppIdDelete) | **Delete** /api/app/{id} | 
+[**ApiAppIdPut**](AppApi.md#ApiAppIdPut) | **Put** /api/app/{id} | 
 [**ApiAppPost**](AppApi.md#ApiAppPost) | **Post** /api/app | 
 
 
@@ -32,8 +33,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppApi.ApiAppExportGet(context.Background()).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppExportGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppExportGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -89,8 +90,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppApi.ApiAppGet(context.Background()).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -149,8 +150,8 @@ func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppApi.ApiAppIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -193,6 +194,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiAppIdPut
+
+> ApiAppIdPut(ctx, id).UpdateAppCommand(updateAppCommand).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    updateAppCommand := *openapiclient.NewUpdateAppCommand("Id_example", "Name_example", "StorageId_example") // UpdateAppCommand |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppIdPut(context.Background(), id).UpdateAppCommand(updateAppCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiAppIdPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updateAppCommand** | [**UpdateAppCommand**](UpdateAppCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiAppPost
 
 > string ApiAppPost(ctx).CreateAppCommand(createAppCommand).Execute()
@@ -215,8 +284,8 @@ func main() {
     createAppCommand := *openapiclient.NewCreateAppCommand("Name_example", "StorageId_example") // CreateAppCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppApi.ApiAppPost(context.Background()).CreateAppCommand(createAppCommand).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AppApi.ApiAppPost(context.Background()).CreateAppCommand(createAppCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppApi.ApiAppPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

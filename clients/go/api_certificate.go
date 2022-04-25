@@ -12,38 +12,33 @@ package hippo-openapi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // CertificateApiService CertificateApi service
 type CertificateApiService service
 
 type ApiApiCertificateExportGetRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CertificateApiService
 }
 
-
-func (r ApiApiCertificateExportGetRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiApiCertificateExportGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiCertificateExportGetExecute(r)
 }
 
 /*
 ApiCertificateExportGet Method for ApiCertificateExportGet
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiCertificateExportGetRequest
 */
-func (a *CertificateApiService) ApiCertificateExportGet(ctx _context.Context) ApiApiCertificateExportGetRequest {
+func (a *CertificateApiService) ApiCertificateExportGet(ctx context.Context) ApiApiCertificateExportGetRequest {
 	return ApiApiCertificateExportGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -51,23 +46,23 @@ func (a *CertificateApiService) ApiCertificateExportGet(ctx _context.Context) Ap
 }
 
 // Execute executes the request
-func (a *CertificateApiService) ApiCertificateExportGetExecute(r ApiApiCertificateExportGetRequest) (*_nethttp.Response, error) {
+func (a *CertificateApiService) ApiCertificateExportGetExecute(r ApiApiCertificateExportGetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificateApiService.ApiCertificateExportGet")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/certificate/export"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -110,15 +105,15 @@ func (a *CertificateApiService) ApiCertificateExportGetExecute(r ApiApiCertifica
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -129,22 +124,21 @@ func (a *CertificateApiService) ApiCertificateExportGetExecute(r ApiApiCertifica
 }
 
 type ApiApiCertificateGetRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CertificateApiService
 }
 
-
-func (r ApiApiCertificateGetRequest) Execute() (CertificatesVm, *_nethttp.Response, error) {
+func (r ApiApiCertificateGetRequest) Execute() (*CertificatesVm, *http.Response, error) {
 	return r.ApiService.ApiCertificateGetExecute(r)
 }
 
 /*
 ApiCertificateGet Method for ApiCertificateGet
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiCertificateGetRequest
 */
-func (a *CertificateApiService) ApiCertificateGet(ctx _context.Context) ApiApiCertificateGetRequest {
+func (a *CertificateApiService) ApiCertificateGet(ctx context.Context) ApiApiCertificateGetRequest {
 	return ApiApiCertificateGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -153,24 +147,24 @@ func (a *CertificateApiService) ApiCertificateGet(ctx _context.Context) ApiApiCe
 
 // Execute executes the request
 //  @return CertificatesVm
-func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetRequest) (CertificatesVm, *_nethttp.Response, error) {
+func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetRequest) (*CertificatesVm, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CertificatesVm
+		localVarReturnValue  *CertificatesVm
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificateApiService.ApiCertificateGet")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/certificate"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -213,15 +207,15 @@ func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetR
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -230,7 +224,7 @@ func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetR
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -241,24 +235,23 @@ func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetR
 }
 
 type ApiApiCertificateIdDeleteRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CertificateApiService
 	id string
 }
 
-
-func (r ApiApiCertificateIdDeleteRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiApiCertificateIdDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiCertificateIdDeleteExecute(r)
 }
 
 /*
 ApiCertificateIdDelete Method for ApiCertificateIdDelete
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
  @return ApiApiCertificateIdDeleteRequest
 */
-func (a *CertificateApiService) ApiCertificateIdDelete(ctx _context.Context, id string) ApiApiCertificateIdDeleteRequest {
+func (a *CertificateApiService) ApiCertificateIdDelete(ctx context.Context, id string) ApiApiCertificateIdDeleteRequest {
 	return ApiApiCertificateIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -267,24 +260,24 @@ func (a *CertificateApiService) ApiCertificateIdDelete(ctx _context.Context, id 
 }
 
 // Execute executes the request
-func (a *CertificateApiService) ApiCertificateIdDeleteExecute(r ApiApiCertificateIdDeleteRequest) (*_nethttp.Response, error) {
+func (a *CertificateApiService) ApiCertificateIdDeleteExecute(r ApiApiCertificateIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificateApiService.ApiCertificateIdDelete")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/certificate/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -327,15 +320,127 @@ func (a *CertificateApiService) ApiCertificateIdDeleteExecute(r ApiApiCertificat
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiApiCertificateIdPutRequest struct {
+	ctx context.Context
+	ApiService *CertificateApiService
+	id string
+	updateCertificateCommand *UpdateCertificateCommand
+}
+
+func (r ApiApiCertificateIdPutRequest) UpdateCertificateCommand(updateCertificateCommand UpdateCertificateCommand) ApiApiCertificateIdPutRequest {
+	r.updateCertificateCommand = &updateCertificateCommand
+	return r
+}
+
+func (r ApiApiCertificateIdPutRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiCertificateIdPutExecute(r)
+}
+
+/*
+ApiCertificateIdPut Method for ApiCertificateIdPut
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id
+ @return ApiApiCertificateIdPutRequest
+*/
+func (a *CertificateApiService) ApiCertificateIdPut(ctx context.Context, id string) ApiApiCertificateIdPutRequest {
+	return ApiApiCertificateIdPutRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *CertificateApiService) ApiCertificateIdPutExecute(r ApiApiCertificateIdPutRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificateApiService.ApiCertificateIdPut")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/certificate/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.updateCertificateCommand
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -346,7 +451,7 @@ func (a *CertificateApiService) ApiCertificateIdDeleteExecute(r ApiApiCertificat
 }
 
 type ApiApiCertificatePostRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CertificateApiService
 	createCertificateCommand *CreateCertificateCommand
 }
@@ -356,17 +461,17 @@ func (r ApiApiCertificatePostRequest) CreateCertificateCommand(createCertificate
 	return r
 }
 
-func (r ApiApiCertificatePostRequest) Execute() (string, *_nethttp.Response, error) {
+func (r ApiApiCertificatePostRequest) Execute() (string, *http.Response, error) {
 	return r.ApiService.ApiCertificatePostExecute(r)
 }
 
 /*
 ApiCertificatePost Method for ApiCertificatePost
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiCertificatePostRequest
 */
-func (a *CertificateApiService) ApiCertificatePost(ctx _context.Context) ApiApiCertificatePostRequest {
+func (a *CertificateApiService) ApiCertificatePost(ctx context.Context) ApiApiCertificatePostRequest {
 	return ApiApiCertificatePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -375,9 +480,9 @@ func (a *CertificateApiService) ApiCertificatePost(ctx _context.Context) ApiApiC
 
 // Execute executes the request
 //  @return string
-func (a *CertificateApiService) ApiCertificatePostExecute(r ApiApiCertificatePostRequest) (string, *_nethttp.Response, error) {
+func (a *CertificateApiService) ApiCertificatePostExecute(r ApiApiCertificatePostRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  string
@@ -385,14 +490,14 @@ func (a *CertificateApiService) ApiCertificatePostExecute(r ApiApiCertificatePos
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificateApiService.ApiCertificatePost")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/certificate"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
@@ -437,15 +542,15 @@ func (a *CertificateApiService) ApiCertificatePostExecute(r ApiApiCertificatePos
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -454,7 +559,7 @@ func (a *CertificateApiService) ApiCertificatePostExecute(r ApiApiCertificatePos
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

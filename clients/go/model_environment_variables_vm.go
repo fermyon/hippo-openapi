@@ -49,11 +49,11 @@ func (o *EnvironmentVariablesVm) GetEnvironmentVariables() []EnvironmentVariable
 
 // GetEnvironmentVariablesOk returns a tuple with the EnvironmentVariables field value
 // and a boolean to check if the value has been set.
-func (o *EnvironmentVariablesVm) GetEnvironmentVariablesOk() (*[]EnvironmentVariableDto, bool) {
-	if o == nil  {
+func (o *EnvironmentVariablesVm) GetEnvironmentVariablesOk() ([]EnvironmentVariableDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.EnvironmentVariables, true
+	return o.EnvironmentVariables, true
 }
 
 // SetEnvironmentVariables sets field value

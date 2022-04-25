@@ -12,38 +12,33 @@ package hippo-openapi
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // RevisionApiService RevisionApi service
 type RevisionApiService service
 
 type ApiApiRevisionExportGetRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *RevisionApiService
 }
 
-
-func (r ApiApiRevisionExportGetRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiApiRevisionExportGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiRevisionExportGetExecute(r)
 }
 
 /*
 ApiRevisionExportGet Method for ApiRevisionExportGet
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiRevisionExportGetRequest
 */
-func (a *RevisionApiService) ApiRevisionExportGet(ctx _context.Context) ApiApiRevisionExportGetRequest {
+func (a *RevisionApiService) ApiRevisionExportGet(ctx context.Context) ApiApiRevisionExportGetRequest {
 	return ApiApiRevisionExportGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -51,23 +46,23 @@ func (a *RevisionApiService) ApiRevisionExportGet(ctx _context.Context) ApiApiRe
 }
 
 // Execute executes the request
-func (a *RevisionApiService) ApiRevisionExportGetExecute(r ApiApiRevisionExportGetRequest) (*_nethttp.Response, error) {
+func (a *RevisionApiService) ApiRevisionExportGetExecute(r ApiApiRevisionExportGetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionApiService.ApiRevisionExportGet")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/revision/export"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -110,15 +105,15 @@ func (a *RevisionApiService) ApiRevisionExportGetExecute(r ApiApiRevisionExportG
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -129,22 +124,21 @@ func (a *RevisionApiService) ApiRevisionExportGetExecute(r ApiApiRevisionExportG
 }
 
 type ApiApiRevisionGetRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *RevisionApiService
 }
 
-
-func (r ApiApiRevisionGetRequest) Execute() (RevisionsVm, *_nethttp.Response, error) {
+func (r ApiApiRevisionGetRequest) Execute() (*RevisionsVm, *http.Response, error) {
 	return r.ApiService.ApiRevisionGetExecute(r)
 }
 
 /*
 ApiRevisionGet Method for ApiRevisionGet
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiRevisionGetRequest
 */
-func (a *RevisionApiService) ApiRevisionGet(ctx _context.Context) ApiApiRevisionGetRequest {
+func (a *RevisionApiService) ApiRevisionGet(ctx context.Context) ApiApiRevisionGetRequest {
 	return ApiApiRevisionGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -153,24 +147,24 @@ func (a *RevisionApiService) ApiRevisionGet(ctx _context.Context) ApiApiRevision
 
 // Execute executes the request
 //  @return RevisionsVm
-func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (RevisionsVm, *_nethttp.Response, error) {
+func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (*RevisionsVm, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  RevisionsVm
+		localVarReturnValue  *RevisionsVm
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionApiService.ApiRevisionGet")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/revision"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -213,15 +207,15 @@ func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -230,7 +224,7 @@ func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -241,24 +235,23 @@ func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (
 }
 
 type ApiApiRevisionIdDeleteRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *RevisionApiService
 	id string
 }
 
-
-func (r ApiApiRevisionIdDeleteRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiApiRevisionIdDeleteRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiRevisionIdDeleteExecute(r)
 }
 
 /*
 ApiRevisionIdDelete Method for ApiRevisionIdDelete
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
  @return ApiApiRevisionIdDeleteRequest
 */
-func (a *RevisionApiService) ApiRevisionIdDelete(ctx _context.Context, id string) ApiApiRevisionIdDeleteRequest {
+func (a *RevisionApiService) ApiRevisionIdDelete(ctx context.Context, id string) ApiApiRevisionIdDeleteRequest {
 	return ApiApiRevisionIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -267,24 +260,24 @@ func (a *RevisionApiService) ApiRevisionIdDelete(ctx _context.Context, id string
 }
 
 // Execute executes the request
-func (a *RevisionApiService) ApiRevisionIdDeleteExecute(r ApiApiRevisionIdDeleteRequest) (*_nethttp.Response, error) {
+func (a *RevisionApiService) ApiRevisionIdDeleteExecute(r ApiApiRevisionIdDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionApiService.ApiRevisionIdDelete")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/revision/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -327,15 +320,15 @@ func (a *RevisionApiService) ApiRevisionIdDeleteExecute(r ApiApiRevisionIdDelete
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -346,7 +339,7 @@ func (a *RevisionApiService) ApiRevisionIdDeleteExecute(r ApiApiRevisionIdDelete
 }
 
 type ApiApiRevisionPostRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *RevisionApiService
 	registerRevisionCommand *RegisterRevisionCommand
 }
@@ -356,17 +349,17 @@ func (r ApiApiRevisionPostRequest) RegisterRevisionCommand(registerRevisionComma
 	return r
 }
 
-func (r ApiApiRevisionPostRequest) Execute() (*_nethttp.Response, error) {
+func (r ApiApiRevisionPostRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiRevisionPostExecute(r)
 }
 
 /*
 ApiRevisionPost Method for ApiRevisionPost
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiRevisionPostRequest
 */
-func (a *RevisionApiService) ApiRevisionPost(ctx _context.Context) ApiApiRevisionPostRequest {
+func (a *RevisionApiService) ApiRevisionPost(ctx context.Context) ApiApiRevisionPostRequest {
 	return ApiApiRevisionPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -374,23 +367,23 @@ func (a *RevisionApiService) ApiRevisionPost(ctx _context.Context) ApiApiRevisio
 }
 
 // Execute executes the request
-func (a *RevisionApiService) ApiRevisionPostExecute(r ApiApiRevisionPostRequest) (*_nethttp.Response, error) {
+func (a *RevisionApiService) ApiRevisionPostExecute(r ApiApiRevisionPostRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionApiService.ApiRevisionPost")
 	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
+		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/revision"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
@@ -435,15 +428,15 @@ func (a *RevisionApiService) ApiRevisionPostExecute(r ApiApiRevisionPostRequest)
 		return localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}

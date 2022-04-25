@@ -133,6 +133,32 @@ paths:
           description: Success
       tags:
       - App
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppCommand'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppCommand'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppCommand'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - App
   /api/certificate:
     get:
       responses:
@@ -198,6 +224,32 @@ paths:
           format: uuid
           type: string
         style: simple
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Certificate
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertificateCommand'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertificateCommand'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertificateCommand'
       responses:
         "200":
           description: Success
@@ -273,6 +325,32 @@ paths:
           description: Success
       tags:
       - Channel
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateChannelCommand'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateChannelCommand'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateChannelCommand'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Channel
   /api/environmentvariable:
     get:
       responses:
@@ -343,6 +421,32 @@ paths:
           description: Success
       tags:
       - EnvironmentVariable
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEnvironmentVariableCommand'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEnvironmentVariableCommand'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateEnvironmentVariableCommand'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - EnvironmentVariable
   /api/revision:
     get:
       responses:
@@ -406,7 +510,8 @@ components:
       additionalProperties: false
       example:
         channels:
-        - created: 2000-01-23T04:56:07.000+00:00
+        - app: null
+          created: 2000-01-23T04:56:07.000+00:00
           lastModifiedBy: lastModifiedBy
           certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           certificate:
@@ -426,7 +531,9 @@ components:
               dateOccurred: 2000-01-23T04:56:07.000+00:00
             - isPublished: true
               dateOccurred: 2000-01-23T04:56:07.000+00:00
+          revisionSelectionStrategy: null
           rangeRule: rangeRule
+          activeRevision: null
           domainEvents:
           - isPublished: true
             dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -439,6 +546,7 @@ components:
           - createdBy: createdBy
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
+            channel: null
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -452,6 +560,7 @@ components:
           - createdBy: createdBy
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
+            channel: null
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -467,7 +576,8 @@ components:
           name: name
           lastModified: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - created: 2000-01-23T04:56:07.000+00:00
+        - app: null
+          created: 2000-01-23T04:56:07.000+00:00
           lastModifiedBy: lastModifiedBy
           certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           certificate:
@@ -487,7 +597,9 @@ components:
               dateOccurred: 2000-01-23T04:56:07.000+00:00
             - isPublished: true
               dateOccurred: 2000-01-23T04:56:07.000+00:00
+          revisionSelectionStrategy: null
           rangeRule: rangeRule
+          activeRevision: null
           domainEvents:
           - isPublished: true
             dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -500,6 +612,7 @@ components:
           - createdBy: createdBy
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
+            channel: null
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -513,6 +626,7 @@ components:
           - createdBy: createdBy
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
+            channel: null
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -599,11 +713,30 @@ components:
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domain: domain
           name: name
+          certificate:
+            privateKey: privateKey
+            channels:
+            - null
+            - null
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            publicKey: publicKey
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
           activeRevision:
             app:
               channels:
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -623,7 +756,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -636,6 +771,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -649,6 +785,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -664,7 +801,8 @@ components:
                 name: name
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -684,7 +822,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -697,6 +837,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -710,6 +851,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -765,11 +907,30 @@ components:
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domain: domain
           name: name
+          certificate:
+            privateKey: privateKey
+            channels:
+            - null
+            - null
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            publicKey: publicKey
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
           activeRevision:
             app:
               channels:
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -789,7 +950,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -802,6 +965,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -815,6 +979,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -830,7 +995,8 @@ components:
                 name: name
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -850,7 +1016,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -863,6 +1031,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -876,6 +1045,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -969,11 +1139,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -993,7 +1182,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1006,6 +1197,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1019,6 +1211,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1034,7 +1227,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -1054,7 +1248,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1067,6 +1263,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1080,6 +1277,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1135,11 +1333,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -1159,7 +1376,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1172,6 +1391,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1185,6 +1405,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1200,7 +1421,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -1220,7 +1442,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1233,6 +1457,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1246,6 +1471,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1312,11 +1538,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -1336,7 +1581,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1349,6 +1596,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1362,6 +1610,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1377,7 +1626,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -1397,7 +1647,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1410,6 +1662,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1423,6 +1676,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1478,11 +1732,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -1502,7 +1775,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1515,6 +1790,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1528,6 +1804,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1543,7 +1820,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -1563,7 +1841,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1576,6 +1856,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1589,6 +1870,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -1723,11 +2005,30 @@ components:
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domain: domain
           name: name
+          certificate:
+            privateKey: privateKey
+            channels:
+            - null
+            - null
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            publicKey: publicKey
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
           activeRevision:
             app:
               channels:
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -1747,7 +2048,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1760,6 +2063,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -1773,6 +2077,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -1788,7 +2093,8 @@ components:
                 name: name
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -1808,7 +2114,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1821,6 +2129,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -1834,6 +2143,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -1889,11 +2199,30 @@ components:
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domain: domain
           name: name
+          certificate:
+            privateKey: privateKey
+            channels:
+            - null
+            - null
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            publicKey: publicKey
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
           activeRevision:
             app:
               channels:
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -1913,7 +2242,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1926,6 +2257,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -1939,6 +2271,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -1954,7 +2287,8 @@ components:
                 name: name
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -1974,7 +2308,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -1987,6 +2323,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -2000,6 +2337,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -2085,11 +2423,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2109,7 +2466,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2122,6 +2481,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2135,6 +2495,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2150,7 +2511,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2170,7 +2532,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2183,6 +2547,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2196,6 +2561,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2251,11 +2617,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2275,7 +2660,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2288,6 +2675,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2301,6 +2689,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2316,7 +2705,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2336,7 +2726,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2349,6 +2741,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2362,6 +2755,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2422,11 +2816,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2446,7 +2859,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2459,6 +2874,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2472,6 +2888,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2487,7 +2904,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2507,7 +2925,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2520,6 +2940,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2533,6 +2954,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2588,11 +3010,30 @@ components:
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domain: domain
             name: name
+            certificate:
+              privateKey: privateKey
+              channels:
+              - null
+              - null
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              publicKey: publicKey
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            revisionSelectionStrategy: null
             activeRevision:
               app:
                 channels:
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2612,7 +3053,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2625,6 +3068,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2638,6 +3082,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2653,7 +3098,8 @@ components:
                   name: name
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - created: 2000-01-23T04:56:07.000+00:00
+                - app: null
+                  created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
                   certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   certificate:
@@ -2673,7 +3119,9 @@ components:
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
                     - isPublished: true
                       dateOccurred: 2000-01-23T04:56:07.000+00:00
+                  revisionSelectionStrategy: null
                   rangeRule: rangeRule
+                  activeRevision: null
                   domainEvents:
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2686,6 +3134,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2699,6 +3148,7 @@ components:
                   - createdBy: createdBy
                     created: 2000-01-23T04:56:07.000+00:00
                     lastModifiedBy: lastModifiedBy
+                    channel: null
                     lastModified: 2000-01-23T04:56:07.000+00:00
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     domainEvents:
@@ -2756,6 +3206,7 @@ components:
     Channel:
       additionalProperties: false
       example:
+        app: null
         created: 2000-01-23T04:56:07.000+00:00
         lastModifiedBy: lastModifiedBy
         certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -2776,7 +3227,9 @@ components:
             dateOccurred: 2000-01-23T04:56:07.000+00:00
           - isPublished: true
             dateOccurred: 2000-01-23T04:56:07.000+00:00
+        revisionSelectionStrategy: null
         rangeRule: rangeRule
+        activeRevision: null
         domainEvents:
         - isPublished: true
           dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2789,6 +3242,7 @@ components:
         - createdBy: createdBy
           created: 2000-01-23T04:56:07.000+00:00
           lastModifiedBy: lastModifiedBy
+          channel: null
           lastModified: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domainEvents:
@@ -2802,6 +3256,7 @@ components:
         - createdBy: createdBy
           created: 2000-01-23T04:56:07.000+00:00
           lastModifiedBy: lastModifiedBy
+          channel: null
           lastModified: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domainEvents:
@@ -2891,11 +3346,30 @@ components:
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         domain: domain
         name: name
+        certificate:
+          privateKey: privateKey
+          channels:
+          - null
+          - null
+          createdBy: createdBy
+          created: 2000-01-23T04:56:07.000+00:00
+          lastModifiedBy: lastModifiedBy
+          name: name
+          lastModified: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          publicKey: publicKey
+          domainEvents:
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        revisionSelectionStrategy: null
         activeRevision:
           app:
             channels:
-            - created: 2000-01-23T04:56:07.000+00:00
+            - app: null
+              created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
               certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               certificate:
@@ -2915,7 +3389,9 @@ components:
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revisionSelectionStrategy: null
               rangeRule: rangeRule
+              activeRevision: null
               domainEvents:
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2928,6 +3404,7 @@ components:
               - createdBy: createdBy
                 created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
+                channel: null
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 domainEvents:
@@ -2941,6 +3418,7 @@ components:
               - createdBy: createdBy
                 created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
+                channel: null
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 domainEvents:
@@ -2956,7 +3434,8 @@ components:
               name: name
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - created: 2000-01-23T04:56:07.000+00:00
+            - app: null
+              created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
               certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               certificate:
@@ -2976,7 +3455,9 @@ components:
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revisionSelectionStrategy: null
               rangeRule: rangeRule
+              activeRevision: null
               domainEvents:
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -2989,6 +3470,7 @@ components:
               - createdBy: createdBy
                 created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
+                channel: null
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 domainEvents:
@@ -3002,6 +3484,7 @@ components:
               - createdBy: createdBy
                 created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
+                channel: null
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 domainEvents:
@@ -3063,6 +3546,8 @@ components:
         rangeRule:
           nullable: true
           type: string
+        certificate:
+          $ref: '#/components/schemas/Certificate'
         environmentVariables:
           items:
             $ref: '#/components/schemas/EnvironmentVariableDto'
@@ -3077,10 +3562,9 @@ components:
       type: object
     ChannelRevisionSelectionStrategy:
       enum:
-      - 0
-      - 1
-      format: int32
-      type: integer
+      - UseRangeRule
+      - UseSpecifiedRevision
+      type: string
     ChannelsVm:
       additionalProperties: false
       example:
@@ -3097,11 +3581,30 @@ components:
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domain: domain
           name: name
+          certificate:
+            privateKey: privateKey
+            channels:
+            - null
+            - null
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            publicKey: publicKey
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
           activeRevision:
             app:
               channels:
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -3121,7 +3624,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -3134,6 +3639,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3147,6 +3653,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3162,7 +3669,8 @@ components:
                 name: name
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -3182,7 +3690,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -3195,6 +3705,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3208,6 +3719,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3263,11 +3775,30 @@ components:
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domain: domain
           name: name
+          certificate:
+            privateKey: privateKey
+            channels:
+            - null
+            - null
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            publicKey: publicKey
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
           activeRevision:
             app:
               channels:
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -3287,7 +3818,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -3300,6 +3833,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3313,6 +3847,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3328,7 +3863,8 @@ components:
                 name: name
                 lastModified: 2000-01-23T04:56:07.000+00:00
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - created: 2000-01-23T04:56:07.000+00:00
+              - app: null
+                created: 2000-01-23T04:56:07.000+00:00
                 lastModifiedBy: lastModifiedBy
                 certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 certificate:
@@ -3348,7 +3884,9 @@ components:
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
                   - isPublished: true
                     dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revisionSelectionStrategy: null
                 rangeRule: rangeRule
+                activeRevision: null
                 domainEvents:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -3361,6 +3899,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3374,6 +3913,7 @@ components:
                 - createdBy: createdBy
                   created: 2000-01-23T04:56:07.000+00:00
                   lastModifiedBy: lastModifiedBy
+                  channel: null
                   lastModified: 2000-01-23T04:56:07.000+00:00
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   domainEvents:
@@ -3429,18 +3969,14 @@ components:
       additionalProperties: false
       example:
         password: password
-        passwordConfirm: passwordConfirm
         userName: userName
       properties:
         userName:
           type: string
         password:
           type: string
-        passwordConfirm:
-          type: string
       required:
       - password
-      - passwordConfirm
       - userName
       type: object
     CreateAppCommand:
@@ -3482,6 +4018,7 @@ components:
         domain: domain
         certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
+        revisionSelectionStrategy: null
         rangeRule: rangeRule
         activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -3563,6 +4100,7 @@ components:
         createdBy: createdBy
         created: 2000-01-23T04:56:07.000+00:00
         lastModifiedBy: lastModifiedBy
+        channel: null
         lastModified: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         domainEvents:
@@ -3669,7 +4207,8 @@ components:
       example:
         app:
           channels:
-          - created: 2000-01-23T04:56:07.000+00:00
+          - app: null
+            created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
             certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             certificate:
@@ -3689,7 +4228,9 @@ components:
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
+            revisionSelectionStrategy: null
             rangeRule: rangeRule
+            activeRevision: null
             domainEvents:
             - isPublished: true
               dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -3702,6 +4243,7 @@ components:
             - createdBy: createdBy
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
+              channel: null
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -3715,6 +4257,7 @@ components:
             - createdBy: createdBy
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
+              channel: null
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -3730,7 +4273,8 @@ components:
             name: name
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - created: 2000-01-23T04:56:07.000+00:00
+          - app: null
+            created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
             certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             certificate:
@@ -3750,7 +4294,9 @@ components:
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
+            revisionSelectionStrategy: null
             rangeRule: rangeRule
+            activeRevision: null
             domainEvents:
             - isPublished: true
               dateOccurred: 2000-01-23T04:56:07.000+00:00
@@ -3763,6 +4309,7 @@ components:
             - createdBy: createdBy
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
+              channel: null
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -3776,6 +4323,7 @@ components:
             - createdBy: createdBy
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
+              channel: null
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -3900,10 +4448,108 @@ components:
           readOnly: true
           type: string
       type: object
+    UpdateAppCommand:
+      additionalProperties: false
+      example:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        storageId: storageId
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        storageId:
+          type: string
+      required:
+      - id
+      - name
+      - storageId
+      type: object
+    UpdateCertificateCommand:
+      additionalProperties: false
+      example:
+        privateKey: privateKey
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        publicKey: publicKey
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        publicKey:
+          type: string
+        privateKey:
+          type: string
+      required:
+      - id
+      - name
+      - privateKey
+      - publicKey
+      type: object
+    UpdateChannelCommand:
+      additionalProperties: false
+      example:
+        domain: domain
+        certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        revisionSelectionStrategy: null
+        rangeRule: rangeRule
+        activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        domain:
+          type: string
+        revisionSelectionStrategy:
+          $ref: '#/components/schemas/ChannelRevisionSelectionStrategy'
+        rangeRule:
+          nullable: true
+          type: string
+        activeRevisionId:
+          format: uuid
+          nullable: true
+          type: string
+        certificateId:
+          format: uuid
+          nullable: true
+          type: string
+      required:
+      - domain
+      - id
+      - name
+      - revisionSelectionStrategy
+      type: object
+    UpdateEnvironmentVariableCommand:
+      additionalProperties: false
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+        key: key
+      properties:
+        id:
+          format: uuid
+          type: string
+        key:
+          type: string
+        value:
+          type: string
+      required:
+      - id
+      - key
+      - value
+      type: object
   securitySchemes:
     Bearer:
-      description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization:
-        Bearer {token}"'
+      description: "JWT Authorization header using the Bearer scheme. Example: \"\
+        Authorization: Bearer {token}\""
       in: header
       name: Authorization
       type: apiKey

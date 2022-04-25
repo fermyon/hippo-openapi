@@ -58,7 +58,7 @@ func (o *CreateChannelCommand) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value
 // and a boolean to check if the value has been set.
 func (o *CreateChannelCommand) GetAppIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AppId, true
@@ -82,7 +82,7 @@ func (o *CreateChannelCommand) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *CreateChannelCommand) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -106,7 +106,7 @@ func (o *CreateChannelCommand) GetDomain() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateChannelCommand) GetDomainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Domain.Get(), o.Domain.IsSet()
@@ -148,7 +148,7 @@ func (o *CreateChannelCommand) GetRevisionSelectionStrategy() ChannelRevisionSel
 // GetRevisionSelectionStrategyOk returns a tuple with the RevisionSelectionStrategy field value
 // and a boolean to check if the value has been set.
 func (o *CreateChannelCommand) GetRevisionSelectionStrategyOk() (*ChannelRevisionSelectionStrategy, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RevisionSelectionStrategy, true
@@ -172,7 +172,7 @@ func (o *CreateChannelCommand) GetRangeRule() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateChannelCommand) GetRangeRuleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RangeRule.Get(), o.RangeRule.IsSet()
@@ -214,7 +214,7 @@ func (o *CreateChannelCommand) GetActiveRevisionId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateChannelCommand) GetActiveRevisionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ActiveRevisionId.Get(), o.ActiveRevisionId.IsSet()
@@ -256,7 +256,7 @@ func (o *CreateChannelCommand) GetCertificateId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateChannelCommand) GetCertificateIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CertificateId.Get(), o.CertificateId.IsSet()

@@ -58,7 +58,7 @@ func (o *CertificateDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *CertificateDto) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -82,7 +82,7 @@ func (o *CertificateDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *CertificateDto) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -106,7 +106,7 @@ func (o *CertificateDto) GetPublicKey() string {
 // GetPublicKeyOk returns a tuple with the PublicKey field value
 // and a boolean to check if the value has been set.
 func (o *CertificateDto) GetPublicKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PublicKey, true
@@ -130,7 +130,7 @@ func (o *CertificateDto) GetPrivateKey() string {
 // GetPrivateKeyOk returns a tuple with the PrivateKey field value
 // and a boolean to check if the value has been set.
 func (o *CertificateDto) GetPrivateKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PrivateKey, true
@@ -153,11 +153,11 @@ func (o *CertificateDto) GetChannels() []ChannelDto {
 
 // GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-func (o *CertificateDto) GetChannelsOk() (*[]ChannelDto, bool) {
-	if o == nil  {
+func (o *CertificateDto) GetChannelsOk() ([]ChannelDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Channels, true
+	return o.Channels, true
 }
 
 // SetChannels sets field value

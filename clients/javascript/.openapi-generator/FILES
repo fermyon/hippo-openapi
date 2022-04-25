@@ -33,6 +33,10 @@ docs/RevisionApi.md
 docs/RevisionDto.md
 docs/RevisionsVm.md
 docs/TokenInfo.md
+docs/UpdateAppCommand.md
+docs/UpdateCertificateCommand.md
+docs/UpdateChannelCommand.md
+docs/UpdateEnvironmentVariableCommand.md
 git_push.sh
 mocha.opts
 package.json
@@ -69,3 +73,7 @@ src/model/Revision.js
 src/model/RevisionDto.js
 src/model/RevisionsVm.js
 src/model/TokenInfo.js
+src/model/UpdateAppCommand.js
+src/model/UpdateCertificateCommand.js
+src/model/UpdateChannelCommand.js
+src/model/UpdateEnvironmentVariableCommand.js

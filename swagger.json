@@ -192,6 +192,46 @@
       }
     },
     "/api/app/{id}": {
+      "put": {
+        "tags": [
+          "App"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAppCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAppCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAppCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "App"
@@ -305,6 +345,46 @@
       }
     },
     "/api/certificate/{id}": {
+      "put": {
+        "tags": [
+          "Certificate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCertificateCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCertificateCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCertificateCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Certificate"
@@ -418,6 +498,46 @@
       }
     },
     "/api/channel/{id}": {
+      "put": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Channel"
@@ -531,6 +651,46 @@
       }
     },
     "/api/environmentvariable/{id}": {
+      "put": {
+        "tags": [
+          "EnvironmentVariable"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnvironmentVariableCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnvironmentVariableCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEnvironmentVariableCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "EnvironmentVariable"
@@ -974,6 +1134,9 @@
             "type": "string",
             "nullable": true
           },
+          "certificate": {
+            "$ref": "#/components/schemas/Certificate"
+          },
           "environmentVariables": {
             "type": "array",
             "items": {
@@ -985,11 +1148,10 @@
       },
       "ChannelRevisionSelectionStrategy": {
         "enum": [
-          0,
-          1
+          "UseRangeRule",
+          "UseSpecifiedRevision"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "ChannelsVm": {
         "required": [
@@ -1009,7 +1171,6 @@
       "CreateAccountCommand": {
         "required": [
           "password",
-          "passwordConfirm",
           "userName"
         ],
         "type": "object",
@@ -1018,9 +1179,6 @@
             "type": "string"
           },
           "password": {
-            "type": "string"
-          },
-          "passwordConfirm": {
             "type": "string"
           }
         },
@@ -1349,6 +1507,112 @@
             "type": "string",
             "format": "date-time",
             "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateAppCommand": {
+        "required": [
+          "id",
+          "name",
+          "storageId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "storageId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCertificateCommand": {
+        "required": [
+          "id",
+          "name",
+          "privateKey",
+          "publicKey"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "publicKey": {
+            "type": "string"
+          },
+          "privateKey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateChannelCommand": {
+        "required": [
+          "domain",
+          "id",
+          "name",
+          "revisionSelectionStrategy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "revisionSelectionStrategy": {
+            "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
+          },
+          "rangeRule": {
+            "type": "string",
+            "nullable": true
+          },
+          "activeRevisionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "certificateId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateEnvironmentVariableCommand": {
+        "required": [
+          "id",
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
           }
         },
         "additionalProperties": false

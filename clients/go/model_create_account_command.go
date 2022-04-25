@@ -18,18 +18,16 @@ import (
 type CreateAccountCommand struct {
 	UserName string `json:"userName"`
 	Password string `json:"password"`
-	PasswordConfirm string `json:"passwordConfirm"`
 }
 
 // NewCreateAccountCommand instantiates a new CreateAccountCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateAccountCommand(userName string, password string, passwordConfirm string) *CreateAccountCommand {
+func NewCreateAccountCommand(userName string, password string) *CreateAccountCommand {
 	this := CreateAccountCommand{}
 	this.UserName = userName
 	this.Password = password
-	this.PasswordConfirm = passwordConfirm
 	return &this
 }
 
@@ -54,7 +52,7 @@ func (o *CreateAccountCommand) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value
 // and a boolean to check if the value has been set.
 func (o *CreateAccountCommand) GetUserNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.UserName, true
@@ -78,7 +76,7 @@ func (o *CreateAccountCommand) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
 func (o *CreateAccountCommand) GetPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Password, true
@@ -89,30 +87,6 @@ func (o *CreateAccountCommand) SetPassword(v string) {
 	o.Password = v
 }
 
-// GetPasswordConfirm returns the PasswordConfirm field value
-func (o *CreateAccountCommand) GetPasswordConfirm() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.PasswordConfirm
-}
-
-// GetPasswordConfirmOk returns a tuple with the PasswordConfirm field value
-// and a boolean to check if the value has been set.
-func (o *CreateAccountCommand) GetPasswordConfirmOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.PasswordConfirm, true
-}
-
-// SetPasswordConfirm sets field value
-func (o *CreateAccountCommand) SetPasswordConfirm(v string) {
-	o.PasswordConfirm = v
-}
-
 func (o CreateAccountCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -120,9 +94,6 @@ func (o CreateAccountCommand) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["password"] = o.Password
-	}
-	if true {
-		toSerialize["passwordConfirm"] = o.PasswordConfirm
 	}
 	return json.Marshal(toSerialize)
 }

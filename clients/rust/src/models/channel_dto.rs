@@ -27,6 +27,8 @@ pub struct ChannelDto {
     pub active_revision: Option<Box<crate::models::Revision>>,
     #[serde(rename = "rangeRule", skip_serializing_if = "Option::is_none")]
     pub range_rule: Option<String>,
+    #[serde(rename = "certificate", skip_serializing_if = "Option::is_none")]
+    pub certificate: Option<Box<crate::models::Certificate>>,
     #[serde(rename = "environmentVariables")]
     pub environment_variables: Vec<crate::models::EnvironmentVariableDto>,
 }
@@ -41,6 +43,7 @@ impl ChannelDto {
             revision_selection_strategy,
             active_revision: None,
             range_rule: None,
+            certificate: None,
             environment_variables,
         }
     }

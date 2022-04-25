@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ApiChannelExportGet**](ChannelApi.md#ApiChannelExportGet) | **Get** /api/channel/export | 
 [**ApiChannelGet**](ChannelApi.md#ApiChannelGet) | **Get** /api/channel | 
 [**ApiChannelIdDelete**](ChannelApi.md#ApiChannelIdDelete) | **Delete** /api/channel/{id} | 
+[**ApiChannelIdPut**](ChannelApi.md#ApiChannelIdPut) | **Put** /api/channel/{id} | 
 [**ApiChannelPost**](ChannelApi.md#ApiChannelPost) | **Post** /api/channel | 
 
 
@@ -32,8 +33,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ChannelApi.ApiChannelExportGet(context.Background()).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ChannelApi.ApiChannelExportGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelExportGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -89,8 +90,8 @@ import (
 func main() {
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ChannelApi.ApiChannelGet(context.Background()).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ChannelApi.ApiChannelGet(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -149,8 +150,8 @@ func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ChannelApi.ApiChannelIdDelete(context.Background(), id).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ChannelApi.ApiChannelIdDelete(context.Background(), id).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -193,6 +194,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiChannelIdPut
+
+> ApiChannelIdPut(ctx, id).UpdateChannelCommand(updateChannelCommand).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    updateChannelCommand := *openapiclient.NewUpdateChannelCommand("Id_example", "Name_example", "Domain_example", openapiclient.ChannelRevisionSelectionStrategy("UseRangeRule")) // UpdateChannelCommand |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ChannelApi.ApiChannelIdPut(context.Background(), id).UpdateChannelCommand(updateChannelCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelIdPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiChannelIdPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updateChannelCommand** | [**UpdateChannelCommand**](UpdateChannelCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiChannelPost
 
 > string ApiChannelPost(ctx).CreateChannelCommand(createChannelCommand).Execute()
@@ -212,11 +281,11 @@ import (
 )
 
 func main() {
-    createChannelCommand := *openapiclient.NewCreateChannelCommand("AppId_example", "Name_example", openapiclient.ChannelRevisionSelectionStrategy(0)) // CreateChannelCommand |  (optional)
+    createChannelCommand := *openapiclient.NewCreateChannelCommand("AppId_example", "Name_example", openapiclient.ChannelRevisionSelectionStrategy("UseRangeRule")) // CreateChannelCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ChannelApi.ApiChannelPost(context.Background()).CreateChannelCommand(createChannelCommand).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ChannelApi.ApiChannelPost(context.Background()).CreateChannelCommand(createChannelCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

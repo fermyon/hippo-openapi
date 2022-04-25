@@ -23,6 +23,7 @@ type ChannelDto struct {
 	RevisionSelectionStrategy ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy"`
 	ActiveRevision *Revision `json:"activeRevision,omitempty"`
 	RangeRule NullableString `json:"rangeRule,omitempty"`
+	Certificate *Certificate `json:"certificate,omitempty"`
 	EnvironmentVariables []EnvironmentVariableDto `json:"environmentVariables"`
 }
 
@@ -62,7 +63,7 @@ func (o *ChannelDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -86,7 +87,7 @@ func (o *ChannelDto) GetAppId() string {
 // GetAppIdOk returns a tuple with the AppId field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetAppIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AppId, true
@@ -110,7 +111,7 @@ func (o *ChannelDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -134,7 +135,7 @@ func (o *ChannelDto) GetDomain() string {
 // GetDomainOk returns a tuple with the Domain field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetDomainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Domain, true
@@ -158,7 +159,7 @@ func (o *ChannelDto) GetRevisionSelectionStrategy() ChannelRevisionSelectionStra
 // GetRevisionSelectionStrategyOk returns a tuple with the RevisionSelectionStrategy field value
 // and a boolean to check if the value has been set.
 func (o *ChannelDto) GetRevisionSelectionStrategyOk() (*ChannelRevisionSelectionStrategy, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RevisionSelectionStrategy, true
@@ -214,7 +215,7 @@ func (o *ChannelDto) GetRangeRule() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ChannelDto) GetRangeRuleOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RangeRule.Get(), o.RangeRule.IsSet()
@@ -243,6 +244,38 @@ func (o *ChannelDto) UnsetRangeRule() {
 	o.RangeRule.Unset()
 }
 
+// GetCertificate returns the Certificate field value if set, zero value otherwise.
+func (o *ChannelDto) GetCertificate() Certificate {
+	if o == nil || o.Certificate == nil {
+		var ret Certificate
+		return ret
+	}
+	return *o.Certificate
+}
+
+// GetCertificateOk returns a tuple with the Certificate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ChannelDto) GetCertificateOk() (*Certificate, bool) {
+	if o == nil || o.Certificate == nil {
+		return nil, false
+	}
+	return o.Certificate, true
+}
+
+// HasCertificate returns a boolean if a field has been set.
+func (o *ChannelDto) HasCertificate() bool {
+	if o != nil && o.Certificate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCertificate gets a reference to the given Certificate and assigns it to the Certificate field.
+func (o *ChannelDto) SetCertificate(v Certificate) {
+	o.Certificate = &v
+}
+
 // GetEnvironmentVariables returns the EnvironmentVariables field value
 func (o *ChannelDto) GetEnvironmentVariables() []EnvironmentVariableDto {
 	if o == nil {
@@ -255,11 +288,11 @@ func (o *ChannelDto) GetEnvironmentVariables() []EnvironmentVariableDto {
 
 // GetEnvironmentVariablesOk returns a tuple with the EnvironmentVariables field value
 // and a boolean to check if the value has been set.
-func (o *ChannelDto) GetEnvironmentVariablesOk() (*[]EnvironmentVariableDto, bool) {
-	if o == nil  {
+func (o *ChannelDto) GetEnvironmentVariablesOk() ([]EnvironmentVariableDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.EnvironmentVariables, true
+	return o.EnvironmentVariables, true
 }
 
 // SetEnvironmentVariables sets field value
@@ -289,6 +322,9 @@ func (o ChannelDto) MarshalJSON() ([]byte, error) {
 	}
 	if o.RangeRule.IsSet() {
 		toSerialize["rangeRule"] = o.RangeRule.Get()
+	}
+	if o.Certificate != nil {
+		toSerialize["certificate"] = o.Certificate
 	}
 	if true {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables

@@ -3,9 +3,9 @@
 ## Enum
 
 
-* `_0` (value: `0`)
+* `USE_RANGE_RULE` (value: `"UseRangeRule"`)
 
-* `_1` (value: `1`)
+* `USE_SPECIFIED_REVISION` (value: `"UseSpecifiedRevision"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

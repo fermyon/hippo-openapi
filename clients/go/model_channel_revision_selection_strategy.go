@@ -16,22 +16,22 @@ import (
 )
 
 // ChannelRevisionSelectionStrategy the model 'ChannelRevisionSelectionStrategy'
-type ChannelRevisionSelectionStrategy int32
+type ChannelRevisionSelectionStrategy string
 
 // List of ChannelRevisionSelectionStrategy
 const (
-	_0 ChannelRevisionSelectionStrategy = 0
-	_1 ChannelRevisionSelectionStrategy = 1
+	USE_RANGE_RULE ChannelRevisionSelectionStrategy = "UseRangeRule"
+	USE_SPECIFIED_REVISION ChannelRevisionSelectionStrategy = "UseSpecifiedRevision"
 )
 
 // All allowed values of ChannelRevisionSelectionStrategy enum
 var AllowedChannelRevisionSelectionStrategyEnumValues = []ChannelRevisionSelectionStrategy{
-	0,
-	1,
+	"UseRangeRule",
+	"UseSpecifiedRevision",
 }
 
 func (v *ChannelRevisionSelectionStrategy) UnmarshalJSON(src []byte) error {
-	var value int32
+	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
 		return err
@@ -49,7 +49,7 @@ func (v *ChannelRevisionSelectionStrategy) UnmarshalJSON(src []byte) error {
 
 // NewChannelRevisionSelectionStrategyFromValue returns a pointer to a valid ChannelRevisionSelectionStrategy
 // for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewChannelRevisionSelectionStrategyFromValue(v int32) (*ChannelRevisionSelectionStrategy, error) {
+func NewChannelRevisionSelectionStrategyFromValue(v string) (*ChannelRevisionSelectionStrategy, error) {
 	ev := ChannelRevisionSelectionStrategy(v)
 	if ev.IsValid() {
 		return &ev, nil

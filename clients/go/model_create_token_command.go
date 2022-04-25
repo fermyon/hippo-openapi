@@ -52,7 +52,7 @@ func (o *CreateTokenCommand) GetUserName() string {
 // GetUserNameOk returns a tuple with the UserName field value
 // and a boolean to check if the value has been set.
 func (o *CreateTokenCommand) GetUserNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.UserName, true
@@ -76,7 +76,7 @@ func (o *CreateTokenCommand) GetPassword() string {
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
 func (o *CreateTokenCommand) GetPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Password, true

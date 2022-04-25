@@ -3,8 +3,8 @@
 ## Enum
 
 
-* `0` (value: `0`)
+* `UseRangeRule` (value: `"UseRangeRule"`)
 
-* `1` (value: `1`)
+* `UseSpecifiedRevision` (value: `"UseSpecifiedRevision"`)
 
 

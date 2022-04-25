@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**api_channel_export_get**](ChannelApi.md#api_channel_export_get) | **GET** /api/channel/export | 
 [**api_channel_get**](ChannelApi.md#api_channel_get) | **GET** /api/channel | 
 [**api_channel_id_delete**](ChannelApi.md#api_channel_id_delete) | **DELETE** /api/channel/{id} | 
+[**api_channel_id_put**](ChannelApi.md#api_channel_id_put) | **PUT** /api/channel/{id} | 
 [**api_channel_post**](ChannelApi.md#api_channel_post) | **POST** /api/channel | 
 
 
@@ -84,6 +85,35 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_channel_id_put
+
+> api_channel_id_put(id, update_channel_command)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+**update_channel_command** | Option<[**UpdateChannelCommand**](UpdateChannelCommand.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

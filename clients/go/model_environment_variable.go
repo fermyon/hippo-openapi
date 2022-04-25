@@ -91,7 +91,7 @@ func (o *EnvironmentVariable) GetCreatedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnvironmentVariable) GetCreatedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CreatedBy.Get(), o.CreatedBy.IsSet()
@@ -165,7 +165,7 @@ func (o *EnvironmentVariable) GetLastModifiedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnvironmentVariable) GetLastModifiedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LastModifiedBy.Get(), o.LastModifiedBy.IsSet()
@@ -239,7 +239,7 @@ func (o *EnvironmentVariable) GetKey() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnvironmentVariable) GetKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Key.Get(), o.Key.IsSet()
@@ -281,7 +281,7 @@ func (o *EnvironmentVariable) GetValue() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnvironmentVariable) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Value.Get(), o.Value.IsSet()
@@ -376,7 +376,7 @@ func (o *EnvironmentVariable) SetChannel(v Channel) {
 
 // GetDomainEvents returns the DomainEvents field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EnvironmentVariable) GetDomainEvents() []DomainEvent {
-	if o == nil  {
+	if o == nil {
 		var ret []DomainEvent
 		return ret
 	}
@@ -386,11 +386,11 @@ func (o *EnvironmentVariable) GetDomainEvents() []DomainEvent {
 // GetDomainEventsOk returns a tuple with the DomainEvents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EnvironmentVariable) GetDomainEventsOk() (*[]DomainEvent, bool) {
+func (o *EnvironmentVariable) GetDomainEventsOk() ([]DomainEvent, bool) {
 	if o == nil || o.DomainEvents == nil {
 		return nil, false
 	}
-	return &o.DomainEvents, true
+	return o.DomainEvents, true
 }
 
 // HasDomainEvents returns a boolean if a field has been set.

@@ -56,7 +56,7 @@ func (o *EnvironmentVariableDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *EnvironmentVariableDto) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -80,7 +80,7 @@ func (o *EnvironmentVariableDto) GetChannelId() string {
 // GetChannelIdOk returns a tuple with the ChannelId field value
 // and a boolean to check if the value has been set.
 func (o *EnvironmentVariableDto) GetChannelIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ChannelId, true
@@ -104,7 +104,7 @@ func (o *EnvironmentVariableDto) GetKey() string {
 // GetKeyOk returns a tuple with the Key field value
 // and a boolean to check if the value has been set.
 func (o *EnvironmentVariableDto) GetKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Key, true
@@ -128,7 +128,7 @@ func (o *EnvironmentVariableDto) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *EnvironmentVariableDto) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

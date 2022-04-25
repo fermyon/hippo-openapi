@@ -91,7 +91,7 @@ func (o *Certificate) GetCreatedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Certificate) GetCreatedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CreatedBy.Get(), o.CreatedBy.IsSet()
@@ -165,7 +165,7 @@ func (o *Certificate) GetLastModifiedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Certificate) GetLastModifiedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LastModifiedBy.Get(), o.LastModifiedBy.IsSet()
@@ -239,7 +239,7 @@ func (o *Certificate) GetName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Certificate) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Name.Get(), o.Name.IsSet()
@@ -281,7 +281,7 @@ func (o *Certificate) GetPublicKey() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Certificate) GetPublicKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.PublicKey.Get(), o.PublicKey.IsSet()
@@ -323,7 +323,7 @@ func (o *Certificate) GetPrivateKey() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Certificate) GetPrivateKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.PrivateKey.Get(), o.PrivateKey.IsSet()
@@ -354,7 +354,7 @@ func (o *Certificate) UnsetPrivateKey() {
 
 // GetChannels returns the Channels field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Certificate) GetChannels() []Channel {
-	if o == nil  {
+	if o == nil {
 		var ret []Channel
 		return ret
 	}
@@ -364,11 +364,11 @@ func (o *Certificate) GetChannels() []Channel {
 // GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Certificate) GetChannelsOk() (*[]Channel, bool) {
+func (o *Certificate) GetChannelsOk() ([]Channel, bool) {
 	if o == nil || o.Channels == nil {
 		return nil, false
 	}
-	return &o.Channels, true
+	return o.Channels, true
 }
 
 // HasChannels returns a boolean if a field has been set.
@@ -387,7 +387,7 @@ func (o *Certificate) SetChannels(v []Channel) {
 
 // GetDomainEvents returns the DomainEvents field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Certificate) GetDomainEvents() []DomainEvent {
-	if o == nil  {
+	if o == nil {
 		var ret []DomainEvent
 		return ret
 	}
@@ -397,11 +397,11 @@ func (o *Certificate) GetDomainEvents() []DomainEvent {
 // GetDomainEventsOk returns a tuple with the DomainEvents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Certificate) GetDomainEventsOk() (*[]DomainEvent, bool) {
+func (o *Certificate) GetDomainEventsOk() ([]DomainEvent, bool) {
 	if o == nil || o.DomainEvents == nil {
 		return nil, false
 	}
-	return &o.DomainEvents, true
+	return o.DomainEvents, true
 }
 
 // HasDomainEvents returns a boolean if a field has been set.

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**api_app_export_get**](AppApi.md#api_app_export_get) | **GET** /api/app/export | 
 [**api_app_get**](AppApi.md#api_app_get) | **GET** /api/app | 
 [**api_app_id_delete**](AppApi.md#api_app_id_delete) | **DELETE** /api/app/{id} | 
+[**api_app_id_put**](AppApi.md#api_app_id_put) | **PUT** /api/app/{id} | 
 [**api_app_post**](AppApi.md#api_app_post) | **POST** /api/app | 
 
 
@@ -84,6 +85,35 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_app_id_put
+
+> api_app_id_put(id, update_app_command)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+**update_app_command** | Option<[**UpdateAppCommand**](UpdateAppCommand.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

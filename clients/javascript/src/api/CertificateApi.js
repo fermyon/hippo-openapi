@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import CertificatesVm from '../model/CertificatesVm';
 import CreateCertificateCommand from '../model/CreateCertificateCommand';
+import UpdateCertificateCommand from '../model/UpdateCertificateCommand';
 
 /**
 * Certificate service.
@@ -139,6 +140,49 @@ export default class CertificateApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/certificate/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the apiCertificateIdPut operation.
+     * @callback module:api/CertificateApi~apiCertificateIdPutCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {String} id 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/UpdateCertificateCommand} opts.updateCertificateCommand 
+     * @param {module:api/CertificateApi~apiCertificateIdPutCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiCertificateIdPut(id, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['updateCertificateCommand'];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling apiCertificateIdPut");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/certificate/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

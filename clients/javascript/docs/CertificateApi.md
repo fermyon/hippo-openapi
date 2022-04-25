@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**apiCertificateExportGet**](CertificateApi.md#apiCertificateExportGet) | **GET** /api/certificate/export | 
 [**apiCertificateGet**](CertificateApi.md#apiCertificateGet) | **GET** /api/certificate | 
 [**apiCertificateIdDelete**](CertificateApi.md#apiCertificateIdDelete) | **DELETE** /api/certificate/{id} | 
+[**apiCertificateIdPut**](CertificateApi.md#apiCertificateIdPut) | **PUT** /api/certificate/{id} | 
 [**apiCertificatePost**](CertificateApi.md#apiCertificatePost) | **POST** /api/certificate | 
 
 
@@ -147,6 +148,59 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## apiCertificateIdPut
+
+> apiCertificateIdPut(id, opts)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.CertificateApi();
+let id = "id_example"; // String | 
+let opts = {
+  'updateCertificateCommand': new HippoWeb.UpdateCertificateCommand() // UpdateCertificateCommand | 
+};
+apiInstance.apiCertificateIdPut(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **updateCertificateCommand** | [**UpdateCertificateCommand**](UpdateCertificateCommand.md)|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 

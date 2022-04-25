@@ -17,16 +17,13 @@ pub struct CreateAccountCommand {
     pub user_name: String,
     #[serde(rename = "password")]
     pub password: String,
-    #[serde(rename = "passwordConfirm")]
-    pub password_confirm: String,
 }
 
 impl CreateAccountCommand {
-    pub fn new(user_name: String, password: String, password_confirm: String) -> CreateAccountCommand {
+    pub fn new(user_name: String, password: String) -> CreateAccountCommand {
         CreateAccountCommand {
             user_name,
             password,
-            password_confirm,
         }
     }
 }

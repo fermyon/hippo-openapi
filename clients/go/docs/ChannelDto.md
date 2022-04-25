@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **RevisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **ActiveRevision** | Pointer to [**Revision**](Revision.md) |  | [optional] 
 **RangeRule** | Pointer to **NullableString** |  | [optional] 
+**Certificate** | Pointer to [**Certificate**](Certificate.md) |  | [optional] 
 **EnvironmentVariables** | [**[]EnvironmentVariableDto**](EnvironmentVariableDto.md) |  | 
 
 ## Methods
@@ -192,6 +193,31 @@ HasRangeRule returns a boolean if a field has been set.
 `func (o *ChannelDto) UnsetRangeRule()`
 
 UnsetRangeRule ensures that no value is present for RangeRule, not even an explicit nil
+### GetCertificate
+
+`func (o *ChannelDto) GetCertificate() Certificate`
+
+GetCertificate returns the Certificate field if non-nil, zero value otherwise.
+
+### GetCertificateOk
+
+`func (o *ChannelDto) GetCertificateOk() (*Certificate, bool)`
+
+GetCertificateOk returns a tuple with the Certificate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCertificate
+
+`func (o *ChannelDto) SetCertificate(v Certificate)`
+
+SetCertificate sets Certificate field to given value.
+
+### HasCertificate
+
+`func (o *ChannelDto) HasCertificate() bool`
+
+HasCertificate returns a boolean if a field has been set.
+
 ### GetEnvironmentVariables
 
 `func (o *ChannelDto) GetEnvironmentVariables() []EnvironmentVariableDto`

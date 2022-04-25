@@ -31,8 +31,8 @@ func main() {
     createTokenCommand := *openapiclient.NewCreateTokenCommand("UserName_example", "Password_example") // CreateTokenCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AccountApi.ApiAccountCreatetokenPost(context.Background()).CreateTokenCommand(createTokenCommand).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AccountApi.ApiAccountCreatetokenPost(context.Background()).CreateTokenCommand(createTokenCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountCreatetokenPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -92,11 +92,11 @@ import (
 )
 
 func main() {
-    createAccountCommand := *openapiclient.NewCreateAccountCommand("UserName_example", "Password_example", "PasswordConfirm_example") // CreateAccountCommand |  (optional)
+    createAccountCommand := *openapiclient.NewCreateAccountCommand("UserName_example", "Password_example") // CreateAccountCommand |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AccountApi.ApiAccountPost(context.Background()).CreateAccountCommand(createAccountCommand).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AccountApi.ApiAccountPost(context.Background()).CreateAccountCommand(createAccountCommand).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountApi.ApiAccountPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

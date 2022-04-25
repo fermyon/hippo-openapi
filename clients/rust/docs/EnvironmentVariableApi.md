@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**api_environmentvariable_export_get**](EnvironmentVariableApi.md#api_environmentvariable_export_get) | **GET** /api/environmentvariable/export | 
 [**api_environmentvariable_get**](EnvironmentVariableApi.md#api_environmentvariable_get) | **GET** /api/environmentvariable | 
 [**api_environmentvariable_id_delete**](EnvironmentVariableApi.md#api_environmentvariable_id_delete) | **DELETE** /api/environmentvariable/{id} | 
+[**api_environmentvariable_id_put**](EnvironmentVariableApi.md#api_environmentvariable_id_put) | **PUT** /api/environmentvariable/{id} | 
 [**api_environmentvariable_post**](EnvironmentVariableApi.md#api_environmentvariable_post) | **POST** /api/environmentvariable | 
 
 
@@ -84,6 +85,35 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_environmentvariable_id_put
+
+> api_environmentvariable_id_put(id, update_environment_variable_command)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+**update_environment_variable_command** | Option<[**UpdateEnvironmentVariableCommand**](UpdateEnvironmentVariableCommand.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

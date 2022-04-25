@@ -24,11 +24,10 @@ class CreateAccountCommand {
      * @alias module:model/CreateAccountCommand
      * @param userName {String} 
      * @param password {String} 
-     * @param passwordConfirm {String} 
      */
-    constructor(userName, password, passwordConfirm) { 
+    constructor(userName, password) { 
         
-        CreateAccountCommand.initialize(this, userName, password, passwordConfirm);
+        CreateAccountCommand.initialize(this, userName, password);
     }
 
     /**
@@ -36,10 +35,9 @@ class CreateAccountCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, userName, password, passwordConfirm) { 
+    static initialize(obj, userName, password) { 
         obj['userName'] = userName;
         obj['password'] = password;
-        obj['passwordConfirm'] = passwordConfirm;
     }
 
     /**
@@ -59,9 +57,6 @@ class CreateAccountCommand {
             if (data.hasOwnProperty('password')) {
                 obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
-            if (data.hasOwnProperty('passwordConfirm')) {
-                obj['passwordConfirm'] = ApiClient.convertToType(data['passwordConfirm'], 'String');
-            }
         }
         return obj;
     }
@@ -78,11 +73,6 @@ CreateAccountCommand.prototype['userName'] = undefined;
  * @member {String} password
  */
 CreateAccountCommand.prototype['password'] = undefined;
-
-/**
- * @member {String} passwordConfirm
- */
-CreateAccountCommand.prototype['passwordConfirm'] = undefined;
 
 
 

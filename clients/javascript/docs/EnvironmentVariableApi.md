@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**apiEnvironmentvariableExportGet**](EnvironmentVariableApi.md#apiEnvironmentvariableExportGet) | **GET** /api/environmentvariable/export | 
 [**apiEnvironmentvariableGet**](EnvironmentVariableApi.md#apiEnvironmentvariableGet) | **GET** /api/environmentvariable | 
 [**apiEnvironmentvariableIdDelete**](EnvironmentVariableApi.md#apiEnvironmentvariableIdDelete) | **DELETE** /api/environmentvariable/{id} | 
+[**apiEnvironmentvariableIdPut**](EnvironmentVariableApi.md#apiEnvironmentvariableIdPut) | **PUT** /api/environmentvariable/{id} | 
 [**apiEnvironmentvariablePost**](EnvironmentVariableApi.md#apiEnvironmentvariablePost) | **POST** /api/environmentvariable | 
 
 
@@ -147,6 +148,59 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## apiEnvironmentvariableIdPut
+
+> apiEnvironmentvariableIdPut(id, opts)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.EnvironmentVariableApi();
+let id = "id_example"; // String | 
+let opts = {
+  'updateEnvironmentVariableCommand': new HippoWeb.UpdateEnvironmentVariableCommand() // UpdateEnvironmentVariableCommand | 
+};
+apiInstance.apiEnvironmentvariableIdPut(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **updateEnvironmentVariableCommand** | [**UpdateEnvironmentVariableCommand**](UpdateEnvironmentVariableCommand.md)|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 

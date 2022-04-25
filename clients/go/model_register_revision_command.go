@@ -52,7 +52,7 @@ func (o *RegisterRevisionCommand) GetAppStorageId() string {
 // GetAppStorageIdOk returns a tuple with the AppStorageId field value
 // and a boolean to check if the value has been set.
 func (o *RegisterRevisionCommand) GetAppStorageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AppStorageId, true
@@ -76,7 +76,7 @@ func (o *RegisterRevisionCommand) GetRevisionNumber() string {
 // GetRevisionNumberOk returns a tuple with the RevisionNumber field value
 // and a boolean to check if the value has been set.
 func (o *RegisterRevisionCommand) GetRevisionNumberOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RevisionNumber, true

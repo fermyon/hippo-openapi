@@ -91,7 +91,7 @@ func (o *App) GetCreatedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *App) GetCreatedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.CreatedBy.Get(), o.CreatedBy.IsSet()
@@ -165,7 +165,7 @@ func (o *App) GetLastModifiedBy() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *App) GetLastModifiedByOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LastModifiedBy.Get(), o.LastModifiedBy.IsSet()
@@ -239,7 +239,7 @@ func (o *App) GetName() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *App) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Name.Get(), o.Name.IsSet()
@@ -281,7 +281,7 @@ func (o *App) GetStorageId() string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *App) GetStorageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.StorageId.Get(), o.StorageId.IsSet()
@@ -312,7 +312,7 @@ func (o *App) UnsetStorageId() {
 
 // GetChannels returns the Channels field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *App) GetChannels() []Channel {
-	if o == nil  {
+	if o == nil {
 		var ret []Channel
 		return ret
 	}
@@ -322,11 +322,11 @@ func (o *App) GetChannels() []Channel {
 // GetChannelsOk returns a tuple with the Channels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *App) GetChannelsOk() (*[]Channel, bool) {
+func (o *App) GetChannelsOk() ([]Channel, bool) {
 	if o == nil || o.Channels == nil {
 		return nil, false
 	}
-	return &o.Channels, true
+	return o.Channels, true
 }
 
 // HasChannels returns a boolean if a field has been set.
@@ -345,7 +345,7 @@ func (o *App) SetChannels(v []Channel) {
 
 // GetRevisions returns the Revisions field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *App) GetRevisions() []Revision {
-	if o == nil  {
+	if o == nil {
 		var ret []Revision
 		return ret
 	}
@@ -355,11 +355,11 @@ func (o *App) GetRevisions() []Revision {
 // GetRevisionsOk returns a tuple with the Revisions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *App) GetRevisionsOk() (*[]Revision, bool) {
+func (o *App) GetRevisionsOk() ([]Revision, bool) {
 	if o == nil || o.Revisions == nil {
 		return nil, false
 	}
-	return &o.Revisions, true
+	return o.Revisions, true
 }
 
 // HasRevisions returns a boolean if a field has been set.
@@ -378,7 +378,7 @@ func (o *App) SetRevisions(v []Revision) {
 
 // GetDomainEvents returns the DomainEvents field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *App) GetDomainEvents() []DomainEvent {
-	if o == nil  {
+	if o == nil {
 		var ret []DomainEvent
 		return ret
 	}
@@ -388,11 +388,11 @@ func (o *App) GetDomainEvents() []DomainEvent {
 // GetDomainEventsOk returns a tuple with the DomainEvents field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *App) GetDomainEventsOk() (*[]DomainEvent, bool) {
+func (o *App) GetDomainEventsOk() ([]DomainEvent, bool) {
 	if o == nil || o.DomainEvents == nil {
 		return nil, false
 	}
-	return &o.DomainEvents, true
+	return o.DomainEvents, true
 }
 
 // HasDomainEvents returns a boolean if a field has been set.

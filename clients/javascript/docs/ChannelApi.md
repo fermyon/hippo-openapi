@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**apiChannelExportGet**](ChannelApi.md#apiChannelExportGet) | **GET** /api/channel/export | 
 [**apiChannelGet**](ChannelApi.md#apiChannelGet) | **GET** /api/channel | 
 [**apiChannelIdDelete**](ChannelApi.md#apiChannelIdDelete) | **DELETE** /api/channel/{id} | 
+[**apiChannelIdPut**](ChannelApi.md#apiChannelIdPut) | **PUT** /api/channel/{id} | 
 [**apiChannelPost**](ChannelApi.md#apiChannelPost) | **POST** /api/channel | 
 
 
@@ -147,6 +148,59 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## apiChannelIdPut
+
+> apiChannelIdPut(id, opts)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.ChannelApi();
+let id = "id_example"; // String | 
+let opts = {
+  'updateChannelCommand': new HippoWeb.UpdateChannelCommand() // UpdateChannelCommand | 
+};
+apiInstance.apiChannelIdPut(id, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **updateChannelCommand** | [**UpdateChannelCommand**](UpdateChannelCommand.md)|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 

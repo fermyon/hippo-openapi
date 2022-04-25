@@ -58,7 +58,7 @@ func (o *AppDto) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AppDto) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -82,7 +82,7 @@ func (o *AppDto) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *AppDto) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -106,7 +106,7 @@ func (o *AppDto) GetStorageId() string {
 // GetStorageIdOk returns a tuple with the StorageId field value
 // and a boolean to check if the value has been set.
 func (o *AppDto) GetStorageIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.StorageId, true
@@ -129,11 +129,11 @@ func (o *AppDto) GetChannels() []ChannelDto {
 
 // GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetChannelsOk() (*[]ChannelDto, bool) {
-	if o == nil  {
+func (o *AppDto) GetChannelsOk() ([]ChannelDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Channels, true
+	return o.Channels, true
 }
 
 // SetChannels sets field value
@@ -153,11 +153,11 @@ func (o *AppDto) GetRevisions() []RevisionDto {
 
 // GetRevisionsOk returns a tuple with the Revisions field value
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetRevisionsOk() (*[]RevisionDto, bool) {
-	if o == nil  {
+func (o *AppDto) GetRevisionsOk() ([]RevisionDto, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Revisions, true
+	return o.Revisions, true
 }
 
 // SetRevisions sets field value

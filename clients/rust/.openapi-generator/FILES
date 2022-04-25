@@ -33,6 +33,10 @@ docs/RevisionApi.md
 docs/RevisionDto.md
 docs/RevisionsVm.md
 docs/TokenInfo.md
+docs/UpdateAppCommand.md
+docs/UpdateCertificateCommand.md
+docs/UpdateChannelCommand.md
+docs/UpdateEnvironmentVariableCommand.md
 git_push.sh
 src/apis/account_api.rs
 src/apis/app_api.rs
@@ -69,3 +73,7 @@ src/models/revision.rs
 src/models/revision_dto.rs
 src/models/revisions_vm.rs
 src/models/token_info.rs
+src/models/update_app_command.rs
+src/models/update_certificate_command.rs
+src/models/update_channel_command.rs
+src/models/update_environment_variable_command.rs

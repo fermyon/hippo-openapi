@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**api_certificate_export_get**](CertificateApi.md#api_certificate_export_get) | **GET** /api/certificate/export | 
 [**api_certificate_get**](CertificateApi.md#api_certificate_get) | **GET** /api/certificate | 
 [**api_certificate_id_delete**](CertificateApi.md#api_certificate_id_delete) | **DELETE** /api/certificate/{id} | 
+[**api_certificate_id_put**](CertificateApi.md#api_certificate_id_put) | **PUT** /api/certificate/{id} | 
 [**api_certificate_post**](CertificateApi.md#api_certificate_post) | **POST** /api/certificate | 
 
 
@@ -84,6 +85,35 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_certificate_id_put
+
+> api_certificate_id_put(id, update_certificate_command)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**id** | **String** |  | [required] |
+**update_certificate_command** | Option<[**UpdateCertificateCommand**](UpdateCertificateCommand.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **revisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **activeRevision** | [**Revision**](Revision.md) |  | [optional] 
 **rangeRule** | **String** |  | [optional] 
+**certificate** | [**Certificate**](Certificate.md) |  | [optional] 
 **environmentVariables** | [**[EnvironmentVariableDto]**](EnvironmentVariableDto.md) |  | 
 
 
