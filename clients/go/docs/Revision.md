@@ -10,8 +10,10 @@ Name | Type | Description | Notes
 **LastModifiedBy** | Pointer to **NullableString** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **RevisionNumber** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **AppId** | Pointer to **string** |  | [optional] 
 **App** | Pointer to [**App**](App.md) |  | [optional] 
+**Components** | Pointer to [**[]RevisionComponent**](RevisionComponent.md) |  | [optional] [readonly] 
 **DomainEvents** | Pointer to [**[]DomainEvent**](DomainEvent.md) |  | [optional] 
 
 ## Methods
@@ -213,6 +215,41 @@ HasRevisionNumber returns a boolean if a field has been set.
 `func (o *Revision) UnsetRevisionNumber()`
 
 UnsetRevisionNumber ensures that no value is present for RevisionNumber, not even an explicit nil
+### GetDescription
+
+`func (o *Revision) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *Revision) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *Revision) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *Revision) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *Revision) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *Revision) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetAppId
 
 `func (o *Revision) GetAppId() string`
@@ -263,6 +300,41 @@ SetApp sets App field to given value.
 
 HasApp returns a boolean if a field has been set.
 
+### GetComponents
+
+`func (o *Revision) GetComponents() []RevisionComponent`
+
+GetComponents returns the Components field if non-nil, zero value otherwise.
+
+### GetComponentsOk
+
+`func (o *Revision) GetComponentsOk() (*[]RevisionComponent, bool)`
+
+GetComponentsOk returns a tuple with the Components field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComponents
+
+`func (o *Revision) SetComponents(v []RevisionComponent)`
+
+SetComponents sets Components field to given value.
+
+### HasComponents
+
+`func (o *Revision) HasComponents() bool`
+
+HasComponents returns a boolean if a field has been set.
+
+### SetComponentsNil
+
+`func (o *Revision) SetComponentsNil(b bool)`
+
+ SetComponentsNil sets the value for Components to be an explicit nil
+
+### UnsetComponents
+`func (o *Revision) UnsetComponents()`
+
+UnsetComponents ensures that no value is present for Components, not even an explicit nil
 ### GetDomainEvents
 
 `func (o *Revision) GetDomainEvents() []DomainEvent`

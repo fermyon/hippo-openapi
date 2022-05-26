@@ -11,5 +11,8 @@ clients: swagger.json
 			 $(DOCKER_IMAGE) generate -i swagger.json -g $$lang -o clients/$$lang --package-name "$(PACKAGE_NAME)" --config config/$$lang.json ; \
 	done
 
+swagger.json:
+	curl -sSLko swagger.json https://localhost:5309/swagger/v1/swagger.json
+
 clean:
 	rm -rf clients

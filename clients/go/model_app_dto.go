@@ -19,21 +19,21 @@ type AppDto struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	StorageId string `json:"storageId"`
-	Channels []ChannelDto `json:"channels"`
-	Revisions []RevisionDto `json:"revisions"`
+	Description string `json:"description"`
+	Channels []ApplicationChannelSummary `json:"channels"`
 }
 
 // NewAppDto instantiates a new AppDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppDto(id string, name string, storageId string, channels []ChannelDto, revisions []RevisionDto) *AppDto {
+func NewAppDto(id string, name string, storageId string, description string, channels []ApplicationChannelSummary) *AppDto {
 	this := AppDto{}
 	this.Id = id
 	this.Name = name
 	this.StorageId = storageId
+	this.Description = description
 	this.Channels = channels
-	this.Revisions = revisions
 	return &this
 }
 
@@ -117,10 +117,34 @@ func (o *AppDto) SetStorageId(v string) {
 	o.StorageId = v
 }
 
-// GetChannels returns the Channels field value
-func (o *AppDto) GetChannels() []ChannelDto {
+// GetDescription returns the Description field value
+func (o *AppDto) GetDescription() string {
 	if o == nil {
-		var ret []ChannelDto
+		var ret string
+		return ret
+	}
+
+	return o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value
+// and a boolean to check if the value has been set.
+func (o *AppDto) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Description, true
+}
+
+// SetDescription sets field value
+func (o *AppDto) SetDescription(v string) {
+	o.Description = v
+}
+
+// GetChannels returns the Channels field value
+func (o *AppDto) GetChannels() []ApplicationChannelSummary {
+	if o == nil {
+		var ret []ApplicationChannelSummary
 		return ret
 	}
 
@@ -129,7 +153,7 @@ func (o *AppDto) GetChannels() []ChannelDto {
 
 // GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-func (o *AppDto) GetChannelsOk() ([]ChannelDto, bool) {
+func (o *AppDto) GetChannelsOk() ([]ApplicationChannelSummary, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -137,32 +161,8 @@ func (o *AppDto) GetChannelsOk() ([]ChannelDto, bool) {
 }
 
 // SetChannels sets field value
-func (o *AppDto) SetChannels(v []ChannelDto) {
+func (o *AppDto) SetChannels(v []ApplicationChannelSummary) {
 	o.Channels = v
-}
-
-// GetRevisions returns the Revisions field value
-func (o *AppDto) GetRevisions() []RevisionDto {
-	if o == nil {
-		var ret []RevisionDto
-		return ret
-	}
-
-	return o.Revisions
-}
-
-// GetRevisionsOk returns a tuple with the Revisions field value
-// and a boolean to check if the value has been set.
-func (o *AppDto) GetRevisionsOk() ([]RevisionDto, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Revisions, true
-}
-
-// SetRevisions sets field value
-func (o *AppDto) SetRevisions(v []RevisionDto) {
-	o.Revisions = v
 }
 
 func (o AppDto) MarshalJSON() ([]byte, error) {
@@ -177,10 +177,10 @@ func (o AppDto) MarshalJSON() ([]byte, error) {
 		toSerialize["storageId"] = o.StorageId
 	}
 	if true {
-		toSerialize["channels"] = o.Channels
+		toSerialize["description"] = o.Description
 	}
 	if true {
-		toSerialize["revisions"] = o.Revisions
+		toSerialize["channels"] = o.Channels
 	}
 	return json.Marshal(toSerialize)
 }

@@ -37,10 +37,13 @@ Class | Method | HTTP request | Description
 *CertificateApi* | [**api_certificate_id_delete**](docs/CertificateApi.md#api_certificate_id_delete) | **DELETE** /api/certificate/{id} | 
 *CertificateApi* | [**api_certificate_id_put**](docs/CertificateApi.md#api_certificate_id_put) | **PUT** /api/certificate/{id} | 
 *CertificateApi* | [**api_certificate_post**](docs/CertificateApi.md#api_certificate_post) | **POST** /api/certificate | 
+*ChannelApi* | [**api_channel_channel_id_get**](docs/ChannelApi.md#api_channel_channel_id_get) | **GET** /api/channel/{channelId} | 
+*ChannelApi* | [**api_channel_channel_id_overview_get**](docs/ChannelApi.md#api_channel_channel_id_overview_get) | **GET** /api/channel/{channelId}/overview | 
 *ChannelApi* | [**api_channel_export_get**](docs/ChannelApi.md#api_channel_export_get) | **GET** /api/channel/export | 
 *ChannelApi* | [**api_channel_get**](docs/ChannelApi.md#api_channel_get) | **GET** /api/channel | 
 *ChannelApi* | [**api_channel_id_delete**](docs/ChannelApi.md#api_channel_id_delete) | **DELETE** /api/channel/{id} | 
 *ChannelApi* | [**api_channel_id_put**](docs/ChannelApi.md#api_channel_id_put) | **PUT** /api/channel/{id} | 
+*ChannelApi* | [**api_channel_logs_channel_id_get**](docs/ChannelApi.md#api_channel_logs_channel_id_get) | **GET** /api/channel/logs/{channelId} | 
 *ChannelApi* | [**api_channel_post**](docs/ChannelApi.md#api_channel_post) | **POST** /api/channel | 
 *EnvironmentVariableApi* | [**api_environmentvariable_export_get**](docs/EnvironmentVariableApi.md#api_environmentvariable_export_get) | **GET** /api/environmentvariable/export | 
 *EnvironmentVariableApi* | [**api_environmentvariable_get**](docs/EnvironmentVariableApi.md#api_environmentvariable_get) | **GET** /api/environmentvariable | 
@@ -51,19 +54,24 @@ Class | Method | HTTP request | Description
 *RevisionApi* | [**api_revision_get**](docs/RevisionApi.md#api_revision_get) | **GET** /api/revision | 
 *RevisionApi* | [**api_revision_id_delete**](docs/RevisionApi.md#api_revision_id_delete) | **DELETE** /api/revision/{id} | 
 *RevisionApi* | [**api_revision_post**](docs/RevisionApi.md#api_revision_post) | **POST** /api/revision | 
+*StorageApi* | [**api_storage_get**](docs/StorageApi.md#api_storage_get) | **GET** /api/storage | 
 
 
 ## Documentation For Models
 
  - [App](docs/App.md)
  - [AppDto](docs/AppDto.md)
+ - [AppSummaryDto](docs/AppSummaryDto.md)
+ - [ApplicationChannelSummary](docs/ApplicationChannelSummary.md)
  - [AppsVm](docs/AppsVm.md)
  - [Certificate](docs/Certificate.md)
  - [CertificateDto](docs/CertificateDto.md)
  - [CertificatesVm](docs/CertificatesVm.md)
  - [Channel](docs/Channel.md)
+ - [ChannelDetailsDto](docs/ChannelDetailsDto.md)
  - [ChannelDto](docs/ChannelDto.md)
  - [ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
+ - [ChannelSummaryDto](docs/ChannelSummaryDto.md)
  - [ChannelsVm](docs/ChannelsVm.md)
  - [CreateAccountCommand](docs/CreateAccountCommand.md)
  - [CreateAppCommand](docs/CreateAppCommand.md)
@@ -75,10 +83,15 @@ Class | Method | HTTP request | Description
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
  - [EnvironmentVariableDto](docs/EnvironmentVariableDto.md)
  - [EnvironmentVariablesVm](docs/EnvironmentVariablesVm.md)
+ - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [Revision](docs/Revision.md)
+ - [RevisionComponent](docs/RevisionComponent.md)
+ - [RevisionComponentDto](docs/RevisionComponentDto.md)
+ - [RevisionDetailsDto](docs/RevisionDetailsDto.md)
  - [RevisionDto](docs/RevisionDto.md)
  - [RevisionsVm](docs/RevisionsVm.md)
+ - [StorageList](docs/StorageList.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [UpdateAppCommand](docs/UpdateAppCommand.md)
  - [UpdateCertificateCommand](docs/UpdateCertificateCommand.md)

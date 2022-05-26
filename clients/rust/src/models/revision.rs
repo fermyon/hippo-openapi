@@ -25,10 +25,14 @@ pub struct Revision {
     pub id: Option<String>,
     #[serde(rename = "revisionNumber", skip_serializing_if = "Option::is_none")]
     pub revision_number: Option<String>,
+    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
     #[serde(rename = "appId", skip_serializing_if = "Option::is_none")]
     pub app_id: Option<String>,
     #[serde(rename = "app", skip_serializing_if = "Option::is_none")]
     pub app: Option<Box<crate::models::App>>,
+    #[serde(rename = "components", skip_serializing_if = "Option::is_none")]
+    pub components: Option<Vec<crate::models::RevisionComponent>>,
     #[serde(rename = "domainEvents", skip_serializing_if = "Option::is_none")]
     pub domain_events: Option<Vec<crate::models::DomainEvent>>,
 }
@@ -42,8 +46,10 @@ impl Revision {
             last_modified_by: None,
             id: None,
             revision_number: None,
+            description: None,
             app_id: None,
             app: None,
+            components: None,
             domain_events: None,
         }
     }

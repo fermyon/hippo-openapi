@@ -19,20 +19,20 @@ pub struct AppDto {
     pub name: String,
     #[serde(rename = "storageId")]
     pub storage_id: String,
+    #[serde(rename = "description")]
+    pub description: String,
     #[serde(rename = "channels")]
-    pub channels: Vec<crate::models::ChannelDto>,
-    #[serde(rename = "revisions")]
-    pub revisions: Vec<crate::models::RevisionDto>,
+    pub channels: Vec<crate::models::ApplicationChannelSummary>,
 }
 
 impl AppDto {
-    pub fn new(id: String, name: String, storage_id: String, channels: Vec<crate::models::ChannelDto>, revisions: Vec<crate::models::RevisionDto>) -> AppDto {
+    pub fn new(id: String, name: String, storage_id: String, description: String, channels: Vec<crate::models::ApplicationChannelSummary>) -> AppDto {
         AppDto {
             id,
             name,
             storage_id,
+            description,
             channels,
-            revisions,
         }
     }
 }

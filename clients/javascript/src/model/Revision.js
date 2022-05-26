@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import App from './App';
 import DomainEvent from './DomainEvent';
+import RevisionComponent from './RevisionComponent';
 
 /**
  * The Revision model module.
@@ -67,11 +68,17 @@ class Revision {
             if (data.hasOwnProperty('revisionNumber')) {
                 obj['revisionNumber'] = ApiClient.convertToType(data['revisionNumber'], 'String');
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
             if (data.hasOwnProperty('appId')) {
                 obj['appId'] = ApiClient.convertToType(data['appId'], 'String');
             }
             if (data.hasOwnProperty('app')) {
                 obj['app'] = App.constructFromObject(data['app']);
+            }
+            if (data.hasOwnProperty('components')) {
+                obj['components'] = ApiClient.convertToType(data['components'], [RevisionComponent]);
             }
             if (data.hasOwnProperty('domainEvents')) {
                 obj['domainEvents'] = ApiClient.convertToType(data['domainEvents'], [DomainEvent]);
@@ -114,6 +121,11 @@ Revision.prototype['id'] = undefined;
 Revision.prototype['revisionNumber'] = undefined;
 
 /**
+ * @member {String} description
+ */
+Revision.prototype['description'] = undefined;
+
+/**
  * @member {String} appId
  */
 Revision.prototype['appId'] = undefined;
@@ -122,6 +134,11 @@ Revision.prototype['appId'] = undefined;
  * @member {module:model/App} app
  */
 Revision.prototype['app'] = undefined;
+
+/**
+ * @member {Array.<module:model/RevisionComponent>} components
+ */
+Revision.prototype['components'] = undefined;
 
 /**
  * @member {Array.<module:model/DomainEvent>} domainEvents

@@ -23,8 +23,10 @@ type Revision struct {
 	LastModifiedBy NullableString `json:"lastModifiedBy,omitempty"`
 	Id *string `json:"id,omitempty"`
 	RevisionNumber NullableString `json:"revisionNumber,omitempty"`
+	Description NullableString `json:"description,omitempty"`
 	AppId *string `json:"appId,omitempty"`
 	App *App `json:"app,omitempty"`
+	Components []RevisionComponent `json:"components,omitempty"`
 	DomainEvents []DomainEvent `json:"domainEvents,omitempty"`
 }
 
@@ -267,6 +269,48 @@ func (o *Revision) UnsetRevisionNumber() {
 	o.RevisionNumber.Unset()
 }
 
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Revision) GetDescription() string {
+	if o == nil || o.Description.Get() == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Revision) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *Revision) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *Revision) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *Revision) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *Revision) UnsetDescription() {
+	o.Description.Unset()
+}
+
 // GetAppId returns the AppId field value if set, zero value otherwise.
 func (o *Revision) GetAppId() string {
 	if o == nil || o.AppId == nil {
@@ -331,6 +375,39 @@ func (o *Revision) SetApp(v App) {
 	o.App = &v
 }
 
+// GetComponents returns the Components field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Revision) GetComponents() []RevisionComponent {
+	if o == nil {
+		var ret []RevisionComponent
+		return ret
+	}
+	return o.Components
+}
+
+// GetComponentsOk returns a tuple with the Components field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Revision) GetComponentsOk() ([]RevisionComponent, bool) {
+	if o == nil || o.Components == nil {
+		return nil, false
+	}
+	return o.Components, true
+}
+
+// HasComponents returns a boolean if a field has been set.
+func (o *Revision) HasComponents() bool {
+	if o != nil && o.Components != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetComponents gets a reference to the given []RevisionComponent and assigns it to the Components field.
+func (o *Revision) SetComponents(v []RevisionComponent) {
+	o.Components = v
+}
+
 // GetDomainEvents returns the DomainEvents field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Revision) GetDomainEvents() []DomainEvent {
 	if o == nil {
@@ -384,11 +461,17 @@ func (o Revision) MarshalJSON() ([]byte, error) {
 	if o.RevisionNumber.IsSet() {
 		toSerialize["revisionNumber"] = o.RevisionNumber.Get()
 	}
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
+	}
 	if o.AppId != nil {
 		toSerialize["appId"] = o.AppId
 	}
 	if o.App != nil {
 		toSerialize["app"] = o.App
+	}
+	if o.Components != nil {
+		toSerialize["components"] = o.Components
 	}
 	if o.DomainEvents != nil {
 		toSerialize["domainEvents"] = o.DomainEvents

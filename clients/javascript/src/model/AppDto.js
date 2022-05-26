@@ -12,8 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ChannelDto from './ChannelDto';
-import RevisionDto from './RevisionDto';
+import ApplicationChannelSummary from './ApplicationChannelSummary';
 
 /**
  * The AppDto model module.
@@ -27,12 +26,12 @@ class AppDto {
      * @param id {String} 
      * @param name {String} 
      * @param storageId {String} 
-     * @param channels {Array.<module:model/ChannelDto>} 
-     * @param revisions {Array.<module:model/RevisionDto>} 
+     * @param description {String} 
+     * @param channels {Array.<module:model/ApplicationChannelSummary>} 
      */
-    constructor(id, name, storageId, channels, revisions) { 
+    constructor(id, name, storageId, description, channels) { 
         
-        AppDto.initialize(this, id, name, storageId, channels, revisions);
+        AppDto.initialize(this, id, name, storageId, description, channels);
     }
 
     /**
@@ -40,12 +39,12 @@ class AppDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, storageId, channels, revisions) { 
+    static initialize(obj, id, name, storageId, description, channels) { 
         obj['id'] = id;
         obj['name'] = name;
         obj['storageId'] = storageId;
+        obj['description'] = description;
         obj['channels'] = channels;
-        obj['revisions'] = revisions;
     }
 
     /**
@@ -68,11 +67,11 @@ class AppDto {
             if (data.hasOwnProperty('storageId')) {
                 obj['storageId'] = ApiClient.convertToType(data['storageId'], 'String');
             }
-            if (data.hasOwnProperty('channels')) {
-                obj['channels'] = ApiClient.convertToType(data['channels'], [ChannelDto]);
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('revisions')) {
-                obj['revisions'] = ApiClient.convertToType(data['revisions'], [RevisionDto]);
+            if (data.hasOwnProperty('channels')) {
+                obj['channels'] = ApiClient.convertToType(data['channels'], [ApplicationChannelSummary]);
             }
         }
         return obj;
@@ -97,14 +96,14 @@ AppDto.prototype['name'] = undefined;
 AppDto.prototype['storageId'] = undefined;
 
 /**
- * @member {Array.<module:model/ChannelDto>} channels
+ * @member {String} description
  */
-AppDto.prototype['channels'] = undefined;
+AppDto.prototype['description'] = undefined;
 
 /**
- * @member {Array.<module:model/RevisionDto>} revisions
+ * @member {Array.<module:model/ApplicationChannelSummary>} channels
  */
-AppDto.prototype['revisions'] = undefined;
+AppDto.prototype['channels'] = undefined;
 
 
 

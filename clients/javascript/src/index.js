@@ -15,13 +15,17 @@
 import ApiClient from './ApiClient';
 import App from './model/App';
 import AppDto from './model/AppDto';
+import AppSummaryDto from './model/AppSummaryDto';
+import ApplicationChannelSummary from './model/ApplicationChannelSummary';
 import AppsVm from './model/AppsVm';
 import Certificate from './model/Certificate';
 import CertificateDto from './model/CertificateDto';
 import CertificatesVm from './model/CertificatesVm';
 import Channel from './model/Channel';
+import ChannelDetailsDto from './model/ChannelDetailsDto';
 import ChannelDto from './model/ChannelDto';
 import ChannelRevisionSelectionStrategy from './model/ChannelRevisionSelectionStrategy';
+import ChannelSummaryDto from './model/ChannelSummaryDto';
 import ChannelsVm from './model/ChannelsVm';
 import CreateAccountCommand from './model/CreateAccountCommand';
 import CreateAppCommand from './model/CreateAppCommand';
@@ -33,10 +37,15 @@ import DomainEvent from './model/DomainEvent';
 import EnvironmentVariable from './model/EnvironmentVariable';
 import EnvironmentVariableDto from './model/EnvironmentVariableDto';
 import EnvironmentVariablesVm from './model/EnvironmentVariablesVm';
+import GetChannelLogsVm from './model/GetChannelLogsVm';
 import RegisterRevisionCommand from './model/RegisterRevisionCommand';
 import Revision from './model/Revision';
+import RevisionComponent from './model/RevisionComponent';
+import RevisionComponentDto from './model/RevisionComponentDto';
+import RevisionDetailsDto from './model/RevisionDetailsDto';
 import RevisionDto from './model/RevisionDto';
 import RevisionsVm from './model/RevisionsVm';
+import StorageList from './model/StorageList';
 import TokenInfo from './model/TokenInfo';
 import UpdateAppCommand from './model/UpdateAppCommand';
 import UpdateCertificateCommand from './model/UpdateCertificateCommand';
@@ -48,6 +57,7 @@ import CertificateApi from './api/CertificateApi';
 import ChannelApi from './api/ChannelApi';
 import EnvironmentVariableApi from './api/EnvironmentVariableApi';
 import RevisionApi from './api/RevisionApi';
+import StorageApi from './api/StorageApi';
 
 
 /**
@@ -101,6 +111,18 @@ export {
     AppDto,
 
     /**
+     * The AppSummaryDto model constructor.
+     * @property {module:model/AppSummaryDto}
+     */
+    AppSummaryDto,
+
+    /**
+     * The ApplicationChannelSummary model constructor.
+     * @property {module:model/ApplicationChannelSummary}
+     */
+    ApplicationChannelSummary,
+
+    /**
      * The AppsVm model constructor.
      * @property {module:model/AppsVm}
      */
@@ -131,6 +153,12 @@ export {
     Channel,
 
     /**
+     * The ChannelDetailsDto model constructor.
+     * @property {module:model/ChannelDetailsDto}
+     */
+    ChannelDetailsDto,
+
+    /**
      * The ChannelDto model constructor.
      * @property {module:model/ChannelDto}
      */
@@ -141,6 +169,12 @@ export {
      * @property {module:model/ChannelRevisionSelectionStrategy}
      */
     ChannelRevisionSelectionStrategy,
+
+    /**
+     * The ChannelSummaryDto model constructor.
+     * @property {module:model/ChannelSummaryDto}
+     */
+    ChannelSummaryDto,
 
     /**
      * The ChannelsVm model constructor.
@@ -209,6 +243,12 @@ export {
     EnvironmentVariablesVm,
 
     /**
+     * The GetChannelLogsVm model constructor.
+     * @property {module:model/GetChannelLogsVm}
+     */
+    GetChannelLogsVm,
+
+    /**
      * The RegisterRevisionCommand model constructor.
      * @property {module:model/RegisterRevisionCommand}
      */
@@ -221,6 +261,24 @@ export {
     Revision,
 
     /**
+     * The RevisionComponent model constructor.
+     * @property {module:model/RevisionComponent}
+     */
+    RevisionComponent,
+
+    /**
+     * The RevisionComponentDto model constructor.
+     * @property {module:model/RevisionComponentDto}
+     */
+    RevisionComponentDto,
+
+    /**
+     * The RevisionDetailsDto model constructor.
+     * @property {module:model/RevisionDetailsDto}
+     */
+    RevisionDetailsDto,
+
+    /**
      * The RevisionDto model constructor.
      * @property {module:model/RevisionDto}
      */
@@ -231,6 +289,12 @@ export {
      * @property {module:model/RevisionsVm}
      */
     RevisionsVm,
+
+    /**
+     * The StorageList model constructor.
+     * @property {module:model/StorageList}
+     */
+    StorageList,
 
     /**
      * The TokenInfo model constructor.
@@ -296,5 +360,11 @@ export {
     * The RevisionApi service constructor.
     * @property {module:api/RevisionApi}
     */
-    RevisionApi
+    RevisionApi,
+
+    /**
+    * The StorageApi service constructor.
+    * @property {module:api/StorageApi}
+    */
+    StorageApi
 };

@@ -302,6 +302,58 @@ paths:
           description: Success
       tags:
       - Channel
+  /api/channel/{channelId}/overview:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: channelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ChannelDetailsDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelDetailsDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ChannelDetailsDto'
+          description: Success
+      tags:
+      - Channel
+  /api/channel/{channelId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: channelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ChannelSummaryDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelSummaryDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ChannelSummaryDto'
+          description: Success
+      tags:
+      - Channel
   /api/channel/export:
     get:
       responses:
@@ -348,6 +400,32 @@ paths:
               $ref: '#/components/schemas/UpdateChannelCommand'
       responses:
         "200":
+          description: Success
+      tags:
+      - Channel
+  /api/channel/logs/{channelId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: channelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetChannelLogsVm'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetChannelLogsVm'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetChannelLogsVm'
           description: Success
       tags:
       - Channel
@@ -504,6 +582,47 @@ paths:
           description: Success
       tags:
       - Revision
+  /api/storage:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: queryString
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StorageList'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageList'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StorageList'
+          description: Success
+      tags:
+      - Storage
 components:
   schemas:
     App:
@@ -701,402 +820,14 @@ components:
       additionalProperties: false
       example:
         channels:
-        - environmentVariables:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          domain: domain
-          name: name
-          certificate:
-            privateKey: privateKey
-            channels:
-            - null
-            - null
-            createdBy: createdBy
-            created: 2000-01-23T04:56:07.000+00:00
-            lastModifiedBy: lastModifiedBy
-            name: name
-            lastModified: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            publicKey: publicKey
-            domainEvents:
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          activeRevisionNumber: activeRevisionNumber
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          revisionSelectionStrategy: null
-          activeRevision:
-            app:
-              channels:
-              - app: null
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                certificate:
-                  privateKey: privateKey
-                  channels:
-                  - null
-                  - null
-                  createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  publicKey: publicKey
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                revisionSelectionStrategy: null
-                rangeRule: rangeRule
-                activeRevision: null
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                portId: 0
-                activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                environmentVariables:
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domain: domain
-                appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                name: name
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - app: null
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                certificate:
-                  privateKey: privateKey
-                  channels:
-                  - null
-                  - null
-                  createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  publicKey: publicKey
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                revisionSelectionStrategy: null
-                rangeRule: rangeRule
-                activeRevision: null
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                portId: 0
-                activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                environmentVariables:
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domain: domain
-                appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                name: name
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              createdBy: createdBy
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              name: name
-              revisions:
-              - null
-              - null
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              storageId: storageId
-            createdBy: createdBy
-            revisionNumber: revisionNumber
-            created: 2000-01-23T04:56:07.000+00:00
-            lastModifiedBy: lastModifiedBy
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModified: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            domainEvents:
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
-          rangeRule: rangeRule
-        - environmentVariables:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          domain: domain
-          name: name
-          certificate:
-            privateKey: privateKey
-            channels:
-            - null
-            - null
-            createdBy: createdBy
-            created: 2000-01-23T04:56:07.000+00:00
-            lastModifiedBy: lastModifiedBy
-            name: name
-            lastModified: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            publicKey: publicKey
-            domainEvents:
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          activeRevisionNumber: activeRevisionNumber
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          revisionSelectionStrategy: null
-          activeRevision:
-            app:
-              channels:
-              - app: null
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                certificate:
-                  privateKey: privateKey
-                  channels:
-                  - null
-                  - null
-                  createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  publicKey: publicKey
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                revisionSelectionStrategy: null
-                rangeRule: rangeRule
-                activeRevision: null
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                portId: 0
-                activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                environmentVariables:
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domain: domain
-                appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                name: name
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - app: null
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                certificate:
-                  privateKey: privateKey
-                  channels:
-                  - null
-                  - null
-                  createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  publicKey: publicKey
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                revisionSelectionStrategy: null
-                rangeRule: rangeRule
-                activeRevision: null
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                portId: 0
-                activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                environmentVariables:
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - createdBy: createdBy
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  channel: null
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  value: value
-                  key: key
-                  channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domain: domain
-                appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                name: name
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              createdBy: createdBy
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              name: name
-              revisions:
-              - null
-              - null
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              storageId: storageId
-            createdBy: createdBy
-            revisionNumber: revisionNumber
-            created: 2000-01-23T04:56:07.000+00:00
-            lastModifiedBy: lastModifiedBy
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            lastModified: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            domainEvents:
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
-            - isPublished: true
-              dateOccurred: 2000-01-23T04:56:07.000+00:00
-          rangeRule: rangeRule
         name: name
-        revisions:
-        - revisionNumber: revisionNumber
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - revisionNumber: revisionNumber
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         storageId: storageId
       properties:
@@ -1107,821 +838,89 @@ components:
           type: string
         storageId:
           type: string
+        description:
+          type: string
         channels:
           items:
-            $ref: '#/components/schemas/ChannelDto'
+            $ref: '#/components/schemas/ApplicationChannelSummary'
           type: array
-        revisions:
+      required:
+      - channels
+      - description
+      - id
+      - name
+      - storageId
+      type: object
+    AppSummaryDto:
+      additionalProperties: false
+      example:
+        channels:
+        - name: name
+          activeRevisionNumber: activeRevisionNumber
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - name: name
+          activeRevisionNumber: activeRevisionNumber
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        channels:
           items:
-            $ref: '#/components/schemas/RevisionDto'
+            $ref: '#/components/schemas/ApplicationChannelSummary'
           type: array
       required:
       - channels
       - id
       - name
-      - revisions
-      - storageId
+      type: object
+    ApplicationChannelSummary:
+      additionalProperties: false
+      example:
+        name: name
+        activeRevisionNumber: activeRevisionNumber
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        activeRevisionNumber:
+          nullable: true
+          type: string
+      required:
+      - id
+      - name
       type: object
     AppsVm:
       additionalProperties: false
       example:
         apps:
         - channels:
-          - environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            domain: domain
-            name: name
-            certificate:
-              privateKey: privateKey
-              channels:
-              - null
-              - null
-              createdBy: createdBy
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              name: name
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              publicKey: publicKey
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            revisionSelectionStrategy: null
-            activeRevision:
-              app:
-                channels:
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                name: name
-                revisions:
-                - null
-                - null
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                storageId: storageId
-              createdBy: createdBy
-              revisionNumber: revisionNumber
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-            rangeRule: rangeRule
-          - environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            domain: domain
-            name: name
-            certificate:
-              privateKey: privateKey
-              channels:
-              - null
-              - null
-              createdBy: createdBy
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              name: name
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              publicKey: publicKey
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            revisionSelectionStrategy: null
-            activeRevision:
-              app:
-                channels:
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                name: name
-                revisions:
-                - null
-                - null
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                storageId: storageId
-              createdBy: createdBy
-              revisionNumber: revisionNumber
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-            rangeRule: rangeRule
           name: name
-          revisions:
-          - revisionNumber: revisionNumber
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - revisionNumber: revisionNumber
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           storageId: storageId
         - channels:
-          - environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            domain: domain
-            name: name
-            certificate:
-              privateKey: privateKey
-              channels:
-              - null
-              - null
-              createdBy: createdBy
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              name: name
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              publicKey: publicKey
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            revisionSelectionStrategy: null
-            activeRevision:
-              app:
-                channels:
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                name: name
-                revisions:
-                - null
-                - null
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                storageId: storageId
-              createdBy: createdBy
-              revisionNumber: revisionNumber
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-            rangeRule: rangeRule
-          - environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
-              channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              key: key
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            domain: domain
-            name: name
-            certificate:
-              privateKey: privateKey
-              channels:
-              - null
-              - null
-              createdBy: createdBy
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              name: name
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              publicKey: publicKey
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            revisionSelectionStrategy: null
-            activeRevision:
-              app:
-                channels:
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                - app: null
-                  created: 2000-01-23T04:56:07.000+00:00
-                  lastModifiedBy: lastModifiedBy
-                  certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  certificate:
-                    privateKey: privateKey
-                    channels:
-                    - null
-                    - null
-                    createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    name: name
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    publicKey: publicKey
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  revisionSelectionStrategy: null
-                  rangeRule: rangeRule
-                  activeRevision: null
-                  domainEvents:
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  - isPublished: true
-                    dateOccurred: 2000-01-23T04:56:07.000+00:00
-                  portId: 0
-                  activeRevisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  createdBy: createdBy
-                  environmentVariables:
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  - createdBy: createdBy
-                    created: 2000-01-23T04:56:07.000+00:00
-                    lastModifiedBy: lastModifiedBy
-                    channel: null
-                    lastModified: 2000-01-23T04:56:07.000+00:00
-                    id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                    domainEvents:
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    - isPublished: true
-                      dateOccurred: 2000-01-23T04:56:07.000+00:00
-                    value: value
-                    key: key
-                    channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  domain: domain
-                  appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                  name: name
-                  lastModified: 2000-01-23T04:56:07.000+00:00
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                createdBy: createdBy
-                created: 2000-01-23T04:56:07.000+00:00
-                lastModifiedBy: lastModifiedBy
-                name: name
-                revisions:
-                - null
-                - null
-                lastModified: 2000-01-23T04:56:07.000+00:00
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                domainEvents:
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                - isPublished: true
-                  dateOccurred: 2000-01-23T04:56:07.000+00:00
-                storageId: storageId
-              createdBy: createdBy
-              revisionNumber: revisionNumber
-              created: 2000-01-23T04:56:07.000+00:00
-              lastModifiedBy: lastModifiedBy
-              appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              lastModified: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              domainEvents:
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-              - isPublished: true
-                dateOccurred: 2000-01-23T04:56:07.000+00:00
-            rangeRule: rangeRule
           name: name
-          revisions:
-          - revisionNumber: revisionNumber
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - revisionNumber: revisionNumber
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           storageId: storageId
       properties:
@@ -2174,11 +1173,43 @@ components:
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
               storageId: storageId
+            components:
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
             createdBy: createdBy
             revisionNumber: revisionNumber
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -2368,11 +1399,43 @@ components:
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
               storageId: storageId
+            components:
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
             createdBy: createdBy
             revisionNumber: revisionNumber
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -2592,11 +1655,43 @@ components:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
                 storageId: storageId
+              components:
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
               createdBy: createdBy
               revisionNumber: revisionNumber
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -2786,11 +1881,43 @@ components:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
                 storageId: storageId
+              components:
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
               createdBy: createdBy
               revisionNumber: revisionNumber
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -2985,11 +2112,43 @@ components:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
                 storageId: storageId
+              components:
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
               createdBy: createdBy
               revisionNumber: revisionNumber
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -3179,11 +2338,43 @@ components:
                 - isPublished: true
                   dateOccurred: 2000-01-23T04:56:07.000+00:00
                 storageId: storageId
+              components:
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
+              - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                route: route
+                createdBy: createdBy
+                created: 2000-01-23T04:56:07.000+00:00
+                lastModifiedBy: lastModifiedBy
+                name: name
+                lastModified: 2000-01-23T04:56:07.000+00:00
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+                source: source
+                domainEvents:
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                - isPublished: true
+                  dateOccurred: 2000-01-23T04:56:07.000+00:00
+                revision: null
               createdBy: createdBy
               revisionNumber: revisionNumber
               created: 2000-01-23T04:56:07.000+00:00
               lastModifiedBy: lastModifiedBy
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
               lastModified: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               domainEvents:
@@ -3330,6 +2521,81 @@ components:
             $ref: '#/components/schemas/DomainEvent'
           nullable: true
           type: array
+      type: object
+    ChannelDetailsDto:
+      additionalProperties: false
+      example:
+        environmentVariables:
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+          channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          key: key
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          value: value
+          channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          key: key
+        domain: domain
+        name: name
+        certificate:
+          privateKey: privateKey
+          channels:
+          - null
+          - null
+          createdBy: createdBy
+          created: 2000-01-23T04:56:07.000+00:00
+          lastModifiedBy: lastModifiedBy
+          name: name
+          lastModified: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          publicKey: publicKey
+          domainEvents:
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        revisionSelectionStrategy: null
+        activeRevision:
+          components:
+          - route: route
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            source: source
+          - route: route
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            source: source
+          revisionNumber: revisionNumber
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        rangeRule: rangeRule
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        domain:
+          type: string
+        revisionSelectionStrategy:
+          $ref: '#/components/schemas/ChannelRevisionSelectionStrategy'
+        activeRevision:
+          $ref: '#/components/schemas/RevisionDetailsDto'
+        rangeRule:
+          nullable: true
+          type: string
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        environmentVariables:
+          items:
+            $ref: '#/components/schemas/EnvironmentVariableDto'
+          type: array
+      required:
+      - domain
+      - environmentVariables
+      - id
+      - name
+      - revisionSelectionStrategy
       type: object
     ChannelDto:
       additionalProperties: false
@@ -3515,11 +2781,43 @@ components:
             - isPublished: true
               dateOccurred: 2000-01-23T04:56:07.000+00:00
             storageId: storageId
+          components:
+          - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            route: route
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            source: source
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            revision: null
+          - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            route: route
+            createdBy: createdBy
+            created: 2000-01-23T04:56:07.000+00:00
+            lastModifiedBy: lastModifiedBy
+            name: name
+            lastModified: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            source: source
+            domainEvents:
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            - isPublished: true
+              dateOccurred: 2000-01-23T04:56:07.000+00:00
+            revision: null
           createdBy: createdBy
           revisionNumber: revisionNumber
           created: 2000-01-23T04:56:07.000+00:00
           lastModifiedBy: lastModifiedBy
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
           lastModified: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           domainEvents:
@@ -3565,6 +2863,38 @@ components:
       - UseRangeRule
       - UseSpecifiedRevision
       type: string
+    ChannelSummaryDto:
+      additionalProperties: false
+      example:
+        appSummary:
+          channels:
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        domain: domain
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        domain:
+          type: string
+        appSummary:
+          $ref: '#/components/schemas/AppSummaryDto'
+      required:
+      - appSummary
+      - domain
+      - id
+      - name
+      type: object
     ChannelsVm:
       additionalProperties: false
       example:
@@ -3750,11 +3080,43 @@ components:
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
               storageId: storageId
+            components:
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
             createdBy: createdBy
             revisionNumber: revisionNumber
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -3944,11 +3306,43 @@ components:
               - isPublished: true
                 dateOccurred: 2000-01-23T04:56:07.000+00:00
               storageId: storageId
+            components:
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
+            - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              route: route
+              createdBy: createdBy
+              created: 2000-01-23T04:56:07.000+00:00
+              lastModifiedBy: lastModifiedBy
+              name: name
+              lastModified: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              domainEvents:
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              - isPublished: true
+                dateOccurred: 2000-01-23T04:56:07.000+00:00
+              revision: null
             createdBy: createdBy
             revisionNumber: revisionNumber
             created: 2000-01-23T04:56:07.000+00:00
             lastModifiedBy: lastModifiedBy
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
             lastModified: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             domainEvents:
@@ -4188,6 +3582,20 @@ components:
       required:
       - environmentVariables
       type: object
+    GetChannelLogsVm:
+      additionalProperties: false
+      example:
+        logs:
+        - logs
+        - logs
+      properties:
+        logs:
+          items:
+            type: string
+          type: array
+      required:
+      - logs
+      type: object
     RegisterRevisionCommand:
       additionalProperties: false
       example:
@@ -4354,11 +3762,43 @@ components:
           - isPublished: true
             dateOccurred: 2000-01-23T04:56:07.000+00:00
           storageId: storageId
+        components:
+        - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          route: route
+          createdBy: createdBy
+          created: 2000-01-23T04:56:07.000+00:00
+          lastModifiedBy: lastModifiedBy
+          name: name
+          lastModified: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          source: source
+          domainEvents:
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
+          revision: null
+        - revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          route: route
+          createdBy: createdBy
+          created: 2000-01-23T04:56:07.000+00:00
+          lastModifiedBy: lastModifiedBy
+          name: name
+          lastModified: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          source: source
+          domainEvents:
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
+          - isPublished: true
+            dateOccurred: 2000-01-23T04:56:07.000+00:00
+          revision: null
         createdBy: createdBy
         revisionNumber: revisionNumber
         created: 2000-01-23T04:56:07.000+00:00
         lastModifiedBy: lastModifiedBy
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
         lastModified: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         domainEvents:
@@ -4385,16 +3825,136 @@ components:
         revisionNumber:
           nullable: true
           type: string
+        description:
+          nullable: true
+          type: string
         appId:
           format: uuid
           type: string
         app:
           $ref: '#/components/schemas/App'
+        components:
+          items:
+            $ref: '#/components/schemas/RevisionComponent'
+          nullable: true
+          readOnly: true
+          type: array
         domainEvents:
           items:
             $ref: '#/components/schemas/DomainEvent'
           nullable: true
           type: array
+      type: object
+    RevisionComponent:
+      additionalProperties: false
+      example:
+        revisionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        route: route
+        createdBy: createdBy
+        created: 2000-01-23T04:56:07.000+00:00
+        lastModifiedBy: lastModifiedBy
+        name: name
+        lastModified: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        source: source
+        domainEvents:
+        - isPublished: true
+          dateOccurred: 2000-01-23T04:56:07.000+00:00
+        - isPublished: true
+          dateOccurred: 2000-01-23T04:56:07.000+00:00
+        revision: null
+      properties:
+        created:
+          format: date-time
+          type: string
+        createdBy:
+          nullable: true
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        lastModifiedBy:
+          nullable: true
+          type: string
+        id:
+          format: uuid
+          type: string
+        source:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        route:
+          nullable: true
+          type: string
+        revisionId:
+          format: uuid
+          type: string
+        revision:
+          $ref: '#/components/schemas/Revision'
+        domainEvents:
+          items:
+            $ref: '#/components/schemas/DomainEvent'
+          nullable: true
+          type: array
+      type: object
+    RevisionComponentDto:
+      additionalProperties: false
+      example:
+        route: route
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        source: source
+      properties:
+        id:
+          format: uuid
+          type: string
+        source:
+          type: string
+        name:
+          type: string
+        route:
+          type: string
+      required:
+      - id
+      - name
+      - route
+      - source
+      type: object
+    RevisionDetailsDto:
+      additionalProperties: false
+      example:
+        components:
+        - route: route
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          source: source
+        - route: route
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          source: source
+        revisionNumber: revisionNumber
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        revisionNumber:
+          type: string
+        description:
+          type: string
+        components:
+          items:
+            $ref: '#/components/schemas/RevisionComponentDto'
+          nullable: true
+          readOnly: true
+          type: array
+      required:
+      - description
+      - id
+      - revisionNumber
       type: object
     RevisionDto:
       additionalProperties: false
@@ -4433,6 +3993,20 @@ components:
           type: array
       required:
       - revisions
+      type: object
+    StorageList:
+      additionalProperties: false
+      example:
+        storages:
+        - storages
+        - storages
+      properties:
+        storages:
+          items:
+            type: string
+          type: array
+      required:
+      - storages
       type: object
     TokenInfo:
       additionalProperties: false

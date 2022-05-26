@@ -140,10 +140,13 @@ Class | Method | HTTP request | Description
 *HippoWeb.CertificateApi* | [**apiCertificateIdDelete**](docs/CertificateApi.md#apiCertificateIdDelete) | **DELETE** /api/certificate/{id} | 
 *HippoWeb.CertificateApi* | [**apiCertificateIdPut**](docs/CertificateApi.md#apiCertificateIdPut) | **PUT** /api/certificate/{id} | 
 *HippoWeb.CertificateApi* | [**apiCertificatePost**](docs/CertificateApi.md#apiCertificatePost) | **POST** /api/certificate | 
+*HippoWeb.ChannelApi* | [**apiChannelChannelIdGet**](docs/ChannelApi.md#apiChannelChannelIdGet) | **GET** /api/channel/{channelId} | 
+*HippoWeb.ChannelApi* | [**apiChannelChannelIdOverviewGet**](docs/ChannelApi.md#apiChannelChannelIdOverviewGet) | **GET** /api/channel/{channelId}/overview | 
 *HippoWeb.ChannelApi* | [**apiChannelExportGet**](docs/ChannelApi.md#apiChannelExportGet) | **GET** /api/channel/export | 
 *HippoWeb.ChannelApi* | [**apiChannelGet**](docs/ChannelApi.md#apiChannelGet) | **GET** /api/channel | 
 *HippoWeb.ChannelApi* | [**apiChannelIdDelete**](docs/ChannelApi.md#apiChannelIdDelete) | **DELETE** /api/channel/{id} | 
 *HippoWeb.ChannelApi* | [**apiChannelIdPut**](docs/ChannelApi.md#apiChannelIdPut) | **PUT** /api/channel/{id} | 
+*HippoWeb.ChannelApi* | [**apiChannelLogsChannelIdGet**](docs/ChannelApi.md#apiChannelLogsChannelIdGet) | **GET** /api/channel/logs/{channelId} | 
 *HippoWeb.ChannelApi* | [**apiChannelPost**](docs/ChannelApi.md#apiChannelPost) | **POST** /api/channel | 
 *HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableExportGet**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableExportGet) | **GET** /api/environmentvariable/export | 
 *HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableGet**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableGet) | **GET** /api/environmentvariable | 
@@ -154,19 +157,24 @@ Class | Method | HTTP request | Description
 *HippoWeb.RevisionApi* | [**apiRevisionGet**](docs/RevisionApi.md#apiRevisionGet) | **GET** /api/revision | 
 *HippoWeb.RevisionApi* | [**apiRevisionIdDelete**](docs/RevisionApi.md#apiRevisionIdDelete) | **DELETE** /api/revision/{id} | 
 *HippoWeb.RevisionApi* | [**apiRevisionPost**](docs/RevisionApi.md#apiRevisionPost) | **POST** /api/revision | 
+*HippoWeb.StorageApi* | [**apiStorageGet**](docs/StorageApi.md#apiStorageGet) | **GET** /api/storage | 
 
 
 ## Documentation for Models
 
  - [HippoWeb.App](docs/App.md)
  - [HippoWeb.AppDto](docs/AppDto.md)
+ - [HippoWeb.AppSummaryDto](docs/AppSummaryDto.md)
+ - [HippoWeb.ApplicationChannelSummary](docs/ApplicationChannelSummary.md)
  - [HippoWeb.AppsVm](docs/AppsVm.md)
  - [HippoWeb.Certificate](docs/Certificate.md)
  - [HippoWeb.CertificateDto](docs/CertificateDto.md)
  - [HippoWeb.CertificatesVm](docs/CertificatesVm.md)
  - [HippoWeb.Channel](docs/Channel.md)
+ - [HippoWeb.ChannelDetailsDto](docs/ChannelDetailsDto.md)
  - [HippoWeb.ChannelDto](docs/ChannelDto.md)
  - [HippoWeb.ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
+ - [HippoWeb.ChannelSummaryDto](docs/ChannelSummaryDto.md)
  - [HippoWeb.ChannelsVm](docs/ChannelsVm.md)
  - [HippoWeb.CreateAccountCommand](docs/CreateAccountCommand.md)
  - [HippoWeb.CreateAppCommand](docs/CreateAppCommand.md)
@@ -178,10 +186,15 @@ Class | Method | HTTP request | Description
  - [HippoWeb.EnvironmentVariable](docs/EnvironmentVariable.md)
  - [HippoWeb.EnvironmentVariableDto](docs/EnvironmentVariableDto.md)
  - [HippoWeb.EnvironmentVariablesVm](docs/EnvironmentVariablesVm.md)
+ - [HippoWeb.GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [HippoWeb.RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [HippoWeb.Revision](docs/Revision.md)
+ - [HippoWeb.RevisionComponent](docs/RevisionComponent.md)
+ - [HippoWeb.RevisionComponentDto](docs/RevisionComponentDto.md)
+ - [HippoWeb.RevisionDetailsDto](docs/RevisionDetailsDto.md)
  - [HippoWeb.RevisionDto](docs/RevisionDto.md)
  - [HippoWeb.RevisionsVm](docs/RevisionsVm.md)
+ - [HippoWeb.StorageList](docs/StorageList.md)
  - [HippoWeb.TokenInfo](docs/TokenInfo.md)
  - [HippoWeb.UpdateAppCommand](docs/UpdateAppCommand.md)
  - [HippoWeb.UpdateCertificateCommand](docs/UpdateCertificateCommand.md)

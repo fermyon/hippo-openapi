@@ -4,12 +4,113 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**apiChannelChannelIdGet**](ChannelApi.md#apiChannelChannelIdGet) | **GET** /api/channel/{channelId} | 
+[**apiChannelChannelIdOverviewGet**](ChannelApi.md#apiChannelChannelIdOverviewGet) | **GET** /api/channel/{channelId}/overview | 
 [**apiChannelExportGet**](ChannelApi.md#apiChannelExportGet) | **GET** /api/channel/export | 
 [**apiChannelGet**](ChannelApi.md#apiChannelGet) | **GET** /api/channel | 
 [**apiChannelIdDelete**](ChannelApi.md#apiChannelIdDelete) | **DELETE** /api/channel/{id} | 
 [**apiChannelIdPut**](ChannelApi.md#apiChannelIdPut) | **PUT** /api/channel/{id} | 
+[**apiChannelLogsChannelIdGet**](ChannelApi.md#apiChannelLogsChannelIdGet) | **GET** /api/channel/logs/{channelId} | 
 [**apiChannelPost**](ChannelApi.md#apiChannelPost) | **POST** /api/channel | 
 
+
+
+## apiChannelChannelIdGet
+
+> ChannelSummaryDto apiChannelChannelIdGet(channelId)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.ChannelApi();
+let channelId = "channelId_example"; // String | 
+apiInstance.apiChannelChannelIdGet(channelId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelId** | **String**|  | 
+
+### Return type
+
+[**ChannelSummaryDto**](ChannelSummaryDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
+
+
+## apiChannelChannelIdOverviewGet
+
+> ChannelDetailsDto apiChannelChannelIdOverviewGet(channelId)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.ChannelApi();
+let channelId = "channelId_example"; // String | 
+apiInstance.apiChannelChannelIdOverviewGet(channelId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelId** | **String**|  | 
+
+### Return type
+
+[**ChannelDetailsDto**](ChannelDetailsDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 
 ## apiChannelExportGet
@@ -202,6 +303,55 @@ null (empty response body)
 
 - **Content-Type**: application/json, text/json, application/_*+json
 - **Accept**: Not defined
+
+
+## apiChannelLogsChannelIdGet
+
+> GetChannelLogsVm apiChannelLogsChannelIdGet(channelId)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.ChannelApi();
+let channelId = "channelId_example"; // String | 
+apiInstance.apiChannelLogsChannelIdGet(channelId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelId** | **String**|  | 
+
+### Return type
+
+[**GetChannelLogsVm**](GetChannelLogsVm.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 
 ## apiChannelPost

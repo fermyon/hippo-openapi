@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **name** | **String** |  | 
 **storageId** | **String** |  | 
-**channels** | [**[ChannelDto]**](ChannelDto.md) |  | 
-**revisions** | [**[RevisionDto]**](RevisionDto.md) |  | 
+**description** | **String** |  | 
+**channels** | [**[ApplicationChannelSummary]**](ApplicationChannelSummary.md) |  | 
 
 

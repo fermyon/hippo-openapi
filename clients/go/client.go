@@ -60,6 +60,8 @@ type APIClient struct {
 	EnvironmentVariableApi *EnvironmentVariableApiService
 
 	RevisionApi *RevisionApiService
+
+	StorageApi *StorageApiService
 }
 
 type service struct {
@@ -84,6 +86,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ChannelApi = (*ChannelApiService)(&c.common)
 	c.EnvironmentVariableApi = (*EnvironmentVariableApiService)(&c.common)
 	c.RevisionApi = (*RevisionApiService)(&c.common)
+	c.StorageApi = (*StorageApiService)(&c.common)
 
 	return c
 }

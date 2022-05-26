@@ -485,6 +485,86 @@
         }
       }
     },
+    "/api/channel/{channelId}/overview": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelDetailsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelDetailsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelDetailsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/channel/{channelId}": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelSummaryDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelSummaryDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelSummaryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/channel/export": {
       "get": {
         "tags": [
@@ -556,6 +636,46 @@
         "responses": {
           "200": {
             "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/channel/logs/{channelId}": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelLogsVm"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelLogsVm"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelLogsVm"
+                }
+              }
+            }
           }
         }
       }
@@ -805,6 +925,60 @@
           }
         }
       }
+    },
+    "/api/storage": {
+      "get": {
+        "tags": [
+          "Storage"
+        ],
+        "parameters": [
+          {
+            "name": "queryString",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StorageList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StorageList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StorageList"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -869,9 +1043,9 @@
       "AppDto": {
         "required": [
           "channels",
+          "description",
           "id",
           "name",
-          "revisions",
           "storageId"
         ],
         "type": "object",
@@ -886,17 +1060,59 @@
           "storageId": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "channels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChannelDto"
+              "$ref": "#/components/schemas/ApplicationChannelSummary"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppSummaryDto": {
+        "required": [
+          "channels",
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
           },
-          "revisions": {
+          "name": {
+            "type": "string"
+          },
+          "channels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RevisionDto"
+              "$ref": "#/components/schemas/ApplicationChannelSummary"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApplicationChannelSummary": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "activeRevisionNumber": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1099,6 +1315,48 @@
         },
         "additionalProperties": false
       },
+      "ChannelDetailsDto": {
+        "required": [
+          "domain",
+          "environmentVariables",
+          "id",
+          "name",
+          "revisionSelectionStrategy"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "revisionSelectionStrategy": {
+            "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
+          },
+          "activeRevision": {
+            "$ref": "#/components/schemas/RevisionDetailsDto"
+          },
+          "rangeRule": {
+            "type": "string",
+            "nullable": true
+          },
+          "certificate": {
+            "$ref": "#/components/schemas/Certificate"
+          },
+          "environmentVariables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnvironmentVariableDto"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ChannelDto": {
         "required": [
           "appId",
@@ -1152,6 +1410,31 @@
           "UseSpecifiedRevision"
         ],
         "type": "string"
+      },
+      "ChannelSummaryDto": {
+        "required": [
+          "appSummary",
+          "domain",
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "appSummary": {
+            "$ref": "#/components/schemas/AppSummaryDto"
+          }
+        },
+        "additionalProperties": false
       },
       "ChannelsVm": {
         "required": [
@@ -1399,6 +1682,21 @@
         },
         "additionalProperties": false
       },
+      "GetChannelLogsVm": {
+        "required": [
+          "logs"
+        ],
+        "type": "object",
+        "properties": {
+          "logs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "RegisterRevisionCommand": {
         "required": [
           "appStorageId",
@@ -1442,6 +1740,10 @@
             "type": "string",
             "nullable": true
           },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
           "appId": {
             "type": "string",
             "format": "uuid"
@@ -1449,12 +1751,126 @@
           "app": {
             "$ref": "#/components/schemas/App"
           },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RevisionComponent"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
           "domainEvents": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DomainEvent"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RevisionComponent": {
+        "type": "object",
+        "properties": {
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastModifiedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "route": {
+            "type": "string",
+            "nullable": true
+          },
+          "revisionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revision": {
+            "$ref": "#/components/schemas/Revision"
+          },
+          "domainEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DomainEvent"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RevisionComponentDto": {
+        "required": [
+          "id",
+          "name",
+          "route",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "source": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RevisionDetailsDto": {
+        "required": [
+          "description",
+          "id",
+          "revisionNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "revisionNumber": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RevisionComponentDto"
+            },
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1491,6 +1907,21 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RevisionDto"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "StorageList": {
+        "required": [
+          "storages"
+        ],
+        "type": "object",
+        "properties": {
+          "storages": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           }
         },
