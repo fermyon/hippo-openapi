@@ -19,19 +19,19 @@ pub struct AppDto {
     pub name: String,
     #[serde(rename = "storageId")]
     pub storage_id: String,
-    #[serde(rename = "description")]
-    pub description: String,
+    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
     #[serde(rename = "channels")]
     pub channels: Vec<crate::models::AppChannelSummary>,
 }
 
 impl AppDto {
-    pub fn new(id: String, name: String, storage_id: String, description: String, channels: Vec<crate::models::AppChannelSummary>) -> AppDto {
+    pub fn new(id: String, name: String, storage_id: String, channels: Vec<crate::models::AppChannelSummary>) -> AppDto {
         AppDto {
             id,
             name,
             storage_id,
-            description,
+            description: None,
             channels,
         }
     }

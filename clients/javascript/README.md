@@ -153,6 +153,7 @@ Class | Method | HTTP request | Description
 *HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableIdDelete**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableIdDelete) | **DELETE** /api/environmentvariable/{id} | 
 *HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableIdPut**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableIdPut) | **PUT** /api/environmentvariable/{id} | 
 *HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariablePost**](docs/EnvironmentVariableApi.md#apiEnvironmentvariablePost) | **POST** /api/environmentvariable | 
+*HippoWeb.JobStatusApi* | [**apiJobstatusGet**](docs/JobStatusApi.md#apiJobstatusGet) | **GET** /api/jobstatus | 
 *HippoWeb.RevisionApi* | [**apiRevisionExportGet**](docs/RevisionApi.md#apiRevisionExportGet) | **GET** /api/revision/export | 
 *HippoWeb.RevisionApi* | [**apiRevisionGet**](docs/RevisionApi.md#apiRevisionGet) | **GET** /api/revision | 
 *HippoWeb.RevisionApi* | [**apiRevisionIdDelete**](docs/RevisionApi.md#apiRevisionIdDelete) | **DELETE** /api/revision/{id} | 
@@ -169,6 +170,7 @@ Class | Method | HTTP request | Description
  - [HippoWeb.CertificateDto](docs/CertificateDto.md)
  - [HippoWeb.CertificatesVm](docs/CertificatesVm.md)
  - [HippoWeb.ChannelDto](docs/ChannelDto.md)
+ - [HippoWeb.ChannelJobStatus](docs/ChannelJobStatus.md)
  - [HippoWeb.ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
  - [HippoWeb.ChannelsVm](docs/ChannelsVm.md)
  - [HippoWeb.CreateAccountCommand](docs/CreateAccountCommand.md)
@@ -180,6 +182,7 @@ Class | Method | HTTP request | Description
  - [HippoWeb.EnvironmentVariableDto](docs/EnvironmentVariableDto.md)
  - [HippoWeb.EnvironmentVariablesVm](docs/EnvironmentVariablesVm.md)
  - [HippoWeb.GetChannelLogsVm](docs/GetChannelLogsVm.md)
+ - [HippoWeb.JobStatus](docs/JobStatus.md)
  - [HippoWeb.RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [HippoWeb.RevisionComponentDto](docs/RevisionComponentDto.md)
  - [HippoWeb.RevisionDto](docs/RevisionDto.md)

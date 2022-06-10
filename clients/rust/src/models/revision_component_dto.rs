@@ -19,23 +19,23 @@ pub struct RevisionComponentDto {
     pub source: String,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "route")]
-    pub route: String,
-    #[serde(rename = "channel")]
-    pub channel: String,
-    #[serde(rename = "type")]
-    pub _type: String,
+    #[serde(rename = "route", skip_serializing_if = "Option::is_none")]
+    pub route: Option<String>,
+    #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
+    pub channel: Option<String>,
+    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+    pub _type: Option<String>,
 }
 
 impl RevisionComponentDto {
-    pub fn new(id: String, source: String, name: String, route: String, channel: String, _type: String) -> RevisionComponentDto {
+    pub fn new(id: String, source: String, name: String) -> RevisionComponentDto {
         RevisionComponentDto {
             id,
             source,
             name,
-            route,
-            channel,
-            _type,
+            route: None,
+            channel: None,
+            _type: None,
         }
     }
 }

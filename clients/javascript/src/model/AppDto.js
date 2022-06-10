@@ -26,12 +26,11 @@ class AppDto {
      * @param id {String} 
      * @param name {String} 
      * @param storageId {String} 
-     * @param description {String} 
      * @param channels {Array.<module:model/AppChannelSummary>} 
      */
-    constructor(id, name, storageId, description, channels) { 
+    constructor(id, name, storageId, channels) { 
         
-        AppDto.initialize(this, id, name, storageId, description, channels);
+        AppDto.initialize(this, id, name, storageId, channels);
     }
 
     /**
@@ -39,11 +38,10 @@ class AppDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, storageId, description, channels) { 
+    static initialize(obj, id, name, storageId, channels) { 
         obj['id'] = id;
         obj['name'] = name;
         obj['storageId'] = storageId;
-        obj['description'] = description;
         obj['channels'] = channels;
     }
 

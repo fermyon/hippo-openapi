@@ -13,6 +13,7 @@ docs/CertificateDto.md
 docs/CertificatesVm.md
 docs/ChannelApi.md
 docs/ChannelDto.md
+docs/ChannelJobStatus.md
 docs/ChannelRevisionSelectionStrategy.md
 docs/ChannelsVm.md
 docs/CreateAccountCommand.md
@@ -25,6 +26,8 @@ docs/EnvironmentVariableApi.md
 docs/EnvironmentVariableDto.md
 docs/EnvironmentVariablesVm.md
 docs/GetChannelLogsVm.md
+docs/JobStatus.md
+docs/JobStatusApi.md
 docs/RegisterRevisionCommand.md
 docs/RevisionApi.md
 docs/RevisionComponentDto.md
@@ -46,6 +49,7 @@ src/apis/certificate_api.rs
 src/apis/channel_api.rs
 src/apis/configuration.rs
 src/apis/environment_variable_api.rs
+src/apis/job_status_api.rs
 src/apis/mod.rs
 src/apis/revision_api.rs
 src/apis/storage_api.rs
@@ -57,6 +61,7 @@ src/models/apps_vm.rs
 src/models/certificate_dto.rs
 src/models/certificates_vm.rs
 src/models/channel_dto.rs
+src/models/channel_job_status.rs
 src/models/channel_revision_selection_strategy.rs
 src/models/channels_vm.rs
 src/models/create_account_command.rs
@@ -68,6 +73,7 @@ src/models/create_token_command.rs
 src/models/environment_variable_dto.rs
 src/models/environment_variables_vm.rs
 src/models/get_channel_logs_vm.rs
+src/models/job_status.rs
 src/models/mod.rs
 src/models/register_revision_command.rs
 src/models/revision_component_dto.rs

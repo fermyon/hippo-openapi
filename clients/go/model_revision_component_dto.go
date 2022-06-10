@@ -19,23 +19,20 @@ type RevisionComponentDto struct {
 	Id string `json:"id"`
 	Source string `json:"source"`
 	Name string `json:"name"`
-	Route string `json:"route"`
-	Channel string `json:"channel"`
-	Type string `json:"type"`
+	Route NullableString `json:"route,omitempty"`
+	Channel NullableString `json:"channel,omitempty"`
+	Type NullableString `json:"type,omitempty"`
 }
 
 // NewRevisionComponentDto instantiates a new RevisionComponentDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRevisionComponentDto(id string, source string, name string, route string, channel string, type_ string) *RevisionComponentDto {
+func NewRevisionComponentDto(id string, source string, name string) *RevisionComponentDto {
 	this := RevisionComponentDto{}
 	this.Id = id
 	this.Source = source
 	this.Name = name
-	this.Route = route
-	this.Channel = channel
-	this.Type = type_
 	return &this
 }
 
@@ -119,76 +116,130 @@ func (o *RevisionComponentDto) SetName(v string) {
 	o.Name = v
 }
 
-// GetRoute returns the Route field value
+// GetRoute returns the Route field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RevisionComponentDto) GetRoute() string {
-	if o == nil {
+	if o == nil || o.Route.Get() == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Route
+	return *o.Route.Get()
 }
 
-// GetRouteOk returns a tuple with the Route field value
+// GetRouteOk returns a tuple with the Route field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RevisionComponentDto) GetRouteOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Route, true
+	return o.Route.Get(), o.Route.IsSet()
 }
 
-// SetRoute sets field value
+// HasRoute returns a boolean if a field has been set.
+func (o *RevisionComponentDto) HasRoute() bool {
+	if o != nil && o.Route.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRoute gets a reference to the given NullableString and assigns it to the Route field.
 func (o *RevisionComponentDto) SetRoute(v string) {
-	o.Route = v
+	o.Route.Set(&v)
+}
+// SetRouteNil sets the value for Route to be an explicit nil
+func (o *RevisionComponentDto) SetRouteNil() {
+	o.Route.Set(nil)
 }
 
-// GetChannel returns the Channel field value
+// UnsetRoute ensures that no value is present for Route, not even an explicit nil
+func (o *RevisionComponentDto) UnsetRoute() {
+	o.Route.Unset()
+}
+
+// GetChannel returns the Channel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RevisionComponentDto) GetChannel() string {
-	if o == nil {
+	if o == nil || o.Channel.Get() == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Channel
+	return *o.Channel.Get()
 }
 
-// GetChannelOk returns a tuple with the Channel field value
+// GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RevisionComponentDto) GetChannelOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Channel, true
+	return o.Channel.Get(), o.Channel.IsSet()
 }
 
-// SetChannel sets field value
+// HasChannel returns a boolean if a field has been set.
+func (o *RevisionComponentDto) HasChannel() bool {
+	if o != nil && o.Channel.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetChannel gets a reference to the given NullableString and assigns it to the Channel field.
 func (o *RevisionComponentDto) SetChannel(v string) {
-	o.Channel = v
+	o.Channel.Set(&v)
+}
+// SetChannelNil sets the value for Channel to be an explicit nil
+func (o *RevisionComponentDto) SetChannelNil() {
+	o.Channel.Set(nil)
 }
 
-// GetType returns the Type field value
+// UnsetChannel ensures that no value is present for Channel, not even an explicit nil
+func (o *RevisionComponentDto) UnsetChannel() {
+	o.Channel.Unset()
+}
+
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RevisionComponentDto) GetType() string {
-	if o == nil {
+	if o == nil || o.Type.Get() == nil {
 		var ret string
 		return ret
 	}
-
-	return o.Type
+	return *o.Type.Get()
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RevisionComponentDto) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// SetType sets field value
+// HasType returns a boolean if a field has been set.
+func (o *RevisionComponentDto) HasType() bool {
+	if o != nil && o.Type.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *RevisionComponentDto) SetType(v string) {
-	o.Type = v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *RevisionComponentDto) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *RevisionComponentDto) UnsetType() {
+	o.Type.Unset()
 }
 
 func (o RevisionComponentDto) MarshalJSON() ([]byte, error) {
@@ -202,14 +253,14 @@ func (o RevisionComponentDto) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["name"] = o.Name
 	}
-	if true {
-		toSerialize["route"] = o.Route
+	if o.Route.IsSet() {
+		toSerialize["route"] = o.Route.Get()
 	}
-	if true {
-		toSerialize["channel"] = o.Channel
+	if o.Channel.IsSet() {
+		toSerialize["channel"] = o.Channel.Get()
 	}
-	if true {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	return json.Marshal(toSerialize)
 }

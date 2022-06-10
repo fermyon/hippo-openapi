@@ -526,6 +526,29 @@ paths:
           description: Success
       tags:
       - EnvironmentVariable
+  /api/jobstatus:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ChannelJobStatus'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ChannelJobStatus'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ChannelJobStatus'
+                type: array
+          description: Success
+      tags:
+      - JobStatus
   /api/revision:
     get:
       responses:
@@ -668,6 +691,7 @@ components:
         storageId:
           type: string
         description:
+          nullable: true
           type: string
         channels:
           items:
@@ -675,7 +699,6 @@ components:
           type: array
       required:
       - channels
-      - description
       - id
       - name
       - storageId
@@ -1141,6 +1164,21 @@ components:
       - name
       - revisionSelectionStrategy
       type: object
+    ChannelJobStatus:
+      additionalProperties: false
+      example:
+        channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: null
+      properties:
+        channelId:
+          format: uuid
+          type: string
+        status:
+          $ref: '#/components/schemas/JobStatus'
+      required:
+      - channelId
+      - status
+      type: object
     ChannelRevisionSelectionStrategy:
       enum:
       - UseRangeRule
@@ -1420,6 +1458,13 @@ components:
       required:
       - logs
       type: object
+    JobStatus:
+      enum:
+      - Unknown
+      - Pending
+      - Running
+      - Dead
+      type: string
     RegisterRevisionCommand:
       additionalProperties: false
       example:
@@ -1452,18 +1497,18 @@ components:
         name:
           type: string
         route:
+          nullable: true
           type: string
         channel:
+          nullable: true
           type: string
         type:
+          nullable: true
           type: string
       required:
-      - channel
       - id
       - name
-      - route
       - source
-      - type
       type: object
     RevisionDto:
       additionalProperties: false

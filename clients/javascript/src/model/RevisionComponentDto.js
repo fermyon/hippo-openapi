@@ -25,13 +25,10 @@ class RevisionComponentDto {
      * @param id {String} 
      * @param source {String} 
      * @param name {String} 
-     * @param route {String} 
-     * @param channel {String} 
-     * @param type {String} 
      */
-    constructor(id, source, name, route, channel, type) { 
+    constructor(id, source, name) { 
         
-        RevisionComponentDto.initialize(this, id, source, name, route, channel, type);
+        RevisionComponentDto.initialize(this, id, source, name);
     }
 
     /**
@@ -39,13 +36,10 @@ class RevisionComponentDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, source, name, route, channel, type) { 
+    static initialize(obj, id, source, name) { 
         obj['id'] = id;
         obj['source'] = source;
         obj['name'] = name;
-        obj['route'] = route;
-        obj['channel'] = channel;
-        obj['type'] = type;
     }
 
     /**

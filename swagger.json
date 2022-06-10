@@ -835,6 +835,44 @@
         }
       }
     },
+    "/api/jobstatus": {
+      "get": {
+        "tags": [
+          "JobStatus"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChannelJobStatus"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChannelJobStatus"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChannelJobStatus"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/revision": {
       "get": {
         "tags": [
@@ -1009,7 +1047,6 @@
       "AppDto": {
         "required": [
           "channels",
-          "description",
           "id",
           "name",
           "storageId"
@@ -1027,7 +1064,8 @@
             "type": "string"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "channels": {
             "type": "array",
@@ -1174,6 +1212,23 @@
           },
           "appSummary": {
             "$ref": "#/components/schemas/AppSummaryDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChannelJobStatus": {
+        "required": [
+          "channelId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/JobStatus"
           }
         },
         "additionalProperties": false
@@ -1384,6 +1439,15 @@
         },
         "additionalProperties": false
       },
+      "JobStatus": {
+        "enum": [
+          "Unknown",
+          "Pending",
+          "Running",
+          "Dead"
+        ],
+        "type": "string"
+      },
       "RegisterRevisionCommand": {
         "required": [
           "appStorageId",
@@ -1402,12 +1466,9 @@
       },
       "RevisionComponentDto": {
         "required": [
-          "channel",
           "id",
           "name",
-          "route",
-          "source",
-          "type"
+          "source"
         ],
         "type": "object",
         "properties": {
@@ -1422,13 +1483,16 @@
             "type": "string"
           },
           "route": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "channel": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

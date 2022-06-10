@@ -66,6 +66,7 @@ pub mod app_api;
 pub mod certificate_api;
 pub mod channel_api;
 pub mod environment_variable_api;
+pub mod job_status_api;
 pub mod revision_api;
 pub mod storage_api;
 

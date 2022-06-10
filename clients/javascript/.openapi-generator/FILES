@@ -13,6 +13,7 @@ docs/CertificateDto.md
 docs/CertificatesVm.md
 docs/ChannelApi.md
 docs/ChannelDto.md
+docs/ChannelJobStatus.md
 docs/ChannelRevisionSelectionStrategy.md
 docs/ChannelsVm.md
 docs/CreateAccountCommand.md
@@ -25,6 +26,8 @@ docs/EnvironmentVariableApi.md
 docs/EnvironmentVariableDto.md
 docs/EnvironmentVariablesVm.md
 docs/GetChannelLogsVm.md
+docs/JobStatus.md
+docs/JobStatusApi.md
 docs/RegisterRevisionCommand.md
 docs/RevisionApi.md
 docs/RevisionComponentDto.md
@@ -48,6 +51,7 @@ src/api/AppApi.js
 src/api/CertificateApi.js
 src/api/ChannelApi.js
 src/api/EnvironmentVariableApi.js
+src/api/JobStatusApi.js
 src/api/RevisionApi.js
 src/api/StorageApi.js
 src/index.js
@@ -58,6 +62,7 @@ src/model/AppsVm.js
 src/model/CertificateDto.js
 src/model/CertificatesVm.js
 src/model/ChannelDto.js
+src/model/ChannelJobStatus.js
 src/model/ChannelRevisionSelectionStrategy.js
 src/model/ChannelsVm.js
 src/model/CreateAccountCommand.js
@@ -69,6 +74,7 @@ src/model/CreateTokenCommand.js
 src/model/EnvironmentVariableDto.js
 src/model/EnvironmentVariablesVm.js
 src/model/GetChannelLogsVm.js
+src/model/JobStatus.js
 src/model/RegisterRevisionCommand.js
 src/model/RevisionComponentDto.js
 src/model/RevisionDto.js
@@ -81,6 +87,6 @@ src/model/UpdateChannelCommand.js
 src/model/UpdateChannelEnvironmentVariablesCommand.js
 src/model/UpdateEnvironmentVariableCommand.js
 src/model/UpdateEnvironmentVariableDto.js
-test/model/AppChannelSummary.spec.js
-test/model/UpdateChannelEnvironmentVariablesCommand.spec.js
-test/model/UpdateEnvironmentVariableDto.spec.js
+test/api/JobStatusApi.spec.js
+test/model/ChannelJobStatus.spec.js
+test/model/JobStatus.spec.js

@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **StorageId** | **string** |  | 
-**Description** | **string** |  | 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **Channels** | [**[]AppChannelSummary**](AppChannelSummary.md) |  | 
 
 ## Methods
 
 ### NewAppDto
 
-`func NewAppDto(id string, name string, storageId string, description string, channels []AppChannelSummary, ) *AppDto`
+`func NewAppDto(id string, name string, storageId string, channels []AppChannelSummary, ) *AppDto`
 
 NewAppDto instantiates a new AppDto object
 This constructor will assign default values to properties that have it defined,
@@ -108,7 +108,22 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
+### HasDescription
 
+`func (o *AppDto) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *AppDto) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AppDto) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetChannels
 
 `func (o *AppDto) GetChannels() []AppChannelSummary`

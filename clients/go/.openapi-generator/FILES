@@ -7,6 +7,7 @@ api_app.go
 api_certificate.go
 api_channel.go
 api_environment_variable.go
+api_job_status.go
 api_revision.go
 api_storage.go
 client.go
@@ -22,6 +23,7 @@ docs/CertificateDto.md
 docs/CertificatesVm.md
 docs/ChannelApi.md
 docs/ChannelDto.md
+docs/ChannelJobStatus.md
 docs/ChannelRevisionSelectionStrategy.md
 docs/ChannelsVm.md
 docs/CreateAccountCommand.md
@@ -34,6 +36,8 @@ docs/EnvironmentVariableApi.md
 docs/EnvironmentVariableDto.md
 docs/EnvironmentVariablesVm.md
 docs/GetChannelLogsVm.md
+docs/JobStatus.md
+docs/JobStatusApi.md
 docs/RegisterRevisionCommand.md
 docs/RevisionApi.md
 docs/RevisionComponentDto.md
@@ -58,6 +62,7 @@ model_apps_vm.go
 model_certificate_dto.go
 model_certificates_vm.go
 model_channel_dto.go
+model_channel_job_status.go
 model_channel_revision_selection_strategy.go
 model_channels_vm.go
 model_create_account_command.go
@@ -69,6 +74,7 @@ model_create_token_command.go
 model_environment_variable_dto.go
 model_environment_variables_vm.go
 model_get_channel_logs_vm.go
+model_job_status.go
 model_register_revision_command.go
 model_revision_component_dto.go
 model_revision_dto.go

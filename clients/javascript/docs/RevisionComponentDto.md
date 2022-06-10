@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **source** | **String** |  | 
 **name** | **String** |  | 
-**route** | **String** |  | 
-**channel** | **String** |  | 
-**type** | **String** |  | 
+**route** | **String** |  | [optional] 
+**channel** | **String** |  | [optional] 
+**type** | **String** |  | [optional] 
 
 

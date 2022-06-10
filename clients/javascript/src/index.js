@@ -20,6 +20,7 @@ import AppsVm from './model/AppsVm';
 import CertificateDto from './model/CertificateDto';
 import CertificatesVm from './model/CertificatesVm';
 import ChannelDto from './model/ChannelDto';
+import ChannelJobStatus from './model/ChannelJobStatus';
 import ChannelRevisionSelectionStrategy from './model/ChannelRevisionSelectionStrategy';
 import ChannelsVm from './model/ChannelsVm';
 import CreateAccountCommand from './model/CreateAccountCommand';
@@ -31,6 +32,7 @@ import CreateTokenCommand from './model/CreateTokenCommand';
 import EnvironmentVariableDto from './model/EnvironmentVariableDto';
 import EnvironmentVariablesVm from './model/EnvironmentVariablesVm';
 import GetChannelLogsVm from './model/GetChannelLogsVm';
+import JobStatus from './model/JobStatus';
 import RegisterRevisionCommand from './model/RegisterRevisionCommand';
 import RevisionComponentDto from './model/RevisionComponentDto';
 import RevisionDto from './model/RevisionDto';
@@ -48,6 +50,7 @@ import AppApi from './api/AppApi';
 import CertificateApi from './api/CertificateApi';
 import ChannelApi from './api/ChannelApi';
 import EnvironmentVariableApi from './api/EnvironmentVariableApi';
+import JobStatusApi from './api/JobStatusApi';
 import RevisionApi from './api/RevisionApi';
 import StorageApi from './api/StorageApi';
 
@@ -133,6 +136,12 @@ export {
     ChannelDto,
 
     /**
+     * The ChannelJobStatus model constructor.
+     * @property {module:model/ChannelJobStatus}
+     */
+    ChannelJobStatus,
+
+    /**
      * The ChannelRevisionSelectionStrategy model constructor.
      * @property {module:model/ChannelRevisionSelectionStrategy}
      */
@@ -197,6 +206,12 @@ export {
      * @property {module:model/GetChannelLogsVm}
      */
     GetChannelLogsVm,
+
+    /**
+     * The JobStatus model constructor.
+     * @property {module:model/JobStatus}
+     */
+    JobStatus,
 
     /**
      * The RegisterRevisionCommand model constructor.
@@ -299,6 +314,12 @@ export {
     * @property {module:api/EnvironmentVariableApi}
     */
     EnvironmentVariableApi,
+
+    /**
+    * The JobStatusApi service constructor.
+    * @property {module:api/JobStatusApi}
+    */
+    JobStatusApi,
 
     /**
     * The RevisionApi service constructor.

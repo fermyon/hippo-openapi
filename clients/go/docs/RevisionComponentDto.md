@@ -7,15 +7,15 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Source** | **string** |  | 
 **Name** | **string** |  | 
-**Route** | **string** |  | 
-**Channel** | **string** |  | 
-**Type** | **string** |  | 
+**Route** | Pointer to **NullableString** |  | [optional] 
+**Channel** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewRevisionComponentDto
 
-`func NewRevisionComponentDto(id string, source string, name string, route string, channel string, type_ string, ) *RevisionComponentDto`
+`func NewRevisionComponentDto(id string, source string, name string, ) *RevisionComponentDto`
 
 NewRevisionComponentDto instantiates a new RevisionComponentDto object
 This constructor will assign default values to properties that have it defined,
@@ -109,7 +109,22 @@ and a boolean to check if the value has been set.
 
 SetRoute sets Route field to given value.
 
+### HasRoute
 
+`func (o *RevisionComponentDto) HasRoute() bool`
+
+HasRoute returns a boolean if a field has been set.
+
+### SetRouteNil
+
+`func (o *RevisionComponentDto) SetRouteNil(b bool)`
+
+ SetRouteNil sets the value for Route to be an explicit nil
+
+### UnsetRoute
+`func (o *RevisionComponentDto) UnsetRoute()`
+
+UnsetRoute ensures that no value is present for Route, not even an explicit nil
 ### GetChannel
 
 `func (o *RevisionComponentDto) GetChannel() string`
@@ -129,7 +144,22 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
+### HasChannel
 
+`func (o *RevisionComponentDto) HasChannel() bool`
+
+HasChannel returns a boolean if a field has been set.
+
+### SetChannelNil
+
+`func (o *RevisionComponentDto) SetChannelNil(b bool)`
+
+ SetChannelNil sets the value for Channel to be an explicit nil
+
+### UnsetChannel
+`func (o *RevisionComponentDto) UnsetChannel()`
+
+UnsetChannel ensures that no value is present for Channel, not even an explicit nil
 ### GetType
 
 `func (o *RevisionComponentDto) GetType() string`
@@ -149,7 +179,22 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
 
+`func (o *RevisionComponentDto) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *RevisionComponentDto) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *RevisionComponentDto) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
