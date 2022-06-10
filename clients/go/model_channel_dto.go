@@ -21,10 +21,11 @@ type ChannelDto struct {
 	Name string `json:"name"`
 	Domain string `json:"domain"`
 	RevisionSelectionStrategy ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy"`
-	ActiveRevision *Revision `json:"activeRevision,omitempty"`
+	ActiveRevision *RevisionDto `json:"activeRevision,omitempty"`
 	RangeRule NullableString `json:"rangeRule,omitempty"`
-	Certificate *Certificate `json:"certificate,omitempty"`
+	Certificate *CertificateDto `json:"certificate,omitempty"`
 	EnvironmentVariables []EnvironmentVariableDto `json:"environmentVariables"`
+	AppSummary *AppSummaryDto `json:"appSummary,omitempty"`
 }
 
 // NewChannelDto instantiates a new ChannelDto object
@@ -171,9 +172,9 @@ func (o *ChannelDto) SetRevisionSelectionStrategy(v ChannelRevisionSelectionStra
 }
 
 // GetActiveRevision returns the ActiveRevision field value if set, zero value otherwise.
-func (o *ChannelDto) GetActiveRevision() Revision {
+func (o *ChannelDto) GetActiveRevision() RevisionDto {
 	if o == nil || o.ActiveRevision == nil {
-		var ret Revision
+		var ret RevisionDto
 		return ret
 	}
 	return *o.ActiveRevision
@@ -181,7 +182,7 @@ func (o *ChannelDto) GetActiveRevision() Revision {
 
 // GetActiveRevisionOk returns a tuple with the ActiveRevision field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ChannelDto) GetActiveRevisionOk() (*Revision, bool) {
+func (o *ChannelDto) GetActiveRevisionOk() (*RevisionDto, bool) {
 	if o == nil || o.ActiveRevision == nil {
 		return nil, false
 	}
@@ -197,8 +198,8 @@ func (o *ChannelDto) HasActiveRevision() bool {
 	return false
 }
 
-// SetActiveRevision gets a reference to the given Revision and assigns it to the ActiveRevision field.
-func (o *ChannelDto) SetActiveRevision(v Revision) {
+// SetActiveRevision gets a reference to the given RevisionDto and assigns it to the ActiveRevision field.
+func (o *ChannelDto) SetActiveRevision(v RevisionDto) {
 	o.ActiveRevision = &v
 }
 
@@ -245,9 +246,9 @@ func (o *ChannelDto) UnsetRangeRule() {
 }
 
 // GetCertificate returns the Certificate field value if set, zero value otherwise.
-func (o *ChannelDto) GetCertificate() Certificate {
+func (o *ChannelDto) GetCertificate() CertificateDto {
 	if o == nil || o.Certificate == nil {
-		var ret Certificate
+		var ret CertificateDto
 		return ret
 	}
 	return *o.Certificate
@@ -255,7 +256,7 @@ func (o *ChannelDto) GetCertificate() Certificate {
 
 // GetCertificateOk returns a tuple with the Certificate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ChannelDto) GetCertificateOk() (*Certificate, bool) {
+func (o *ChannelDto) GetCertificateOk() (*CertificateDto, bool) {
 	if o == nil || o.Certificate == nil {
 		return nil, false
 	}
@@ -271,8 +272,8 @@ func (o *ChannelDto) HasCertificate() bool {
 	return false
 }
 
-// SetCertificate gets a reference to the given Certificate and assigns it to the Certificate field.
-func (o *ChannelDto) SetCertificate(v Certificate) {
+// SetCertificate gets a reference to the given CertificateDto and assigns it to the Certificate field.
+func (o *ChannelDto) SetCertificate(v CertificateDto) {
 	o.Certificate = &v
 }
 
@@ -298,6 +299,38 @@ func (o *ChannelDto) GetEnvironmentVariablesOk() ([]EnvironmentVariableDto, bool
 // SetEnvironmentVariables sets field value
 func (o *ChannelDto) SetEnvironmentVariables(v []EnvironmentVariableDto) {
 	o.EnvironmentVariables = v
+}
+
+// GetAppSummary returns the AppSummary field value if set, zero value otherwise.
+func (o *ChannelDto) GetAppSummary() AppSummaryDto {
+	if o == nil || o.AppSummary == nil {
+		var ret AppSummaryDto
+		return ret
+	}
+	return *o.AppSummary
+}
+
+// GetAppSummaryOk returns a tuple with the AppSummary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ChannelDto) GetAppSummaryOk() (*AppSummaryDto, bool) {
+	if o == nil || o.AppSummary == nil {
+		return nil, false
+	}
+	return o.AppSummary, true
+}
+
+// HasAppSummary returns a boolean if a field has been set.
+func (o *ChannelDto) HasAppSummary() bool {
+	if o != nil && o.AppSummary != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAppSummary gets a reference to the given AppSummaryDto and assigns it to the AppSummary field.
+func (o *ChannelDto) SetAppSummary(v AppSummaryDto) {
+	o.AppSummary = &v
 }
 
 func (o ChannelDto) MarshalJSON() ([]byte, error) {
@@ -328,6 +361,9 @@ func (o ChannelDto) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["environmentVariables"] = o.EnvironmentVariables
+	}
+	if o.AppSummary != nil {
+		toSerialize["appSummary"] = o.AppSummary
 	}
 	return json.Marshal(toSerialize)
 }

@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**api_channel_channel_id_environment_variables_put**](ChannelApi.md#api_channel_channel_id_environment_variables_put) | **PUT** /api/channel/{channelId}/environment-variables | 
 [**api_channel_channel_id_get**](ChannelApi.md#api_channel_channel_id_get) | **GET** /api/channel/{channelId} | 
-[**api_channel_channel_id_overview_get**](ChannelApi.md#api_channel_channel_id_overview_get) | **GET** /api/channel/{channelId}/overview | 
 [**api_channel_export_get**](ChannelApi.md#api_channel_export_get) | **GET** /api/channel/export | 
 [**api_channel_get**](ChannelApi.md#api_channel_get) | **GET** /api/channel | 
 [**api_channel_id_delete**](ChannelApi.md#api_channel_id_delete) | **DELETE** /api/channel/{id} | 
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 
 
-## api_channel_channel_id_get
+## api_channel_channel_id_environment_variables_put
 
-> crate::models::ChannelSummaryDto api_channel_channel_id_get(channel_id)
+> api_channel_channel_id_environment_variables_put(channel_id, update_channel_environment_variables_command)
 
 
 ### Parameters
@@ -26,10 +26,11 @@ Method | HTTP request | Description
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **channel_id** | **String** |  | [required] |
+**update_channel_environment_variables_command** | Option<[**UpdateChannelEnvironmentVariablesCommand**](UpdateChannelEnvironmentVariablesCommand.md)> |  |  |
 
 ### Return type
 
-[**crate::models::ChannelSummaryDto**](ChannelSummaryDto.md)
+ (empty response body)
 
 ### Authorization
 
@@ -37,15 +38,15 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Content-Type**: application/json, text/json, application/_*+json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## api_channel_channel_id_overview_get
+## api_channel_channel_id_get
 
-> crate::models::ChannelDetailsDto api_channel_channel_id_overview_get(channel_id)
+> crate::models::ChannelDto api_channel_channel_id_get(channel_id)
 
 
 ### Parameters
@@ -57,7 +58,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ChannelDetailsDto**](ChannelDetailsDto.md)
+[**crate::models::ChannelDto**](ChannelDto.md)
 
 ### Authorization
 

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ApplicationChannelSummary from './ApplicationChannelSummary';
+import AppChannelSummary from './AppChannelSummary';
 
 /**
  * The AppDto model module.
@@ -27,7 +27,7 @@ class AppDto {
      * @param name {String} 
      * @param storageId {String} 
      * @param description {String} 
-     * @param channels {Array.<module:model/ApplicationChannelSummary>} 
+     * @param channels {Array.<module:model/AppChannelSummary>} 
      */
     constructor(id, name, storageId, description, channels) { 
         
@@ -71,7 +71,7 @@ class AppDto {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('channels')) {
-                obj['channels'] = ApiClient.convertToType(data['channels'], [ApplicationChannelSummary]);
+                obj['channels'] = ApiClient.convertToType(data['channels'], [AppChannelSummary]);
             }
         }
         return obj;
@@ -101,7 +101,7 @@ AppDto.prototype['storageId'] = undefined;
 AppDto.prototype['description'] = undefined;
 
 /**
- * @member {Array.<module:model/ApplicationChannelSummary>} channels
+ * @member {Array.<module:model/AppChannelSummary>} channels
  */
 AppDto.prototype['channels'] = undefined;
 

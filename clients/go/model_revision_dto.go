@@ -19,17 +19,19 @@ type RevisionDto struct {
 	Id string `json:"id"`
 	AppId string `json:"appId"`
 	RevisionNumber string `json:"revisionNumber"`
+	Components []RevisionComponentDto `json:"components"`
 }
 
 // NewRevisionDto instantiates a new RevisionDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRevisionDto(id string, appId string, revisionNumber string) *RevisionDto {
+func NewRevisionDto(id string, appId string, revisionNumber string, components []RevisionComponentDto) *RevisionDto {
 	this := RevisionDto{}
 	this.Id = id
 	this.AppId = appId
 	this.RevisionNumber = revisionNumber
+	this.Components = components
 	return &this
 }
 
@@ -113,6 +115,30 @@ func (o *RevisionDto) SetRevisionNumber(v string) {
 	o.RevisionNumber = v
 }
 
+// GetComponents returns the Components field value
+func (o *RevisionDto) GetComponents() []RevisionComponentDto {
+	if o == nil {
+		var ret []RevisionComponentDto
+		return ret
+	}
+
+	return o.Components
+}
+
+// GetComponentsOk returns a tuple with the Components field value
+// and a boolean to check if the value has been set.
+func (o *RevisionDto) GetComponentsOk() ([]RevisionComponentDto, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Components, true
+}
+
+// SetComponents sets field value
+func (o *RevisionDto) SetComponents(v []RevisionComponentDto) {
+	o.Components = v
+}
+
 func (o RevisionDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -123,6 +149,9 @@ func (o RevisionDto) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["revisionNumber"] = o.RevisionNumber
+	}
+	if true {
+		toSerialize["components"] = o.Components
 	}
 	return json.Marshal(toSerialize)
 }

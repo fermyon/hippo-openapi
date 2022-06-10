@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ApplicationChannelSummary from './ApplicationChannelSummary';
+import AppChannelSummary from './AppChannelSummary';
 
 /**
  * The AppSummaryDto model module.
@@ -25,11 +25,12 @@ class AppSummaryDto {
      * @alias module:model/AppSummaryDto
      * @param id {String} 
      * @param name {String} 
-     * @param channels {Array.<module:model/ApplicationChannelSummary>} 
+     * @param storageId {String} 
+     * @param channels {Array.<module:model/AppChannelSummary>} 
      */
-    constructor(id, name, channels) { 
+    constructor(id, name, storageId, channels) { 
         
-        AppSummaryDto.initialize(this, id, name, channels);
+        AppSummaryDto.initialize(this, id, name, storageId, channels);
     }
 
     /**
@@ -37,9 +38,10 @@ class AppSummaryDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, channels) { 
+    static initialize(obj, id, name, storageId, channels) { 
         obj['id'] = id;
         obj['name'] = name;
+        obj['storageId'] = storageId;
         obj['channels'] = channels;
     }
 
@@ -60,8 +62,11 @@ class AppSummaryDto {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('storageId')) {
+                obj['storageId'] = ApiClient.convertToType(data['storageId'], 'String');
+            }
             if (data.hasOwnProperty('channels')) {
-                obj['channels'] = ApiClient.convertToType(data['channels'], [ApplicationChannelSummary]);
+                obj['channels'] = ApiClient.convertToType(data['channels'], [AppChannelSummary]);
             }
         }
         return obj;
@@ -81,7 +86,12 @@ AppSummaryDto.prototype['id'] = undefined;
 AppSummaryDto.prototype['name'] = undefined;
 
 /**
- * @member {Array.<module:model/ApplicationChannelSummary>} channels
+ * @member {String} storageId
+ */
+AppSummaryDto.prototype['storageId'] = undefined;
+
+/**
+ * @member {Array.<module:model/AppChannelSummary>} channels
  */
 AppSummaryDto.prototype['channels'] = undefined;
 

@@ -1,7 +1,9 @@
 [package]
 name = "hippo-openapi"
-version = "0.6.0"
-authors = ["OpenAPI Generator team and contributors"]
+version = "0.7.0"
+description = "Auto-generated client for Hippo"
+license = "Apache-2.0"
+authors = ["Matthew Fisher <matt.fisher@fermyon.com>"]
 edition = "2018"
 
 [dependencies]

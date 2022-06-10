@@ -20,18 +20,22 @@ type RevisionComponentDto struct {
 	Source string `json:"source"`
 	Name string `json:"name"`
 	Route string `json:"route"`
+	Channel string `json:"channel"`
+	Type string `json:"type"`
 }
 
 // NewRevisionComponentDto instantiates a new RevisionComponentDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRevisionComponentDto(id string, source string, name string, route string) *RevisionComponentDto {
+func NewRevisionComponentDto(id string, source string, name string, route string, channel string, type_ string) *RevisionComponentDto {
 	this := RevisionComponentDto{}
 	this.Id = id
 	this.Source = source
 	this.Name = name
 	this.Route = route
+	this.Channel = channel
+	this.Type = type_
 	return &this
 }
 
@@ -139,6 +143,54 @@ func (o *RevisionComponentDto) SetRoute(v string) {
 	o.Route = v
 }
 
+// GetChannel returns the Channel field value
+func (o *RevisionComponentDto) GetChannel() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Channel
+}
+
+// GetChannelOk returns a tuple with the Channel field value
+// and a boolean to check if the value has been set.
+func (o *RevisionComponentDto) GetChannelOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Channel, true
+}
+
+// SetChannel sets field value
+func (o *RevisionComponentDto) SetChannel(v string) {
+	o.Channel = v
+}
+
+// GetType returns the Type field value
+func (o *RevisionComponentDto) GetType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *RevisionComponentDto) GetTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *RevisionComponentDto) SetType(v string) {
+	o.Type = v
+}
+
 func (o RevisionComponentDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -152,6 +204,12 @@ func (o RevisionComponentDto) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["route"] = o.Route
+	}
+	if true {
+		toSerialize["channel"] = o.Channel
+	}
+	if true {
+		toSerialize["type"] = o.Type
 	}
 	return json.Marshal(toSerialize)
 }

@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiChannelChannelIdEnvironmentVariablesPut**](ChannelApi.md#ApiChannelChannelIdEnvironmentVariablesPut) | **Put** /api/channel/{channelId}/environment-variables | 
 [**ApiChannelChannelIdGet**](ChannelApi.md#ApiChannelChannelIdGet) | **Get** /api/channel/{channelId} | 
-[**ApiChannelChannelIdOverviewGet**](ChannelApi.md#ApiChannelChannelIdOverviewGet) | **Get** /api/channel/{channelId}/overview | 
 [**ApiChannelExportGet**](ChannelApi.md#ApiChannelExportGet) | **Get** /api/channel/export | 
 [**ApiChannelGet**](ChannelApi.md#ApiChannelGet) | **Get** /api/channel | 
 [**ApiChannelIdDelete**](ChannelApi.md#ApiChannelIdDelete) | **Delete** /api/channel/{id} | 
@@ -15,9 +15,77 @@ Method | HTTP request | Description
 
 
 
+## ApiChannelChannelIdEnvironmentVariablesPut
+
+> ApiChannelChannelIdEnvironmentVariablesPut(ctx, channelId).UpdateChannelEnvironmentVariablesCommand(updateChannelEnvironmentVariablesCommand).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    channelId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    updateChannelEnvironmentVariablesCommand := *openapiclient.NewUpdateChannelEnvironmentVariablesCommand() // UpdateChannelEnvironmentVariablesCommand |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ChannelApi.ApiChannelChannelIdEnvironmentVariablesPut(context.Background(), channelId).UpdateChannelEnvironmentVariablesCommand(updateChannelEnvironmentVariablesCommand).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelChannelIdEnvironmentVariablesPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**channelId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiChannelChannelIdEnvironmentVariablesPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updateChannelEnvironmentVariablesCommand** | [**UpdateChannelEnvironmentVariablesCommand**](UpdateChannelEnvironmentVariablesCommand.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiChannelChannelIdGet
 
-> ChannelSummaryDto ApiChannelChannelIdGet(ctx, channelId).Execute()
+> ChannelDto ApiChannelChannelIdGet(ctx, channelId).Execute()
 
 
 
@@ -43,7 +111,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelChannelIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiChannelChannelIdGet`: ChannelSummaryDto
+    // response from `ApiChannelChannelIdGet`: ChannelDto
     fmt.Fprintf(os.Stdout, "Response from `ChannelApi.ApiChannelChannelIdGet`: %v\n", resp)
 }
 ```
@@ -67,75 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChannelSummaryDto**](ChannelSummaryDto.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiChannelChannelIdOverviewGet
-
-> ChannelDetailsDto ApiChannelChannelIdOverviewGet(ctx, channelId).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    channelId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ChannelApi.ApiChannelChannelIdOverviewGet(context.Background(), channelId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ChannelApi.ApiChannelChannelIdOverviewGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiChannelChannelIdOverviewGet`: ChannelDetailsDto
-    fmt.Fprintf(os.Stdout, "Response from `ChannelApi.ApiChannelChannelIdOverviewGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**channelId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiChannelChannelIdOverviewGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**ChannelDetailsDto**](ChannelDetailsDto.md)
+[**ChannelDto**](ChannelDto.md)
 
 ### Authorization
 

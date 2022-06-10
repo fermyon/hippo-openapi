@@ -22,11 +22,11 @@ pub struct AppDto {
     #[serde(rename = "description")]
     pub description: String,
     #[serde(rename = "channels")]
-    pub channels: Vec<crate::models::ApplicationChannelSummary>,
+    pub channels: Vec<crate::models::AppChannelSummary>,
 }
 
 impl AppDto {
-    pub fn new(id: String, name: String, storage_id: String, description: String, channels: Vec<crate::models::ApplicationChannelSummary>) -> AppDto {
+    pub fn new(id: String, name: String, storage_id: String, description: String, channels: Vec<crate::models::AppChannelSummary>) -> AppDto {
         AppDto {
             id,
             name,

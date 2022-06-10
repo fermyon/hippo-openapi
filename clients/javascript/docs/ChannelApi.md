@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**apiChannelChannelIdEnvironmentVariablesPut**](ChannelApi.md#apiChannelChannelIdEnvironmentVariablesPut) | **PUT** /api/channel/{channelId}/environment-variables | 
 [**apiChannelChannelIdGet**](ChannelApi.md#apiChannelChannelIdGet) | **GET** /api/channel/{channelId} | 
-[**apiChannelChannelIdOverviewGet**](ChannelApi.md#apiChannelChannelIdOverviewGet) | **GET** /api/channel/{channelId}/overview | 
 [**apiChannelExportGet**](ChannelApi.md#apiChannelExportGet) | **GET** /api/channel/export | 
 [**apiChannelGet**](ChannelApi.md#apiChannelGet) | **GET** /api/channel | 
 [**apiChannelIdDelete**](ChannelApi.md#apiChannelIdDelete) | **DELETE** /api/channel/{id} | 
@@ -15,9 +15,62 @@ Method | HTTP request | Description
 
 
 
+## apiChannelChannelIdEnvironmentVariablesPut
+
+> apiChannelChannelIdEnvironmentVariablesPut(channelId, opts)
+
+
+
+### Example
+
+```javascript
+import HippoWeb from 'hippo_web';
+let defaultClient = HippoWeb.ApiClient.instance;
+// Configure API key authorization: Bearer
+let Bearer = defaultClient.authentications['Bearer'];
+Bearer.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Bearer.apiKeyPrefix = 'Token';
+
+let apiInstance = new HippoWeb.ChannelApi();
+let channelId = "channelId_example"; // String | 
+let opts = {
+  'updateChannelEnvironmentVariablesCommand': new HippoWeb.UpdateChannelEnvironmentVariablesCommand() // UpdateChannelEnvironmentVariablesCommand | 
+};
+apiInstance.apiChannelChannelIdEnvironmentVariablesPut(channelId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channelId** | **String**|  | 
+ **updateChannelEnvironmentVariablesCommand** | [**UpdateChannelEnvironmentVariablesCommand**](UpdateChannelEnvironmentVariablesCommand.md)|  | [optional] 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, text/json, application/_*+json
+- **Accept**: Not defined
+
+
 ## apiChannelChannelIdGet
 
-> ChannelSummaryDto apiChannelChannelIdGet(channelId)
+> ChannelDto apiChannelChannelIdGet(channelId)
 
 
 
@@ -52,56 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChannelSummaryDto**](ChannelSummaryDto.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
-
-
-## apiChannelChannelIdOverviewGet
-
-> ChannelDetailsDto apiChannelChannelIdOverviewGet(channelId)
-
-
-
-### Example
-
-```javascript
-import HippoWeb from 'hippo_web';
-let defaultClient = HippoWeb.ApiClient.instance;
-// Configure API key authorization: Bearer
-let Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-let apiInstance = new HippoWeb.ChannelApi();
-let channelId = "channelId_example"; // String | 
-apiInstance.apiChannelChannelIdOverviewGet(channelId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channelId** | **String**|  | 
-
-### Return type
-
-[**ChannelDetailsDto**](ChannelDetailsDto.md)
+[**ChannelDto**](ChannelDto.md)
 
 ### Authorization
 

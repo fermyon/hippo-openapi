@@ -17,15 +17,18 @@ pub struct AppSummaryDto {
     pub id: String,
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "storageId")]
+    pub storage_id: String,
     #[serde(rename = "channels")]
-    pub channels: Vec<crate::models::ApplicationChannelSummary>,
+    pub channels: Vec<crate::models::AppChannelSummary>,
 }
 
 impl AppSummaryDto {
-    pub fn new(id: String, name: String, channels: Vec<crate::models::ApplicationChannelSummary>) -> AppSummaryDto {
+    pub fn new(id: String, name: String, storage_id: String, channels: Vec<crate::models::AppChannelSummary>) -> AppSummaryDto {
         AppSummaryDto {
             id,
             name,
+            storage_id,
             channels,
         }
     }

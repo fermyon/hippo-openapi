@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **storageId** | **String** |  | 
 **description** | **String** |  | 
-**channels** | [**[ApplicationChannelSummary]**](ApplicationChannelSummary.md) |  | 
+**channels** | [**[AppChannelSummary]**](AppChannelSummary.md) |  | 
 
 

@@ -9,10 +9,11 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Domain** | **string** |  | 
 **RevisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
-**ActiveRevision** | Pointer to [**Revision**](Revision.md) |  | [optional] 
+**ActiveRevision** | Pointer to [**RevisionDto**](RevisionDto.md) |  | [optional] 
 **RangeRule** | Pointer to **NullableString** |  | [optional] 
-**Certificate** | Pointer to [**Certificate**](Certificate.md) |  | [optional] 
+**Certificate** | Pointer to [**CertificateDto**](CertificateDto.md) |  | [optional] 
 **EnvironmentVariables** | [**[]EnvironmentVariableDto**](EnvironmentVariableDto.md) |  | 
+**AppSummary** | Pointer to [**AppSummaryDto**](AppSummaryDto.md) |  | [optional] 
 
 ## Methods
 
@@ -135,20 +136,20 @@ SetRevisionSelectionStrategy sets RevisionSelectionStrategy field to given value
 
 ### GetActiveRevision
 
-`func (o *ChannelDto) GetActiveRevision() Revision`
+`func (o *ChannelDto) GetActiveRevision() RevisionDto`
 
 GetActiveRevision returns the ActiveRevision field if non-nil, zero value otherwise.
 
 ### GetActiveRevisionOk
 
-`func (o *ChannelDto) GetActiveRevisionOk() (*Revision, bool)`
+`func (o *ChannelDto) GetActiveRevisionOk() (*RevisionDto, bool)`
 
 GetActiveRevisionOk returns a tuple with the ActiveRevision field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActiveRevision
 
-`func (o *ChannelDto) SetActiveRevision(v Revision)`
+`func (o *ChannelDto) SetActiveRevision(v RevisionDto)`
 
 SetActiveRevision sets ActiveRevision field to given value.
 
@@ -195,20 +196,20 @@ HasRangeRule returns a boolean if a field has been set.
 UnsetRangeRule ensures that no value is present for RangeRule, not even an explicit nil
 ### GetCertificate
 
-`func (o *ChannelDto) GetCertificate() Certificate`
+`func (o *ChannelDto) GetCertificate() CertificateDto`
 
 GetCertificate returns the Certificate field if non-nil, zero value otherwise.
 
 ### GetCertificateOk
 
-`func (o *ChannelDto) GetCertificateOk() (*Certificate, bool)`
+`func (o *ChannelDto) GetCertificateOk() (*CertificateDto, bool)`
 
 GetCertificateOk returns a tuple with the Certificate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCertificate
 
-`func (o *ChannelDto) SetCertificate(v Certificate)`
+`func (o *ChannelDto) SetCertificate(v CertificateDto)`
 
 SetCertificate sets Certificate field to given value.
 
@@ -237,6 +238,31 @@ and a boolean to check if the value has been set.
 
 SetEnvironmentVariables sets EnvironmentVariables field to given value.
 
+
+### GetAppSummary
+
+`func (o *ChannelDto) GetAppSummary() AppSummaryDto`
+
+GetAppSummary returns the AppSummary field if non-nil, zero value otherwise.
+
+### GetAppSummaryOk
+
+`func (o *ChannelDto) GetAppSummaryOk() (*AppSummaryDto, bool)`
+
+GetAppSummaryOk returns a tuple with the AppSummary field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppSummary
+
+`func (o *ChannelDto) SetAppSummary(v AppSummaryDto)`
+
+SetAppSummary sets AppSummary field to given value.
+
+### HasAppSummary
+
+`func (o *ChannelDto) HasAppSummary() bool`
+
+HasAppSummary returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

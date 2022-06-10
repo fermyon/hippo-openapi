@@ -9,9 +9,10 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **domain** | **String** |  | 
 **revisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
-**activeRevision** | [**Revision**](Revision.md) |  | [optional] 
+**activeRevision** | [**RevisionDto**](RevisionDto.md) |  | [optional] 
 **rangeRule** | **String** |  | [optional] 
-**certificate** | [**Certificate**](Certificate.md) |  | [optional] 
+**certificate** | [**CertificateDto**](CertificateDto.md) |  | [optional] 
 **environmentVariables** | [**[EnvironmentVariableDto]**](EnvironmentVariableDto.md) |  | 
+**appSummary** | [**AppSummaryDto**](AppSummaryDto.md) |  | [optional] 
 
 

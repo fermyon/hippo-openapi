@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import RevisionComponentDto from './RevisionComponentDto';
 
 /**
  * The RevisionDto model module.
@@ -25,10 +26,11 @@ class RevisionDto {
      * @param id {String} 
      * @param appId {String} 
      * @param revisionNumber {String} 
+     * @param components {Array.<module:model/RevisionComponentDto>} 
      */
-    constructor(id, appId, revisionNumber) { 
+    constructor(id, appId, revisionNumber, components) { 
         
-        RevisionDto.initialize(this, id, appId, revisionNumber);
+        RevisionDto.initialize(this, id, appId, revisionNumber, components);
     }
 
     /**
@@ -36,10 +38,11 @@ class RevisionDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, appId, revisionNumber) { 
+    static initialize(obj, id, appId, revisionNumber, components) { 
         obj['id'] = id;
         obj['appId'] = appId;
         obj['revisionNumber'] = revisionNumber;
+        obj['components'] = components;
     }
 
     /**
@@ -62,6 +65,9 @@ class RevisionDto {
             if (data.hasOwnProperty('revisionNumber')) {
                 obj['revisionNumber'] = ApiClient.convertToType(data['revisionNumber'], 'String');
             }
+            if (data.hasOwnProperty('components')) {
+                obj['components'] = ApiClient.convertToType(data['components'], [RevisionComponentDto]);
+            }
         }
         return obj;
     }
@@ -83,6 +89,11 @@ RevisionDto.prototype['appId'] = undefined;
  * @member {String} revisionNumber
  */
 RevisionDto.prototype['revisionNumber'] = undefined;
+
+/**
+ * @member {Array.<module:model/RevisionComponentDto>} components
+ */
+RevisionDto.prototype['components'] = undefined;
 
 
 

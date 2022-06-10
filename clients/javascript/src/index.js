@@ -13,19 +13,14 @@
 
 
 import ApiClient from './ApiClient';
-import App from './model/App';
+import AppChannelSummary from './model/AppChannelSummary';
 import AppDto from './model/AppDto';
 import AppSummaryDto from './model/AppSummaryDto';
-import ApplicationChannelSummary from './model/ApplicationChannelSummary';
 import AppsVm from './model/AppsVm';
-import Certificate from './model/Certificate';
 import CertificateDto from './model/CertificateDto';
 import CertificatesVm from './model/CertificatesVm';
-import Channel from './model/Channel';
-import ChannelDetailsDto from './model/ChannelDetailsDto';
 import ChannelDto from './model/ChannelDto';
 import ChannelRevisionSelectionStrategy from './model/ChannelRevisionSelectionStrategy';
-import ChannelSummaryDto from './model/ChannelSummaryDto';
 import ChannelsVm from './model/ChannelsVm';
 import CreateAccountCommand from './model/CreateAccountCommand';
 import CreateAppCommand from './model/CreateAppCommand';
@@ -33,16 +28,11 @@ import CreateCertificateCommand from './model/CreateCertificateCommand';
 import CreateChannelCommand from './model/CreateChannelCommand';
 import CreateEnvironmentVariableCommand from './model/CreateEnvironmentVariableCommand';
 import CreateTokenCommand from './model/CreateTokenCommand';
-import DomainEvent from './model/DomainEvent';
-import EnvironmentVariable from './model/EnvironmentVariable';
 import EnvironmentVariableDto from './model/EnvironmentVariableDto';
 import EnvironmentVariablesVm from './model/EnvironmentVariablesVm';
 import GetChannelLogsVm from './model/GetChannelLogsVm';
 import RegisterRevisionCommand from './model/RegisterRevisionCommand';
-import Revision from './model/Revision';
-import RevisionComponent from './model/RevisionComponent';
 import RevisionComponentDto from './model/RevisionComponentDto';
-import RevisionDetailsDto from './model/RevisionDetailsDto';
 import RevisionDto from './model/RevisionDto';
 import RevisionsVm from './model/RevisionsVm';
 import StorageList from './model/StorageList';
@@ -50,7 +40,9 @@ import TokenInfo from './model/TokenInfo';
 import UpdateAppCommand from './model/UpdateAppCommand';
 import UpdateCertificateCommand from './model/UpdateCertificateCommand';
 import UpdateChannelCommand from './model/UpdateChannelCommand';
+import UpdateChannelEnvironmentVariablesCommand from './model/UpdateChannelEnvironmentVariablesCommand';
 import UpdateEnvironmentVariableCommand from './model/UpdateEnvironmentVariableCommand';
+import UpdateEnvironmentVariableDto from './model/UpdateEnvironmentVariableDto';
 import AccountApi from './api/AccountApi';
 import AppApi from './api/AppApi';
 import CertificateApi from './api/CertificateApi';
@@ -99,10 +91,10 @@ export {
     ApiClient,
 
     /**
-     * The App model constructor.
-     * @property {module:model/App}
+     * The AppChannelSummary model constructor.
+     * @property {module:model/AppChannelSummary}
      */
-    App,
+    AppChannelSummary,
 
     /**
      * The AppDto model constructor.
@@ -117,22 +109,10 @@ export {
     AppSummaryDto,
 
     /**
-     * The ApplicationChannelSummary model constructor.
-     * @property {module:model/ApplicationChannelSummary}
-     */
-    ApplicationChannelSummary,
-
-    /**
      * The AppsVm model constructor.
      * @property {module:model/AppsVm}
      */
     AppsVm,
-
-    /**
-     * The Certificate model constructor.
-     * @property {module:model/Certificate}
-     */
-    Certificate,
 
     /**
      * The CertificateDto model constructor.
@@ -147,18 +127,6 @@ export {
     CertificatesVm,
 
     /**
-     * The Channel model constructor.
-     * @property {module:model/Channel}
-     */
-    Channel,
-
-    /**
-     * The ChannelDetailsDto model constructor.
-     * @property {module:model/ChannelDetailsDto}
-     */
-    ChannelDetailsDto,
-
-    /**
      * The ChannelDto model constructor.
      * @property {module:model/ChannelDto}
      */
@@ -169,12 +137,6 @@ export {
      * @property {module:model/ChannelRevisionSelectionStrategy}
      */
     ChannelRevisionSelectionStrategy,
-
-    /**
-     * The ChannelSummaryDto model constructor.
-     * @property {module:model/ChannelSummaryDto}
-     */
-    ChannelSummaryDto,
 
     /**
      * The ChannelsVm model constructor.
@@ -219,18 +181,6 @@ export {
     CreateTokenCommand,
 
     /**
-     * The DomainEvent model constructor.
-     * @property {module:model/DomainEvent}
-     */
-    DomainEvent,
-
-    /**
-     * The EnvironmentVariable model constructor.
-     * @property {module:model/EnvironmentVariable}
-     */
-    EnvironmentVariable,
-
-    /**
      * The EnvironmentVariableDto model constructor.
      * @property {module:model/EnvironmentVariableDto}
      */
@@ -255,28 +205,10 @@ export {
     RegisterRevisionCommand,
 
     /**
-     * The Revision model constructor.
-     * @property {module:model/Revision}
-     */
-    Revision,
-
-    /**
-     * The RevisionComponent model constructor.
-     * @property {module:model/RevisionComponent}
-     */
-    RevisionComponent,
-
-    /**
      * The RevisionComponentDto model constructor.
      * @property {module:model/RevisionComponentDto}
      */
     RevisionComponentDto,
-
-    /**
-     * The RevisionDetailsDto model constructor.
-     * @property {module:model/RevisionDetailsDto}
-     */
-    RevisionDetailsDto,
 
     /**
      * The RevisionDto model constructor.
@@ -321,10 +253,22 @@ export {
     UpdateChannelCommand,
 
     /**
+     * The UpdateChannelEnvironmentVariablesCommand model constructor.
+     * @property {module:model/UpdateChannelEnvironmentVariablesCommand}
+     */
+    UpdateChannelEnvironmentVariablesCommand,
+
+    /**
      * The UpdateEnvironmentVariableCommand model constructor.
      * @property {module:model/UpdateEnvironmentVariableCommand}
      */
     UpdateEnvironmentVariableCommand,
+
+    /**
+     * The UpdateEnvironmentVariableDto model constructor.
+     * @property {module:model/UpdateEnvironmentVariableDto}
+     */
+    UpdateEnvironmentVariableDto,
 
     /**
     * The AccountApi service constructor.

@@ -21,15 +21,21 @@ pub struct RevisionComponentDto {
     pub name: String,
     #[serde(rename = "route")]
     pub route: String,
+    #[serde(rename = "channel")]
+    pub channel: String,
+    #[serde(rename = "type")]
+    pub _type: String,
 }
 
 impl RevisionComponentDto {
-    pub fn new(id: String, source: String, name: String, route: String) -> RevisionComponentDto {
+    pub fn new(id: String, source: String, name: String, route: String, channel: String, _type: String) -> RevisionComponentDto {
         RevisionComponentDto {
             id,
             source,
             name,
             route,
+            channel,
+            _type,
         }
     }
 }

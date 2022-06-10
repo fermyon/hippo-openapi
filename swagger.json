@@ -485,46 +485,6 @@
         }
       }
     },
-    "/api/channel/{channelId}/overview": {
-      "get": {
-        "tags": [
-          "Channel"
-        ],
-        "parameters": [
-          {
-            "name": "channelId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelDetailsDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelDetailsDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelDetailsDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/channel/{channelId}": {
       "get": {
         "tags": [
@@ -547,17 +507,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelSummaryDto"
+                  "$ref": "#/components/schemas/ChannelDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelSummaryDto"
+                  "$ref": "#/components/schemas/ChannelDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelSummaryDto"
+                  "$ref": "#/components/schemas/ChannelDto"
                 }
               }
             }
@@ -633,6 +593,48 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/channel/{channelId}/environment-variables": {
+      "put": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelEnvironmentVariablesCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelEnvironmentVariablesCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelEnvironmentVariablesCommand"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -983,58 +985,22 @@
   },
   "components": {
     "schemas": {
-      "App": {
+      "AppChannelSummary": {
+        "required": [
+          "id",
+          "name"
+        ],
         "type": "object",
         "properties": {
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastModified": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastModifiedBy": {
-            "type": "string",
-            "nullable": true
-          },
           "id": {
             "type": "string",
             "format": "uuid"
           },
           "name": {
+            "type": "string"
+          },
+          "activeRevisionNumber": {
             "type": "string",
-            "nullable": true
-          },
-          "storageId": {
-            "type": "string",
-            "nullable": true
-          },
-          "channels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Channel"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "revisions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Revision"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "domainEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DomainEvent"
-            },
             "nullable": true
           }
         },
@@ -1066,7 +1032,7 @@
           "channels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ApplicationChannelSummary"
+              "$ref": "#/components/schemas/AppChannelSummary"
             }
           }
         },
@@ -1076,7 +1042,8 @@
         "required": [
           "channels",
           "id",
-          "name"
+          "name",
+          "storageId"
         ],
         "type": "object",
         "properties": {
@@ -1085,34 +1052,16 @@
             "format": "uuid"
           },
           "name": {
+            "type": "string"
+          },
+          "storageId": {
             "type": "string"
           },
           "channels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ApplicationChannelSummary"
+              "$ref": "#/components/schemas/AppChannelSummary"
             }
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApplicationChannelSummary": {
-        "required": [
-          "id",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string"
-          },
-          "activeRevisionNumber": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1128,59 +1077,6 @@
             "items": {
               "$ref": "#/components/schemas/AppDto"
             }
-          }
-        },
-        "additionalProperties": false
-      },
-      "Certificate": {
-        "type": "object",
-        "properties": {
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastModified": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastModifiedBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "publicKey": {
-            "type": "string",
-            "nullable": true
-          },
-          "privateKey": {
-            "type": "string",
-            "nullable": true
-          },
-          "channels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Channel"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "domainEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DomainEvent"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1232,131 +1128,6 @@
         },
         "additionalProperties": false
       },
-      "Channel": {
-        "type": "object",
-        "properties": {
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastModified": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastModifiedBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "domain": {
-            "type": "string",
-            "nullable": true
-          },
-          "revisionSelectionStrategy": {
-            "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
-          },
-          "rangeRule": {
-            "type": "string",
-            "nullable": true
-          },
-          "activeRevisionId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "activeRevision": {
-            "$ref": "#/components/schemas/Revision"
-          },
-          "certificateId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "certificate": {
-            "$ref": "#/components/schemas/Certificate"
-          },
-          "portId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "appId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "app": {
-            "$ref": "#/components/schemas/App"
-          },
-          "environmentVariables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EnvironmentVariable"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "domainEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DomainEvent"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChannelDetailsDto": {
-        "required": [
-          "domain",
-          "environmentVariables",
-          "id",
-          "name",
-          "revisionSelectionStrategy"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string"
-          },
-          "domain": {
-            "type": "string"
-          },
-          "revisionSelectionStrategy": {
-            "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
-          },
-          "activeRevision": {
-            "$ref": "#/components/schemas/RevisionDetailsDto"
-          },
-          "rangeRule": {
-            "type": "string",
-            "nullable": true
-          },
-          "certificate": {
-            "$ref": "#/components/schemas/Certificate"
-          },
-          "environmentVariables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EnvironmentVariableDto"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
       "ChannelDto": {
         "required": [
           "appId",
@@ -1386,20 +1157,23 @@
             "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
           },
           "activeRevision": {
-            "$ref": "#/components/schemas/Revision"
+            "$ref": "#/components/schemas/RevisionDto"
           },
           "rangeRule": {
             "type": "string",
             "nullable": true
           },
           "certificate": {
-            "$ref": "#/components/schemas/Certificate"
+            "$ref": "#/components/schemas/CertificateDto"
           },
           "environmentVariables": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EnvironmentVariableDto"
             }
+          },
+          "appSummary": {
+            "$ref": "#/components/schemas/AppSummaryDto"
           }
         },
         "additionalProperties": false
@@ -1410,31 +1184,6 @@
           "UseSpecifiedRevision"
         ],
         "type": "string"
-      },
-      "ChannelSummaryDto": {
-        "required": [
-          "appSummary",
-          "domain",
-          "id",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string"
-          },
-          "domain": {
-            "type": "string"
-          },
-          "appSummary": {
-            "$ref": "#/components/schemas/AppSummaryDto"
-          }
-        },
-        "additionalProperties": false
       },
       "ChannelsVm": {
         "required": [
@@ -1579,68 +1328,6 @@
         },
         "additionalProperties": false
       },
-      "DomainEvent": {
-        "type": "object",
-        "properties": {
-          "isPublished": {
-            "type": "boolean"
-          },
-          "dateOccurred": {
-            "type": "string",
-            "format": "date-time",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EnvironmentVariable": {
-        "type": "object",
-        "properties": {
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastModified": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastModifiedBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "key": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          },
-          "channelId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "channel": {
-            "$ref": "#/components/schemas/Channel"
-          },
-          "domainEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DomainEvent"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "EnvironmentVariableDto": {
         "required": [
           "channelId",
@@ -1713,120 +1400,14 @@
         },
         "additionalProperties": false
       },
-      "Revision": {
-        "type": "object",
-        "properties": {
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastModified": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastModifiedBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "revisionNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "appId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "app": {
-            "$ref": "#/components/schemas/App"
-          },
-          "components": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RevisionComponent"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "domainEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DomainEvent"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RevisionComponent": {
-        "type": "object",
-        "properties": {
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastModified": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastModifiedBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "source": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "route": {
-            "type": "string",
-            "nullable": true
-          },
-          "revisionId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "revision": {
-            "$ref": "#/components/schemas/Revision"
-          },
-          "domainEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DomainEvent"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "RevisionComponentDto": {
         "required": [
+          "channel",
           "id",
           "name",
           "route",
-          "source"
+          "source",
+          "type"
         ],
         "type": "object",
         "properties": {
@@ -1842,35 +1423,12 @@
           },
           "route": {
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RevisionDetailsDto": {
-        "required": [
-          "description",
-          "id",
-          "revisionNumber"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
           },
-          "revisionNumber": {
+          "channel": {
             "type": "string"
           },
-          "description": {
+          "type": {
             "type": "string"
-          },
-          "components": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RevisionComponentDto"
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1878,6 +1436,7 @@
       "RevisionDto": {
         "required": [
           "appId",
+          "components",
           "id",
           "revisionNumber"
         ],
@@ -1893,6 +1452,13 @@
           },
           "revisionNumber": {
             "type": "string"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RevisionComponentDto"
+            },
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -2027,7 +1593,45 @@
         },
         "additionalProperties": false
       },
+      "UpdateChannelEnvironmentVariablesCommand": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "environmentVariables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateEnvironmentVariableCommand": {
+        "required": [
+          "id",
+          "key",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateEnvironmentVariableDto": {
         "required": [
           "id",
           "key",

@@ -26,10 +26,12 @@ class RevisionComponentDto {
      * @param source {String} 
      * @param name {String} 
      * @param route {String} 
+     * @param channel {String} 
+     * @param type {String} 
      */
-    constructor(id, source, name, route) { 
+    constructor(id, source, name, route, channel, type) { 
         
-        RevisionComponentDto.initialize(this, id, source, name, route);
+        RevisionComponentDto.initialize(this, id, source, name, route, channel, type);
     }
 
     /**
@@ -37,11 +39,13 @@ class RevisionComponentDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, source, name, route) { 
+    static initialize(obj, id, source, name, route, channel, type) { 
         obj['id'] = id;
         obj['source'] = source;
         obj['name'] = name;
         obj['route'] = route;
+        obj['channel'] = channel;
+        obj['type'] = type;
     }
 
     /**
@@ -66,6 +70,12 @@ class RevisionComponentDto {
             }
             if (data.hasOwnProperty('route')) {
                 obj['route'] = ApiClient.convertToType(data['route'], 'String');
+            }
+            if (data.hasOwnProperty('channel')) {
+                obj['channel'] = ApiClient.convertToType(data['channel'], 'String');
+            }
+            if (data.hasOwnProperty('type')) {
+                obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
         }
         return obj;
@@ -93,6 +103,16 @@ RevisionComponentDto.prototype['name'] = undefined;
  * @member {String} route
  */
 RevisionComponentDto.prototype['route'] = undefined;
+
+/**
+ * @member {String} channel
+ */
+RevisionComponentDto.prototype['channel'] = undefined;
+
+/**
+ * @member {String} type
+ */
+RevisionComponentDto.prototype['type'] = undefined;
 
 
 

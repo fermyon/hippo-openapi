@@ -12,7 +12,7 @@ clients: swagger.json
 	done
 
 swagger.json:
-	curl -sSLko swagger.json https://localhost:5309/swagger/v1/swagger.json
+	curl -sSLko swagger.json http://localhost:5309/swagger/v1/swagger.json
 
 clean:
 	rm -rf clients

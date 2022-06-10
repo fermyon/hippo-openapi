@@ -8,12 +8,14 @@ Name | Type | Description | Notes
 **Source** | **string** |  | 
 **Name** | **string** |  | 
 **Route** | **string** |  | 
+**Channel** | **string** |  | 
+**Type** | **string** |  | 
 
 ## Methods
 
 ### NewRevisionComponentDto
 
-`func NewRevisionComponentDto(id string, source string, name string, route string, ) *RevisionComponentDto`
+`func NewRevisionComponentDto(id string, source string, name string, route string, channel string, type_ string, ) *RevisionComponentDto`
 
 NewRevisionComponentDto instantiates a new RevisionComponentDto object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +108,46 @@ and a boolean to check if the value has been set.
 `func (o *RevisionComponentDto) SetRoute(v string)`
 
 SetRoute sets Route field to given value.
+
+
+### GetChannel
+
+`func (o *RevisionComponentDto) GetChannel() string`
+
+GetChannel returns the Channel field if non-nil, zero value otherwise.
+
+### GetChannelOk
+
+`func (o *RevisionComponentDto) GetChannelOk() (*string, bool)`
+
+GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannel
+
+`func (o *RevisionComponentDto) SetChannel(v string)`
+
+SetChannel sets Channel field to given value.
+
+
+### GetType
+
+`func (o *RevisionComponentDto) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *RevisionComponentDto) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *RevisionComponentDto) SetType(v string)`
+
+SetType sets Type field to given value.
 
 
 

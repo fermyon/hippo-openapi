@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **AppId** | **string** |  | 
 **RevisionNumber** | **string** |  | 
+**Components** | [**[]RevisionComponentDto**](RevisionComponentDto.md) |  | [readonly] 
 
 ## Methods
 
 ### NewRevisionDto
 
-`func NewRevisionDto(id string, appId string, revisionNumber string, ) *RevisionDto`
+`func NewRevisionDto(id string, appId string, revisionNumber string, components []RevisionComponentDto, ) *RevisionDto`
 
 NewRevisionDto instantiates a new RevisionDto object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *RevisionDto) SetRevisionNumber(v string)`
 
 SetRevisionNumber sets RevisionNumber field to given value.
+
+
+### GetComponents
+
+`func (o *RevisionDto) GetComponents() []RevisionComponentDto`
+
+GetComponents returns the Components field if non-nil, zero value otherwise.
+
+### GetComponentsOk
+
+`func (o *RevisionDto) GetComponentsOk() (*[]RevisionComponentDto, bool)`
+
+GetComponentsOk returns a tuple with the Components field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComponents
+
+`func (o *RevisionDto) SetComponents(v []RevisionComponentDto)`
+
+SetComponents sets Components field to given value.
 
 
 

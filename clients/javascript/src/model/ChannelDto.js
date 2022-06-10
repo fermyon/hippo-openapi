@@ -12,10 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import Certificate from './Certificate';
+import AppSummaryDto from './AppSummaryDto';
+import CertificateDto from './CertificateDto';
 import ChannelRevisionSelectionStrategy from './ChannelRevisionSelectionStrategy';
 import EnvironmentVariableDto from './EnvironmentVariableDto';
-import Revision from './Revision';
+import RevisionDto from './RevisionDto';
 
 /**
  * The ChannelDto model module.
@@ -79,16 +80,19 @@ class ChannelDto {
                 obj['revisionSelectionStrategy'] = ChannelRevisionSelectionStrategy.constructFromObject(data['revisionSelectionStrategy']);
             }
             if (data.hasOwnProperty('activeRevision')) {
-                obj['activeRevision'] = Revision.constructFromObject(data['activeRevision']);
+                obj['activeRevision'] = RevisionDto.constructFromObject(data['activeRevision']);
             }
             if (data.hasOwnProperty('rangeRule')) {
                 obj['rangeRule'] = ApiClient.convertToType(data['rangeRule'], 'String');
             }
             if (data.hasOwnProperty('certificate')) {
-                obj['certificate'] = Certificate.constructFromObject(data['certificate']);
+                obj['certificate'] = CertificateDto.constructFromObject(data['certificate']);
             }
             if (data.hasOwnProperty('environmentVariables')) {
                 obj['environmentVariables'] = ApiClient.convertToType(data['environmentVariables'], [EnvironmentVariableDto]);
+            }
+            if (data.hasOwnProperty('appSummary')) {
+                obj['appSummary'] = AppSummaryDto.constructFromObject(data['appSummary']);
             }
         }
         return obj;
@@ -123,7 +127,7 @@ ChannelDto.prototype['domain'] = undefined;
 ChannelDto.prototype['revisionSelectionStrategy'] = undefined;
 
 /**
- * @member {module:model/Revision} activeRevision
+ * @member {module:model/RevisionDto} activeRevision
  */
 ChannelDto.prototype['activeRevision'] = undefined;
 
@@ -133,7 +137,7 @@ ChannelDto.prototype['activeRevision'] = undefined;
 ChannelDto.prototype['rangeRule'] = undefined;
 
 /**
- * @member {module:model/Certificate} certificate
+ * @member {module:model/CertificateDto} certificate
  */
 ChannelDto.prototype['certificate'] = undefined;
 
@@ -141,6 +145,11 @@ ChannelDto.prototype['certificate'] = undefined;
  * @member {Array.<module:model/EnvironmentVariableDto>} environmentVariables
  */
 ChannelDto.prototype['environmentVariables'] = undefined;
+
+/**
+ * @member {module:model/AppSummaryDto} appSummary
+ */
+ChannelDto.prototype['appSummary'] = undefined;
 
 
 

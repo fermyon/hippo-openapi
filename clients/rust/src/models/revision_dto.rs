@@ -19,14 +19,17 @@ pub struct RevisionDto {
     pub app_id: String,
     #[serde(rename = "revisionNumber")]
     pub revision_number: String,
+    #[serde(rename = "components")]
+    pub components: Vec<crate::models::RevisionComponentDto>,
 }
 
 impl RevisionDto {
-    pub fn new(id: String, app_id: String, revision_number: String) -> RevisionDto {
+    pub fn new(id: String, app_id: String, revision_number: String, components: Vec<crate::models::RevisionComponentDto>) -> RevisionDto {
         RevisionDto {
             id,
             app_id,
             revision_number,
+            components,
         }
     }
 }

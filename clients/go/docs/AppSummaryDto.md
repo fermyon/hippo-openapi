@@ -6,13 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Channels** | [**[]ApplicationChannelSummary**](ApplicationChannelSummary.md) |  | 
+**StorageId** | **string** |  | 
+**Channels** | [**[]AppChannelSummary**](AppChannelSummary.md) |  | 
 
 ## Methods
 
 ### NewAppSummaryDto
 
-`func NewAppSummaryDto(id string, name string, channels []ApplicationChannelSummary, ) *AppSummaryDto`
+`func NewAppSummaryDto(id string, name string, storageId string, channels []AppChannelSummary, ) *AppSummaryDto`
 
 NewAppSummaryDto instantiates a new AppSummaryDto object
 This constructor will assign default values to properties that have it defined,
@@ -67,22 +68,42 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
+### GetStorageId
+
+`func (o *AppSummaryDto) GetStorageId() string`
+
+GetStorageId returns the StorageId field if non-nil, zero value otherwise.
+
+### GetStorageIdOk
+
+`func (o *AppSummaryDto) GetStorageIdOk() (*string, bool)`
+
+GetStorageIdOk returns a tuple with the StorageId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageId
+
+`func (o *AppSummaryDto) SetStorageId(v string)`
+
+SetStorageId sets StorageId field to given value.
+
+
 ### GetChannels
 
-`func (o *AppSummaryDto) GetChannels() []ApplicationChannelSummary`
+`func (o *AppSummaryDto) GetChannels() []AppChannelSummary`
 
 GetChannels returns the Channels field if non-nil, zero value otherwise.
 
 ### GetChannelsOk
 
-`func (o *AppSummaryDto) GetChannelsOk() (*[]ApplicationChannelSummary, bool)`
+`func (o *AppSummaryDto) GetChannelsOk() (*[]AppChannelSummary, bool)`
 
 GetChannelsOk returns a tuple with the Channels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannels
 
-`func (o *AppSummaryDto) SetChannels(v []ApplicationChannelSummary)`
+`func (o *AppSummaryDto) SetChannels(v []AppChannelSummary)`
 
 SetChannels sets Channels field to given value.
 
