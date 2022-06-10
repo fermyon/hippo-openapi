@@ -25,6 +25,9 @@ This repository uses the OpenAPI Generator project to generate clients that is
 then used to validate the generated specification.
 
 Fetching a new swagger.json can be done by running Hippo in development mode
-and opening a new page:
+and running the following commands:
 
-https://localhost:5309/swagger/v1/swagger.json
+```
+rm swagger.json
+make swagger.json
+```
