@@ -3,7 +3,7 @@ PACKAGE_NAME="hippo-openapi"
 
 clients: swagger.json
 	@echo "==> Building OpenAPI clients..."
-	for lang in go rust javascript ; do \
+	for lang in go rust javascript typescript-fetch ; do \
 		docker run \
 			--rm \
 			--volume "$(PWD):/local" \
