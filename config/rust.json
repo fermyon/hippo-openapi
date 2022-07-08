@@ -2,6 +2,6 @@
 	"gitUserId": "fermyon",
 	"gitRepoId": "fermyon/hippo-openapi",
 	"packageName": "hippo",
-	"packageVersion": "0.9.0",
+	"packageVersion": "0.9.1",
 	"library": "reqwest"
 }

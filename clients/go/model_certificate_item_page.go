@@ -16,19 +16,24 @@ import (
 
 // CertificateItemPage struct for CertificateItemPage
 type CertificateItemPage struct {
-	Items []CertificateItem `json:"items,omitempty"`
-	TotalItems *int32 `json:"totalItems,omitempty"`
-	PageIndex NullableInt32 `json:"pageIndex,omitempty"`
-	PageSize NullableInt32 `json:"pageSize,omitempty"`
-	IsLastPage NullableBool `json:"isLastPage,omitempty"`
+	Items []CertificateItem `json:"items"`
+	TotalItems int32 `json:"totalItems"`
+	PageIndex int32 `json:"pageIndex"`
+	PageSize int32 `json:"pageSize"`
+	IsLastPage bool `json:"isLastPage"`
 }
 
 // NewCertificateItemPage instantiates a new CertificateItemPage object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCertificateItemPage() *CertificateItemPage {
+func NewCertificateItemPage(items []CertificateItem, totalItems int32, pageIndex int32, pageSize int32, isLastPage bool) *CertificateItemPage {
 	this := CertificateItemPage{}
+	this.Items = items
+	this.TotalItems = totalItems
+	this.PageIndex = pageIndex
+	this.PageSize = pageSize
+	this.IsLastPage = isLastPage
 	return &this
 }
 
@@ -40,213 +45,142 @@ func NewCertificateItemPageWithDefaults() *CertificateItemPage {
 	return &this
 }
 
-// GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetItems returns the Items field value
 func (o *CertificateItemPage) GetItems() []CertificateItem {
 	if o == nil {
 		var ret []CertificateItem
 		return ret
 	}
+
 	return o.Items
 }
 
-// GetItemsOk returns a tuple with the Items field value if set, nil otherwise
+// GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateItemPage) GetItemsOk() ([]CertificateItem, bool) {
-	if o == nil || o.Items == nil {
+	if o == nil {
 		return nil, false
 	}
 	return o.Items, true
 }
 
-// HasItems returns a boolean if a field has been set.
-func (o *CertificateItemPage) HasItems() bool {
-	if o != nil && o.Items != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetItems gets a reference to the given []CertificateItem and assigns it to the Items field.
+// SetItems sets field value
 func (o *CertificateItemPage) SetItems(v []CertificateItem) {
 	o.Items = v
 }
 
-// GetTotalItems returns the TotalItems field value if set, zero value otherwise.
+// GetTotalItems returns the TotalItems field value
 func (o *CertificateItemPage) GetTotalItems() int32 {
-	if o == nil || o.TotalItems == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.TotalItems
+
+	return o.TotalItems
 }
 
-// GetTotalItemsOk returns a tuple with the TotalItems field value if set, nil otherwise
+// GetTotalItemsOk returns a tuple with the TotalItems field value
 // and a boolean to check if the value has been set.
 func (o *CertificateItemPage) GetTotalItemsOk() (*int32, bool) {
-	if o == nil || o.TotalItems == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalItems, true
+	return &o.TotalItems, true
 }
 
-// HasTotalItems returns a boolean if a field has been set.
-func (o *CertificateItemPage) HasTotalItems() bool {
-	if o != nil && o.TotalItems != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalItems gets a reference to the given int32 and assigns it to the TotalItems field.
+// SetTotalItems sets field value
 func (o *CertificateItemPage) SetTotalItems(v int32) {
-	o.TotalItems = &v
+	o.TotalItems = v
 }
 
-// GetPageIndex returns the PageIndex field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPageIndex returns the PageIndex field value
 func (o *CertificateItemPage) GetPageIndex() int32 {
-	if o == nil || o.PageIndex.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PageIndex.Get()
+
+	return o.PageIndex
 }
 
-// GetPageIndexOk returns a tuple with the PageIndex field value if set, nil otherwise
+// GetPageIndexOk returns a tuple with the PageIndex field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateItemPage) GetPageIndexOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PageIndex.Get(), o.PageIndex.IsSet()
+	return &o.PageIndex, true
 }
 
-// HasPageIndex returns a boolean if a field has been set.
-func (o *CertificateItemPage) HasPageIndex() bool {
-	if o != nil && o.PageIndex.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPageIndex gets a reference to the given NullableInt32 and assigns it to the PageIndex field.
+// SetPageIndex sets field value
 func (o *CertificateItemPage) SetPageIndex(v int32) {
-	o.PageIndex.Set(&v)
-}
-// SetPageIndexNil sets the value for PageIndex to be an explicit nil
-func (o *CertificateItemPage) SetPageIndexNil() {
-	o.PageIndex.Set(nil)
+	o.PageIndex = v
 }
 
-// UnsetPageIndex ensures that no value is present for PageIndex, not even an explicit nil
-func (o *CertificateItemPage) UnsetPageIndex() {
-	o.PageIndex.Unset()
-}
-
-// GetPageSize returns the PageSize field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPageSize returns the PageSize field value
 func (o *CertificateItemPage) GetPageSize() int32 {
-	if o == nil || o.PageSize.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PageSize.Get()
+
+	return o.PageSize
 }
 
-// GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
+// GetPageSizeOk returns a tuple with the PageSize field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateItemPage) GetPageSizeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PageSize.Get(), o.PageSize.IsSet()
+	return &o.PageSize, true
 }
 
-// HasPageSize returns a boolean if a field has been set.
-func (o *CertificateItemPage) HasPageSize() bool {
-	if o != nil && o.PageSize.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPageSize gets a reference to the given NullableInt32 and assigns it to the PageSize field.
+// SetPageSize sets field value
 func (o *CertificateItemPage) SetPageSize(v int32) {
-	o.PageSize.Set(&v)
-}
-// SetPageSizeNil sets the value for PageSize to be an explicit nil
-func (o *CertificateItemPage) SetPageSizeNil() {
-	o.PageSize.Set(nil)
+	o.PageSize = v
 }
 
-// UnsetPageSize ensures that no value is present for PageSize, not even an explicit nil
-func (o *CertificateItemPage) UnsetPageSize() {
-	o.PageSize.Unset()
-}
-
-// GetIsLastPage returns the IsLastPage field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIsLastPage returns the IsLastPage field value
 func (o *CertificateItemPage) GetIsLastPage() bool {
-	if o == nil || o.IsLastPage.Get() == nil {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsLastPage.Get()
+
+	return o.IsLastPage
 }
 
-// GetIsLastPageOk returns a tuple with the IsLastPage field value if set, nil otherwise
+// GetIsLastPageOk returns a tuple with the IsLastPage field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CertificateItemPage) GetIsLastPageOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.IsLastPage.Get(), o.IsLastPage.IsSet()
+	return &o.IsLastPage, true
 }
 
-// HasIsLastPage returns a boolean if a field has been set.
-func (o *CertificateItemPage) HasIsLastPage() bool {
-	if o != nil && o.IsLastPage.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIsLastPage gets a reference to the given NullableBool and assigns it to the IsLastPage field.
+// SetIsLastPage sets field value
 func (o *CertificateItemPage) SetIsLastPage(v bool) {
-	o.IsLastPage.Set(&v)
-}
-// SetIsLastPageNil sets the value for IsLastPage to be an explicit nil
-func (o *CertificateItemPage) SetIsLastPageNil() {
-	o.IsLastPage.Set(nil)
-}
-
-// UnsetIsLastPage ensures that no value is present for IsLastPage, not even an explicit nil
-func (o *CertificateItemPage) UnsetIsLastPage() {
-	o.IsLastPage.Unset()
+	o.IsLastPage = v
 }
 
 func (o CertificateItemPage) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Items != nil {
+	if true {
 		toSerialize["items"] = o.Items
 	}
-	if o.TotalItems != nil {
+	if true {
 		toSerialize["totalItems"] = o.TotalItems
 	}
-	if o.PageIndex.IsSet() {
-		toSerialize["pageIndex"] = o.PageIndex.Get()
+	if true {
+		toSerialize["pageIndex"] = o.PageIndex
 	}
-	if o.PageSize.IsSet() {
-		toSerialize["pageSize"] = o.PageSize.Get()
+	if true {
+		toSerialize["pageSize"] = o.PageSize
 	}
-	if o.IsLastPage.IsSet() {
-		toSerialize["isLastPage"] = o.IsLastPage.Get()
+	if true {
+		toSerialize["isLastPage"] = o.IsLastPage
 	}
 	return json.Marshal(toSerialize)
 }

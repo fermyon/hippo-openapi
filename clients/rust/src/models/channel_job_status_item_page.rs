@@ -13,26 +13,26 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ChannelJobStatusItemPage {
-    #[serde(rename = "items", skip_serializing_if = "Option::is_none")]
-    pub items: Option<Vec<crate::models::ChannelJobStatusItem>>,
-    #[serde(rename = "totalItems", skip_serializing_if = "Option::is_none")]
-    pub total_items: Option<i32>,
-    #[serde(rename = "pageIndex", skip_serializing_if = "Option::is_none")]
-    pub page_index: Option<i32>,
-    #[serde(rename = "pageSize", skip_serializing_if = "Option::is_none")]
-    pub page_size: Option<i32>,
-    #[serde(rename = "isLastPage", skip_serializing_if = "Option::is_none")]
-    pub is_last_page: Option<bool>,
+    #[serde(rename = "items")]
+    pub items: Vec<crate::models::ChannelJobStatusItem>,
+    #[serde(rename = "totalItems")]
+    pub total_items: i32,
+    #[serde(rename = "pageIndex")]
+    pub page_index: i32,
+    #[serde(rename = "pageSize")]
+    pub page_size: i32,
+    #[serde(rename = "isLastPage")]
+    pub is_last_page: bool,
 }
 
 impl ChannelJobStatusItemPage {
-    pub fn new() -> ChannelJobStatusItemPage {
+    pub fn new(items: Vec<crate::models::ChannelJobStatusItem>, total_items: i32, page_index: i32, page_size: i32, is_last_page: bool) -> ChannelJobStatusItemPage {
         ChannelJobStatusItemPage {
-            items: None,
-            total_items: None,
-            page_index: None,
-            page_size: None,
-            is_last_page: None,
+            items,
+            total_items,
+            page_index,
+            page_size,
+            is_last_page,
         }
     }
 }

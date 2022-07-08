@@ -1184,14 +1184,20 @@
         "additionalProperties": false
       },
       "AppItemPage": {
+        "required": [
+          "isLastPage",
+          "items",
+          "pageIndex",
+          "pageSize",
+          "totalItems"
+        ],
         "type": "object",
         "properties": {
           "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AppItem"
-            },
-            "nullable": true
+            }
           },
           "totalItems": {
             "type": "integer",
@@ -1199,17 +1205,14 @@
           },
           "pageIndex": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "isLastPage": {
             "type": "boolean",
-            "nullable": true,
             "readOnly": true
           }
         },
@@ -1276,14 +1279,20 @@
         "additionalProperties": false
       },
       "CertificateItemPage": {
+        "required": [
+          "isLastPage",
+          "items",
+          "pageIndex",
+          "pageSize",
+          "totalItems"
+        ],
         "type": "object",
         "properties": {
           "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CertificateItem"
-            },
-            "nullable": true
+            }
           },
           "totalItems": {
             "type": "integer",
@@ -1291,17 +1300,14 @@
           },
           "pageIndex": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "isLastPage": {
             "type": "boolean",
-            "nullable": true,
             "readOnly": true
           }
         },
@@ -1363,14 +1369,20 @@
         "additionalProperties": false
       },
       "ChannelItemPage": {
+        "required": [
+          "isLastPage",
+          "items",
+          "pageIndex",
+          "pageSize",
+          "totalItems"
+        ],
         "type": "object",
         "properties": {
           "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelItem"
-            },
-            "nullable": true
+            }
           },
           "totalItems": {
             "type": "integer",
@@ -1378,17 +1390,14 @@
           },
           "pageIndex": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "isLastPage": {
             "type": "boolean",
-            "nullable": true,
             "readOnly": true
           }
         },
@@ -1412,14 +1421,20 @@
         "additionalProperties": false
       },
       "ChannelJobStatusItemPage": {
+        "required": [
+          "isLastPage",
+          "items",
+          "pageIndex",
+          "pageSize",
+          "totalItems"
+        ],
         "type": "object",
         "properties": {
           "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelJobStatusItem"
-            },
-            "nullable": true
+            }
           },
           "totalItems": {
             "type": "integer",
@@ -1427,17 +1442,14 @@
           },
           "pageIndex": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "isLastPage": {
             "type": "boolean",
-            "nullable": true,
             "readOnly": true
           }
         },
@@ -1737,14 +1749,20 @@
         "additionalProperties": false
       },
       "RevisionItemPage": {
+        "required": [
+          "isLastPage",
+          "items",
+          "pageIndex",
+          "pageSize",
+          "totalItems"
+        ],
         "type": "object",
         "properties": {
           "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RevisionItem"
-            },
-            "nullable": true
+            }
           },
           "totalItems": {
             "type": "integer",
@@ -1752,17 +1770,14 @@
           },
           "pageIndex": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "isLastPage": {
             "type": "boolean",
-            "nullable": true,
             "readOnly": true
           }
         },
@@ -1779,14 +1794,20 @@
         "additionalProperties": false
       },
       "StringPage": {
+        "required": [
+          "isLastPage",
+          "items",
+          "pageIndex",
+          "pageSize",
+          "totalItems"
+        ],
         "type": "object",
         "properties": {
           "items": {
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "nullable": true
+            }
           },
           "totalItems": {
             "type": "integer",
@@ -1794,17 +1815,14 @@
           },
           "pageIndex": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
           "isLastPage": {
             "type": "boolean",
-            "nullable": true,
             "readOnly": true
           }
         },

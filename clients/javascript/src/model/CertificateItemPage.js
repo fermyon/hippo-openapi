@@ -23,10 +23,15 @@ class CertificateItemPage {
     /**
      * Constructs a new <code>CertificateItemPage</code>.
      * @alias module:model/CertificateItemPage
+     * @param items {Array.<module:model/CertificateItem>} 
+     * @param totalItems {Number} 
+     * @param pageIndex {Number} 
+     * @param pageSize {Number} 
+     * @param isLastPage {Boolean} 
      */
-    constructor() { 
+    constructor(items, totalItems, pageIndex, pageSize, isLastPage) { 
         
-        CertificateItemPage.initialize(this);
+        CertificateItemPage.initialize(this, items, totalItems, pageIndex, pageSize, isLastPage);
     }
 
     /**
@@ -34,7 +39,12 @@ class CertificateItemPage {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, items, totalItems, pageIndex, pageSize, isLastPage) { 
+        obj['items'] = items;
+        obj['totalItems'] = totalItems;
+        obj['pageIndex'] = pageIndex;
+        obj['pageSize'] = pageSize;
+        obj['isLastPage'] = isLastPage;
     }
 
     /**

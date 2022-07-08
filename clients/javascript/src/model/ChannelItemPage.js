@@ -23,10 +23,15 @@ class ChannelItemPage {
     /**
      * Constructs a new <code>ChannelItemPage</code>.
      * @alias module:model/ChannelItemPage
+     * @param items {Array.<module:model/ChannelItem>} 
+     * @param totalItems {Number} 
+     * @param pageIndex {Number} 
+     * @param pageSize {Number} 
+     * @param isLastPage {Boolean} 
      */
-    constructor() { 
+    constructor(items, totalItems, pageIndex, pageSize, isLastPage) { 
         
-        ChannelItemPage.initialize(this);
+        ChannelItemPage.initialize(this, items, totalItems, pageIndex, pageSize, isLastPage);
     }
 
     /**
@@ -34,7 +39,12 @@ class ChannelItemPage {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, items, totalItems, pageIndex, pageSize, isLastPage) { 
+        obj['items'] = items;
+        obj['totalItems'] = totalItems;
+        obj['pageIndex'] = pageIndex;
+        obj['pageSize'] = pageSize;
+        obj['isLastPage'] = isLastPage;
     }
 
     /**

@@ -867,23 +867,25 @@ components:
         items:
           items:
             $ref: '#/components/schemas/AppItem'
-          nullable: true
           type: array
         totalItems:
           format: int32
           type: integer
         pageIndex:
           format: int32
-          nullable: true
           type: integer
         pageSize:
           format: int32
-          nullable: true
           type: integer
         isLastPage:
-          nullable: true
           readOnly: true
           type: boolean
+      required:
+      - isLastPage
+      - items
+      - pageIndex
+      - pageSize
+      - totalItems
       type: object
     AppSummaryDto:
       additionalProperties: false
@@ -1231,23 +1233,25 @@ components:
         items:
           items:
             $ref: '#/components/schemas/CertificateItem'
-          nullable: true
           type: array
         totalItems:
           format: int32
           type: integer
         pageIndex:
           format: int32
-          nullable: true
           type: integer
         pageSize:
           format: int32
-          nullable: true
           type: integer
         isLastPage:
-          nullable: true
           readOnly: true
           type: boolean
+      required:
+      - isLastPage
+      - items
+      - pageIndex
+      - pageSize
+      - totalItems
       type: object
     ChannelItem:
       additionalProperties: false
@@ -1434,23 +1438,25 @@ components:
         items:
           items:
             $ref: '#/components/schemas/ChannelItem'
-          nullable: true
           type: array
         totalItems:
           format: int32
           type: integer
         pageIndex:
           format: int32
-          nullable: true
           type: integer
         pageSize:
           format: int32
-          nullable: true
           type: integer
         isLastPage:
-          nullable: true
           readOnly: true
           type: boolean
+      required:
+      - isLastPage
+      - items
+      - pageIndex
+      - pageSize
+      - totalItems
       type: object
     ChannelJobStatusItem:
       additionalProperties: false
@@ -1483,23 +1489,25 @@ components:
         items:
           items:
             $ref: '#/components/schemas/ChannelJobStatusItem'
-          nullable: true
           type: array
         totalItems:
           format: int32
           type: integer
         pageIndex:
           format: int32
-          nullable: true
           type: integer
         pageSize:
           format: int32
-          nullable: true
           type: integer
         isLastPage:
-          nullable: true
           readOnly: true
           type: boolean
+      required:
+      - isLastPage
+      - items
+      - pageIndex
+      - pageSize
+      - totalItems
       type: object
     ChannelRevisionSelectionStrategy:
       enum:
@@ -1836,23 +1844,25 @@ components:
         items:
           items:
             $ref: '#/components/schemas/RevisionItem'
-          nullable: true
           type: array
         totalItems:
           format: int32
           type: integer
         pageIndex:
           format: int32
-          nullable: true
           type: integer
         pageSize:
           format: int32
-          nullable: true
           type: integer
         isLastPage:
-          nullable: true
           readOnly: true
           type: boolean
+      required:
+      - isLastPage
+      - items
+      - pageIndex
+      - pageSize
+      - totalItems
       type: object
     StringField:
       additionalProperties: false
@@ -1877,23 +1887,25 @@ components:
         items:
           items:
             type: string
-          nullable: true
           type: array
         totalItems:
           format: int32
           type: integer
         pageIndex:
           format: int32
-          nullable: true
           type: integer
         pageSize:
           format: int32
-          nullable: true
           type: integer
         isLastPage:
-          nullable: true
           readOnly: true
           type: boolean
+      required:
+      - isLastPage
+      - items
+      - pageIndex
+      - pageSize
+      - totalItems
       type: object
     TokenInfo:
       additionalProperties: false

@@ -23,10 +23,15 @@ class RevisionItemPage {
     /**
      * Constructs a new <code>RevisionItemPage</code>.
      * @alias module:model/RevisionItemPage
+     * @param items {Array.<module:model/RevisionItem>} 
+     * @param totalItems {Number} 
+     * @param pageIndex {Number} 
+     * @param pageSize {Number} 
+     * @param isLastPage {Boolean} 
      */
-    constructor() { 
+    constructor(items, totalItems, pageIndex, pageSize, isLastPage) { 
         
-        RevisionItemPage.initialize(this);
+        RevisionItemPage.initialize(this, items, totalItems, pageIndex, pageSize, isLastPage);
     }
 
     /**
@@ -34,7 +39,12 @@ class RevisionItemPage {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, items, totalItems, pageIndex, pageSize, isLastPage) { 
+        obj['items'] = items;
+        obj['totalItems'] = totalItems;
+        obj['pageIndex'] = pageIndex;
+        obj['pageSize'] = pageSize;
+        obj['isLastPage'] = isLastPage;
     }
 
     /**
