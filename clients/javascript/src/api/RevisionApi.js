@@ -14,7 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import RegisterRevisionCommand from '../model/RegisterRevisionCommand';
-import RevisionsVm from '../model/RevisionsVm';
+import RevisionItemPage from '../model/RevisionItemPage';
 
 /**
 * Revision service.
@@ -73,20 +73,26 @@ export default class RevisionApi {
      * Callback function to receive the result of the apiRevisionGet operation.
      * @callback module:api/RevisionApi~apiRevisionGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/RevisionsVm} data The data returned by the service call.
+     * @param {module:model/RevisionItemPage} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.pageIndex  (default to 0)
+     * @param {Number} opts.pageSize  (default to 50)
      * @param {module:api/RevisionApi~apiRevisionGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/RevisionsVm}
+     * data is of type: {@link module:model/RevisionItemPage}
      */
-    apiRevisionGet(callback) {
+    apiRevisionGet(opts, callback) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'pageIndex': opts['pageIndex'],
+        'pageSize': opts['pageSize']
       };
       let headerParams = {
       };
@@ -96,7 +102,7 @@ export default class RevisionApi {
       let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
-      let returnType = RevisionsVm;
+      let returnType = RevisionItemPage;
       return this.apiClient.callApi(
         '/api/revision', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -171,7 +177,7 @@ export default class RevisionApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(

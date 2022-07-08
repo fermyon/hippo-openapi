@@ -22,13 +22,12 @@ class UpdateEnvironmentVariableDto {
     /**
      * Constructs a new <code>UpdateEnvironmentVariableDto</code>.
      * @alias module:model/UpdateEnvironmentVariableDto
-     * @param id {String} 
      * @param key {String} 
      * @param value {String} 
      */
-    constructor(id, key, value) { 
+    constructor(key, value) { 
         
-        UpdateEnvironmentVariableDto.initialize(this, id, key, value);
+        UpdateEnvironmentVariableDto.initialize(this, key, value);
     }
 
     /**
@@ -36,8 +35,7 @@ class UpdateEnvironmentVariableDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, key, value) { 
-        obj['id'] = id;
+    static initialize(obj, key, value) { 
         obj['key'] = key;
         obj['value'] = value;
     }
@@ -53,9 +51,6 @@ class UpdateEnvironmentVariableDto {
         if (data) {
             obj = obj || new UpdateEnvironmentVariableDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('key')) {
                 obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
@@ -68,11 +63,6 @@ class UpdateEnvironmentVariableDto {
 
 
 }
-
-/**
- * @member {String} id
- */
-UpdateEnvironmentVariableDto.prototype['id'] = undefined;
 
 /**
  * @member {String} key

@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **name** | **String** |  | 
 **storageId** | **String** |  | 
-**channels** | [**[AppChannelSummary]**](AppChannelSummary.md) |  | 
+**channels** | [**[AppChannelListItem]**](AppChannelListItem.md) |  | 
 
 

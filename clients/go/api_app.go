@@ -126,9 +126,39 @@ func (a *AppApiService) ApiAppExportGetExecute(r ApiApiAppExportGetRequest) (*ht
 type ApiApiAppGetRequest struct {
 	ctx context.Context
 	ApiService *AppApiService
+	searchText *string
+	pageIndex *int32
+	pageSize *int32
+	sortBy *string
+	isSortedAscending *bool
 }
 
-func (r ApiApiAppGetRequest) Execute() (*AppsVm, *http.Response, error) {
+func (r ApiApiAppGetRequest) SearchText(searchText string) ApiApiAppGetRequest {
+	r.searchText = &searchText
+	return r
+}
+
+func (r ApiApiAppGetRequest) PageIndex(pageIndex int32) ApiApiAppGetRequest {
+	r.pageIndex = &pageIndex
+	return r
+}
+
+func (r ApiApiAppGetRequest) PageSize(pageSize int32) ApiApiAppGetRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+func (r ApiApiAppGetRequest) SortBy(sortBy string) ApiApiAppGetRequest {
+	r.sortBy = &sortBy
+	return r
+}
+
+func (r ApiApiAppGetRequest) IsSortedAscending(isSortedAscending bool) ApiApiAppGetRequest {
+	r.isSortedAscending = &isSortedAscending
+	return r
+}
+
+func (r ApiApiAppGetRequest) Execute() (*AppItemPage, *http.Response, error) {
 	return r.ApiService.ApiAppGetExecute(r)
 }
 
@@ -146,13 +176,13 @@ func (a *AppApiService) ApiAppGet(ctx context.Context) ApiApiAppGetRequest {
 }
 
 // Execute executes the request
-//  @return AppsVm
-func (a *AppApiService) ApiAppGetExecute(r ApiApiAppGetRequest) (*AppsVm, *http.Response, error) {
+//  @return AppItemPage
+func (a *AppApiService) ApiAppGetExecute(r ApiApiAppGetRequest) (*AppItemPage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AppsVm
+		localVarReturnValue  *AppItemPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppApiService.ApiAppGet")
@@ -166,6 +196,21 @@ func (a *AppApiService) ApiAppGetExecute(r ApiApiAppGetRequest) (*AppsVm, *http.
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.searchText != nil {
+		localVarQueryParams.Add("searchText", parameterToString(*r.searchText, ""))
+	}
+	if r.pageIndex != nil {
+		localVarQueryParams.Add("pageIndex", parameterToString(*r.pageIndex, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+	}
+	if r.isSortedAscending != nil {
+		localVarQueryParams.Add("IsSortedAscending", parameterToString(*r.isSortedAscending, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -390,7 +435,7 @@ func (a *AppApiService) ApiAppIdPutExecute(r ApiApiAppIdPutRequest) (*http.Respo
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -500,7 +545,7 @@ func (a *AppApiService) ApiAppPostExecute(r ApiApiAppPostRequest) (string, *http
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

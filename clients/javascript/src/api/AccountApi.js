@@ -64,7 +64,7 @@ export default class AccountApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
       let accepts = ['text/plain', 'application/json', 'text/json'];
       let returnType = TokenInfo;
       return this.apiClient.callApi(
@@ -102,7 +102,7 @@ export default class AccountApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
       let accepts = ['text/plain', 'application/json', 'text/json'];
       let returnType = 'String';
       return this.apiClient.callApi(

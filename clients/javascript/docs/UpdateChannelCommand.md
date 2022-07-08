@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **revisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **rangeRule** | **String** |  | [optional] 
 **activeRevisionId** | **String** |  | [optional] 
+**lastPublishDate** | **Date** |  | [optional] 
 **certificateId** | **String** |  | [optional] 
 
 

@@ -70,7 +70,7 @@ Other parameters are passed through a pointer to a apiApiRevisionExportGetReques
 
 ## ApiRevisionGet
 
-> RevisionsVm ApiRevisionGet(ctx).Execute()
+> RevisionItemPage ApiRevisionGet(ctx).PageIndex(pageIndex).PageSize(pageSize).Execute()
 
 
 
@@ -87,31 +87,38 @@ import (
 )
 
 func main() {
+    pageIndex := int32(56) // int32 |  (optional) (default to 0)
+    pageSize := int32(56) // int32 |  (optional) (default to 50)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RevisionApi.ApiRevisionGet(context.Background()).Execute()
+    resp, r, err := apiClient.RevisionApi.ApiRevisionGet(context.Background()).PageIndex(pageIndex).PageSize(pageSize).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `RevisionApi.ApiRevisionGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiRevisionGet`: RevisionsVm
+    // response from `ApiRevisionGet`: RevisionItemPage
     fmt.Fprintf(os.Stdout, "Response from `RevisionApi.ApiRevisionGet`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApiRevisionGetRequest struct via the builder pattern
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageIndex** | **int32** |  | [default to 0]
+ **pageSize** | **int32** |  | [default to 50]
+
 ### Return type
 
-[**RevisionsVm**](RevisionsVm.md)
+[**RevisionItemPage**](RevisionItemPage.md)
 
 ### Authorization
 
@@ -247,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

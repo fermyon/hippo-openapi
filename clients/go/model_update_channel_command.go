@@ -12,6 +12,7 @@ package hippo-openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // UpdateChannelCommand struct for UpdateChannelCommand
@@ -22,6 +23,7 @@ type UpdateChannelCommand struct {
 	RevisionSelectionStrategy ChannelRevisionSelectionStrategy `json:"revisionSelectionStrategy"`
 	RangeRule NullableString `json:"rangeRule,omitempty"`
 	ActiveRevisionId NullableString `json:"activeRevisionId,omitempty"`
+	LastPublishDate *time.Time `json:"lastPublishDate,omitempty"`
 	CertificateId NullableString `json:"certificateId,omitempty"`
 }
 
@@ -226,6 +228,38 @@ func (o *UpdateChannelCommand) UnsetActiveRevisionId() {
 	o.ActiveRevisionId.Unset()
 }
 
+// GetLastPublishDate returns the LastPublishDate field value if set, zero value otherwise.
+func (o *UpdateChannelCommand) GetLastPublishDate() time.Time {
+	if o == nil || o.LastPublishDate == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.LastPublishDate
+}
+
+// GetLastPublishDateOk returns a tuple with the LastPublishDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateChannelCommand) GetLastPublishDateOk() (*time.Time, bool) {
+	if o == nil || o.LastPublishDate == nil {
+		return nil, false
+	}
+	return o.LastPublishDate, true
+}
+
+// HasLastPublishDate returns a boolean if a field has been set.
+func (o *UpdateChannelCommand) HasLastPublishDate() bool {
+	if o != nil && o.LastPublishDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLastPublishDate gets a reference to the given time.Time and assigns it to the LastPublishDate field.
+func (o *UpdateChannelCommand) SetLastPublishDate(v time.Time) {
+	o.LastPublishDate = &v
+}
+
 // GetCertificateId returns the CertificateId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateChannelCommand) GetCertificateId() string {
 	if o == nil || o.CertificateId.Get() == nil {
@@ -287,6 +321,9 @@ func (o UpdateChannelCommand) MarshalJSON() ([]byte, error) {
 	}
 	if o.ActiveRevisionId.IsSet() {
 		toSerialize["activeRevisionId"] = o.ActiveRevisionId.Get()
+	}
+	if o.LastPublishDate != nil {
+		toSerialize["lastPublishDate"] = o.LastPublishDate
 	}
 	if o.CertificateId.IsSet() {
 		toSerialize["certificateId"] = o.CertificateId.Get()

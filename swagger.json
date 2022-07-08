@@ -12,6 +12,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAccountCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateAccountCommand"
@@ -60,6 +65,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTokenCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateTokenCommand"
@@ -106,23 +116,67 @@
         "tags": [
           "App"
         ],
+        "parameters": [
+          {
+            "name": "searchText",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "Name"
+            }
+          },
+          {
+            "name": "IsSortedAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppsVm"
+                  "$ref": "#/components/schemas/AppItemPage"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppsVm"
+                  "$ref": "#/components/schemas/AppItemPage"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AppsVm"
+                  "$ref": "#/components/schemas/AppItemPage"
                 }
               }
             }
@@ -135,6 +189,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAppCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateAppCommand"
@@ -209,6 +268,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAppCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateAppCommand"
@@ -259,23 +323,67 @@
         "tags": [
           "Certificate"
         ],
+        "parameters": [
+          {
+            "name": "searchText",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "Name"
+            }
+          },
+          {
+            "name": "IsSortedAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CertificatesVm"
+                  "$ref": "#/components/schemas/CertificateItemPage"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CertificatesVm"
+                  "$ref": "#/components/schemas/CertificateItemPage"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CertificatesVm"
+                  "$ref": "#/components/schemas/CertificateItemPage"
                 }
               }
             }
@@ -288,6 +396,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCertificateCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateCertificateCommand"
@@ -362,6 +475,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCertificateCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateCertificateCommand"
@@ -412,23 +530,67 @@
         "tags": [
           "Channel"
         ],
+        "parameters": [
+          {
+            "name": "searchText",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "Name"
+            }
+          },
+          {
+            "name": "IsSortedAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelsVm"
+                  "$ref": "#/components/schemas/ChannelItemPage"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelsVm"
+                  "$ref": "#/components/schemas/ChannelItemPage"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelsVm"
+                  "$ref": "#/components/schemas/ChannelItemPage"
                 }
               }
             }
@@ -441,6 +603,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateChannelCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateChannelCommand"
@@ -485,14 +652,14 @@
         }
       }
     },
-    "/api/channel/{channelId}": {
+    "/api/channel/{id}": {
       "get": {
         "tags": [
           "Channel"
         ],
         "parameters": [
           {
-            "name": "channelId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -507,20 +674,131 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelDto"
+                  "$ref": "#/components/schemas/ChannelItem"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelDto"
+                  "$ref": "#/components/schemas/ChannelItem"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelDto"
+                  "$ref": "#/components/schemas/ChannelItem"
                 }
               }
             }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateChannelCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchChannelCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchChannelCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchChannelCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchChannelCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Channel"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -537,119 +815,14 @@
         }
       }
     },
-    "/api/channel/{id}": {
-      "put": {
-        "tags": [
-          "Channel"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateChannelCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateChannelCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateChannelCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Channel"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/channel/{channelId}/environment-variables": {
-      "put": {
-        "tags": [
-          "Channel"
-        ],
-        "parameters": [
-          {
-            "name": "channelId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateChannelEnvironmentVariablesCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateChannelEnvironmentVariablesCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateChannelEnvironmentVariablesCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/channel/logs/{channelId}": {
+    "/api/channel/logs/{id}": {
       "get": {
         "tags": [
           "Channel"
         ],
         "parameters": [
           {
-            "name": "channelId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -678,159 +851,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/environmentvariable": {
-      "get": {
-        "tags": [
-          "EnvironmentVariable"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnvironmentVariablesVm"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnvironmentVariablesVm"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnvironmentVariablesVm"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "EnvironmentVariable"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateEnvironmentVariableCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateEnvironmentVariableCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateEnvironmentVariableCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string",
-                  "format": "uuid"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/environmentvariable/export": {
-      "get": {
-        "tags": [
-          "EnvironmentVariable"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/environmentvariable/{id}": {
-      "put": {
-        "tags": [
-          "EnvironmentVariable"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateEnvironmentVariableCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateEnvironmentVariableCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateEnvironmentVariableCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "EnvironmentVariable"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }
@@ -840,32 +860,83 @@
         "tags": [
           "JobStatus"
         ],
+        "parameters": [
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 2147483647
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ChannelJobStatus"
-                  }
+                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ChannelJobStatus"
-                  }
+                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ChannelJobStatus"
-                  }
+                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobstatus/{channelId}": {
+      "get": {
+        "tags": [
+          "JobStatus"
+        ],
+        "parameters": [
+          {
+            "name": "channelId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelJobStatusItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelJobStatusItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelJobStatusItem"
                 }
               }
             }
@@ -878,23 +949,43 @@
         "tags": [
           "Revision"
         ],
+        "parameters": [
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/RevisionsVm"
+                  "$ref": "#/components/schemas/RevisionItemPage"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RevisionsVm"
+                  "$ref": "#/components/schemas/RevisionItemPage"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RevisionsVm"
+                  "$ref": "#/components/schemas/RevisionItemPage"
                 }
               }
             }
@@ -907,6 +998,11 @@
         ],
         "requestBody": {
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRevisionCommand"
+              }
+            },
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/RegisterRevisionCommand"
@@ -973,26 +1069,37 @@
         ],
         "parameters": [
           {
-            "name": "queryString",
+            "name": "searchText",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": ""
             }
           },
           {
-            "name": "offset",
+            "name": "pageIndex",
             "in": "query",
             "schema": {
               "type": "integer",
-              "format": "int64"
+              "format": "int32",
+              "default": 0
             }
           },
           {
-            "name": "limit",
+            "name": "pageSize",
             "in": "query",
             "schema": {
               "type": "integer",
-              "format": "int32"
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "IsSortedAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
             }
           }
         ],
@@ -1002,17 +1109,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/StorageList"
+                  "$ref": "#/components/schemas/StringPage"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StorageList"
+                  "$ref": "#/components/schemas/StringPage"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StorageList"
+                  "$ref": "#/components/schemas/StringPage"
                 }
               }
             }
@@ -1023,7 +1130,7 @@
   },
   "components": {
     "schemas": {
-      "AppChannelSummary": {
+      "AppChannelListItem": {
         "required": [
           "id",
           "name"
@@ -1044,7 +1151,7 @@
         },
         "additionalProperties": false
       },
-      "AppDto": {
+      "AppItem": {
         "required": [
           "channels",
           "id",
@@ -1070,8 +1177,40 @@
           "channels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AppChannelSummary"
+              "$ref": "#/components/schemas/AppChannelListItem"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppItemPage": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppItem"
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isLastPage": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1098,28 +1237,13 @@
           "channels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AppChannelSummary"
+              "$ref": "#/components/schemas/AppChannelListItem"
             }
           }
         },
         "additionalProperties": false
       },
-      "AppsVm": {
-        "required": [
-          "apps"
-        ],
-        "type": "object",
-        "properties": {
-          "apps": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AppDto"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "CertificateDto": {
+      "CertificateItem": {
         "required": [
           "channels",
           "id",
@@ -1145,28 +1269,45 @@
           "channels": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChannelDto"
+              "$ref": "#/components/schemas/ChannelItem"
             }
           }
         },
         "additionalProperties": false
       },
-      "CertificatesVm": {
-        "required": [
-          "certificates"
-        ],
+      "CertificateItemPage": {
         "type": "object",
         "properties": {
-          "certificates": {
+          "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CertificateDto"
-            }
+              "$ref": "#/components/schemas/CertificateItem"
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isLastPage": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
       },
-      "ChannelDto": {
+      "ChannelItem": {
         "required": [
           "appId",
           "domain",
@@ -1195,19 +1336,24 @@
             "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
           },
           "activeRevision": {
-            "$ref": "#/components/schemas/RevisionDto"
+            "$ref": "#/components/schemas/RevisionItem"
+          },
+          "lastPublishAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           },
           "rangeRule": {
             "type": "string",
             "nullable": true
           },
           "certificate": {
-            "$ref": "#/components/schemas/CertificateDto"
+            "$ref": "#/components/schemas/CertificateItem"
           },
           "environmentVariables": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EnvironmentVariableDto"
+              "$ref": "#/components/schemas/EnvironmentVariableItem"
             }
           },
           "appSummary": {
@@ -1216,7 +1362,39 @@
         },
         "additionalProperties": false
       },
-      "ChannelJobStatus": {
+      "ChannelItemPage": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChannelItem"
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isLastPage": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChannelJobStatusItem": {
         "required": [
           "channelId",
           "status"
@@ -1233,6 +1411,38 @@
         },
         "additionalProperties": false
       },
+      "ChannelJobStatusItemPage": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChannelJobStatusItem"
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isLastPage": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ChannelRevisionSelectionStrategy": {
         "enum": [
           "UseRangeRule",
@@ -1240,17 +1450,11 @@
         ],
         "type": "string"
       },
-      "ChannelsVm": {
-        "required": [
-          "channels"
-        ],
+      "ChannelRevisionSelectionStrategyField": {
         "type": "object",
         "properties": {
-          "channels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChannelDto"
-            }
+          "value": {
+            "$ref": "#/components/schemas/ChannelRevisionSelectionStrategy"
           }
         },
         "additionalProperties": false
@@ -1346,27 +1550,6 @@
         },
         "additionalProperties": false
       },
-      "CreateEnvironmentVariableCommand": {
-        "required": [
-          "channelId",
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          },
-          "channelId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateTokenCommand": {
         "required": [
           "password",
@@ -1383,19 +1566,14 @@
         },
         "additionalProperties": false
       },
-      "EnvironmentVariableDto": {
+      "EnvironmentVariableItem": {
         "required": [
           "channelId",
-          "id",
           "key",
           "value"
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
           "channelId": {
             "type": "string",
             "format": "uuid"
@@ -1405,21 +1583,6 @@
           },
           "value": {
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "EnvironmentVariablesVm": {
-        "required": [
-          "environmentVariables"
-        ],
-        "type": "object",
-        "properties": {
-          "environmentVariables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EnvironmentVariableDto"
-            }
           }
         },
         "additionalProperties": false
@@ -1439,6 +1602,17 @@
         },
         "additionalProperties": false
       },
+      "GuidNullableField": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "JobStatus": {
         "enum": [
           "Unknown",
@@ -1447,6 +1621,37 @@
           "Dead"
         ],
         "type": "string"
+      },
+      "PatchChannelCommand": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "environmentVariables": {
+            "$ref": "#/components/schemas/UpdateEnvironmentVariableDtoListField"
+          },
+          "name": {
+            "$ref": "#/components/schemas/StringField"
+          },
+          "domain": {
+            "$ref": "#/components/schemas/StringField"
+          },
+          "revisionSelectionStrategy": {
+            "$ref": "#/components/schemas/ChannelRevisionSelectionStrategyField"
+          },
+          "rangeRule": {
+            "$ref": "#/components/schemas/StringField"
+          },
+          "activeRevisionId": {
+            "$ref": "#/components/schemas/GuidNullableField"
+          },
+          "certificateId": {
+            "$ref": "#/components/schemas/GuidNullableField"
+          }
+        },
+        "additionalProperties": false
       },
       "RegisterRevisionCommand": {
         "required": [
@@ -1497,7 +1702,7 @@
         },
         "additionalProperties": false
       },
-      "RevisionDto": {
+      "RevisionItem": {
         "required": [
           "appId",
           "components",
@@ -1523,36 +1728,84 @@
               "$ref": "#/components/schemas/RevisionComponentDto"
             },
             "readOnly": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "RevisionsVm": {
-        "required": [
-          "revisions"
-        ],
+      "RevisionItemPage": {
         "type": "object",
         "properties": {
-          "revisions": {
+          "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RevisionDto"
-            }
+              "$ref": "#/components/schemas/RevisionItem"
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isLastPage": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
       },
-      "StorageList": {
-        "required": [
-          "storages"
-        ],
+      "StringField": {
         "type": "object",
         "properties": {
-          "storages": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringPage": {
+        "type": "object",
+        "properties": {
+          "items": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "nullable": true
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isLastPage": {
+            "type": "boolean",
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -1575,8 +1828,7 @@
       "UpdateAppCommand": {
         "required": [
           "id",
-          "name",
-          "storageId"
+          "name"
         ],
         "type": "object",
         "properties": {
@@ -1585,9 +1837,6 @@
             "format": "uuid"
           },
           "name": {
-            "type": "string"
-          },
-          "storageId": {
             "type": "string"
           }
         },
@@ -1649,6 +1898,10 @@
             "format": "uuid",
             "nullable": true
           },
+          "lastPublishDate": {
+            "type": "string",
+            "format": "date-time"
+          },
           "certificateId": {
             "type": "string",
             "format": "uuid",
@@ -1657,61 +1910,31 @@
         },
         "additionalProperties": false
       },
-      "UpdateChannelEnvironmentVariablesCommand": {
+      "UpdateEnvironmentVariableDto": {
+        "required": [
+          "key",
+          "value"
+        ],
         "type": "object",
         "properties": {
-          "channelId": {
-            "type": "string",
-            "format": "uuid"
+          "key": {
+            "type": "string"
           },
-          "environmentVariables": {
+          "value": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateEnvironmentVariableDtoListField": {
+        "type": "object",
+        "properties": {
+          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateEnvironmentVariableCommand": {
-        "required": [
-          "id",
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateEnvironmentVariableDto": {
-        "required": [
-          "id",
-          "key",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
           }
         },
         "additionalProperties": false

@@ -18,18 +18,16 @@ import (
 type UpdateAppCommand struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
-	StorageId string `json:"storageId"`
 }
 
 // NewUpdateAppCommand instantiates a new UpdateAppCommand object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateAppCommand(id string, name string, storageId string) *UpdateAppCommand {
+func NewUpdateAppCommand(id string, name string) *UpdateAppCommand {
 	this := UpdateAppCommand{}
 	this.Id = id
 	this.Name = name
-	this.StorageId = storageId
 	return &this
 }
 
@@ -89,30 +87,6 @@ func (o *UpdateAppCommand) SetName(v string) {
 	o.Name = v
 }
 
-// GetStorageId returns the StorageId field value
-func (o *UpdateAppCommand) GetStorageId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.StorageId
-}
-
-// GetStorageIdOk returns a tuple with the StorageId field value
-// and a boolean to check if the value has been set.
-func (o *UpdateAppCommand) GetStorageIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.StorageId, true
-}
-
-// SetStorageId sets field value
-func (o *UpdateAppCommand) SetStorageId(v string) {
-	o.StorageId = v
-}
-
 func (o UpdateAppCommand) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -120,9 +94,6 @@ func (o UpdateAppCommand) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["storageId"] = o.StorageId
 	}
 	return json.Marshal(toSerialize)
 }

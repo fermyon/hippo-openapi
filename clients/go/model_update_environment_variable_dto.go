@@ -16,7 +16,6 @@ import (
 
 // UpdateEnvironmentVariableDto struct for UpdateEnvironmentVariableDto
 type UpdateEnvironmentVariableDto struct {
-	Id string `json:"id"`
 	Key string `json:"key"`
 	Value string `json:"value"`
 }
@@ -25,9 +24,8 @@ type UpdateEnvironmentVariableDto struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateEnvironmentVariableDto(id string, key string, value string) *UpdateEnvironmentVariableDto {
+func NewUpdateEnvironmentVariableDto(key string, value string) *UpdateEnvironmentVariableDto {
 	this := UpdateEnvironmentVariableDto{}
-	this.Id = id
 	this.Key = key
 	this.Value = value
 	return &this
@@ -39,30 +37,6 @@ func NewUpdateEnvironmentVariableDto(id string, key string, value string) *Updat
 func NewUpdateEnvironmentVariableDtoWithDefaults() *UpdateEnvironmentVariableDto {
 	this := UpdateEnvironmentVariableDto{}
 	return &this
-}
-
-// GetId returns the Id field value
-func (o *UpdateEnvironmentVariableDto) GetId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value
-// and a boolean to check if the value has been set.
-func (o *UpdateEnvironmentVariableDto) GetIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Id, true
-}
-
-// SetId sets field value
-func (o *UpdateEnvironmentVariableDto) SetId(v string) {
-	o.Id = v
 }
 
 // GetKey returns the Key field value
@@ -115,9 +89,6 @@ func (o *UpdateEnvironmentVariableDto) SetValue(v string) {
 
 func (o UpdateEnvironmentVariableDto) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
 	if true {
 		toSerialize["key"] = o.Key
 	}

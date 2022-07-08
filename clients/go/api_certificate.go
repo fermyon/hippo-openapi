@@ -126,9 +126,39 @@ func (a *CertificateApiService) ApiCertificateExportGetExecute(r ApiApiCertifica
 type ApiApiCertificateGetRequest struct {
 	ctx context.Context
 	ApiService *CertificateApiService
+	searchText *string
+	pageIndex *int32
+	pageSize *int32
+	sortBy *string
+	isSortedAscending *bool
 }
 
-func (r ApiApiCertificateGetRequest) Execute() (*CertificatesVm, *http.Response, error) {
+func (r ApiApiCertificateGetRequest) SearchText(searchText string) ApiApiCertificateGetRequest {
+	r.searchText = &searchText
+	return r
+}
+
+func (r ApiApiCertificateGetRequest) PageIndex(pageIndex int32) ApiApiCertificateGetRequest {
+	r.pageIndex = &pageIndex
+	return r
+}
+
+func (r ApiApiCertificateGetRequest) PageSize(pageSize int32) ApiApiCertificateGetRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+func (r ApiApiCertificateGetRequest) SortBy(sortBy string) ApiApiCertificateGetRequest {
+	r.sortBy = &sortBy
+	return r
+}
+
+func (r ApiApiCertificateGetRequest) IsSortedAscending(isSortedAscending bool) ApiApiCertificateGetRequest {
+	r.isSortedAscending = &isSortedAscending
+	return r
+}
+
+func (r ApiApiCertificateGetRequest) Execute() (*CertificateItemPage, *http.Response, error) {
 	return r.ApiService.ApiCertificateGetExecute(r)
 }
 
@@ -146,13 +176,13 @@ func (a *CertificateApiService) ApiCertificateGet(ctx context.Context) ApiApiCer
 }
 
 // Execute executes the request
-//  @return CertificatesVm
-func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetRequest) (*CertificatesVm, *http.Response, error) {
+//  @return CertificateItemPage
+func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetRequest) (*CertificateItemPage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *CertificatesVm
+		localVarReturnValue  *CertificateItemPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CertificateApiService.ApiCertificateGet")
@@ -166,6 +196,21 @@ func (a *CertificateApiService) ApiCertificateGetExecute(r ApiApiCertificateGetR
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.searchText != nil {
+		localVarQueryParams.Add("searchText", parameterToString(*r.searchText, ""))
+	}
+	if r.pageIndex != nil {
+		localVarQueryParams.Add("pageIndex", parameterToString(*r.pageIndex, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+	}
+	if r.isSortedAscending != nil {
+		localVarQueryParams.Add("IsSortedAscending", parameterToString(*r.isSortedAscending, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -390,7 +435,7 @@ func (a *CertificateApiService) ApiCertificateIdPutExecute(r ApiApiCertificateId
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -500,7 +545,7 @@ func (a *CertificateApiService) ApiCertificatePostExecute(r ApiApiCertificatePos
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

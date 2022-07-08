@@ -59,7 +59,7 @@ null (empty response body)
 
 ## apiAppGet
 
-> AppsVm apiAppGet()
+> AppItemPage apiAppGet(opts)
 
 
 
@@ -75,7 +75,14 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new HippoWeb.AppApi();
-apiInstance.apiAppGet((error, data, response) => {
+let opts = {
+  'searchText': "''", // String | 
+  'pageIndex': 0, // Number | 
+  'pageSize': 50, // Number | 
+  'sortBy': "'Name'", // String | 
+  'isSortedAscending': true // Boolean | 
+};
+apiInstance.apiAppGet(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -86,11 +93,18 @@ apiInstance.apiAppGet((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchText** | **String**|  | [optional] [default to &#39;&#39;]
+ **pageIndex** | **Number**|  | [optional] [default to 0]
+ **pageSize** | **Number**|  | [optional] [default to 50]
+ **sortBy** | **String**|  | [optional] [default to &#39;Name&#39;]
+ **isSortedAscending** | **Boolean**|  | [optional] [default to true]
 
 ### Return type
 
-[**AppsVm**](AppsVm.md)
+[**AppItemPage**](AppItemPage.md)
 
 ### Authorization
 
@@ -200,7 +214,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
 
 
@@ -251,6 +265,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 

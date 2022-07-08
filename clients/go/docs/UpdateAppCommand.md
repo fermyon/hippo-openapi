@@ -6,13 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**StorageId** | **string** |  | 
 
 ## Methods
 
 ### NewUpdateAppCommand
 
-`func NewUpdateAppCommand(id string, name string, storageId string, ) *UpdateAppCommand`
+`func NewUpdateAppCommand(id string, name string, ) *UpdateAppCommand`
 
 NewUpdateAppCommand instantiates a new UpdateAppCommand object
 This constructor will assign default values to properties that have it defined,
@@ -65,26 +64,6 @@ and a boolean to check if the value has been set.
 `func (o *UpdateAppCommand) SetName(v string)`
 
 SetName sets Name field to given value.
-
-
-### GetStorageId
-
-`func (o *UpdateAppCommand) GetStorageId() string`
-
-GetStorageId returns the StorageId field if non-nil, zero value otherwise.
-
-### GetStorageIdOk
-
-`func (o *UpdateAppCommand) GetStorageIdOk() (*string, bool)`
-
-GetStorageIdOk returns a tuple with the StorageId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStorageId
-
-`func (o *UpdateAppCommand) SetStorageId(v string)`
-
-SetStorageId sets StorageId field to given value.
 
 
 

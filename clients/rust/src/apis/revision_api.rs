@@ -79,7 +79,7 @@ pub async fn api_revision_export_get(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn api_revision_get(configuration: &configuration::Configuration, ) -> Result<crate::models::RevisionsVm, Error<ApiRevisionGetError>> {
+pub async fn api_revision_get(configuration: &configuration::Configuration, page_index: Option<i32>, page_size: Option<i32>) -> Result<crate::models::RevisionItemPage, Error<ApiRevisionGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -87,6 +87,12 @@ pub async fn api_revision_get(configuration: &configuration::Configuration, ) ->
     let local_var_uri_str = format!("{}/api/revision", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = page_index {
+        local_var_req_builder = local_var_req_builder.query(&[("pageIndex", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = page_size {
+        local_var_req_builder = local_var_req_builder.query(&[("pageSize", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }

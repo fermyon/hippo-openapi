@@ -13,43 +13,44 @@
 
 
 import ApiClient from './ApiClient';
-import AppChannelSummary from './model/AppChannelSummary';
-import AppDto from './model/AppDto';
+import AppChannelListItem from './model/AppChannelListItem';
+import AppItem from './model/AppItem';
+import AppItemPage from './model/AppItemPage';
 import AppSummaryDto from './model/AppSummaryDto';
-import AppsVm from './model/AppsVm';
-import CertificateDto from './model/CertificateDto';
-import CertificatesVm from './model/CertificatesVm';
-import ChannelDto from './model/ChannelDto';
-import ChannelJobStatus from './model/ChannelJobStatus';
+import CertificateItem from './model/CertificateItem';
+import CertificateItemPage from './model/CertificateItemPage';
+import ChannelItem from './model/ChannelItem';
+import ChannelItemPage from './model/ChannelItemPage';
+import ChannelJobStatusItem from './model/ChannelJobStatusItem';
+import ChannelJobStatusItemPage from './model/ChannelJobStatusItemPage';
 import ChannelRevisionSelectionStrategy from './model/ChannelRevisionSelectionStrategy';
-import ChannelsVm from './model/ChannelsVm';
+import ChannelRevisionSelectionStrategyField from './model/ChannelRevisionSelectionStrategyField';
 import CreateAccountCommand from './model/CreateAccountCommand';
 import CreateAppCommand from './model/CreateAppCommand';
 import CreateCertificateCommand from './model/CreateCertificateCommand';
 import CreateChannelCommand from './model/CreateChannelCommand';
-import CreateEnvironmentVariableCommand from './model/CreateEnvironmentVariableCommand';
 import CreateTokenCommand from './model/CreateTokenCommand';
-import EnvironmentVariableDto from './model/EnvironmentVariableDto';
-import EnvironmentVariablesVm from './model/EnvironmentVariablesVm';
+import EnvironmentVariableItem from './model/EnvironmentVariableItem';
 import GetChannelLogsVm from './model/GetChannelLogsVm';
+import GuidNullableField from './model/GuidNullableField';
 import JobStatus from './model/JobStatus';
+import PatchChannelCommand from './model/PatchChannelCommand';
 import RegisterRevisionCommand from './model/RegisterRevisionCommand';
 import RevisionComponentDto from './model/RevisionComponentDto';
-import RevisionDto from './model/RevisionDto';
-import RevisionsVm from './model/RevisionsVm';
-import StorageList from './model/StorageList';
+import RevisionItem from './model/RevisionItem';
+import RevisionItemPage from './model/RevisionItemPage';
+import StringField from './model/StringField';
+import StringPage from './model/StringPage';
 import TokenInfo from './model/TokenInfo';
 import UpdateAppCommand from './model/UpdateAppCommand';
 import UpdateCertificateCommand from './model/UpdateCertificateCommand';
 import UpdateChannelCommand from './model/UpdateChannelCommand';
-import UpdateChannelEnvironmentVariablesCommand from './model/UpdateChannelEnvironmentVariablesCommand';
-import UpdateEnvironmentVariableCommand from './model/UpdateEnvironmentVariableCommand';
 import UpdateEnvironmentVariableDto from './model/UpdateEnvironmentVariableDto';
+import UpdateEnvironmentVariableDtoListField from './model/UpdateEnvironmentVariableDtoListField';
 import AccountApi from './api/AccountApi';
 import AppApi from './api/AppApi';
 import CertificateApi from './api/CertificateApi';
 import ChannelApi from './api/ChannelApi';
-import EnvironmentVariableApi from './api/EnvironmentVariableApi';
 import JobStatusApi from './api/JobStatusApi';
 import RevisionApi from './api/RevisionApi';
 import StorageApi from './api/StorageApi';
@@ -94,16 +95,22 @@ export {
     ApiClient,
 
     /**
-     * The AppChannelSummary model constructor.
-     * @property {module:model/AppChannelSummary}
+     * The AppChannelListItem model constructor.
+     * @property {module:model/AppChannelListItem}
      */
-    AppChannelSummary,
+    AppChannelListItem,
 
     /**
-     * The AppDto model constructor.
-     * @property {module:model/AppDto}
+     * The AppItem model constructor.
+     * @property {module:model/AppItem}
      */
-    AppDto,
+    AppItem,
+
+    /**
+     * The AppItemPage model constructor.
+     * @property {module:model/AppItemPage}
+     */
+    AppItemPage,
 
     /**
      * The AppSummaryDto model constructor.
@@ -112,34 +119,40 @@ export {
     AppSummaryDto,
 
     /**
-     * The AppsVm model constructor.
-     * @property {module:model/AppsVm}
+     * The CertificateItem model constructor.
+     * @property {module:model/CertificateItem}
      */
-    AppsVm,
+    CertificateItem,
 
     /**
-     * The CertificateDto model constructor.
-     * @property {module:model/CertificateDto}
+     * The CertificateItemPage model constructor.
+     * @property {module:model/CertificateItemPage}
      */
-    CertificateDto,
+    CertificateItemPage,
 
     /**
-     * The CertificatesVm model constructor.
-     * @property {module:model/CertificatesVm}
+     * The ChannelItem model constructor.
+     * @property {module:model/ChannelItem}
      */
-    CertificatesVm,
+    ChannelItem,
 
     /**
-     * The ChannelDto model constructor.
-     * @property {module:model/ChannelDto}
+     * The ChannelItemPage model constructor.
+     * @property {module:model/ChannelItemPage}
      */
-    ChannelDto,
+    ChannelItemPage,
 
     /**
-     * The ChannelJobStatus model constructor.
-     * @property {module:model/ChannelJobStatus}
+     * The ChannelJobStatusItem model constructor.
+     * @property {module:model/ChannelJobStatusItem}
      */
-    ChannelJobStatus,
+    ChannelJobStatusItem,
+
+    /**
+     * The ChannelJobStatusItemPage model constructor.
+     * @property {module:model/ChannelJobStatusItemPage}
+     */
+    ChannelJobStatusItemPage,
 
     /**
      * The ChannelRevisionSelectionStrategy model constructor.
@@ -148,10 +161,10 @@ export {
     ChannelRevisionSelectionStrategy,
 
     /**
-     * The ChannelsVm model constructor.
-     * @property {module:model/ChannelsVm}
+     * The ChannelRevisionSelectionStrategyField model constructor.
+     * @property {module:model/ChannelRevisionSelectionStrategyField}
      */
-    ChannelsVm,
+    ChannelRevisionSelectionStrategyField,
 
     /**
      * The CreateAccountCommand model constructor.
@@ -178,28 +191,16 @@ export {
     CreateChannelCommand,
 
     /**
-     * The CreateEnvironmentVariableCommand model constructor.
-     * @property {module:model/CreateEnvironmentVariableCommand}
-     */
-    CreateEnvironmentVariableCommand,
-
-    /**
      * The CreateTokenCommand model constructor.
      * @property {module:model/CreateTokenCommand}
      */
     CreateTokenCommand,
 
     /**
-     * The EnvironmentVariableDto model constructor.
-     * @property {module:model/EnvironmentVariableDto}
+     * The EnvironmentVariableItem model constructor.
+     * @property {module:model/EnvironmentVariableItem}
      */
-    EnvironmentVariableDto,
-
-    /**
-     * The EnvironmentVariablesVm model constructor.
-     * @property {module:model/EnvironmentVariablesVm}
-     */
-    EnvironmentVariablesVm,
+    EnvironmentVariableItem,
 
     /**
      * The GetChannelLogsVm model constructor.
@@ -208,10 +209,22 @@ export {
     GetChannelLogsVm,
 
     /**
+     * The GuidNullableField model constructor.
+     * @property {module:model/GuidNullableField}
+     */
+    GuidNullableField,
+
+    /**
      * The JobStatus model constructor.
      * @property {module:model/JobStatus}
      */
     JobStatus,
+
+    /**
+     * The PatchChannelCommand model constructor.
+     * @property {module:model/PatchChannelCommand}
+     */
+    PatchChannelCommand,
 
     /**
      * The RegisterRevisionCommand model constructor.
@@ -226,22 +239,28 @@ export {
     RevisionComponentDto,
 
     /**
-     * The RevisionDto model constructor.
-     * @property {module:model/RevisionDto}
+     * The RevisionItem model constructor.
+     * @property {module:model/RevisionItem}
      */
-    RevisionDto,
+    RevisionItem,
 
     /**
-     * The RevisionsVm model constructor.
-     * @property {module:model/RevisionsVm}
+     * The RevisionItemPage model constructor.
+     * @property {module:model/RevisionItemPage}
      */
-    RevisionsVm,
+    RevisionItemPage,
 
     /**
-     * The StorageList model constructor.
-     * @property {module:model/StorageList}
+     * The StringField model constructor.
+     * @property {module:model/StringField}
      */
-    StorageList,
+    StringField,
+
+    /**
+     * The StringPage model constructor.
+     * @property {module:model/StringPage}
+     */
+    StringPage,
 
     /**
      * The TokenInfo model constructor.
@@ -268,22 +287,16 @@ export {
     UpdateChannelCommand,
 
     /**
-     * The UpdateChannelEnvironmentVariablesCommand model constructor.
-     * @property {module:model/UpdateChannelEnvironmentVariablesCommand}
-     */
-    UpdateChannelEnvironmentVariablesCommand,
-
-    /**
-     * The UpdateEnvironmentVariableCommand model constructor.
-     * @property {module:model/UpdateEnvironmentVariableCommand}
-     */
-    UpdateEnvironmentVariableCommand,
-
-    /**
      * The UpdateEnvironmentVariableDto model constructor.
      * @property {module:model/UpdateEnvironmentVariableDto}
      */
     UpdateEnvironmentVariableDto,
+
+    /**
+     * The UpdateEnvironmentVariableDtoListField model constructor.
+     * @property {module:model/UpdateEnvironmentVariableDtoListField}
+     */
+    UpdateEnvironmentVariableDtoListField,
 
     /**
     * The AccountApi service constructor.
@@ -308,12 +321,6 @@ export {
     * @property {module:api/ChannelApi}
     */
     ChannelApi,
-
-    /**
-    * The EnvironmentVariableApi service constructor.
-    * @property {module:api/EnvironmentVariableApi}
-    */
-    EnvironmentVariableApi,
 
     /**
     * The JobStatusApi service constructor.

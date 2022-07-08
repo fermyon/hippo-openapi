@@ -25,27 +25,33 @@ type StorageApiService service
 type ApiApiStorageGetRequest struct {
 	ctx context.Context
 	ApiService *StorageApiService
-	queryString *string
-	offset *int64
-	limit *int32
+	searchText *string
+	pageIndex *int32
+	pageSize *int32
+	isSortedAscending *bool
 }
 
-func (r ApiApiStorageGetRequest) QueryString(queryString string) ApiApiStorageGetRequest {
-	r.queryString = &queryString
+func (r ApiApiStorageGetRequest) SearchText(searchText string) ApiApiStorageGetRequest {
+	r.searchText = &searchText
 	return r
 }
 
-func (r ApiApiStorageGetRequest) Offset(offset int64) ApiApiStorageGetRequest {
-	r.offset = &offset
+func (r ApiApiStorageGetRequest) PageIndex(pageIndex int32) ApiApiStorageGetRequest {
+	r.pageIndex = &pageIndex
 	return r
 }
 
-func (r ApiApiStorageGetRequest) Limit(limit int32) ApiApiStorageGetRequest {
-	r.limit = &limit
+func (r ApiApiStorageGetRequest) PageSize(pageSize int32) ApiApiStorageGetRequest {
+	r.pageSize = &pageSize
 	return r
 }
 
-func (r ApiApiStorageGetRequest) Execute() (*StorageList, *http.Response, error) {
+func (r ApiApiStorageGetRequest) IsSortedAscending(isSortedAscending bool) ApiApiStorageGetRequest {
+	r.isSortedAscending = &isSortedAscending
+	return r
+}
+
+func (r ApiApiStorageGetRequest) Execute() (*StringPage, *http.Response, error) {
 	return r.ApiService.ApiStorageGetExecute(r)
 }
 
@@ -63,13 +69,13 @@ func (a *StorageApiService) ApiStorageGet(ctx context.Context) ApiApiStorageGetR
 }
 
 // Execute executes the request
-//  @return StorageList
-func (a *StorageApiService) ApiStorageGetExecute(r ApiApiStorageGetRequest) (*StorageList, *http.Response, error) {
+//  @return StringPage
+func (a *StorageApiService) ApiStorageGetExecute(r ApiApiStorageGetRequest) (*StringPage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *StorageList
+		localVarReturnValue  *StringPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StorageApiService.ApiStorageGet")
@@ -83,14 +89,17 @@ func (a *StorageApiService) ApiStorageGetExecute(r ApiApiStorageGetRequest) (*St
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.queryString != nil {
-		localVarQueryParams.Add("queryString", parameterToString(*r.queryString, ""))
+	if r.searchText != nil {
+		localVarQueryParams.Add("searchText", parameterToString(*r.searchText, ""))
 	}
-	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	if r.pageIndex != nil {
+		localVarQueryParams.Add("pageIndex", parameterToString(*r.pageIndex, ""))
 	}
-	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.isSortedAscending != nil {
+		localVarQueryParams.Add("IsSortedAscending", parameterToString(*r.isSortedAscending, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

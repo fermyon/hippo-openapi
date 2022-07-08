@@ -39,16 +39,23 @@ This endpoint does not need any parameter.
 
 ## api_certificate_get
 
-> crate::models::CertificatesVm api_certificate_get()
+> crate::models::CertificateItemPage api_certificate_get(search_text, page_index, page_size, sort_by, is_sorted_ascending)
 
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**search_text** | Option<**String**> |  |  |[default to ]
+**page_index** | Option<**i32**> |  |  |[default to 0]
+**page_size** | Option<**i32**> |  |  |[default to 50]
+**sort_by** | Option<**String**> |  |  |[default to Name]
+**is_sorted_ascending** | Option<**bool**> |  |  |[default to true]
 
 ### Return type
 
-[**crate::models::CertificatesVm**](CertificatesVm.md)
+[**crate::models::CertificateItemPage**](CertificateItemPage.md)
 
 ### Authorization
 
@@ -113,7 +120,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -141,7 +148,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

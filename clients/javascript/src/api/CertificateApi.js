@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import CertificatesVm from '../model/CertificatesVm';
+import CertificateItemPage from '../model/CertificateItemPage';
 import CreateCertificateCommand from '../model/CreateCertificateCommand';
 import UpdateCertificateCommand from '../model/UpdateCertificateCommand';
 
@@ -74,20 +74,32 @@ export default class CertificateApi {
      * Callback function to receive the result of the apiCertificateGet operation.
      * @callback module:api/CertificateApi~apiCertificateGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/CertificatesVm} data The data returned by the service call.
+     * @param {module:model/CertificateItemPage} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.searchText  (default to '')
+     * @param {Number} opts.pageIndex  (default to 0)
+     * @param {Number} opts.pageSize  (default to 50)
+     * @param {String} opts.sortBy  (default to 'Name')
+     * @param {Boolean} opts.isSortedAscending  (default to true)
      * @param {module:api/CertificateApi~apiCertificateGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CertificatesVm}
+     * data is of type: {@link module:model/CertificateItemPage}
      */
-    apiCertificateGet(callback) {
+    apiCertificateGet(opts, callback) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'searchText': opts['searchText'],
+        'pageIndex': opts['pageIndex'],
+        'pageSize': opts['pageSize'],
+        'sortBy': opts['sortBy'],
+        'IsSortedAscending': opts['isSortedAscending']
       };
       let headerParams = {
       };
@@ -97,7 +109,7 @@ export default class CertificateApi {
       let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
-      let returnType = CertificatesVm;
+      let returnType = CertificateItemPage;
       return this.apiClient.callApi(
         '/api/certificate', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -178,7 +190,7 @@ export default class CertificateApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
@@ -216,7 +228,7 @@ export default class CertificateApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
       let accepts = ['text/plain', 'application/json', 'text/json'];
       let returnType = 'String';
       return this.apiClient.callApi(

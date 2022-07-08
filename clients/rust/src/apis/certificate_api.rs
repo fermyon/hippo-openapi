@@ -86,7 +86,7 @@ pub async fn api_certificate_export_get(configuration: &configuration::Configura
     }
 }
 
-pub async fn api_certificate_get(configuration: &configuration::Configuration, ) -> Result<crate::models::CertificatesVm, Error<ApiCertificateGetError>> {
+pub async fn api_certificate_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>) -> Result<crate::models::CertificateItemPage, Error<ApiCertificateGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -94,6 +94,21 @@ pub async fn api_certificate_get(configuration: &configuration::Configuration, )
     let local_var_uri_str = format!("{}/api/certificate", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = search_text {
+        local_var_req_builder = local_var_req_builder.query(&[("searchText", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = page_index {
+        local_var_req_builder = local_var_req_builder.query(&[("pageIndex", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = page_size {
+        local_var_req_builder = local_var_req_builder.query(&[("pageSize", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort_by {
+        local_var_req_builder = local_var_req_builder.query(&[("sortBy", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = is_sorted_ascending {
+        local_var_req_builder = local_var_req_builder.query(&[("IsSortedAscending", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }

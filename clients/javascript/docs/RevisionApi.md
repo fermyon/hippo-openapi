@@ -58,7 +58,7 @@ null (empty response body)
 
 ## apiRevisionGet
 
-> RevisionsVm apiRevisionGet()
+> RevisionItemPage apiRevisionGet(opts)
 
 
 
@@ -74,7 +74,11 @@ Bearer.apiKey = 'YOUR API KEY';
 //Bearer.apiKeyPrefix = 'Token';
 
 let apiInstance = new HippoWeb.RevisionApi();
-apiInstance.apiRevisionGet((error, data, response) => {
+let opts = {
+  'pageIndex': 0, // Number | 
+  'pageSize': 50 // Number | 
+};
+apiInstance.apiRevisionGet(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -85,11 +89,15 @@ apiInstance.apiRevisionGet((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageIndex** | **Number**|  | [optional] [default to 0]
+ **pageSize** | **Number**|  | [optional] [default to 50]
 
 ### Return type
 
-[**RevisionsVm**](RevisionsVm.md)
+[**RevisionItemPage**](RevisionItemPage.md)
 
 ### Authorization
 
@@ -197,6 +205,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
 

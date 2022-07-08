@@ -25,6 +25,8 @@ pub struct UpdateChannelCommand {
     pub range_rule: Option<String>,
     #[serde(rename = "activeRevisionId", skip_serializing_if = "Option::is_none")]
     pub active_revision_id: Option<String>,
+    #[serde(rename = "lastPublishDate", skip_serializing_if = "Option::is_none")]
+    pub last_publish_date: Option<String>,
     #[serde(rename = "certificateId", skip_serializing_if = "Option::is_none")]
     pub certificate_id: Option<String>,
 }
@@ -38,6 +40,7 @@ impl UpdateChannelCommand {
             revision_selection_strategy,
             range_rule: None,
             active_revision_id: None,
+            last_publish_date: None,
             certificate_id: None,
         }
     }

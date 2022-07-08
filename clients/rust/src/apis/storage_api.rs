@@ -23,7 +23,7 @@ pub enum ApiStorageGetError {
 }
 
 
-pub async fn api_storage_get(configuration: &configuration::Configuration, query_string: Option<&str>, offset: Option<i64>, limit: Option<i32>) -> Result<crate::models::StorageList, Error<ApiStorageGetError>> {
+pub async fn api_storage_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, is_sorted_ascending: Option<bool>) -> Result<crate::models::StringPage, Error<ApiStorageGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -31,14 +31,17 @@ pub async fn api_storage_get(configuration: &configuration::Configuration, query
     let local_var_uri_str = format!("{}/api/storage", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query_string {
-        local_var_req_builder = local_var_req_builder.query(&[("queryString", &local_var_str.to_string())]);
+    if let Some(ref local_var_str) = search_text {
+        local_var_req_builder = local_var_req_builder.query(&[("searchText", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_str) = offset {
-        local_var_req_builder = local_var_req_builder.query(&[("offset", &local_var_str.to_string())]);
+    if let Some(ref local_var_str) = page_index {
+        local_var_req_builder = local_var_req_builder.query(&[("pageIndex", &local_var_str.to_string())]);
     }
-    if let Some(ref local_var_str) = limit {
-        local_var_req_builder = local_var_req_builder.query(&[("limit", &local_var_str.to_string())]);
+    if let Some(ref local_var_str) = page_size {
+        local_var_req_builder = local_var_req_builder.query(&[("pageSize", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = is_sorted_ascending {
+        local_var_req_builder = local_var_req_builder.query(&[("IsSortedAscending", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

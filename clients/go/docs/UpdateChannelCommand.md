@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **RevisionSelectionStrategy** | [**ChannelRevisionSelectionStrategy**](ChannelRevisionSelectionStrategy.md) |  | 
 **RangeRule** | Pointer to **NullableString** |  | [optional] 
 **ActiveRevisionId** | Pointer to **NullableString** |  | [optional] 
+**LastPublishDate** | Pointer to **time.Time** |  | [optional] 
 **CertificateId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -181,6 +182,31 @@ HasActiveRevisionId returns a boolean if a field has been set.
 `func (o *UpdateChannelCommand) UnsetActiveRevisionId()`
 
 UnsetActiveRevisionId ensures that no value is present for ActiveRevisionId, not even an explicit nil
+### GetLastPublishDate
+
+`func (o *UpdateChannelCommand) GetLastPublishDate() time.Time`
+
+GetLastPublishDate returns the LastPublishDate field if non-nil, zero value otherwise.
+
+### GetLastPublishDateOk
+
+`func (o *UpdateChannelCommand) GetLastPublishDateOk() (*time.Time, bool)`
+
+GetLastPublishDateOk returns a tuple with the LastPublishDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastPublishDate
+
+`func (o *UpdateChannelCommand) SetLastPublishDate(v time.Time)`
+
+SetLastPublishDate sets LastPublishDate field to given value.
+
+### HasLastPublishDate
+
+`func (o *UpdateChannelCommand) HasLastPublishDate() bool`
+
+HasLastPublishDate returns a boolean if a field has been set.
+
 ### GetCertificateId
 
 `func (o *UpdateChannelCommand) GetCertificateId() string`

@@ -24,11 +24,10 @@ class UpdateAppCommand {
      * @alias module:model/UpdateAppCommand
      * @param id {String} 
      * @param name {String} 
-     * @param storageId {String} 
      */
-    constructor(id, name, storageId) { 
+    constructor(id, name) { 
         
-        UpdateAppCommand.initialize(this, id, name, storageId);
+        UpdateAppCommand.initialize(this, id, name);
     }
 
     /**
@@ -36,10 +35,9 @@ class UpdateAppCommand {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, storageId) { 
+    static initialize(obj, id, name) { 
         obj['id'] = id;
         obj['name'] = name;
-        obj['storageId'] = storageId;
     }
 
     /**
@@ -59,9 +57,6 @@ class UpdateAppCommand {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('storageId')) {
-                obj['storageId'] = ApiClient.convertToType(data['storageId'], 'String');
-            }
         }
         return obj;
     }
@@ -78,11 +73,6 @@ UpdateAppCommand.prototype['id'] = undefined;
  * @member {String} name
  */
 UpdateAppCommand.prototype['name'] = undefined;
-
-/**
- * @member {String} storageId
- */
-UpdateAppCommand.prototype['storageId'] = undefined;
 
 
 

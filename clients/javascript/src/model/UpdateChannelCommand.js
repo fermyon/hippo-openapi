@@ -74,6 +74,9 @@ class UpdateChannelCommand {
             if (data.hasOwnProperty('activeRevisionId')) {
                 obj['activeRevisionId'] = ApiClient.convertToType(data['activeRevisionId'], 'String');
             }
+            if (data.hasOwnProperty('lastPublishDate')) {
+                obj['lastPublishDate'] = ApiClient.convertToType(data['lastPublishDate'], 'Date');
+            }
             if (data.hasOwnProperty('certificateId')) {
                 obj['certificateId'] = ApiClient.convertToType(data['certificateId'], 'String');
             }
@@ -113,6 +116,11 @@ UpdateChannelCommand.prototype['rangeRule'] = undefined;
  * @member {String} activeRevisionId
  */
 UpdateChannelCommand.prototype['activeRevisionId'] = undefined;
+
+/**
+ * @member {Date} lastPublishDate
+ */
+UpdateChannelCommand.prototype['lastPublishDate'] = undefined;
 
 /**
  * @member {String} certificateId

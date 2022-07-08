@@ -126,9 +126,21 @@ func (a *RevisionApiService) ApiRevisionExportGetExecute(r ApiApiRevisionExportG
 type ApiApiRevisionGetRequest struct {
 	ctx context.Context
 	ApiService *RevisionApiService
+	pageIndex *int32
+	pageSize *int32
 }
 
-func (r ApiApiRevisionGetRequest) Execute() (*RevisionsVm, *http.Response, error) {
+func (r ApiApiRevisionGetRequest) PageIndex(pageIndex int32) ApiApiRevisionGetRequest {
+	r.pageIndex = &pageIndex
+	return r
+}
+
+func (r ApiApiRevisionGetRequest) PageSize(pageSize int32) ApiApiRevisionGetRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+func (r ApiApiRevisionGetRequest) Execute() (*RevisionItemPage, *http.Response, error) {
 	return r.ApiService.ApiRevisionGetExecute(r)
 }
 
@@ -146,13 +158,13 @@ func (a *RevisionApiService) ApiRevisionGet(ctx context.Context) ApiApiRevisionG
 }
 
 // Execute executes the request
-//  @return RevisionsVm
-func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (*RevisionsVm, *http.Response, error) {
+//  @return RevisionItemPage
+func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (*RevisionItemPage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RevisionsVm
+		localVarReturnValue  *RevisionItemPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RevisionApiService.ApiRevisionGet")
@@ -166,6 +178,12 @@ func (a *RevisionApiService) ApiRevisionGetExecute(r ApiApiRevisionGetRequest) (
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.pageIndex != nil {
+		localVarQueryParams.Add("pageIndex", parameterToString(*r.pageIndex, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -386,7 +404,7 @@ func (a *RevisionApiService) ApiRevisionPostExecute(r ApiApiRevisionPostRequest)
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

@@ -2,5 +2,5 @@
 	"gitUserId": "fermyon",
 	"gitRepoId": "hippo-openapi/clients/go",
 	"outputDir": "../clients/go/v1",
-	"packageVersion": "0.8.0"
+	"packageVersion": "0.9.0"
 }

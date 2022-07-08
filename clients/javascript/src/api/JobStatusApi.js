@@ -13,7 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
-import ChannelJobStatus from '../model/ChannelJobStatus';
+import ChannelJobStatusItem from '../model/ChannelJobStatusItem';
+import ChannelJobStatusItemPage from '../model/ChannelJobStatusItemPage';
 
 /**
 * JobStatus service.
@@ -35,21 +36,27 @@ export default class JobStatusApi {
 
 
     /**
-     * Callback function to receive the result of the apiJobstatusGet operation.
-     * @callback module:api/JobStatusApi~apiJobstatusGetCallback
+     * Callback function to receive the result of the apiJobstatusChannelIdGet operation.
+     * @callback module:api/JobStatusApi~apiJobstatusChannelIdGetCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ChannelJobStatus>} data The data returned by the service call.
+     * @param {module:model/ChannelJobStatusItem} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {module:api/JobStatusApi~apiJobstatusGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ChannelJobStatus>}
+     * @param {String} channelId 
+     * @param {module:api/JobStatusApi~apiJobstatusChannelIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ChannelJobStatusItem}
      */
-    apiJobstatusGet(callback) {
+    apiJobstatusChannelIdGet(channelId, callback) {
       let postBody = null;
+      // verify the required parameter 'channelId' is set
+      if (channelId === undefined || channelId === null) {
+        throw new Error("Missing the required parameter 'channelId' when calling apiJobstatusChannelIdGet");
+      }
 
       let pathParams = {
+        'channelId': channelId
       };
       let queryParams = {
       };
@@ -61,7 +68,48 @@ export default class JobStatusApi {
       let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
-      let returnType = [ChannelJobStatus];
+      let returnType = ChannelJobStatusItem;
+      return this.apiClient.callApi(
+        '/api/jobstatus/{channelId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the apiJobstatusGet operation.
+     * @callback module:api/JobStatusApi~apiJobstatusGetCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ChannelJobStatusItemPage} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.pageIndex  (default to 0)
+     * @param {Number} opts.pageSize  (default to 2147483647)
+     * @param {module:api/JobStatusApi~apiJobstatusGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ChannelJobStatusItemPage}
+     */
+    apiJobstatusGet(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'pageIndex': opts['pageIndex'],
+        'pageSize': opts['pageSize']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = ['text/plain', 'application/json', 'text/json'];
+      let returnType = ChannelJobStatusItemPage;
       return this.apiClient.callApi(
         '/api/jobstatus', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

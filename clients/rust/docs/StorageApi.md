@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## api_storage_get
 
-> crate::models::StorageList api_storage_get(query_string, offset, limit)
+> crate::models::StringPage api_storage_get(search_text, page_index, page_size, is_sorted_ascending)
 
 
 ### Parameters
@@ -18,13 +18,14 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**query_string** | Option<**String**> |  |  |
-**offset** | Option<**i64**> |  |  |
-**limit** | Option<**i32**> |  |  |
+**search_text** | Option<**String**> |  |  |[default to ]
+**page_index** | Option<**i32**> |  |  |[default to 0]
+**page_size** | Option<**i32**> |  |  |[default to 50]
+**is_sorted_ascending** | Option<**bool**> |  |  |[default to true]
 
 ### Return type
 
-[**crate::models::StorageList**](StorageList.md)
+[**crate::models::StringPage**](StringPage.md)
 
 ### Authorization
 

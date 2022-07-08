@@ -13,7 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
-import StorageList from '../model/StorageList';
+import StringPage from '../model/StringPage';
 
 /**
 * Storage service.
@@ -38,17 +38,18 @@ export default class StorageApi {
      * Callback function to receive the result of the apiStorageGet operation.
      * @callback module:api/StorageApi~apiStorageGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/StorageList} data The data returned by the service call.
+     * @param {module:model/StringPage} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * @param {Object} opts Optional parameters
-     * @param {String} opts.queryString 
-     * @param {Number} opts.offset 
-     * @param {Number} opts.limit 
+     * @param {String} opts.searchText  (default to '')
+     * @param {Number} opts.pageIndex  (default to 0)
+     * @param {Number} opts.pageSize  (default to 50)
+     * @param {Boolean} opts.isSortedAscending  (default to true)
      * @param {module:api/StorageApi~apiStorageGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/StorageList}
+     * data is of type: {@link module:model/StringPage}
      */
     apiStorageGet(opts, callback) {
       opts = opts || {};
@@ -57,9 +58,10 @@ export default class StorageApi {
       let pathParams = {
       };
       let queryParams = {
-        'queryString': opts['queryString'],
-        'offset': opts['offset'],
-        'limit': opts['limit']
+        'searchText': opts['searchText'],
+        'pageIndex': opts['pageIndex'],
+        'pageSize': opts['pageSize'],
+        'IsSortedAscending': opts['isSortedAscending']
       };
       let headerParams = {
       };
@@ -69,7 +71,7 @@ export default class StorageApi {
       let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
-      let returnType = StorageList;
+      let returnType = StringPage;
       return this.apiClient.callApi(
         '/api/storage', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

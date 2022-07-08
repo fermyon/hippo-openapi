@@ -19,14 +19,14 @@ type AppSummaryDto struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	StorageId string `json:"storageId"`
-	Channels []AppChannelSummary `json:"channels"`
+	Channels []AppChannelListItem `json:"channels"`
 }
 
 // NewAppSummaryDto instantiates a new AppSummaryDto object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppSummaryDto(id string, name string, storageId string, channels []AppChannelSummary) *AppSummaryDto {
+func NewAppSummaryDto(id string, name string, storageId string, channels []AppChannelListItem) *AppSummaryDto {
 	this := AppSummaryDto{}
 	this.Id = id
 	this.Name = name
@@ -116,9 +116,9 @@ func (o *AppSummaryDto) SetStorageId(v string) {
 }
 
 // GetChannels returns the Channels field value
-func (o *AppSummaryDto) GetChannels() []AppChannelSummary {
+func (o *AppSummaryDto) GetChannels() []AppChannelListItem {
 	if o == nil {
-		var ret []AppChannelSummary
+		var ret []AppChannelListItem
 		return ret
 	}
 
@@ -127,7 +127,7 @@ func (o *AppSummaryDto) GetChannels() []AppChannelSummary {
 
 // GetChannelsOk returns a tuple with the Channels field value
 // and a boolean to check if the value has been set.
-func (o *AppSummaryDto) GetChannelsOk() ([]AppChannelSummary, bool) {
+func (o *AppSummaryDto) GetChannelsOk() ([]AppChannelListItem, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,7 +135,7 @@ func (o *AppSummaryDto) GetChannelsOk() ([]AppChannelSummary, bool) {
 }
 
 // SetChannels sets field value
-func (o *AppSummaryDto) SetChannels(v []AppChannelSummary) {
+func (o *AppSummaryDto) SetChannels(v []AppChannelListItem) {
 	o.Channels = v
 }
 

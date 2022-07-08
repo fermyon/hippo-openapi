@@ -71,7 +71,7 @@ Other parameters are passed through a pointer to a apiApiCertificateExportGetReq
 
 ## ApiCertificateGet
 
-> CertificatesVm ApiCertificateGet(ctx).Execute()
+> CertificateItemPage ApiCertificateGet(ctx).SearchText(searchText).PageIndex(pageIndex).PageSize(pageSize).SortBy(sortBy).IsSortedAscending(isSortedAscending).Execute()
 
 
 
@@ -88,31 +88,44 @@ import (
 )
 
 func main() {
+    searchText := "searchText_example" // string |  (optional) (default to "")
+    pageIndex := int32(56) // int32 |  (optional) (default to 0)
+    pageSize := int32(56) // int32 |  (optional) (default to 50)
+    sortBy := "sortBy_example" // string |  (optional) (default to "Name")
+    isSortedAscending := true // bool |  (optional) (default to true)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CertificateApi.ApiCertificateGet(context.Background()).Execute()
+    resp, r, err := apiClient.CertificateApi.ApiCertificateGet(context.Background()).SearchText(searchText).PageIndex(pageIndex).PageSize(pageSize).SortBy(sortBy).IsSortedAscending(isSortedAscending).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CertificateApi.ApiCertificateGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiCertificateGet`: CertificatesVm
+    // response from `ApiCertificateGet`: CertificateItemPage
     fmt.Fprintf(os.Stdout, "Response from `CertificateApi.ApiCertificateGet`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApiCertificateGetRequest struct via the builder pattern
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchText** | **string** |  | [default to &quot;&quot;]
+ **pageIndex** | **int32** |  | [default to 0]
+ **pageSize** | **int32** |  | [default to 50]
+ **sortBy** | **string** |  | [default to &quot;Name&quot;]
+ **isSortedAscending** | **bool** |  | [default to true]
+
 ### Return type
 
-[**CertificatesVm**](CertificatesVm.md)
+[**CertificateItemPage**](CertificateItemPage.md)
 
 ### Authorization
 
@@ -254,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -318,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

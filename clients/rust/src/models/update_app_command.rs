@@ -17,16 +17,13 @@ pub struct UpdateAppCommand {
     pub id: String,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "storageId")]
-    pub storage_id: String,
 }
 
 impl UpdateAppCommand {
-    pub fn new(id: String, name: String, storage_id: String) -> UpdateAppCommand {
+    pub fn new(id: String, name: String) -> UpdateAppCommand {
         UpdateAppCommand {
             id,
             name,
-            storage_id,
         }
     }
 }

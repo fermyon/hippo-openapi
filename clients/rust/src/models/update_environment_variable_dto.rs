@@ -13,8 +13,6 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct UpdateEnvironmentVariableDto {
-    #[serde(rename = "id")]
-    pub id: String,
     #[serde(rename = "key")]
     pub key: String,
     #[serde(rename = "value")]
@@ -22,9 +20,8 @@ pub struct UpdateEnvironmentVariableDto {
 }
 
 impl UpdateEnvironmentVariableDto {
-    pub fn new(id: String, key: String, value: String) -> UpdateEnvironmentVariableDto {
+    pub fn new(key: String, value: String) -> UpdateEnvironmentVariableDto {
         UpdateEnvironmentVariableDto {
-            id,
             key,
             value,
         }

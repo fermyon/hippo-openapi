@@ -23,233 +23,6 @@ import (
 // ChannelApiService ChannelApi service
 type ChannelApiService service
 
-type ApiApiChannelChannelIdEnvironmentVariablesPutRequest struct {
-	ctx context.Context
-	ApiService *ChannelApiService
-	channelId string
-	updateChannelEnvironmentVariablesCommand *UpdateChannelEnvironmentVariablesCommand
-}
-
-func (r ApiApiChannelChannelIdEnvironmentVariablesPutRequest) UpdateChannelEnvironmentVariablesCommand(updateChannelEnvironmentVariablesCommand UpdateChannelEnvironmentVariablesCommand) ApiApiChannelChannelIdEnvironmentVariablesPutRequest {
-	r.updateChannelEnvironmentVariablesCommand = &updateChannelEnvironmentVariablesCommand
-	return r
-}
-
-func (r ApiApiChannelChannelIdEnvironmentVariablesPutRequest) Execute() (*http.Response, error) {
-	return r.ApiService.ApiChannelChannelIdEnvironmentVariablesPutExecute(r)
-}
-
-/*
-ApiChannelChannelIdEnvironmentVariablesPut Method for ApiChannelChannelIdEnvironmentVariablesPut
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId
- @return ApiApiChannelChannelIdEnvironmentVariablesPutRequest
-*/
-func (a *ChannelApiService) ApiChannelChannelIdEnvironmentVariablesPut(ctx context.Context, channelId string) ApiApiChannelChannelIdEnvironmentVariablesPutRequest {
-	return ApiApiChannelChannelIdEnvironmentVariablesPutRequest{
-		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-	}
-}
-
-// Execute executes the request
-func (a *ChannelApiService) ApiChannelChannelIdEnvironmentVariablesPutExecute(r ApiApiChannelChannelIdEnvironmentVariablesPutRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelChannelIdEnvironmentVariablesPut")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/channel/{channelId}/environment-variables"
-	localVarPath = strings.Replace(localVarPath, "{"+"channelId"+"}", url.PathEscape(parameterToString(r.channelId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.updateChannelEnvironmentVariablesCommand
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiApiChannelChannelIdGetRequest struct {
-	ctx context.Context
-	ApiService *ChannelApiService
-	channelId string
-}
-
-func (r ApiApiChannelChannelIdGetRequest) Execute() (*ChannelDto, *http.Response, error) {
-	return r.ApiService.ApiChannelChannelIdGetExecute(r)
-}
-
-/*
-ApiChannelChannelIdGet Method for ApiChannelChannelIdGet
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId
- @return ApiApiChannelChannelIdGetRequest
-*/
-func (a *ChannelApiService) ApiChannelChannelIdGet(ctx context.Context, channelId string) ApiApiChannelChannelIdGetRequest {
-	return ApiApiChannelChannelIdGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		channelId: channelId,
-	}
-}
-
-// Execute executes the request
-//  @return ChannelDto
-func (a *ChannelApiService) ApiChannelChannelIdGetExecute(r ApiApiChannelChannelIdGetRequest) (*ChannelDto, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ChannelDto
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelChannelIdGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/channel/{channelId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"channelId"+"}", url.PathEscape(parameterToString(r.channelId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiApiChannelExportGetRequest struct {
 	ctx context.Context
 	ApiService *ChannelApiService
@@ -353,9 +126,39 @@ func (a *ChannelApiService) ApiChannelExportGetExecute(r ApiApiChannelExportGetR
 type ApiApiChannelGetRequest struct {
 	ctx context.Context
 	ApiService *ChannelApiService
+	searchText *string
+	pageIndex *int32
+	pageSize *int32
+	sortBy *string
+	isSortedAscending *bool
 }
 
-func (r ApiApiChannelGetRequest) Execute() (*ChannelsVm, *http.Response, error) {
+func (r ApiApiChannelGetRequest) SearchText(searchText string) ApiApiChannelGetRequest {
+	r.searchText = &searchText
+	return r
+}
+
+func (r ApiApiChannelGetRequest) PageIndex(pageIndex int32) ApiApiChannelGetRequest {
+	r.pageIndex = &pageIndex
+	return r
+}
+
+func (r ApiApiChannelGetRequest) PageSize(pageSize int32) ApiApiChannelGetRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+func (r ApiApiChannelGetRequest) SortBy(sortBy string) ApiApiChannelGetRequest {
+	r.sortBy = &sortBy
+	return r
+}
+
+func (r ApiApiChannelGetRequest) IsSortedAscending(isSortedAscending bool) ApiApiChannelGetRequest {
+	r.isSortedAscending = &isSortedAscending
+	return r
+}
+
+func (r ApiApiChannelGetRequest) Execute() (*ChannelItemPage, *http.Response, error) {
 	return r.ApiService.ApiChannelGetExecute(r)
 }
 
@@ -373,13 +176,13 @@ func (a *ChannelApiService) ApiChannelGet(ctx context.Context) ApiApiChannelGetR
 }
 
 // Execute executes the request
-//  @return ChannelsVm
-func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (*ChannelsVm, *http.Response, error) {
+//  @return ChannelItemPage
+func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (*ChannelItemPage, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ChannelsVm
+		localVarReturnValue  *ChannelItemPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelGet")
@@ -393,6 +196,21 @@ func (a *ChannelApiService) ApiChannelGetExecute(r ApiApiChannelGetRequest) (*Ch
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.searchText != nil {
+		localVarQueryParams.Add("searchText", parameterToString(*r.searchText, ""))
+	}
+	if r.pageIndex != nil {
+		localVarQueryParams.Add("pageIndex", parameterToString(*r.pageIndex, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+	}
+	if r.isSortedAscending != nil {
+		localVarQueryParams.Add("IsSortedAscending", parameterToString(*r.isSortedAscending, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -565,6 +383,233 @@ func (a *ChannelApiService) ApiChannelIdDeleteExecute(r ApiApiChannelIdDeleteReq
 	return localVarHTTPResponse, nil
 }
 
+type ApiApiChannelIdGetRequest struct {
+	ctx context.Context
+	ApiService *ChannelApiService
+	id string
+}
+
+func (r ApiApiChannelIdGetRequest) Execute() (*ChannelItem, *http.Response, error) {
+	return r.ApiService.ApiChannelIdGetExecute(r)
+}
+
+/*
+ApiChannelIdGet Method for ApiChannelIdGet
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id
+ @return ApiApiChannelIdGetRequest
+*/
+func (a *ChannelApiService) ApiChannelIdGet(ctx context.Context, id string) ApiApiChannelIdGetRequest {
+	return ApiApiChannelIdGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ChannelItem
+func (a *ChannelApiService) ApiChannelIdGetExecute(r ApiApiChannelIdGetRequest) (*ChannelItem, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ChannelItem
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelIdGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/channel/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"text/plain", "application/json", "text/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiChannelIdPatchRequest struct {
+	ctx context.Context
+	ApiService *ChannelApiService
+	id string
+	patchChannelCommand *PatchChannelCommand
+}
+
+func (r ApiApiChannelIdPatchRequest) PatchChannelCommand(patchChannelCommand PatchChannelCommand) ApiApiChannelIdPatchRequest {
+	r.patchChannelCommand = &patchChannelCommand
+	return r
+}
+
+func (r ApiApiChannelIdPatchRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiChannelIdPatchExecute(r)
+}
+
+/*
+ApiChannelIdPatch Method for ApiChannelIdPatch
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id
+ @return ApiApiChannelIdPatchRequest
+*/
+func (a *ChannelApiService) ApiChannelIdPatch(ctx context.Context, id string) ApiApiChannelIdPatchRequest {
+	return ApiApiChannelIdPatchRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *ChannelApiService) ApiChannelIdPatchExecute(r ApiApiChannelIdPatchRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelIdPatch")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/channel/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.patchChannelCommand
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiApiChannelIdPutRequest struct {
 	ctx context.Context
 	ApiService *ChannelApiService
@@ -617,7 +662,7 @@ func (a *ChannelApiService) ApiChannelIdPutExecute(r ApiApiChannelIdPutRequest) 
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -677,34 +722,34 @@ func (a *ChannelApiService) ApiChannelIdPutExecute(r ApiApiChannelIdPutRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiApiChannelLogsChannelIdGetRequest struct {
+type ApiApiChannelLogsIdGetRequest struct {
 	ctx context.Context
 	ApiService *ChannelApiService
-	channelId string
+	id string
 }
 
-func (r ApiApiChannelLogsChannelIdGetRequest) Execute() (*GetChannelLogsVm, *http.Response, error) {
-	return r.ApiService.ApiChannelLogsChannelIdGetExecute(r)
+func (r ApiApiChannelLogsIdGetRequest) Execute() (*GetChannelLogsVm, *http.Response, error) {
+	return r.ApiService.ApiChannelLogsIdGetExecute(r)
 }
 
 /*
-ApiChannelLogsChannelIdGet Method for ApiChannelLogsChannelIdGet
+ApiChannelLogsIdGet Method for ApiChannelLogsIdGet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param channelId
- @return ApiApiChannelLogsChannelIdGetRequest
+ @param id
+ @return ApiApiChannelLogsIdGetRequest
 */
-func (a *ChannelApiService) ApiChannelLogsChannelIdGet(ctx context.Context, channelId string) ApiApiChannelLogsChannelIdGetRequest {
-	return ApiApiChannelLogsChannelIdGetRequest{
+func (a *ChannelApiService) ApiChannelLogsIdGet(ctx context.Context, id string) ApiApiChannelLogsIdGetRequest {
+	return ApiApiChannelLogsIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		channelId: channelId,
+		id: id,
 	}
 }
 
 // Execute executes the request
 //  @return GetChannelLogsVm
-func (a *ChannelApiService) ApiChannelLogsChannelIdGetExecute(r ApiApiChannelLogsChannelIdGetRequest) (*GetChannelLogsVm, *http.Response, error) {
+func (a *ChannelApiService) ApiChannelLogsIdGetExecute(r ApiApiChannelLogsIdGetRequest) (*GetChannelLogsVm, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -712,13 +757,13 @@ func (a *ChannelApiService) ApiChannelLogsChannelIdGetExecute(r ApiApiChannelLog
 		localVarReturnValue  *GetChannelLogsVm
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelLogsChannelIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ChannelApiService.ApiChannelLogsIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/channel/logs/{channelId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"channelId"+"}", url.PathEscape(parameterToString(r.channelId, "")), -1)
+	localVarPath := localBasePath + "/api/channel/logs/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterToString(r.id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -842,7 +887,7 @@ func (a *ChannelApiService) ApiChannelPostExecute(r ApiApiChannelPostRequest) (s
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json", "text/json", "application/_*+json"}
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)

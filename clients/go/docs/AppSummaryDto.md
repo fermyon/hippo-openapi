@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **StorageId** | **string** |  | 
-**Channels** | [**[]AppChannelSummary**](AppChannelSummary.md) |  | 
+**Channels** | [**[]AppChannelListItem**](AppChannelListItem.md) |  | 
 
 ## Methods
 
 ### NewAppSummaryDto
 
-`func NewAppSummaryDto(id string, name string, storageId string, channels []AppChannelSummary, ) *AppSummaryDto`
+`func NewAppSummaryDto(id string, name string, storageId string, channels []AppChannelListItem, ) *AppSummaryDto`
 
 NewAppSummaryDto instantiates a new AppSummaryDto object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetStorageId sets StorageId field to given value.
 
 ### GetChannels
 
-`func (o *AppSummaryDto) GetChannels() []AppChannelSummary`
+`func (o *AppSummaryDto) GetChannels() []AppChannelListItem`
 
 GetChannels returns the Channels field if non-nil, zero value otherwise.
 
 ### GetChannelsOk
 
-`func (o *AppSummaryDto) GetChannelsOk() (*[]AppChannelSummary, bool)`
+`func (o *AppSummaryDto) GetChannelsOk() (*[]AppChannelListItem, bool)`
 
 GetChannelsOk returns a tuple with the Channels field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChannels
 
-`func (o *AppSummaryDto) SetChannels(v []AppChannelSummary)`
+`func (o *AppSummaryDto) SetChannels(v []AppChannelListItem)`
 
 SetChannels sets Channels field to given value.
 

@@ -13,12 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
-import ChannelDto from '../model/ChannelDto';
-import ChannelsVm from '../model/ChannelsVm';
+import ChannelItem from '../model/ChannelItem';
+import ChannelItemPage from '../model/ChannelItemPage';
 import CreateChannelCommand from '../model/CreateChannelCommand';
 import GetChannelLogsVm from '../model/GetChannelLogsVm';
+import PatchChannelCommand from '../model/PatchChannelCommand';
 import UpdateChannelCommand from '../model/UpdateChannelCommand';
-import UpdateChannelEnvironmentVariablesCommand from '../model/UpdateChannelEnvironmentVariablesCommand';
 
 /**
 * Channel service.
@@ -38,90 +38,6 @@ export default class ChannelApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-    /**
-     * Callback function to receive the result of the apiChannelChannelIdEnvironmentVariablesPut operation.
-     * @callback module:api/ChannelApi~apiChannelChannelIdEnvironmentVariablesPutCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * @param {String} channelId 
-     * @param {Object} opts Optional parameters
-     * @param {module:model/UpdateChannelEnvironmentVariablesCommand} opts.updateChannelEnvironmentVariablesCommand 
-     * @param {module:api/ChannelApi~apiChannelChannelIdEnvironmentVariablesPutCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    apiChannelChannelIdEnvironmentVariablesPut(channelId, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['updateChannelEnvironmentVariablesCommand'];
-      // verify the required parameter 'channelId' is set
-      if (channelId === undefined || channelId === null) {
-        throw new Error("Missing the required parameter 'channelId' when calling apiChannelChannelIdEnvironmentVariablesPut");
-      }
-
-      let pathParams = {
-        'channelId': channelId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
-      let accepts = [];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/api/channel/{channelId}/environment-variables', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the apiChannelChannelIdGet operation.
-     * @callback module:api/ChannelApi~apiChannelChannelIdGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ChannelDto} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * @param {String} channelId 
-     * @param {module:api/ChannelApi~apiChannelChannelIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ChannelDto}
-     */
-    apiChannelChannelIdGet(channelId, callback) {
-      let postBody = null;
-      // verify the required parameter 'channelId' is set
-      if (channelId === undefined || channelId === null) {
-        throw new Error("Missing the required parameter 'channelId' when calling apiChannelChannelIdGet");
-      }
-
-      let pathParams = {
-        'channelId': channelId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['Bearer'];
-      let contentTypes = [];
-      let accepts = ['text/plain', 'application/json', 'text/json'];
-      let returnType = ChannelDto;
-      return this.apiClient.callApi(
-        '/api/channel/{channelId}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the apiChannelExportGet operation.
@@ -161,20 +77,32 @@ export default class ChannelApi {
      * Callback function to receive the result of the apiChannelGet operation.
      * @callback module:api/ChannelApi~apiChannelGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ChannelsVm} data The data returned by the service call.
+     * @param {module:model/ChannelItemPage} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.searchText  (default to '')
+     * @param {Number} opts.pageIndex  (default to 0)
+     * @param {Number} opts.pageSize  (default to 50)
+     * @param {String} opts.sortBy  (default to 'Name')
+     * @param {Boolean} opts.isSortedAscending  (default to true)
      * @param {module:api/ChannelApi~apiChannelGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ChannelsVm}
+     * data is of type: {@link module:model/ChannelItemPage}
      */
-    apiChannelGet(callback) {
+    apiChannelGet(opts, callback) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'searchText': opts['searchText'],
+        'pageIndex': opts['pageIndex'],
+        'pageSize': opts['pageSize'],
+        'sortBy': opts['sortBy'],
+        'IsSortedAscending': opts['isSortedAscending']
       };
       let headerParams = {
       };
@@ -184,7 +112,7 @@ export default class ChannelApi {
       let authNames = ['Bearer'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
-      let returnType = ChannelsVm;
+      let returnType = ChannelItemPage;
       return this.apiClient.callApi(
         '/api/channel', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -233,6 +161,90 @@ export default class ChannelApi {
     }
 
     /**
+     * Callback function to receive the result of the apiChannelIdGet operation.
+     * @callback module:api/ChannelApi~apiChannelIdGetCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ChannelItem} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {String} id 
+     * @param {module:api/ChannelApi~apiChannelIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ChannelItem}
+     */
+    apiChannelIdGet(id, callback) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling apiChannelIdGet");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = [];
+      let accepts = ['text/plain', 'application/json', 'text/json'];
+      let returnType = ChannelItem;
+      return this.apiClient.callApi(
+        '/api/channel/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the apiChannelIdPatch operation.
+     * @callback module:api/ChannelApi~apiChannelIdPatchCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {String} id 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PatchChannelCommand} opts.patchChannelCommand 
+     * @param {module:api/ChannelApi~apiChannelIdPatchCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    apiChannelIdPatch(id, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['patchChannelCommand'];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling apiChannelIdPatch");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['Bearer'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/channel/{id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the apiChannelIdPut operation.
      * @callback module:api/ChannelApi~apiChannelIdPutCallback
      * @param {String} error Error message, if any.
@@ -265,7 +277,7 @@ export default class ChannelApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
@@ -276,27 +288,27 @@ export default class ChannelApi {
     }
 
     /**
-     * Callback function to receive the result of the apiChannelLogsChannelIdGet operation.
-     * @callback module:api/ChannelApi~apiChannelLogsChannelIdGetCallback
+     * Callback function to receive the result of the apiChannelLogsIdGet operation.
+     * @callback module:api/ChannelApi~apiChannelLogsIdGetCallback
      * @param {String} error Error message, if any.
      * @param {module:model/GetChannelLogsVm} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {String} channelId 
-     * @param {module:api/ChannelApi~apiChannelLogsChannelIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} id 
+     * @param {module:api/ChannelApi~apiChannelLogsIdGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetChannelLogsVm}
      */
-    apiChannelLogsChannelIdGet(channelId, callback) {
+    apiChannelLogsIdGet(id, callback) {
       let postBody = null;
-      // verify the required parameter 'channelId' is set
-      if (channelId === undefined || channelId === null) {
-        throw new Error("Missing the required parameter 'channelId' when calling apiChannelLogsChannelIdGet");
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling apiChannelLogsIdGet");
       }
 
       let pathParams = {
-        'channelId': channelId
+        'id': id
       };
       let queryParams = {
       };
@@ -310,7 +322,7 @@ export default class ChannelApi {
       let accepts = ['text/plain', 'application/json', 'text/json'];
       let returnType = GetChannelLogsVm;
       return this.apiClient.callApi(
-        '/api/channel/logs/{channelId}', 'GET',
+        '/api/channel/logs/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -344,7 +356,7 @@ export default class ChannelApi {
       };
 
       let authNames = ['Bearer'];
-      let contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/*+json'];
       let accepts = ['text/plain', 'application/json', 'text/json'];
       let returnType = 'String';
       return this.apiClient.callApi(

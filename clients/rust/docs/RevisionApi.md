@@ -38,16 +38,20 @@ This endpoint does not need any parameter.
 
 ## api_revision_get
 
-> crate::models::RevisionsVm api_revision_get()
+> crate::models::RevisionItemPage api_revision_get(page_index, page_size)
 
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**page_index** | Option<**i32**> |  |  |[default to 0]
+**page_size** | Option<**i32**> |  |  |[default to 50]
 
 ### Return type
 
-[**crate::models::RevisionsVm**](RevisionsVm.md)
+[**crate::models::RevisionItemPage**](RevisionItemPage.md)
 
 ### Authorization
 
@@ -111,7 +115,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, text/json, application/_*+json
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

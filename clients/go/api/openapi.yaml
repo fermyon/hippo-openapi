@@ -11,6 +11,9 @@ paths:
     post:
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateAccountCommand'
@@ -39,6 +42,9 @@ paths:
     post:
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateTokenCommand'
@@ -65,24 +71,70 @@ paths:
       - Account
   /api/app:
     get:
+      parameters:
+      - explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          default: Name
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: IsSortedAscending
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/AppsVm'
+                $ref: '#/components/schemas/AppItemPage'
             application/json:
               schema:
-                $ref: '#/components/schemas/AppsVm'
+                $ref: '#/components/schemas/AppItemPage'
             text/json:
               schema:
-                $ref: '#/components/schemas/AppsVm'
+                $ref: '#/components/schemas/AppItemPage'
           description: Success
       tags:
       - App
     post:
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateAppCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateAppCommand'
@@ -145,6 +197,9 @@ paths:
         style: simple
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateAppCommand'
@@ -161,24 +216,70 @@ paths:
       - App
   /api/certificate:
     get:
+      parameters:
+      - explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          default: Name
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: IsSortedAscending
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/CertificatesVm'
+                $ref: '#/components/schemas/CertificateItemPage'
             application/json:
               schema:
-                $ref: '#/components/schemas/CertificatesVm'
+                $ref: '#/components/schemas/CertificateItemPage'
             text/json:
               schema:
-                $ref: '#/components/schemas/CertificatesVm'
+                $ref: '#/components/schemas/CertificateItemPage'
           description: Success
       tags:
       - Certificate
     post:
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateCertificateCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateCertificateCommand'
@@ -241,6 +342,9 @@ paths:
         style: simple
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpdateCertificateCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateCertificateCommand'
@@ -257,24 +361,70 @@ paths:
       - Certificate
   /api/channel:
     get:
+      parameters:
+      - explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          default: ""
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          default: Name
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: IsSortedAscending
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/ChannelsVm'
+                $ref: '#/components/schemas/ChannelItemPage'
             application/json:
               schema:
-                $ref: '#/components/schemas/ChannelsVm'
+                $ref: '#/components/schemas/ChannelItemPage'
             text/json:
               schema:
-                $ref: '#/components/schemas/ChannelsVm'
+                $ref: '#/components/schemas/ChannelItemPage'
           description: Success
       tags:
       - Channel
     post:
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateChannelCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/CreateChannelCommand'
@@ -299,39 +449,6 @@ paths:
               schema:
                 format: uuid
                 type: string
-          description: Success
-      tags:
-      - Channel
-  /api/channel/{channelId}:
-    get:
-      parameters:
-      - explode: false
-        in: path
-        name: channelId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ChannelDto'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChannelDto'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ChannelDto'
-          description: Success
-      tags:
-      - Channel
-  /api/channel/export:
-    get:
-      responses:
-        "200":
           description: Success
       tags:
       - Channel
@@ -351,6 +468,60 @@ paths:
           description: Success
       tags:
       - Channel
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ChannelItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelItem'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ChannelItem'
+          description: Success
+      tags:
+      - Channel
+    patch:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/PatchChannelCommand'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchChannelCommand'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PatchChannelCommand'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PatchChannelCommand'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Channel
     put:
       parameters:
       - explode: false
@@ -363,6 +534,9 @@ paths:
         style: simple
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpdateChannelCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateChannelCommand'
@@ -377,39 +551,19 @@ paths:
           description: Success
       tags:
       - Channel
-  /api/channel/{channelId}/environment-variables:
-    put:
-      parameters:
-      - explode: false
-        in: path
-        name: channelId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateChannelEnvironmentVariablesCommand'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/UpdateChannelEnvironmentVariablesCommand'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/UpdateChannelEnvironmentVariablesCommand'
+  /api/channel/export:
+    get:
       responses:
         "200":
           description: Success
       tags:
       - Channel
-  /api/channel/logs/{channelId}:
+  /api/channel/logs/{id}:
     get:
       parameters:
       - explode: false
         in: path
-        name: channelId
+        name: id
         required: true
         schema:
           format: uuid
@@ -430,145 +584,110 @@ paths:
           description: Success
       tags:
       - Channel
-  /api/environmentvariable:
-    get:
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/EnvironmentVariablesVm'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EnvironmentVariablesVm'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/EnvironmentVariablesVm'
-          description: Success
-      tags:
-      - EnvironmentVariable
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateEnvironmentVariableCommand'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CreateEnvironmentVariableCommand'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/CreateEnvironmentVariableCommand'
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                format: uuid
-                type: string
-            application/json:
-              schema:
-                format: uuid
-                type: string
-            text/json:
-              schema:
-                format: uuid
-                type: string
-          description: Success
-      tags:
-      - EnvironmentVariable
-  /api/environmentvariable/export:
-    get:
-      responses:
-        "200":
-          description: Success
-      tags:
-      - EnvironmentVariable
-  /api/environmentvariable/{id}:
-    delete:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: Success
-      tags:
-      - EnvironmentVariable
-    put:
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateEnvironmentVariableCommand'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/UpdateEnvironmentVariableCommand'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/UpdateEnvironmentVariableCommand'
-      responses:
-        "200":
-          description: Success
-      tags:
-      - EnvironmentVariable
   /api/jobstatus:
     get:
+      parameters:
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 2147483647
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                items:
-                  $ref: '#/components/schemas/ChannelJobStatus'
-                type: array
+                $ref: '#/components/schemas/ChannelJobStatusItemPage'
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ChannelJobStatus'
-                type: array
+                $ref: '#/components/schemas/ChannelJobStatusItemPage'
             text/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/ChannelJobStatus'
-                type: array
+                $ref: '#/components/schemas/ChannelJobStatusItemPage'
+          description: Success
+      tags:
+      - JobStatus
+  /api/jobstatus/{channelId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: channelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ChannelJobStatusItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelJobStatusItem'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ChannelJobStatusItem'
           description: Success
       tags:
       - JobStatus
   /api/revision:
     get:
+      parameters:
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/RevisionsVm'
+                $ref: '#/components/schemas/RevisionItemPage'
             application/json:
               schema:
-                $ref: '#/components/schemas/RevisionsVm'
+                $ref: '#/components/schemas/RevisionItemPage'
             text/json:
               schema:
-                $ref: '#/components/schemas/RevisionsVm'
+                $ref: '#/components/schemas/RevisionItemPage'
           description: Success
       tags:
       - Revision
     post:
       requestBody:
         content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RegisterRevisionCommand'
           application/json:
             schema:
               $ref: '#/components/schemas/RegisterRevisionCommand'
@@ -611,45 +730,56 @@ paths:
       parameters:
       - explode: true
         in: query
-        name: queryString
+        name: searchText
         required: false
         schema:
+          default: ""
           type: string
         style: form
       - explode: true
         in: query
-        name: offset
+        name: pageIndex
         required: false
         schema:
-          format: int64
+          default: 0
+          format: int32
           type: integer
         style: form
       - explode: true
         in: query
-        name: limit
+        name: pageSize
         required: false
         schema:
+          default: 50
           format: int32
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: IsSortedAscending
+        required: false
+        schema:
+          default: true
+          type: boolean
         style: form
       responses:
         "200":
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/StorageList'
+                $ref: '#/components/schemas/StringPage'
             application/json:
               schema:
-                $ref: '#/components/schemas/StorageList'
+                $ref: '#/components/schemas/StringPage'
             text/json:
               schema:
-                $ref: '#/components/schemas/StorageList'
+                $ref: '#/components/schemas/StringPage'
           description: Success
       tags:
       - Storage
 components:
   schemas:
-    AppChannelSummary:
+    AppChannelListItem:
       additionalProperties: false
       example:
         name: name
@@ -668,7 +798,7 @@ components:
       - id
       - name
       type: object
-    AppDto:
+    AppItem:
       additionalProperties: false
       example:
         channels:
@@ -695,13 +825,65 @@ components:
           type: string
         channels:
           items:
-            $ref: '#/components/schemas/AppChannelSummary'
+            $ref: '#/components/schemas/AppChannelListItem'
           type: array
       required:
       - channels
       - id
       - name
       - storageId
+      type: object
+    AppItemPage:
+      additionalProperties: false
+      example:
+        totalItems: 0
+        pageIndex: 6
+        isLastPage: true
+        pageSize: 1
+        items:
+        - channels:
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          storageId: storageId
+        - channels:
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - name: name
+            activeRevisionNumber: activeRevisionNumber
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          storageId: storageId
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/AppItem'
+          nullable: true
+          type: array
+        totalItems:
+          format: int32
+          type: integer
+        pageIndex:
+          format: int32
+          nullable: true
+          type: integer
+        pageSize:
+          format: int32
+          nullable: true
+          type: integer
+        isLastPage:
+          nullable: true
+          readOnly: true
+          type: boolean
       type: object
     AppSummaryDto:
       additionalProperties: false
@@ -726,7 +908,7 @@ components:
           type: string
         channels:
           items:
-            $ref: '#/components/schemas/AppChannelSummary'
+            $ref: '#/components/schemas/AppChannelListItem'
           type: array
       required:
       - channels
@@ -734,41 +916,7 @@ components:
       - name
       - storageId
       type: object
-    AppsVm:
-      additionalProperties: false
-      example:
-        apps:
-        - channels:
-          - name: name
-            activeRevisionNumber: activeRevisionNumber
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - name: name
-            activeRevisionNumber: activeRevisionNumber
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
-          description: description
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          storageId: storageId
-        - channels:
-          - name: name
-            activeRevisionNumber: activeRevisionNumber
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - name: name
-            activeRevisionNumber: activeRevisionNumber
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
-          description: description
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          storageId: storageId
-      properties:
-        apps:
-          items:
-            $ref: '#/components/schemas/AppDto'
-          type: array
-      required:
-      - apps
-      type: object
-    CertificateDto:
+    CertificateItem:
       additionalProperties: false
       example:
         privateKey: privateKey
@@ -785,12 +933,10 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             storageId: storageId
           environmentVariables:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
+          - value: value
             channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
+          - value: value
             channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -816,7 +962,9 @@ components:
             revisionNumber: revisionNumber
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
           rangeRule: rangeRule
+          lastPublishAt: 2000-01-23T04:56:07.000+00:00
         - appSummary:
             channels:
             - name: name
@@ -829,12 +977,10 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             storageId: storageId
           environmentVariables:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
+          - value: value
             channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
+          - value: value
             channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             key: key
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -860,7 +1006,9 @@ components:
             revisionNumber: revisionNumber
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
           rangeRule: rangeRule
+          lastPublishAt: 2000-01-23T04:56:07.000+00:00
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         publicKey: publicKey
@@ -876,7 +1024,7 @@ components:
           type: string
         channels:
           items:
-            $ref: '#/components/schemas/ChannelDto'
+            $ref: '#/components/schemas/ChannelItem'
           type: array
       required:
       - channels
@@ -885,10 +1033,14 @@ components:
       - privateKey
       - publicKey
       type: object
-    CertificatesVm:
+    CertificateItemPage:
       additionalProperties: false
       example:
-        certificates:
+        totalItems: 0
+        pageIndex: 6
+        isLastPage: true
+        pageSize: 1
+        items:
         - privateKey: privateKey
           channels:
           - appSummary:
@@ -903,12 +1055,10 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               storageId: storageId
             environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -934,7 +1084,9 @@ components:
               revisionNumber: revisionNumber
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
             rangeRule: rangeRule
+            lastPublishAt: 2000-01-23T04:56:07.000+00:00
           - appSummary:
               channels:
               - name: name
@@ -947,12 +1099,10 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               storageId: storageId
             environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -978,7 +1128,9 @@ components:
               revisionNumber: revisionNumber
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
             rangeRule: rangeRule
+            lastPublishAt: 2000-01-23T04:56:07.000+00:00
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           publicKey: publicKey
@@ -996,12 +1148,10 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               storageId: storageId
             environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1027,7 +1177,9 @@ components:
               revisionNumber: revisionNumber
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
             rangeRule: rangeRule
+            lastPublishAt: 2000-01-23T04:56:07.000+00:00
           - appSummary:
               channels:
               - name: name
@@ -1040,12 +1192,10 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               storageId: storageId
             environmentVariables:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              value: value
+            - value: value
               channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               key: key
             appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1071,19 +1221,35 @@ components:
               revisionNumber: revisionNumber
               appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
             rangeRule: rangeRule
+            lastPublishAt: 2000-01-23T04:56:07.000+00:00
           name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           publicKey: publicKey
       properties:
-        certificates:
+        items:
           items:
-            $ref: '#/components/schemas/CertificateDto'
+            $ref: '#/components/schemas/CertificateItem'
+          nullable: true
           type: array
-      required:
-      - certificates
+        totalItems:
+          format: int32
+          type: integer
+        pageIndex:
+          format: int32
+          nullable: true
+          type: integer
+        pageSize:
+          format: int32
+          nullable: true
+          type: integer
+        isLastPage:
+          nullable: true
+          readOnly: true
+          type: boolean
       type: object
-    ChannelDto:
+    ChannelItem:
       additionalProperties: false
       example:
         appSummary:
@@ -1098,12 +1264,10 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           storageId: storageId
         environmentVariables:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          value: value
+        - value: value
           channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          value: value
+        - value: value
           channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1129,7 +1293,9 @@ components:
           revisionNumber: revisionNumber
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
         rangeRule: rangeRule
+        lastPublishAt: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           format: uuid
@@ -1144,15 +1310,19 @@ components:
         revisionSelectionStrategy:
           $ref: '#/components/schemas/ChannelRevisionSelectionStrategy'
         activeRevision:
-          $ref: '#/components/schemas/RevisionDto'
+          $ref: '#/components/schemas/RevisionItem'
+        lastPublishAt:
+          format: date-time
+          nullable: true
+          type: string
         rangeRule:
           nullable: true
           type: string
         certificate:
-          $ref: '#/components/schemas/CertificateDto'
+          $ref: '#/components/schemas/CertificateItem'
         environmentVariables:
           items:
-            $ref: '#/components/schemas/EnvironmentVariableDto'
+            $ref: '#/components/schemas/EnvironmentVariableItem'
           type: array
         appSummary:
           $ref: '#/components/schemas/AppSummaryDto'
@@ -1164,7 +1334,125 @@ components:
       - name
       - revisionSelectionStrategy
       type: object
-    ChannelJobStatus:
+    ChannelItemPage:
+      additionalProperties: false
+      example:
+        totalItems: 0
+        pageIndex: 6
+        isLastPage: true
+        pageSize: 1
+        items:
+        - appSummary:
+            channels:
+            - name: name
+              activeRevisionNumber: activeRevisionNumber
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - name: name
+              activeRevisionNumber: activeRevisionNumber
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            storageId: storageId
+          environmentVariables:
+          - value: value
+            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            key: key
+          - value: value
+            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            key: key
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          domain: domain
+          name: name
+          certificate: null
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
+          activeRevision:
+            components:
+            - route: route
+              name: name
+              channel: channel
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              type: type
+            - route: route
+              name: name
+              channel: channel
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              type: type
+            revisionNumber: revisionNumber
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          rangeRule: rangeRule
+          lastPublishAt: 2000-01-23T04:56:07.000+00:00
+        - appSummary:
+            channels:
+            - name: name
+              activeRevisionNumber: activeRevisionNumber
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - name: name
+              activeRevisionNumber: activeRevisionNumber
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            storageId: storageId
+          environmentVariables:
+          - value: value
+            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            key: key
+          - value: value
+            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            key: key
+          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          domain: domain
+          name: name
+          certificate: null
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          revisionSelectionStrategy: null
+          activeRevision:
+            components:
+            - route: route
+              name: name
+              channel: channel
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              type: type
+            - route: route
+              name: name
+              channel: channel
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              source: source
+              type: type
+            revisionNumber: revisionNumber
+            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          rangeRule: rangeRule
+          lastPublishAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ChannelItem'
+          nullable: true
+          type: array
+        totalItems:
+          format: int32
+          type: integer
+        pageIndex:
+          format: int32
+          nullable: true
+          type: integer
+        pageSize:
+          format: int32
+          nullable: true
+          type: integer
+        isLastPage:
+          nullable: true
+          readOnly: true
+          type: boolean
+      type: object
+    ChannelJobStatusItem:
       additionalProperties: false
       example:
         channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -1179,110 +1467,52 @@ components:
       - channelId
       - status
       type: object
+    ChannelJobStatusItemPage:
+      additionalProperties: false
+      example:
+        totalItems: 0
+        pageIndex: 6
+        isLastPage: true
+        pageSize: 1
+        items:
+        - channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: null
+        - channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: null
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ChannelJobStatusItem'
+          nullable: true
+          type: array
+        totalItems:
+          format: int32
+          type: integer
+        pageIndex:
+          format: int32
+          nullable: true
+          type: integer
+        pageSize:
+          format: int32
+          nullable: true
+          type: integer
+        isLastPage:
+          nullable: true
+          readOnly: true
+          type: boolean
+      type: object
     ChannelRevisionSelectionStrategy:
       enum:
       - UseRangeRule
       - UseSpecifiedRevision
       type: string
-    ChannelsVm:
+    ChannelRevisionSelectionStrategyField:
       additionalProperties: false
       example:
-        channels:
-        - appSummary:
-            channels:
-            - name: name
-              activeRevisionNumber: activeRevisionNumber
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - name: name
-              activeRevisionNumber: activeRevisionNumber
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            name: name
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            storageId: storageId
-          environmentVariables:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          domain: domain
-          name: name
-          certificate: null
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          revisionSelectionStrategy: null
-          activeRevision:
-            components:
-            - route: route
-              name: name
-              channel: channel
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              source: source
-              type: type
-            - route: route
-              name: name
-              channel: channel
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              source: source
-              type: type
-            revisionNumber: revisionNumber
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          rangeRule: rangeRule
-        - appSummary:
-            channels:
-            - name: name
-              activeRevisionNumber: activeRevisionNumber
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - name: name
-              activeRevisionNumber: activeRevisionNumber
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            name: name
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            storageId: storageId
-          environmentVariables:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            value: value
-            channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            key: key
-          appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          domain: domain
-          name: name
-          certificate: null
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          revisionSelectionStrategy: null
-          activeRevision:
-            components:
-            - route: route
-              name: name
-              channel: channel
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              source: source
-              type: type
-            - route: route
-              name: name
-              channel: channel
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              source: source
-              type: type
-            revisionNumber: revisionNumber
-            appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          rangeRule: rangeRule
+        value: null
       properties:
-        channels:
-          items:
-            $ref: '#/components/schemas/ChannelDto'
-          type: array
-      required:
-      - channels
+        value:
+          $ref: '#/components/schemas/ChannelRevisionSelectionStrategy'
       type: object
     CreateAccountCommand:
       additionalProperties: false
@@ -1367,25 +1597,6 @@ components:
       - name
       - revisionSelectionStrategy
       type: object
-    CreateEnvironmentVariableCommand:
-      additionalProperties: false
-      example:
-        value: value
-        key: key
-        channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-        channelId:
-          format: uuid
-          type: string
-      required:
-      - channelId
-      - key
-      - value
-      type: object
     CreateTokenCommand:
       additionalProperties: false
       example:
@@ -1400,17 +1611,13 @@ components:
       - password
       - userName
       type: object
-    EnvironmentVariableDto:
+    EnvironmentVariableItem:
       additionalProperties: false
       example:
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         value: value
         channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         key: key
       properties:
-        id:
-          format: uuid
-          type: string
         channelId:
           format: uuid
           type: string
@@ -1420,29 +1627,8 @@ components:
           type: string
       required:
       - channelId
-      - id
       - key
       - value
-      type: object
-    EnvironmentVariablesVm:
-      additionalProperties: false
-      example:
-        environmentVariables:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          value: value
-          channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          key: key
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          value: value
-          channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          key: key
-      properties:
-        environmentVariables:
-          items:
-            $ref: '#/components/schemas/EnvironmentVariableDto'
-          type: array
-      required:
-      - environmentVariables
       type: object
     GetChannelLogsVm:
       additionalProperties: false
@@ -1458,6 +1644,16 @@ components:
       required:
       - logs
       type: object
+    GuidNullableField:
+      additionalProperties: false
+      example:
+        value: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        value:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
     JobStatus:
       enum:
       - Unknown
@@ -1465,6 +1661,47 @@ components:
       - Running
       - Dead
       type: string
+    PatchChannelCommand:
+      additionalProperties: false
+      example:
+        environmentVariables:
+          value:
+          - value: value
+            key: key
+          - value: value
+            key: key
+        domain:
+          value: value
+        certificateId:
+          value: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name:
+          value: value
+        revisionSelectionStrategy:
+          value: null
+        rangeRule:
+          value: value
+        activeRevisionId:
+          value: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        channelId:
+          format: uuid
+          type: string
+        environmentVariables:
+          $ref: '#/components/schemas/UpdateEnvironmentVariableDtoListField'
+        name:
+          $ref: '#/components/schemas/StringField'
+        domain:
+          $ref: '#/components/schemas/StringField'
+        revisionSelectionStrategy:
+          $ref: '#/components/schemas/ChannelRevisionSelectionStrategyField'
+        rangeRule:
+          $ref: '#/components/schemas/StringField'
+        activeRevisionId:
+          $ref: '#/components/schemas/GuidNullableField'
+        certificateId:
+          $ref: '#/components/schemas/GuidNullableField'
+      type: object
     RegisterRevisionCommand:
       additionalProperties: false
       example:
@@ -1510,7 +1747,7 @@ components:
       - name
       - source
       type: object
-    RevisionDto:
+    RevisionItem:
       additionalProperties: false
       example:
         components:
@@ -1529,6 +1766,7 @@ components:
         revisionNumber: revisionNumber
         appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
       properties:
         id:
           format: uuid
@@ -1543,16 +1781,23 @@ components:
             $ref: '#/components/schemas/RevisionComponentDto'
           readOnly: true
           type: array
+        type:
+          nullable: true
+          type: string
       required:
       - appId
       - components
       - id
       - revisionNumber
       type: object
-    RevisionsVm:
+    RevisionItemPage:
       additionalProperties: false
       example:
-        revisions:
+        totalItems: 0
+        pageIndex: 6
+        isLastPage: true
+        pageSize: 1
+        items:
         - components:
           - route: route
             name: name
@@ -1569,6 +1814,7 @@ components:
           revisionNumber: revisionNumber
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
         - components:
           - route: route
             name: name
@@ -1585,27 +1831,69 @@ components:
           revisionNumber: revisionNumber
           appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
       properties:
-        revisions:
+        items:
           items:
-            $ref: '#/components/schemas/RevisionDto'
+            $ref: '#/components/schemas/RevisionItem'
+          nullable: true
           type: array
-      required:
-      - revisions
+        totalItems:
+          format: int32
+          type: integer
+        pageIndex:
+          format: int32
+          nullable: true
+          type: integer
+        pageSize:
+          format: int32
+          nullable: true
+          type: integer
+        isLastPage:
+          nullable: true
+          readOnly: true
+          type: boolean
       type: object
-    StorageList:
+    StringField:
       additionalProperties: false
       example:
-        storages:
-        - storages
-        - storages
+        value: value
       properties:
-        storages:
+        value:
+          nullable: true
+          type: string
+      type: object
+    StringPage:
+      additionalProperties: false
+      example:
+        totalItems: 0
+        pageIndex: 6
+        isLastPage: true
+        pageSize: 1
+        items:
+        - items
+        - items
+      properties:
+        items:
           items:
             type: string
+          nullable: true
           type: array
-      required:
-      - storages
+        totalItems:
+          format: int32
+          type: integer
+        pageIndex:
+          format: int32
+          nullable: true
+          type: integer
+        pageSize:
+          format: int32
+          nullable: true
+          type: integer
+        isLastPage:
+          nullable: true
+          readOnly: true
+          type: boolean
       type: object
     TokenInfo:
       additionalProperties: false
@@ -1626,19 +1914,15 @@ components:
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        storageId: storageId
       properties:
         id:
           format: uuid
           type: string
         name:
           type: string
-        storageId:
-          type: string
       required:
       - id
       - name
-      - storageId
       type: object
     UpdateCertificateCommand:
       additionalProperties: false
@@ -1666,6 +1950,7 @@ components:
     UpdateChannelCommand:
       additionalProperties: false
       example:
+        lastPublishDate: 2000-01-23T04:56:07.000+00:00
         domain: domain
         certificateId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
@@ -1690,6 +1975,9 @@ components:
           format: uuid
           nullable: true
           type: string
+        lastPublishDate:
+          format: date-time
+          type: string
         certificateId:
           format: uuid
           nullable: true
@@ -1700,64 +1988,34 @@ components:
       - name
       - revisionSelectionStrategy
       type: object
-    UpdateChannelEnvironmentVariablesCommand:
+    UpdateEnvironmentVariableDto:
       additionalProperties: false
       example:
-        environmentVariables:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          value: value
-          key: key
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          value: value
-          key: key
-        channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+        key: key
       properties:
-        channelId:
-          format: uuid
+        key:
           type: string
-        environmentVariables:
+        value:
+          type: string
+      required:
+      - key
+      - value
+      type: object
+    UpdateEnvironmentVariableDtoListField:
+      additionalProperties: false
+      example:
+        value:
+        - value: value
+          key: key
+        - value: value
+          key: key
+      properties:
+        value:
           items:
             $ref: '#/components/schemas/UpdateEnvironmentVariableDto'
           nullable: true
           type: array
-      type: object
-    UpdateEnvironmentVariableCommand:
-      additionalProperties: false
-      example:
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        value: value
-        key: key
-      properties:
-        id:
-          format: uuid
-          type: string
-        key:
-          type: string
-        value:
-          type: string
-      required:
-      - id
-      - key
-      - value
-      type: object
-    UpdateEnvironmentVariableDto:
-      additionalProperties: false
-      example:
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        value: value
-        key: key
-      properties:
-        id:
-          format: uuid
-          type: string
-        key:
-          type: string
-        value:
-          type: string
-      required:
-      - id
-      - key
-      - value
       type: object
   securitySchemes:
     Bearer:

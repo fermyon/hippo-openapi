@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## apiStorageGet
 
-> StorageList apiStorageGet(opts)
+> StringPage apiStorageGet(opts)
 
 
 
@@ -27,9 +27,10 @@ Bearer.apiKey = 'YOUR API KEY';
 
 let apiInstance = new HippoWeb.StorageApi();
 let opts = {
-  'queryString': "queryString_example", // String | 
-  'offset': 789, // Number | 
-  'limit': 56 // Number | 
+  'searchText': "''", // String | 
+  'pageIndex': 0, // Number | 
+  'pageSize': 50, // Number | 
+  'isSortedAscending': true // Boolean | 
 };
 apiInstance.apiStorageGet(opts, (error, data, response) => {
   if (error) {
@@ -45,13 +46,14 @@ apiInstance.apiStorageGet(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **queryString** | **String**|  | [optional] 
- **offset** | **Number**|  | [optional] 
- **limit** | **Number**|  | [optional] 
+ **searchText** | **String**|  | [optional] [default to &#39;&#39;]
+ **pageIndex** | **Number**|  | [optional] [default to 0]
+ **pageSize** | **Number**|  | [optional] [default to 50]
+ **isSortedAscending** | **Boolean**|  | [optional] [default to true]
 
 ### Return type
 
-[**StorageList**](StorageList.md)
+[**StringPage**](StringPage.md)
 
 ### Authorization
 

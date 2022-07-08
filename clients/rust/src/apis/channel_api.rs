@@ -15,20 +15,6 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`api_channel_channel_id_environment_variables_put`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiChannelChannelIdEnvironmentVariablesPutError {
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`api_channel_channel_id_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ApiChannelChannelIdGetError {
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`api_channel_export_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -50,6 +36,20 @@ pub enum ApiChannelIdDeleteError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_channel_id_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiChannelIdGetError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`api_channel_id_patch`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiChannelIdPatchError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`api_channel_id_put`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -57,10 +57,10 @@ pub enum ApiChannelIdPutError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`api_channel_logs_channel_id_get`]
+/// struct for typed errors of method [`api_channel_logs_id_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiChannelLogsChannelIdGetError {
+pub enum ApiChannelLogsIdGetError {
     UnknownValue(serde_json::Value),
 }
 
@@ -71,77 +71,6 @@ pub enum ApiChannelPostError {
     UnknownValue(serde_json::Value),
 }
 
-
-pub async fn api_channel_channel_id_environment_variables_put(configuration: &configuration::Configuration, channel_id: &str, update_channel_environment_variables_command: Option<crate::models::UpdateChannelEnvironmentVariablesCommand>) -> Result<(), Error<ApiChannelChannelIdEnvironmentVariablesPutError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/channel/{channelId}/environment-variables", local_var_configuration.base_path, channelId=crate::apis::urlencode(channel_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
-    };
-    local_var_req_builder = local_var_req_builder.json(&update_channel_environment_variables_command);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        Ok(())
-    } else {
-        let local_var_entity: Option<ApiChannelChannelIdEnvironmentVariablesPutError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-pub async fn api_channel_channel_id_get(configuration: &configuration::Configuration, channel_id: &str) -> Result<crate::models::ChannelDto, Error<ApiChannelChannelIdGetError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/channel/{channelId}", local_var_configuration.base_path, channelId=crate::apis::urlencode(channel_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<ApiChannelChannelIdGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
 
 pub async fn api_channel_export_get(configuration: &configuration::Configuration, ) -> Result<(), Error<ApiChannelExportGetError>> {
     let local_var_configuration = configuration;
@@ -178,7 +107,7 @@ pub async fn api_channel_export_get(configuration: &configuration::Configuration
     }
 }
 
-pub async fn api_channel_get(configuration: &configuration::Configuration, ) -> Result<crate::models::ChannelsVm, Error<ApiChannelGetError>> {
+pub async fn api_channel_get(configuration: &configuration::Configuration, search_text: Option<&str>, page_index: Option<i32>, page_size: Option<i32>, sort_by: Option<&str>, is_sorted_ascending: Option<bool>) -> Result<crate::models::ChannelItemPage, Error<ApiChannelGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -186,6 +115,21 @@ pub async fn api_channel_get(configuration: &configuration::Configuration, ) -> 
     let local_var_uri_str = format!("{}/api/channel", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = search_text {
+        local_var_req_builder = local_var_req_builder.query(&[("searchText", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = page_index {
+        local_var_req_builder = local_var_req_builder.query(&[("pageIndex", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = page_size {
+        local_var_req_builder = local_var_req_builder.query(&[("pageSize", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = sort_by {
+        local_var_req_builder = local_var_req_builder.query(&[("sortBy", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = is_sorted_ascending {
+        local_var_req_builder = local_var_req_builder.query(&[("IsSortedAscending", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -248,6 +192,77 @@ pub async fn api_channel_id_delete(configuration: &configuration::Configuration,
     }
 }
 
+pub async fn api_channel_id_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::ChannelItem, Error<ApiChannelIdGetError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/channel/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ApiChannelIdGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn api_channel_id_patch(configuration: &configuration::Configuration, id: &str, patch_channel_command: Option<crate::models::PatchChannelCommand>) -> Result<(), Error<ApiChannelIdPatchError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/channel/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("Authorization", local_var_value);
+    };
+    local_var_req_builder = local_var_req_builder.json(&patch_channel_command);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<ApiChannelIdPatchError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 pub async fn api_channel_id_put(configuration: &configuration::Configuration, id: &str, update_channel_command: Option<crate::models::UpdateChannelCommand>) -> Result<(), Error<ApiChannelIdPutError>> {
     let local_var_configuration = configuration;
 
@@ -284,12 +299,12 @@ pub async fn api_channel_id_put(configuration: &configuration::Configuration, id
     }
 }
 
-pub async fn api_channel_logs_channel_id_get(configuration: &configuration::Configuration, channel_id: &str) -> Result<crate::models::GetChannelLogsVm, Error<ApiChannelLogsChannelIdGetError>> {
+pub async fn api_channel_logs_id_get(configuration: &configuration::Configuration, id: &str) -> Result<crate::models::GetChannelLogsVm, Error<ApiChannelLogsIdGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/channel/logs/{channelId}", local_var_configuration.base_path, channelId=crate::apis::urlencode(channel_id));
+    let local_var_uri_str = format!("{}/api/channel/logs/{id}", local_var_configuration.base_path, id=crate::apis::urlencode(id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -313,7 +328,7 @@ pub async fn api_channel_logs_channel_id_get(configuration: &configuration::Conf
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ApiChannelLogsChannelIdGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ApiChannelLogsIdGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

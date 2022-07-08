@@ -140,19 +140,15 @@ Class | Method | HTTP request | Description
 *HippoWeb.CertificateApi* | [**apiCertificateIdDelete**](docs/CertificateApi.md#apiCertificateIdDelete) | **DELETE** /api/certificate/{id} | 
 *HippoWeb.CertificateApi* | [**apiCertificateIdPut**](docs/CertificateApi.md#apiCertificateIdPut) | **PUT** /api/certificate/{id} | 
 *HippoWeb.CertificateApi* | [**apiCertificatePost**](docs/CertificateApi.md#apiCertificatePost) | **POST** /api/certificate | 
-*HippoWeb.ChannelApi* | [**apiChannelChannelIdEnvironmentVariablesPut**](docs/ChannelApi.md#apiChannelChannelIdEnvironmentVariablesPut) | **PUT** /api/channel/{channelId}/environment-variables | 
-*HippoWeb.ChannelApi* | [**apiChannelChannelIdGet**](docs/ChannelApi.md#apiChannelChannelIdGet) | **GET** /api/channel/{channelId} | 
 *HippoWeb.ChannelApi* | [**apiChannelExportGet**](docs/ChannelApi.md#apiChannelExportGet) | **GET** /api/channel/export | 
 *HippoWeb.ChannelApi* | [**apiChannelGet**](docs/ChannelApi.md#apiChannelGet) | **GET** /api/channel | 
 *HippoWeb.ChannelApi* | [**apiChannelIdDelete**](docs/ChannelApi.md#apiChannelIdDelete) | **DELETE** /api/channel/{id} | 
+*HippoWeb.ChannelApi* | [**apiChannelIdGet**](docs/ChannelApi.md#apiChannelIdGet) | **GET** /api/channel/{id} | 
+*HippoWeb.ChannelApi* | [**apiChannelIdPatch**](docs/ChannelApi.md#apiChannelIdPatch) | **PATCH** /api/channel/{id} | 
 *HippoWeb.ChannelApi* | [**apiChannelIdPut**](docs/ChannelApi.md#apiChannelIdPut) | **PUT** /api/channel/{id} | 
-*HippoWeb.ChannelApi* | [**apiChannelLogsChannelIdGet**](docs/ChannelApi.md#apiChannelLogsChannelIdGet) | **GET** /api/channel/logs/{channelId} | 
+*HippoWeb.ChannelApi* | [**apiChannelLogsIdGet**](docs/ChannelApi.md#apiChannelLogsIdGet) | **GET** /api/channel/logs/{id} | 
 *HippoWeb.ChannelApi* | [**apiChannelPost**](docs/ChannelApi.md#apiChannelPost) | **POST** /api/channel | 
-*HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableExportGet**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableExportGet) | **GET** /api/environmentvariable/export | 
-*HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableGet**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableGet) | **GET** /api/environmentvariable | 
-*HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableIdDelete**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableIdDelete) | **DELETE** /api/environmentvariable/{id} | 
-*HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariableIdPut**](docs/EnvironmentVariableApi.md#apiEnvironmentvariableIdPut) | **PUT** /api/environmentvariable/{id} | 
-*HippoWeb.EnvironmentVariableApi* | [**apiEnvironmentvariablePost**](docs/EnvironmentVariableApi.md#apiEnvironmentvariablePost) | **POST** /api/environmentvariable | 
+*HippoWeb.JobStatusApi* | [**apiJobstatusChannelIdGet**](docs/JobStatusApi.md#apiJobstatusChannelIdGet) | **GET** /api/jobstatus/{channelId} | 
 *HippoWeb.JobStatusApi* | [**apiJobstatusGet**](docs/JobStatusApi.md#apiJobstatusGet) | **GET** /api/jobstatus | 
 *HippoWeb.RevisionApi* | [**apiRevisionExportGet**](docs/RevisionApi.md#apiRevisionExportGet) | **GET** /api/revision/export | 
 *HippoWeb.RevisionApi* | [**apiRevisionGet**](docs/RevisionApi.md#apiRevisionGet) | **GET** /api/revision | 
@@ -163,38 +159,40 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [HippoWeb.AppChannelSummary](docs/AppChannelSummary.md)
- - [HippoWeb.AppDto](docs/AppDto.md)
+ - [HippoWeb.AppChannelListItem](docs/AppChannelListItem.md)
+ - [HippoWeb.AppItem](docs/AppItem.md)
+ - [HippoWeb.AppItemPage](docs/AppItemPage.md)
  - [HippoWeb.AppSummaryDto](docs/AppSummaryDto.md)
- - [HippoWeb.AppsVm](docs/AppsVm.md)
- - [HippoWeb.CertificateDto](docs/CertificateDto.md)
- - [HippoWeb.CertificatesVm](docs/CertificatesVm.md)
- - [HippoWeb.ChannelDto](docs/ChannelDto.md)
- - [HippoWeb.ChannelJobStatus](docs/ChannelJobStatus.md)
+ - [HippoWeb.CertificateItem](docs/CertificateItem.md)
+ - [HippoWeb.CertificateItemPage](docs/CertificateItemPage.md)
+ - [HippoWeb.ChannelItem](docs/ChannelItem.md)
+ - [HippoWeb.ChannelItemPage](docs/ChannelItemPage.md)
+ - [HippoWeb.ChannelJobStatusItem](docs/ChannelJobStatusItem.md)
+ - [HippoWeb.ChannelJobStatusItemPage](docs/ChannelJobStatusItemPage.md)
  - [HippoWeb.ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
- - [HippoWeb.ChannelsVm](docs/ChannelsVm.md)
+ - [HippoWeb.ChannelRevisionSelectionStrategyField](docs/ChannelRevisionSelectionStrategyField.md)
  - [HippoWeb.CreateAccountCommand](docs/CreateAccountCommand.md)
  - [HippoWeb.CreateAppCommand](docs/CreateAppCommand.md)
  - [HippoWeb.CreateCertificateCommand](docs/CreateCertificateCommand.md)
  - [HippoWeb.CreateChannelCommand](docs/CreateChannelCommand.md)
- - [HippoWeb.CreateEnvironmentVariableCommand](docs/CreateEnvironmentVariableCommand.md)
  - [HippoWeb.CreateTokenCommand](docs/CreateTokenCommand.md)
- - [HippoWeb.EnvironmentVariableDto](docs/EnvironmentVariableDto.md)
- - [HippoWeb.EnvironmentVariablesVm](docs/EnvironmentVariablesVm.md)
+ - [HippoWeb.EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
  - [HippoWeb.GetChannelLogsVm](docs/GetChannelLogsVm.md)
+ - [HippoWeb.GuidNullableField](docs/GuidNullableField.md)
  - [HippoWeb.JobStatus](docs/JobStatus.md)
+ - [HippoWeb.PatchChannelCommand](docs/PatchChannelCommand.md)
  - [HippoWeb.RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [HippoWeb.RevisionComponentDto](docs/RevisionComponentDto.md)
- - [HippoWeb.RevisionDto](docs/RevisionDto.md)
- - [HippoWeb.RevisionsVm](docs/RevisionsVm.md)
- - [HippoWeb.StorageList](docs/StorageList.md)
+ - [HippoWeb.RevisionItem](docs/RevisionItem.md)
+ - [HippoWeb.RevisionItemPage](docs/RevisionItemPage.md)
+ - [HippoWeb.StringField](docs/StringField.md)
+ - [HippoWeb.StringPage](docs/StringPage.md)
  - [HippoWeb.TokenInfo](docs/TokenInfo.md)
  - [HippoWeb.UpdateAppCommand](docs/UpdateAppCommand.md)
  - [HippoWeb.UpdateCertificateCommand](docs/UpdateCertificateCommand.md)
  - [HippoWeb.UpdateChannelCommand](docs/UpdateChannelCommand.md)
- - [HippoWeb.UpdateChannelEnvironmentVariablesCommand](docs/UpdateChannelEnvironmentVariablesCommand.md)
- - [HippoWeb.UpdateEnvironmentVariableCommand](docs/UpdateEnvironmentVariableCommand.md)
  - [HippoWeb.UpdateEnvironmentVariableDto](docs/UpdateEnvironmentVariableDto.md)
+ - [HippoWeb.UpdateEnvironmentVariableDtoListField](docs/UpdateEnvironmentVariableDtoListField.md)
 
 
 ## Documentation for Authorization
