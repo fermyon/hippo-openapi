@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[RevisionItem]**](RevisionItem.md) |  | [optional] 
-**totalItems** | **Number** |  | [optional] 
-**pageIndex** | **Number** |  | [optional] 
-**pageSize** | **Number** |  | [optional] 
-**isLastPage** | **Boolean** |  | [optional] [readonly] 
+**items** | [**[RevisionItem]**](RevisionItem.md) |  | 
+**totalItems** | **Number** |  | 
+**pageIndex** | **Number** |  | 
+**pageSize** | **Number** |  | 
+**isLastPage** | **Boolean** |  | [readonly] 
 
 

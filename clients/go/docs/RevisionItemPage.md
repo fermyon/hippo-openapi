@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]RevisionItem**](RevisionItem.md) |  | [optional] 
-**TotalItems** | Pointer to **int32** |  | [optional] 
-**PageIndex** | Pointer to **NullableInt32** |  | [optional] 
-**PageSize** | Pointer to **NullableInt32** |  | [optional] 
-**IsLastPage** | Pointer to **NullableBool** |  | [optional] [readonly] 
+**Items** | [**[]RevisionItem**](RevisionItem.md) |  | 
+**TotalItems** | **int32** |  | 
+**PageIndex** | **int32** |  | 
+**PageSize** | **int32** |  | 
+**IsLastPage** | **bool** |  | [readonly] 
 
 ## Methods
 
 ### NewRevisionItemPage
 
-`func NewRevisionItemPage() *RevisionItemPage`
+`func NewRevisionItemPage(items []RevisionItem, totalItems int32, pageIndex int32, pageSize int32, isLastPage bool, ) *RevisionItemPage`
 
 NewRevisionItemPage instantiates a new RevisionItemPage object
 This constructor will assign default values to properties that have it defined,
@@ -48,22 +48,7 @@ and a boolean to check if the value has been set.
 
 SetItems sets Items field to given value.
 
-### HasItems
 
-`func (o *RevisionItemPage) HasItems() bool`
-
-HasItems returns a boolean if a field has been set.
-
-### SetItemsNil
-
-`func (o *RevisionItemPage) SetItemsNil(b bool)`
-
- SetItemsNil sets the value for Items to be an explicit nil
-
-### UnsetItems
-`func (o *RevisionItemPage) UnsetItems()`
-
-UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetTotalItems
 
 `func (o *RevisionItemPage) GetTotalItems() int32`
@@ -83,11 +68,6 @@ and a boolean to check if the value has been set.
 
 SetTotalItems sets TotalItems field to given value.
 
-### HasTotalItems
-
-`func (o *RevisionItemPage) HasTotalItems() bool`
-
-HasTotalItems returns a boolean if a field has been set.
 
 ### GetPageIndex
 
@@ -108,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetPageIndex sets PageIndex field to given value.
 
-### HasPageIndex
 
-`func (o *RevisionItemPage) HasPageIndex() bool`
-
-HasPageIndex returns a boolean if a field has been set.
-
-### SetPageIndexNil
-
-`func (o *RevisionItemPage) SetPageIndexNil(b bool)`
-
- SetPageIndexNil sets the value for PageIndex to be an explicit nil
-
-### UnsetPageIndex
-`func (o *RevisionItemPage) UnsetPageIndex()`
-
-UnsetPageIndex ensures that no value is present for PageIndex, not even an explicit nil
 ### GetPageSize
 
 `func (o *RevisionItemPage) GetPageSize() int32`
@@ -143,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetPageSize sets PageSize field to given value.
 
-### HasPageSize
 
-`func (o *RevisionItemPage) HasPageSize() bool`
-
-HasPageSize returns a boolean if a field has been set.
-
-### SetPageSizeNil
-
-`func (o *RevisionItemPage) SetPageSizeNil(b bool)`
-
- SetPageSizeNil sets the value for PageSize to be an explicit nil
-
-### UnsetPageSize
-`func (o *RevisionItemPage) UnsetPageSize()`
-
-UnsetPageSize ensures that no value is present for PageSize, not even an explicit nil
 ### GetIsLastPage
 
 `func (o *RevisionItemPage) GetIsLastPage() bool`
@@ -178,22 +128,7 @@ and a boolean to check if the value has been set.
 
 SetIsLastPage sets IsLastPage field to given value.
 
-### HasIsLastPage
 
-`func (o *RevisionItemPage) HasIsLastPage() bool`
-
-HasIsLastPage returns a boolean if a field has been set.
-
-### SetIsLastPageNil
-
-`func (o *RevisionItemPage) SetIsLastPageNil(b bool)`
-
- SetIsLastPageNil sets the value for IsLastPage to be an explicit nil
-
-### UnsetIsLastPage
-`func (o *RevisionItemPage) UnsetIsLastPage()`
-
-UnsetIsLastPage ensures that no value is present for IsLastPage, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
