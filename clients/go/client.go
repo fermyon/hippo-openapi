@@ -49,19 +49,21 @@ type APIClient struct {
 
 	// API Services
 
-	AccountApi *AccountApiService
+	AccountsApi *AccountsApiService
 
-	AppApi *AppApiService
+	AppsApi *AppsApiService
 
-	CertificateApi *CertificateApiService
+	AuthTokensApi *AuthTokensApiService
 
-	ChannelApi *ChannelApiService
+	CertificatesApi *CertificatesApiService
 
-	JobStatusApi *JobStatusApiService
+	ChannelStatusesApi *ChannelStatusesApiService
 
-	RevisionApi *RevisionApiService
+	ChannelsApi *ChannelsApiService
 
-	StorageApi *StorageApiService
+	RevisionsApi *RevisionsApiService
+
+	StoragesApi *StoragesApiService
 }
 
 type service struct {
@@ -80,13 +82,14 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AccountApi = (*AccountApiService)(&c.common)
-	c.AppApi = (*AppApiService)(&c.common)
-	c.CertificateApi = (*CertificateApiService)(&c.common)
-	c.ChannelApi = (*ChannelApiService)(&c.common)
-	c.JobStatusApi = (*JobStatusApiService)(&c.common)
-	c.RevisionApi = (*RevisionApiService)(&c.common)
-	c.StorageApi = (*StorageApiService)(&c.common)
+	c.AccountsApi = (*AccountsApiService)(&c.common)
+	c.AppsApi = (*AppsApiService)(&c.common)
+	c.AuthTokensApi = (*AuthTokensApiService)(&c.common)
+	c.CertificatesApi = (*CertificatesApiService)(&c.common)
+	c.ChannelStatusesApi = (*ChannelStatusesApiService)(&c.common)
+	c.ChannelsApi = (*ChannelsApiService)(&c.common)
+	c.RevisionsApi = (*RevisionsApiService)(&c.common)
+	c.StoragesApi = (*StoragesApiService)(&c.common)
 
 	return c
 }

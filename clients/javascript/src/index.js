@@ -30,6 +30,7 @@ import CreateAppCommand from './model/CreateAppCommand';
 import CreateCertificateCommand from './model/CreateCertificateCommand';
 import CreateChannelCommand from './model/CreateChannelCommand';
 import CreateTokenCommand from './model/CreateTokenCommand';
+import DesiredStatus from './model/DesiredStatus';
 import EnvironmentVariableItem from './model/EnvironmentVariableItem';
 import GetChannelLogsVm from './model/GetChannelLogsVm';
 import GuidNullableField from './model/GuidNullableField';
@@ -45,15 +46,17 @@ import TokenInfo from './model/TokenInfo';
 import UpdateAppCommand from './model/UpdateAppCommand';
 import UpdateCertificateCommand from './model/UpdateCertificateCommand';
 import UpdateChannelCommand from './model/UpdateChannelCommand';
+import UpdateDesiredStatusCommand from './model/UpdateDesiredStatusCommand';
 import UpdateEnvironmentVariableDto from './model/UpdateEnvironmentVariableDto';
 import UpdateEnvironmentVariableDtoListField from './model/UpdateEnvironmentVariableDtoListField';
-import AccountApi from './api/AccountApi';
-import AppApi from './api/AppApi';
-import CertificateApi from './api/CertificateApi';
-import ChannelApi from './api/ChannelApi';
-import JobStatusApi from './api/JobStatusApi';
-import RevisionApi from './api/RevisionApi';
-import StorageApi from './api/StorageApi';
+import AccountsApi from './api/AccountsApi';
+import AppsApi from './api/AppsApi';
+import AuthTokensApi from './api/AuthTokensApi';
+import CertificatesApi from './api/CertificatesApi';
+import ChannelStatusesApi from './api/ChannelStatusesApi';
+import ChannelsApi from './api/ChannelsApi';
+import RevisionsApi from './api/RevisionsApi';
+import StoragesApi from './api/StoragesApi';
 
 
 /**
@@ -197,6 +200,12 @@ export {
     CreateTokenCommand,
 
     /**
+     * The DesiredStatus model constructor.
+     * @property {module:model/DesiredStatus}
+     */
+    DesiredStatus,
+
+    /**
      * The EnvironmentVariableItem model constructor.
      * @property {module:model/EnvironmentVariableItem}
      */
@@ -287,6 +296,12 @@ export {
     UpdateChannelCommand,
 
     /**
+     * The UpdateDesiredStatusCommand model constructor.
+     * @property {module:model/UpdateDesiredStatusCommand}
+     */
+    UpdateDesiredStatusCommand,
+
+    /**
      * The UpdateEnvironmentVariableDto model constructor.
      * @property {module:model/UpdateEnvironmentVariableDto}
      */
@@ -299,44 +314,50 @@ export {
     UpdateEnvironmentVariableDtoListField,
 
     /**
-    * The AccountApi service constructor.
-    * @property {module:api/AccountApi}
+    * The AccountsApi service constructor.
+    * @property {module:api/AccountsApi}
     */
-    AccountApi,
+    AccountsApi,
 
     /**
-    * The AppApi service constructor.
-    * @property {module:api/AppApi}
+    * The AppsApi service constructor.
+    * @property {module:api/AppsApi}
     */
-    AppApi,
+    AppsApi,
 
     /**
-    * The CertificateApi service constructor.
-    * @property {module:api/CertificateApi}
+    * The AuthTokensApi service constructor.
+    * @property {module:api/AuthTokensApi}
     */
-    CertificateApi,
+    AuthTokensApi,
 
     /**
-    * The ChannelApi service constructor.
-    * @property {module:api/ChannelApi}
+    * The CertificatesApi service constructor.
+    * @property {module:api/CertificatesApi}
     */
-    ChannelApi,
+    CertificatesApi,
 
     /**
-    * The JobStatusApi service constructor.
-    * @property {module:api/JobStatusApi}
+    * The ChannelStatusesApi service constructor.
+    * @property {module:api/ChannelStatusesApi}
     */
-    JobStatusApi,
+    ChannelStatusesApi,
 
     /**
-    * The RevisionApi service constructor.
-    * @property {module:api/RevisionApi}
+    * The ChannelsApi service constructor.
+    * @property {module:api/ChannelsApi}
     */
-    RevisionApi,
+    ChannelsApi,
 
     /**
-    * The StorageApi service constructor.
-    * @property {module:api/StorageApi}
+    * The RevisionsApi service constructor.
+    * @property {module:api/RevisionsApi}
     */
-    StorageApi
+    RevisionsApi,
+
+    /**
+    * The StoragesApi service constructor.
+    * @property {module:api/StoragesApi}
+    */
+    StoragesApi
 };

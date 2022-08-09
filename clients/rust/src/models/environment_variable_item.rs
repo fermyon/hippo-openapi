@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct EnvironmentVariableItem {
     #[serde(rename = "channelId")]
-    pub channel_id: String,
+    pub channel_id: uuid::Uuid,
     #[serde(rename = "key")]
     pub key: String,
     #[serde(rename = "value")]
@@ -22,7 +22,7 @@ pub struct EnvironmentVariableItem {
 }
 
 impl EnvironmentVariableItem {
-    pub fn new(channel_id: String, key: String, value: String) -> EnvironmentVariableItem {
+    pub fn new(channel_id: uuid::Uuid, key: String, value: String) -> EnvironmentVariableItem {
         EnvironmentVariableItem {
             channel_id,
             key,

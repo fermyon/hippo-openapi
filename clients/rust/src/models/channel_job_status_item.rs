@@ -14,13 +14,13 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ChannelJobStatusItem {
     #[serde(rename = "channelId")]
-    pub channel_id: String,
+    pub channel_id: uuid::Uuid,
     #[serde(rename = "status")]
     pub status: crate::models::JobStatus,
 }
 
 impl ChannelJobStatusItem {
-    pub fn new(channel_id: String, status: crate::models::JobStatus) -> ChannelJobStatusItem {
+    pub fn new(channel_id: uuid::Uuid, status: crate::models::JobStatus) -> ChannelJobStatusItem {
         ChannelJobStatusItem {
             channel_id,
             status,

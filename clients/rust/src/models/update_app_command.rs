@@ -14,13 +14,13 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct UpdateAppCommand {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
 }
 
 impl UpdateAppCommand {
-    pub fn new(id: String, name: String) -> UpdateAppCommand {
+    pub fn new(id: uuid::Uuid, name: String) -> UpdateAppCommand {
         UpdateAppCommand {
             id,
             name,

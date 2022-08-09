@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AppSummaryDto {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "storageId")]
@@ -24,7 +24,7 @@ pub struct AppSummaryDto {
 }
 
 impl AppSummaryDto {
-    pub fn new(id: String, name: String, storage_id: String, channels: Vec<crate::models::AppChannelListItem>) -> AppSummaryDto {
+    pub fn new(id: uuid::Uuid, name: String, storage_id: String, channels: Vec<crate::models::AppChannelListItem>) -> AppSummaryDto {
         AppSummaryDto {
             id,
             name,

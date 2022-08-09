@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct PatchChannelCommand {
     #[serde(rename = "channelId", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
+    pub channel_id: Option<uuid::Uuid>,
     #[serde(rename = "environmentVariables", skip_serializing_if = "Option::is_none")]
     pub environment_variables: Option<Box<crate::models::UpdateEnvironmentVariableDtoListField>>,
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
