@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct UpdateCertificateCommand {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "publicKey")]
@@ -24,7 +24,7 @@ pub struct UpdateCertificateCommand {
 }
 
 impl UpdateCertificateCommand {
-    pub fn new(id: String, name: String, public_key: String, private_key: String) -> UpdateCertificateCommand {
+    pub fn new(id: uuid::Uuid, name: String, public_key: String, private_key: String) -> UpdateCertificateCommand {
         UpdateCertificateCommand {
             id,
             name,

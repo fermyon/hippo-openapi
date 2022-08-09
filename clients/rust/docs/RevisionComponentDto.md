@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
+**id** | [**uuid::Uuid**](uuid::Uuid.md) |  | 
 **source** | **String** |  | 
 **name** | **String** |  | 
 **route** | Option<**String**> |  | [optional]

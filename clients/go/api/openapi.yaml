@@ -7,7 +7,7 @@ servers:
 security:
 - Bearer: []
 paths:
-  /api/account:
+  /api/accounts:
     post:
       requestBody:
         content:
@@ -37,39 +37,8 @@ paths:
                 type: string
           description: Success
       tags:
-      - Account
-  /api/account/createtoken:
-    post:
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              $ref: '#/components/schemas/CreateTokenCommand'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateTokenCommand'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/CreateTokenCommand'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/CreateTokenCommand'
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/TokenInfo'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TokenInfo'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/TokenInfo'
-          description: Success
-      tags:
-      - Account
-  /api/app:
+      - accounts
+  /api/apps:
     get:
       parameters:
       - explode: true
@@ -128,7 +97,7 @@ paths:
                 $ref: '#/components/schemas/AppItemPage'
           description: Success
       tags:
-      - App
+      - apps
     post:
       requestBody:
         content:
@@ -161,15 +130,8 @@ paths:
                 type: string
           description: Success
       tags:
-      - App
-  /api/app/export:
-    get:
-      responses:
-        "200":
-          description: Success
-      tags:
-      - App
-  /api/app/{id}:
+      - apps
+  /api/apps/{id}:
     delete:
       parameters:
       - explode: false
@@ -184,7 +146,32 @@ paths:
         "200":
           description: Success
       tags:
-      - App
+      - apps
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AppItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppItem'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AppItem'
+          description: Success
+      tags:
+      - apps
     put:
       parameters:
       - explode: false
@@ -213,8 +200,39 @@ paths:
         "200":
           description: Success
       tags:
-      - App
-  /api/certificate:
+      - apps
+  /api/auth-tokens:
+    post:
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenCommand'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenCommand'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenCommand'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenCommand'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/TokenInfo'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenInfo'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TokenInfo'
+          description: Success
+      tags:
+      - auth-tokens
+  /api/certificates:
     get:
       parameters:
       - explode: true
@@ -273,7 +291,7 @@ paths:
                 $ref: '#/components/schemas/CertificateItemPage'
           description: Success
       tags:
-      - Certificate
+      - certificates
     post:
       requestBody:
         content:
@@ -306,15 +324,8 @@ paths:
                 type: string
           description: Success
       tags:
-      - Certificate
-  /api/certificate/export:
-    get:
-      responses:
-        "200":
-          description: Success
-      tags:
-      - Certificate
-  /api/certificate/{id}:
+      - certificates
+  /api/certificates/{id}:
     delete:
       parameters:
       - explode: false
@@ -329,7 +340,7 @@ paths:
         "200":
           description: Success
       tags:
-      - Certificate
+      - certificates
     put:
       parameters:
       - explode: false
@@ -358,8 +369,52 @@ paths:
         "200":
           description: Success
       tags:
-      - Certificate
-  /api/channel:
+      - certificates
+  /api/channel-statuses:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 2147483647
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: channelId
+        required: false
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ChannelJobStatusItemPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelJobStatusItemPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ChannelJobStatusItemPage'
+          description: Success
+      tags:
+      - channel-statuses
+  /api/channels:
     get:
       parameters:
       - explode: true
@@ -418,7 +473,7 @@ paths:
                 $ref: '#/components/schemas/ChannelItemPage'
           description: Success
       tags:
-      - Channel
+      - channels
     post:
       requestBody:
         content:
@@ -451,8 +506,8 @@ paths:
                 type: string
           description: Success
       tags:
-      - Channel
-  /api/channel/{id}:
+      - channels
+  /api/channels/{id}:
     delete:
       parameters:
       - explode: false
@@ -467,7 +522,7 @@ paths:
         "200":
           description: Success
       tags:
-      - Channel
+      - channels
     get:
       parameters:
       - explode: false
@@ -492,7 +547,7 @@ paths:
                 $ref: '#/components/schemas/ChannelItem'
           description: Success
       tags:
-      - Channel
+      - channels
     patch:
       parameters:
       - explode: false
@@ -521,7 +576,7 @@ paths:
         "200":
           description: Success
       tags:
-      - Channel
+      - channels
     put:
       parameters:
       - explode: false
@@ -550,15 +605,38 @@ paths:
         "200":
           description: Success
       tags:
-      - Channel
-  /api/channel/export:
-    get:
+      - channels
+  /api/channels/{channelId}/desired-status:
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: channelId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpdateDesiredStatusCommand'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDesiredStatusCommand'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDesiredStatusCommand'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateDesiredStatusCommand'
       responses:
         "200":
           description: Success
       tags:
-      - Channel
-  /api/channel/logs/{id}:
+      - channels
+  /api/channels/{id}/logs:
     get:
       parameters:
       - explode: false
@@ -583,70 +661,8 @@ paths:
                 $ref: '#/components/schemas/GetChannelLogsVm'
           description: Success
       tags:
-      - Channel
-  /api/jobstatus:
-    get:
-      parameters:
-      - explode: true
-        in: query
-        name: pageIndex
-        required: false
-        schema:
-          default: 0
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: pageSize
-        required: false
-        schema:
-          default: 2147483647
-          format: int32
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ChannelJobStatusItemPage'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChannelJobStatusItemPage'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ChannelJobStatusItemPage'
-          description: Success
-      tags:
-      - JobStatus
-  /api/jobstatus/{channelId}:
-    get:
-      parameters:
-      - explode: false
-        in: path
-        name: channelId
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ChannelJobStatusItem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChannelJobStatusItem'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ChannelJobStatusItem'
-          description: Success
-      tags:
-      - JobStatus
-  /api/revision:
+      - channels
+  /api/revisions:
     get:
       parameters:
       - explode: true
@@ -681,7 +697,7 @@ paths:
                 $ref: '#/components/schemas/RevisionItemPage'
           description: Success
       tags:
-      - Revision
+      - revisions
     post:
       requestBody:
         content:
@@ -701,15 +717,8 @@ paths:
         "200":
           description: Success
       tags:
-      - Revision
-  /api/revision/export:
-    get:
-      responses:
-        "200":
-          description: Success
-      tags:
-      - Revision
-  /api/revision/{id}:
+      - revisions
+  /api/revisions/{id}:
     delete:
       parameters:
       - explode: false
@@ -724,8 +733,8 @@ paths:
         "200":
           description: Success
       tags:
-      - Revision
-  /api/storage:
+      - revisions
+  /api/storages:
     get:
       parameters:
       - explode: true
@@ -776,7 +785,7 @@ paths:
                 $ref: '#/components/schemas/StringPage'
           description: Success
       tags:
-      - Storage
+      - storages
 components:
   schemas:
     AppChannelListItem:
@@ -790,6 +799,7 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         activeRevisionNumber:
           nullable: true
@@ -817,8 +827,10 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         storageId:
+          minLength: 1
           type: string
         description:
           nullable: true
@@ -905,8 +917,10 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         storageId:
+          minLength: 1
           type: string
         channels:
           items:
@@ -1019,10 +1033,13 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         publicKey:
+          minLength: 1
           type: string
         privateKey:
+          minLength: 1
           type: string
         channels:
           items:
@@ -1308,8 +1325,10 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         domain:
+          minLength: 1
           type: string
         revisionSelectionStrategy:
           $ref: '#/components/schemas/ChannelRevisionSelectionStrategy'
@@ -1529,8 +1548,10 @@ components:
         userName: userName
       properties:
         userName:
+          minLength: 1
           type: string
         password:
+          minLength: 1
           type: string
       required:
       - password
@@ -1543,8 +1564,10 @@ components:
         storageId: storageId
       properties:
         name:
+          minLength: 1
           type: string
         storageId:
+          minLength: 1
           type: string
       required:
       - name
@@ -1558,10 +1581,13 @@ components:
         publicKey: publicKey
       properties:
         name:
+          minLength: 1
           type: string
         publicKey:
+          minLength: 1
           type: string
         privateKey:
+          minLength: 1
           type: string
       required:
       - name
@@ -1583,6 +1609,7 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         domain:
           nullable: true
@@ -1612,13 +1639,20 @@ components:
         userName: userName
       properties:
         userName:
+          minLength: 1
           type: string
         password:
+          minLength: 1
           type: string
       required:
       - password
       - userName
       type: object
+    DesiredStatus:
+      enum:
+      - Running
+      - Dead
+      type: string
     EnvironmentVariableItem:
       additionalProperties: false
       example:
@@ -1630,8 +1664,10 @@ components:
           format: uuid
           type: string
         key:
+          minLength: 1
           type: string
         value:
+          minLength: 1
           type: string
       required:
       - channelId
@@ -1717,8 +1753,10 @@ components:
         appStorageId: appStorageId
       properties:
         appStorageId:
+          minLength: 1
           type: string
         revisionNumber:
+          minLength: 1
           type: string
       required:
       - appStorageId
@@ -1738,8 +1776,10 @@ components:
           format: uuid
           type: string
         source:
+          minLength: 1
           type: string
         name:
+          minLength: 1
           type: string
         route:
           nullable: true
@@ -1783,6 +1823,7 @@ components:
           format: uuid
           type: string
         revisionNumber:
+          minLength: 1
           type: string
         components:
           items:
@@ -1931,6 +1972,7 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
       required:
       - id
@@ -1948,10 +1990,13 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         publicKey:
+          minLength: 1
           type: string
         privateKey:
+          minLength: 1
           type: string
       required:
       - id
@@ -1975,8 +2020,10 @@ components:
           format: uuid
           type: string
         name:
+          minLength: 1
           type: string
         domain:
+          minLength: 1
           type: string
         revisionSelectionStrategy:
           $ref: '#/components/schemas/ChannelRevisionSelectionStrategy'
@@ -2000,6 +2047,21 @@ components:
       - name
       - revisionSelectionStrategy
       type: object
+    UpdateDesiredStatusCommand:
+      additionalProperties: false
+      example:
+        channelId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        desiredStatus: null
+      properties:
+        channelId:
+          format: uuid
+          type: string
+        desiredStatus:
+          $ref: '#/components/schemas/DesiredStatus'
+      required:
+      - channelId
+      - desiredStatus
+      type: object
     UpdateEnvironmentVariableDto:
       additionalProperties: false
       example:
@@ -2007,8 +2069,10 @@ components:
         key: key
       properties:
         key:
+          minLength: 1
           type: string
         value:
+          minLength: 1
           type: string
       required:
       - key

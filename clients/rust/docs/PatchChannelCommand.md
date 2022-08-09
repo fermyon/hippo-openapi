@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel_id** | Option<**String**> |  | [optional]
+**channel_id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **environment_variables** | Option<[**crate::models::UpdateEnvironmentVariableDtoListField**](UpdateEnvironmentVariableDtoListField.md)> |  | [optional]
 **name** | Option<[**crate::models::StringField**](StringField.md)> |  | [optional]
 **domain** | Option<[**crate::models::StringField**](StringField.md)> |  | [optional]

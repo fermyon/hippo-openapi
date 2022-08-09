@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/account": {
+    "/api/accounts": {
       "post": {
         "tags": [
-          "Account"
+          "accounts"
         ],
         "requestBody": {
           "content": {
@@ -58,63 +58,10 @@
         }
       }
     },
-    "/api/account/createtoken": {
-      "post": {
-        "tags": [
-          "Account"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTokenCommand"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTokenCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTokenCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTokenCommand"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenInfo"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenInfo"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenInfo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/app": {
+    "/api/apps": {
       "get": {
         "tags": [
-          "App"
+          "apps"
         ],
         "parameters": [
           {
@@ -185,7 +132,7 @@
       },
       "post": {
         "tags": [
-          "App"
+          "apps"
         ],
         "requestBody": {
           "content": {
@@ -238,22 +185,48 @@
         }
       }
     },
-    "/api/app/export": {
+    "/api/apps/{id}": {
       "get": {
         "tags": [
-          "App"
+          "apps"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppItem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppItem"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppItem"
+                }
+              }
+            }
           }
         }
-      }
-    },
-    "/api/app/{id}": {
+      },
       "put": {
         "tags": [
-          "App"
+          "apps"
         ],
         "parameters": [
           {
@@ -298,7 +271,7 @@
       },
       "delete": {
         "tags": [
-          "App"
+          "apps"
         ],
         "parameters": [
           {
@@ -318,10 +291,63 @@
         }
       }
     },
-    "/api/certificate": {
+    "/api/auth-tokens": {
+      "post": {
+        "tags": [
+          "auth-tokens"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTokenCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTokenCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTokenCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTokenCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/certificates": {
       "get": {
         "tags": [
-          "Certificate"
+          "certificates"
         ],
         "parameters": [
           {
@@ -392,7 +418,7 @@
       },
       "post": {
         "tags": [
-          "Certificate"
+          "certificates"
         ],
         "requestBody": {
           "content": {
@@ -445,22 +471,10 @@
         }
       }
     },
-    "/api/certificate/export": {
-      "get": {
-        "tags": [
-          "Certificate"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/certificate/{id}": {
+    "/api/certificates/{id}": {
       "put": {
         "tags": [
-          "Certificate"
+          "certificates"
         ],
         "parameters": [
           {
@@ -505,7 +519,7 @@
       },
       "delete": {
         "tags": [
-          "Certificate"
+          "certificates"
         ],
         "parameters": [
           {
@@ -525,10 +539,67 @@
         }
       }
     },
-    "/api/channel": {
+    "/api/channel-statuses": {
       "get": {
         "tags": [
-          "Channel"
+          "channel-statuses"
+        ],
+        "parameters": [
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 2147483647
+            }
+          },
+          {
+            "name": "channelId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/channels": {
+      "get": {
+        "tags": [
+          "channels"
         ],
         "parameters": [
           {
@@ -599,7 +670,7 @@
       },
       "post": {
         "tags": [
-          "Channel"
+          "channels"
         ],
         "requestBody": {
           "content": {
@@ -652,10 +723,10 @@
         }
       }
     },
-    "/api/channel/{id}": {
+    "/api/channels/{id}": {
       "get": {
         "tags": [
-          "Channel"
+          "channels"
         ],
         "parameters": [
           {
@@ -693,7 +764,7 @@
       },
       "put": {
         "tags": [
-          "Channel"
+          "channels"
         ],
         "parameters": [
           {
@@ -738,7 +809,7 @@
       },
       "patch": {
         "tags": [
-          "Channel"
+          "channels"
         ],
         "parameters": [
           {
@@ -783,7 +854,7 @@
       },
       "delete": {
         "tags": [
-          "Channel"
+          "channels"
         ],
         "parameters": [
           {
@@ -803,111 +874,10 @@
         }
       }
     },
-    "/api/channel/export": {
-      "get": {
+    "/api/channels/{channelId}/desired-status": {
+      "put": {
         "tags": [
-          "Channel"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/channel/logs/{id}": {
-      "get": {
-        "tags": [
-          "Channel"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetChannelLogsVm"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetChannelLogsVm"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetChannelLogsVm"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/jobstatus": {
-      "get": {
-        "tags": [
-          "JobStatus"
-        ],
-        "parameters": [
-          {
-            "name": "pageIndex",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 0
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 2147483647
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItemPage"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/jobstatus/{channelId}": {
-      "get": {
-        "tags": [
-          "JobStatus"
+          "channels"
         ],
         "parameters": [
           {
@@ -920,23 +890,70 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDesiredStatusCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDesiredStatusCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDesiredStatusCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDesiredStatusCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/channels/{id}/logs": {
+      "get": {
+        "tags": [
+          "channels"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItem"
+                  "$ref": "#/components/schemas/GetChannelLogsVm"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItem"
+                  "$ref": "#/components/schemas/GetChannelLogsVm"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChannelJobStatusItem"
+                  "$ref": "#/components/schemas/GetChannelLogsVm"
                 }
               }
             }
@@ -944,10 +961,10 @@
         }
       }
     },
-    "/api/revision": {
+    "/api/revisions": {
       "get": {
         "tags": [
-          "Revision"
+          "revisions"
         ],
         "parameters": [
           {
@@ -994,7 +1011,7 @@
       },
       "post": {
         "tags": [
-          "Revision"
+          "revisions"
         ],
         "requestBody": {
           "content": {
@@ -1027,22 +1044,10 @@
         }
       }
     },
-    "/api/revision/export": {
-      "get": {
-        "tags": [
-          "Revision"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/revision/{id}": {
+    "/api/revisions/{id}": {
       "delete": {
         "tags": [
-          "Revision"
+          "revisions"
         ],
         "parameters": [
           {
@@ -1062,10 +1067,10 @@
         }
       }
     },
-    "/api/storage": {
+    "/api/storages": {
       "get": {
         "tags": [
-          "Storage"
+          "storages"
         ],
         "parameters": [
           {
@@ -1142,6 +1147,7 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "activeRevisionNumber": {
@@ -1165,9 +1171,11 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "storageId": {
+            "minLength": 1,
             "type": "string"
           },
           "description": {
@@ -1232,9 +1240,11 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "storageId": {
+            "minLength": 1,
             "type": "string"
           },
           "channels": {
@@ -1261,12 +1271,15 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "publicKey": {
+            "minLength": 1,
             "type": "string"
           },
           "privateKey": {
+            "minLength": 1,
             "type": "string"
           },
           "channels": {
@@ -1333,9 +1346,11 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "domain": {
+            "minLength": 1,
             "type": "string"
           },
           "revisionSelectionStrategy": {
@@ -1479,9 +1494,11 @@
         "type": "object",
         "properties": {
           "userName": {
+            "minLength": 1,
             "type": "string"
           },
           "password": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -1495,9 +1512,11 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "storageId": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -1512,12 +1531,15 @@
         "type": "object",
         "properties": {
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "publicKey": {
+            "minLength": 1,
             "type": "string"
           },
           "privateKey": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -1536,6 +1558,7 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "domain": {
@@ -1570,13 +1593,22 @@
         "type": "object",
         "properties": {
           "userName": {
+            "minLength": 1,
             "type": "string"
           },
           "password": {
+            "minLength": 1,
             "type": "string"
           }
         },
         "additionalProperties": false
+      },
+      "DesiredStatus": {
+        "enum": [
+          "Running",
+          "Dead"
+        ],
+        "type": "string"
       },
       "EnvironmentVariableItem": {
         "required": [
@@ -1591,9 +1623,11 @@
             "format": "uuid"
           },
           "key": {
+            "minLength": 1,
             "type": "string"
           },
           "value": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -1673,9 +1707,11 @@
         "type": "object",
         "properties": {
           "appStorageId": {
+            "minLength": 1,
             "type": "string"
           },
           "revisionNumber": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -1694,9 +1730,11 @@
             "format": "uuid"
           },
           "source": {
+            "minLength": 1,
             "type": "string"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "route": {
@@ -1732,6 +1770,7 @@
             "format": "uuid"
           },
           "revisionNumber": {
+            "minLength": 1,
             "type": "string"
           },
           "components": {
@@ -1855,6 +1894,7 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -1874,12 +1914,15 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "publicKey": {
+            "minLength": 1,
             "type": "string"
           },
           "privateKey": {
+            "minLength": 1,
             "type": "string"
           }
         },
@@ -1899,9 +1942,11 @@
             "format": "uuid"
           },
           "name": {
+            "minLength": 1,
             "type": "string"
           },
           "domain": {
+            "minLength": 1,
             "type": "string"
           },
           "revisionSelectionStrategy": {
@@ -1928,6 +1973,23 @@
         },
         "additionalProperties": false
       },
+      "UpdateDesiredStatusCommand": {
+        "required": [
+          "channelId",
+          "desiredStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "desiredStatus": {
+            "$ref": "#/components/schemas/DesiredStatus"
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateEnvironmentVariableDto": {
         "required": [
           "key",
@@ -1936,9 +1998,11 @@
         "type": "object",
         "properties": {
           "key": {
+            "minLength": 1,
             "type": "string"
           },
           "value": {
+            "minLength": 1,
             "type": "string"
           }
         },

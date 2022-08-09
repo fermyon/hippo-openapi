@@ -14,9 +14,9 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RevisionItem {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "appId")]
-    pub app_id: String,
+    pub app_id: uuid::Uuid,
     #[serde(rename = "revisionNumber")]
     pub revision_number: String,
     #[serde(rename = "components")]
@@ -26,7 +26,7 @@ pub struct RevisionItem {
 }
 
 impl RevisionItem {
-    pub fn new(id: String, app_id: String, revision_number: String, components: Vec<crate::models::RevisionComponentDto>) -> RevisionItem {
+    pub fn new(id: uuid::Uuid, app_id: uuid::Uuid, revision_number: String, components: Vec<crate::models::RevisionComponentDto>) -> RevisionItem {
         RevisionItem {
             id,
             app_id,

@@ -14,9 +14,9 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ChannelItem {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "appId")]
-    pub app_id: String,
+    pub app_id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "domain")]
@@ -38,7 +38,7 @@ pub struct ChannelItem {
 }
 
 impl ChannelItem {
-    pub fn new(id: String, app_id: String, name: String, domain: String, revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy, environment_variables: Vec<crate::models::EnvironmentVariableItem>) -> ChannelItem {
+    pub fn new(id: uuid::Uuid, app_id: uuid::Uuid, name: String, domain: String, revision_selection_strategy: crate::models::ChannelRevisionSelectionStrategy, environment_variables: Vec<crate::models::EnvironmentVariableItem>) -> ChannelItem {
         ChannelItem {
             id,
             app_id,

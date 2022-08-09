@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**app_id** | **String** |  | 
+**id** | [**uuid::Uuid**](uuid::Uuid.md) |  | 
+**app_id** | [**uuid::Uuid**](uuid::Uuid.md) |  | 
 **revision_number** | **String** |  | 
 **components** | [**Vec<crate::models::RevisionComponentDto>**](RevisionComponentDto.md) |  | [readonly]
 **_type** | Option<**String**> |  | [optional]

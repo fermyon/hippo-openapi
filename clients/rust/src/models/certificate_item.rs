@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct CertificateItem {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "publicKey")]
@@ -26,7 +26,7 @@ pub struct CertificateItem {
 }
 
 impl CertificateItem {
-    pub fn new(id: String, name: String, public_key: String, private_key: String, channels: Vec<crate::models::ChannelItem>) -> CertificateItem {
+    pub fn new(id: uuid::Uuid, name: String, public_key: String, private_key: String, channels: Vec<crate::models::ChannelItem>) -> CertificateItem {
         CertificateItem {
             id,
             name,

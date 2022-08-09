@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct RevisionComponentDto {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "source")]
     pub source: String,
     #[serde(rename = "name")]
@@ -28,7 +28,7 @@ pub struct RevisionComponentDto {
 }
 
 impl RevisionComponentDto {
-    pub fn new(id: String, source: String, name: String) -> RevisionComponentDto {
+    pub fn new(id: uuid::Uuid, source: String, name: String) -> RevisionComponentDto {
         RevisionComponentDto {
             id,
             source,

@@ -14,7 +14,7 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AppChannelListItem {
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "activeRevisionNumber", skip_serializing_if = "Option::is_none")]
@@ -22,7 +22,7 @@ pub struct AppChannelListItem {
 }
 
 impl AppChannelListItem {
-    pub fn new(id: String, name: String) -> AppChannelListItem {
+    pub fn new(id: uuid::Uuid, name: String) -> AppChannelListItem {
         AppChannelListItem {
             id,
             name,

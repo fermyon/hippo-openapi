@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**channel_id** | **String** |  | 
+**channel_id** | [**uuid::Uuid**](uuid::Uuid.md) |  | 
 **key** | **String** |  | 
 **value** | **String** |  | 
 
