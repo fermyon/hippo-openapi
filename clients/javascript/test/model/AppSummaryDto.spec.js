@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property storageId (base name: "storageId")', function() {
+      // uncomment below and update the code to test the property storageId
+      //var instance = new HippoWeb.AppSummaryDto();
+      //expect(instance).to.be();
+    });
+
     it('should have the property channels (base name: "channels")', function() {
       // uncomment below and update the code to test the property channels
       //var instance = new HippoWeb.AppSummaryDto();

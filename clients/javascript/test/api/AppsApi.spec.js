@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('apiAppsIdGet', function() {
+      it('should call apiAppsIdGet successfully', function(done) {
+        //uncomment below and update the code to test apiAppsIdGet
+        //instance.apiAppsIdGet(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('apiAppsIdPut', function() {
       it('should call apiAppsIdPut successfully', function(done) {
         //uncomment below and update the code to test apiAppsIdPut

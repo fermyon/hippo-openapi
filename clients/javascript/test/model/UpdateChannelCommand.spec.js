@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property lastPublishDate (base name: "lastPublishDate")', function() {
+      // uncomment below and update the code to test the property lastPublishDate
+      //var instance = new HippoWeb.UpdateChannelCommand();
+      //expect(instance).to.be();
+    });
+
     it('should have the property certificateId (base name: "certificateId")', function() {
       // uncomment below and update the code to test the property certificateId
       //var instance = new HippoWeb.UpdateChannelCommand();

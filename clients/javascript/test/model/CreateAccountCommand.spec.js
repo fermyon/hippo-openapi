@@ -66,12 +66,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property passwordConfirm (base name: "passwordConfirm")', function() {
-      // uncomment below and update the code to test the property passwordConfirm
-      //var instance = new HippoWeb.CreateAccountCommand();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

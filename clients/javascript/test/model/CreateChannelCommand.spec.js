@@ -84,14 +84,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property activeRevision (base name: "activeRevision")', function() {
-      // uncomment below and update the code to test the property activeRevision
+    it('should have the property activeRevisionId (base name: "activeRevisionId")', function() {
+      // uncomment below and update the code to test the property activeRevisionId
       //var instance = new HippoWeb.CreateChannelCommand();
       //expect(instance).to.be();
     });
 
-    it('should have the property certificate (base name: "certificate")', function() {
-      // uncomment below and update the code to test the property certificate
+    it('should have the property certificateId (base name: "certificateId")', function() {
+      // uncomment below and update the code to test the property certificateId
       //var instance = new HippoWeb.CreateChannelCommand();
       //expect(instance).to.be();
     });

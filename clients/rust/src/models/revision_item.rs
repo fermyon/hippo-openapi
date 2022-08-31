@@ -22,7 +22,7 @@ pub struct RevisionItem {
     #[serde(rename = "components")]
     pub components: Vec<crate::models::RevisionComponentDto>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub _type: Option<String>,
+    pub r#type: Option<String>,
 }
 
 impl RevisionItem {
@@ -32,7 +32,7 @@ impl RevisionItem {
             app_id,
             revision_number,
             components,
-            _type: None,
+            r#type: None,
         }
     }
 }

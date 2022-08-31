@@ -78,6 +78,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property channel (base name: "channel")', function() {
+      // uncomment below and update the code to test the property channel
+      //var instance = new HippoWeb.RevisionComponentDto();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instance = new HippoWeb.RevisionComponentDto();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

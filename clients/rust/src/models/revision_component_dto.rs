@@ -24,7 +24,7 @@ pub struct RevisionComponentDto {
     #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
     pub channel: Option<String>,
     #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub _type: Option<String>,
+    pub r#type: Option<String>,
 }
 
 impl RevisionComponentDto {
@@ -35,7 +35,7 @@ impl RevisionComponentDto {
             name,
             route: None,
             channel: None,
-            _type: None,
+            r#type: None,
         }
     }
 }
